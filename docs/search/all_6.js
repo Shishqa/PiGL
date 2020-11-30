@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['g_166',['G',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ad29c1103630ca39f6424d63ca78178a4',1,'ShishGL::Keyboard::G()'],['../structShishGL_1_1Color.html#ab6ab84db846f086d7a61b6d666796a76',1,'ShishGL::Color::g()']]],
+  ['gainsboro_167',['GAINSBORO',['../namespaceShishGL_1_1COLOR.html#a6f8c5dcbbf09cdc7195b3a7ab231e5d5',1,'ShishGL::COLOR']]],
+  ['get_168',['get',['../classShishGL_1_1ResourceManager.html#a4661646ced329d6340992303067552ed',1,'ShishGL::ResourceManager']]],
+  ['getchildren_169',['getChildren',['../classShishGL_1_1Window.html#ac45a71bc09c09844507ab417a14012b7',1,'ShishGL::Window']]],
+  ['getdata_170',['getData',['../classShishGL_1_1Image.html#abf03eafccc038c25d536d67c990d303b',1,'ShishGL::Image']]],
+  ['getdisplaysize_171',['getDisplaySize',['../classShishGL_1_1IPlatform.html#a0520d53bc51eb752232326752188f4c7',1,'ShishGL::IPlatform::getDisplaySize()'],['../classShishGL_1_1SfmlPlatform.html#ad314957a801bbd38ed45c144d13e0c13',1,'ShishGL::SfmlPlatform::getDisplaySize()'],['../classShishGL_1_1XorgPlatform.html#ac075d1be3e79b1becb8d57130fb887af',1,'ShishGL::XorgPlatform::getDisplaySize()']]],
+  ['getframe_172',['getFrame',['../classShishGL_1_1Window.html#ab22ddb3cfd0687e3138214999af1f20d',1,'ShishGL::Window']]],
+  ['getmousepos_173',['getMousePos',['../classShishGL_1_1IPlatform.html#a5db0fa2a2a8065a48c6ab10f82185cbf',1,'ShishGL::IPlatform::getMousePos()'],['../classShishGL_1_1SfmlPlatform.html#afb496af67f9651ca8cd5b3d4c8c2107b',1,'ShishGL::SfmlPlatform::getMousePos()'],['../classShishGL_1_1XorgPlatform.html#aadfda6fe7a435f39fd06f7372c09fe69',1,'ShishGL::XorgPlatform::getMousePos()']]],
+  ['getparent_174',['getParent',['../classShishGL_1_1Window.html#a7917b603ddf88049443f938013333a42',1,'ShishGL::Window']]],
+  ['getpixel_175',['getPixel',['../classShishGL_1_1Image.html#a77e5e9e2c403c15acd213b725ee7325e',1,'ShishGL::Image']]],
+  ['getpixels_176',['getPixels',['../classShishGL_1_1Image.html#a65020472f87ffd92a725b82362fe43bc',1,'ShishGL::Image']]],
+  ['getpos_177',['getPos',['../classShishGL_1_1Window.html#a46903eb0a1bc22df10347c2185eaabec',1,'ShishGL::Window']]],
+  ['getstate_178',['getState',['../classShishGL_1_1UIWindow.html#ac055a8e98e7a46ee8151bc57eb9a7153',1,'ShishGL::UIWindow']]],
+  ['ghost_5fwhite_179',['GHOST_WHITE',['../namespaceShishGL_1_1COLOR.html#ae88ec8649383957941b7b7a9bc2bd70a',1,'ShishGL::COLOR']]],
+  ['gold_180',['GOLD',['../namespaceShishGL_1_1COLOR.html#a0f69329ac5c2445c2973f27ea2fec84f',1,'ShishGL::COLOR']]],
+  ['goldenrod_181',['GOLDENROD',['../namespaceShishGL_1_1COLOR.html#abae89b36a1c1c385612d9e72f82f75fd',1,'ShishGL::COLOR']]],
+  ['gray_182',['GRAY',['../namespaceShishGL_1_1COLOR.html#ae3f96a7c39c69fe045baf9ebca078e9a',1,'ShishGL::COLOR']]],
+  ['green_183',['GREEN',['../namespaceShishGL_1_1COLOR.html#a34a56146ca25109ae0993ec79dee8fe5',1,'ShishGL::COLOR']]],
+  ['green_5fyellow_184',['GREEN_YELLOW',['../namespaceShishGL_1_1COLOR.html#a7e1b3d40724bf45127d2da9248d4e1e5',1,'ShishGL::COLOR']]],
+  ['grey_185',['GREY',['../namespaceShishGL_1_1COLOR.html#a94945a040eaecf660ed01511a1b2233d',1,'ShishGL::COLOR']]],
+  ['guide_186',['guide',['../structShishGL_1_1Segment2.html#ae222d8c178e233fb8e59ea7fba0d8d28',1,'ShishGL::Segment2']]]
+];

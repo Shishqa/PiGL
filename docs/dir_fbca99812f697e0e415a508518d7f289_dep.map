@@ -1,0 +1,15 @@
+<map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem">
+<area shape="rect" id="node2" href="dir_b64a56428797f115de17f0524e1ccb28.html" title="GraphicsPlatform" alt="" coords="115,159,249,207"/>
+<area shape="rect" id="node5" href="dir_8ad88201ed66aeb82695778cc5d5f15b.html" title="EventSystem" alt="" coords="5,255,113,303"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000009_000005.html" title="4" alt="" coords="104,243,114,258"/>
+<area shape="rect" id="node6" href="dir_c54899e0b0b8ac43f4e307096bc53bcc.html" title="Primitives" alt="" coords="138,255,226,303"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000009_000007.html" title="5" alt="" coords="186,229,195,244"/>
+<area shape="rect" id="node7" href="dir_07a876e7ae475bf39ceee39b924659f0.html" title="ResourceManager" alt="" coords="250,255,389,303"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000009_000014.html" title="1" alt="" coords="271,230,280,245"/>
+<area shape="rect" id="node3" href="dir_a52e828f43ce5466a28d950ceb358d17.html" title="SfmlPlatform" alt="" coords="177,63,285,111"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000012_000009.html" title="1" alt="" coords="205,139,215,154"/>
+<area shape="rect" id="node4" href="dir_5192c565866f2d1c08cd7e18c1d4f819.html" title="XPlatform" alt="" coords="67,63,153,111"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000013_000009.html" title="1" alt="" coords="155,132,165,146"/>
+<area shape="rect" id="clust2" href="dir_fbca99812f697e0e415a508518d7f289.html" alt="" coords="55,52,438,217"/>
+<area shape="rect" id="clust1" href="dir_6ec439aaf268998a1210d7c46faeead9.html" title="Core" alt="" coords="45,16,449,228"/>
+</map>

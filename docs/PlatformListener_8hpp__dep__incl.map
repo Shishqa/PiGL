@@ -1,0 +1,37 @@
+<map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events/PlatformListener.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events/PlatformListener.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="935,5,1262,76"/>
+<area shape="rect" id="node2" href="$KeyboardEvent_8hpp.html" title=" " alt="" coords="265,124,583,195"/>
+<area shape="rect" id="node3" href="$KeyboardEvent_8cpp.html" title=" " alt="" coords="5,243,277,313"/>
+<area shape="rect" id="node5" href="$MouseEvent_8hpp.html" title=" " alt="" coords="647,124,945,195"/>
+<area shape="rect" id="node6" href="$Window_8hpp.html" title=" " alt="" coords="867,250,1117,306"/>
+<area shape="rect" id="node31" href="$TimerEvent_8hpp.html" title=" " alt="" coords="1074,124,1369,195"/>
+<area shape="rect" id="node33" href="$TimerEvent_8cpp.html" title=" " alt="" coords="1357,243,1629,313"/>
+<area shape="rect" id="node34" href="$Behavior_8hpp.html" title=" " alt="" coords="1654,250,1919,306"/>
+<area shape="rect" id="node35" href="$PlatformListener_8cpp.html" title=" " alt="" coords="1495,124,1767,195"/>
+<area shape="rect" id="node4" href="$Events_8cpp.html" title=" " alt="" coords="301,243,547,313"/>
+<area shape="rect" id="node30" href="$MouseEvent_8cpp.html" title=" " alt="" coords="571,243,843,313"/>
+<area shape="rect" id="node7" href="$TextBuffer_8hpp.html" title=" " alt="" coords="729,361,1002,417"/>
+<area shape="rect" id="node10" href="$UIWindow_8hpp.html" title=" " alt="" coords="1362,361,1635,417"/>
+<area shape="rect" id="node28" href="$Window_8cpp.html" title=" " alt="" coords="1027,361,1221,417"/>
+<area shape="rect" id="node29" href="$WindowManager_8cpp.html" title=" " alt="" coords="453,361,704,417"/>
+<area shape="rect" id="node8" href="$TextBuffer_8cpp.html" title=" " alt="" coords="612,473,828,529"/>
+<area shape="rect" id="node9" href="$TestAbstracts_8cpp.html" title=" " alt="" coords="1246,1059,1434,1115"/>
+<area shape="rect" id="node11" href="$CursorLocator_8hpp.html" title=" " alt="" coords="953,473,1249,529"/>
+<area shape="rect" id="node13" href="$UICanvas_8hpp.html" title=" " alt="" coords="1513,473,1716,529"/>
+<area shape="rect" id="node15" href="$DefaultBehavior_8hpp.html" title=" " alt="" coords="1791,465,2036,536"/>
+<area shape="rect" id="node26" href="$DefaultBehavior_8cpp.html" title=" " alt="" coords="1617,584,1807,655"/>
+<area shape="rect" id="node27" href="$UIWindow_8cpp.html" title=" " alt="" coords="1273,473,1489,529"/>
+<area shape="rect" id="node12" href="$CursorLocator_8cpp.html" title=" " alt="" coords="982,591,1221,647"/>
+<area shape="rect" id="node14" href="$UICanvas_8cpp.html" title=" " alt="" coords="1412,591,1593,647"/>
+<area shape="rect" id="node16" href="$Clickable_8hpp.html" title=" " alt="" coords="1831,584,2076,655"/>
+<area shape="rect" id="node17" href="$UIScrollbar_8hpp.html" title=" " alt="" coords="2045,947,2253,1003"/>
+<area shape="rect" id="node19" href="$Draggable_8hpp.html" title=" " alt="" coords="1723,703,1968,773"/>
+<area shape="rect" id="node25" href="$Clickable_8cpp.html" title=" " alt="" coords="1509,703,1699,773"/>
+<area shape="rect" id="node18" href="$UIScrollbar_8cpp.html" title=" " alt="" coords="2059,1059,2240,1115"/>
+<area shape="rect" id="node20" href="$Dialog_8hpp.html" title=" " alt="" coords="1616,821,1861,892"/>
+<area shape="rect" id="node21" href="$Slidable_8hpp.html" title=" " alt="" coords="1885,821,2131,892"/>
+<area shape="rect" id="node24" href="$Draggable_8cpp.html" title=" " alt="" coords="1403,821,1592,892"/>
+<area shape="rect" id="node22" href="$UIFrame_8hpp.html" title=" " alt="" coords="1768,947,1971,1003"/>
+<area shape="rect" id="node23" href="$Slidable_8cpp.html" title=" " alt="" coords="1555,940,1744,1011"/>
+<area shape="rect" id="node32" href="$CoreApplication_8cpp.html" title=" " alt="" coords="1142,250,1333,306"/>
+</map>

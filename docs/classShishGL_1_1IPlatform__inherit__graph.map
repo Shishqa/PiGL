@@ -1,0 +1,5 @@
+<map id="ShishGL::IPlatform" name="ShishGL::IPlatform">
+<area shape="rect" id="node1" title=" " alt="" coords="114,5,257,32"/>
+<area shape="rect" id="node2" href="$classShishGL_1_1SfmlPlatform.html" title=" " alt="" coords="5,80,173,107"/>
+<area shape="rect" id="node3" href="$classShishGL_1_1XorgPlatform.html" title=" " alt="" coords="197,80,365,107"/>
+</map>

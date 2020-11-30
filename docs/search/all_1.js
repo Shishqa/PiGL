@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['b_16',['B',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a3f6d94cbbee5976912eca670ec65194a',1,'ShishGL::Keyboard::B()'],['../structShishGL_1_1Color.html#a80dca143d559ac96594ae35021a2f0fb',1,'ShishGL::Color::b()']]],
+  ['baby_17',['baby',['../TEST__TEXT_8txt.html#ae90529e71416ad7b37fea0777ecede03',1,'TEST_TEXT.txt']]],
+  ['backspace_18',['BACKSPACE',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a53c01f643ca7e0979526648520042949',1,'ShishGL::Keyboard']]],
+  ['begin_19',['begin',['../structShishGL_1_1Segment2.html#a0664409971fae0d84c25d8a02cc1e8d8',1,'ShishGL::Segment2']]],
+  ['behavior_20',['Behavior',['../classShishGL_1_1Behavior.html',1,'ShishGL::Behavior'],['../classShishGL_1_1Behavior.html#af97eae974fc4b8234cdbf76d685d939a',1,'ShishGL::Behavior::Behavior()']]],
+  ['behavior_2ehpp_21',['Behavior.hpp',['../Behavior_8hpp.html',1,'']]],
+  ['beige_22',['BEIGE',['../namespaceShishGL_1_1COLOR.html#af1b1f4ea5ada5fe89269ef20bce15f29',1,'ShishGL::COLOR']]],
+  ['bg_23',['bg',['../structShishGL_1_1ColorPair.html#a1e4ee9d7525977a19ab6e18ef9e6cb86',1,'ShishGL::ColorPair']]],
+  ['bisque_24',['BISQUE',['../namespaceShishGL_1_1COLOR.html#a35e26849677b2c98dc9a3ed2619e1512',1,'ShishGL::COLOR']]],
+  ['black_25',['BLACK',['../namespaceShishGL_1_1COLOR.html#a7f0be2bd18141575aa9dc43c0f848bac',1,'ShishGL::COLOR']]],
+  ['blanched_5falmond_26',['BLANCHED_ALMOND',['../namespaceShishGL_1_1COLOR.html#a55f5a4a5a9c30797df8e1a3034cc710a',1,'ShishGL::COLOR']]],
+  ['blend_27',['blend',['../classShishGL_1_1Image.html#a878675c163d34875768ebe7196ad50ef',1,'ShishGL::Image']]],
+  ['blue_28',['BLUE',['../namespaceShishGL_1_1COLOR.html#a2d56268ef2ba295943d03bf223973189',1,'ShishGL::COLOR']]],
+  ['blue_5fviolet_29',['BLUE_VIOLET',['../namespaceShishGL_1_1COLOR.html#a08ad8875b3268e709f2e70d5cb077c04',1,'ShishGL::COLOR']]],
+  ['body_30',['body',['../TEST__TEXT_8txt.html#a53b5466a63b1444840971ba74449c380',1,'TEST_TEXT.txt']]],
+  ['bordered_31',['Bordered',['../classShishGL_1_1Bordered.html',1,'ShishGL::Bordered'],['../classShishGL_1_1Bordered.html#ab0834f8eff5937e73ee0a844e1dde0e2',1,'ShishGL::Bordered::Bordered()']]],
+  ['bordered_2ehpp_32',['Bordered.hpp',['../Bordered_8hpp.html',1,'']]],
+  ['brown_33',['BROWN',['../namespaceShishGL_1_1COLOR.html#a80aec85b12b16885ddb2ba369fa0c77a',1,'ShishGL::COLOR']]],
+  ['burly_5fwood_34',['BURLY_WOOD',['../namespaceShishGL_1_1COLOR.html#ad6e7d16d7f58958f0fe13938ca8b6f20',1,'ShishGL::COLOR']]],
+  ['but_35',['but',['../TEST__TEXT_8txt.html#a3e2d182f250b027f66a95a1038dddc4d',1,'TEST_TEXT.txt']]],
+  ['button_36',['Button',['../classShishGL_1_1Scrollbar_1_1Button.html',1,'ShishGL::Scrollbar::Button'],['../classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3',1,'ShishGL::Mouse::Button()'],['../classShishGL_1_1Scrollbar_1_1Button.html#ad8f1cc2dfeb29a94629f6590509efa4f',1,'ShishGL::Scrollbar::Button::Button()'],['../classShishGL_1_1MouseButtonEvent.html#af1377a58dbc51bfb71294e667833a72a',1,'ShishGL::MouseButtonEvent::button()']]],
+  ['buttonstate_37',['ButtonState',['../classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61a',1,'ShishGL::Mouse']]]
+];

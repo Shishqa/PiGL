@@ -1,0 +1,18 @@
+<map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UIWindow/Styles/Bordered.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UIWindow/Styles/Bordered.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="131,5,351,76"/>
+<area shape="rect" id="node2" href="$Style_8hpp.html" title=" " alt="" coords="130,124,213,151"/>
+<area shape="rect" id="node9" href="$RenderSystem_8hpp.html" title=" " alt="" coords="248,124,393,151"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,199,252,225"/>
+<area shape="rect" id="node4" href="$Shape2D_8hpp.html" title=" " alt="" coords="5,199,113,225"/>
+<area shape="rect" id="node5" href="$Viewport_8hpp.html" title=" " alt="" coords="23,273,131,300"/>
+<area shape="rect" id="node6" href="$Vector2_8hpp.html" title=" " alt="" coords="74,348,173,375"/>
+<area shape="rect" id="node7" href="$Vector2_8ipp.html" title=" " alt="" coords="76,423,171,449"/>
+<area shape="rect" id="node8" title=" " alt="" coords="92,497,155,524"/>
+<area shape="rect" id="node10" href="$IPlatform_8hpp.html" title=" " alt="" coords="276,199,387,225"/>
+<area shape="rect" id="node11" title=" " alt="" coords="391,348,488,375"/>
+<area shape="rect" id="node12" href="$Color_8hpp.html" title=" " alt="" coords="283,348,366,375"/>
+<area shape="rect" id="node14" href="$ColorCollection_8hpp.html" title=" " alt="" coords="257,273,406,300"/>
+<area shape="rect" id="node15" href="$ResourceManager_8hpp.html" title=" " alt="" coords="488,273,655,300"/>
+<area shape="rect" id="node13" title=" " alt="" coords="466,423,533,449"/>
+<area shape="rect" id="node16" title=" " alt="" coords="512,348,636,375"/>
+</map>
