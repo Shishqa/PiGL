@@ -16,6 +16,7 @@ target_sources(ShishGL-Primitives
     ${INCROOT}/Time.hpp
   PRIVATE
     ${INCROOT}/Vector2.ipp
+    Color.cpp
     Vector2.cpp
     Time.cpp
   )

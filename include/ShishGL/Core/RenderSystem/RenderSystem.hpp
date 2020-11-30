@@ -15,7 +15,7 @@ namespace Sh {
 
         static bool isInitialized();
 
-        static IPlatform& Renderer();
+        static IPlatform& Platform();
 
     private:
 
@@ -25,7 +25,7 @@ namespace Sh {
 
     };
 
-    IPlatform& RENDERER();
+    IPlatform& PLATFORM();
 
 }
 /*============================================================================*/

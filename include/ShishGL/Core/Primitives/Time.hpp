@@ -15,20 +15,14 @@ namespace Sh {
     class Timer {
     public:
 
-        Timer()
-            : start_time(Clock::now()) {}
+        Timer();
 
         virtual ~Timer() = default;
 
-        void reset() {
-            start_time = Clock::now();
-        }
+        void reset();
 
         [[nodiscard]]
-        TimeDelta elapsed() const {
-            TimePoint now = Clock::now();
-            return now - start_time;
-        }
+        TimeDelta elapsed() const;
 
     protected:
 

@@ -3,7 +3,6 @@
 #include "RectangleShape.hpp"
 #include "CircleShape.hpp"
 #include "WindowManager.hpp"
-#include "ColorCollection.hpp"
 #include "TextBuffer.hpp"
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
@@ -15,14 +14,17 @@
 #include "UIWindow.hpp"
 #include "Draggable.hpp"
 #include "Slidable.hpp"
-/*============================================================================*/
+
 using namespace Sh;
 /*============================================================================*/
 int main(int argc, char* argv[]) {
 
-    CoreApplication::init(&argc, argv);
+    CoreApplication::init(&argc, argv,
+                          "/home/shishqa/dev/MIPT/2020_3/"
+                          "00_ShishGL/tests/assets"
+                          );
 
-    RENDERER().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
+    PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
     for (int h = 0; h < 3; ++h) {
         for (int l = 0; l < 15; ++l) {
@@ -36,19 +38,19 @@ int main(int argc, char* argv[]) {
             win_1->addBehavior<Draggable>();
             win_1->applyShape<RectangleShape>();
             win_1->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{COLOR::WHITE}
+                    ColorFill{Color::WHITE}
             );
             win_1->applyStyle<UIWindow::HOVER>(
-                    Bordered{10, COLOR::GREEN},
-                    ColorFill{COLOR::WHITE}
+                    Bordered{10, Color::GREEN},
+                    ColorFill{Color::WHITE}
             );
             win_1->applyStyle<UIWindow::CLICK>(
-                    Bordered{10, COLOR::BLUE},
-                    ColorFill{COLOR::WHITE}
+                    Bordered{10, Color::BLUE},
+                    ColorFill{Color::WHITE}
             );
             win_1->applyStyle<UIWindow::HOLD>(
-                    Bordered{10, COLOR::RED},
-                    ColorFill{COLOR::WHITE}
+                    Bordered{10, Color::RED},
+                    ColorFill{Color::WHITE}
             );
 
             auto win_2 = win_1->attach<UIWindow>(
@@ -65,7 +67,7 @@ int main(int argc, char* argv[]) {
                     }
                     );
             win_2->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{COLOR::BLUE_VIOLET}
+                    ColorFill{Color::BLUE_VIOLET}
             );
 
             WindowManager::putRoot(win_1);
@@ -80,38 +82,38 @@ int main(int argc, char* argv[]) {
             );
     scrollbar->inc_bt_win->applyShape<RectangleShape>();
     scrollbar->inc_bt_win->applyStyle<UIWindow::NORMAL>(
-            ColorFill{COLOR::BEIGE}
+            ColorFill{Color::BEIGE}
             );
     scrollbar->inc_bt_win->applyStyle<UIWindow::HOVER>(
-            ColorFill{COLOR::ROSY_BROWN}
+            ColorFill{Color::ROSY_BROWN}
             );
     scrollbar->inc_bt_win->applyStyle<UIWindow::CLICK>(
-            ColorFill{COLOR::GREY}
+            ColorFill{Color::GREY}
     );
 
     scrollbar->dec_bt_win->applyShape<RectangleShape>();
     scrollbar->dec_bt_win->applyStyle<UIWindow::NORMAL>(
-            ColorFill{COLOR::BEIGE}
+            ColorFill{Color::BEIGE}
     );
     scrollbar->dec_bt_win->applyStyle<UIWindow::HOVER>(
-            ColorFill{COLOR::ROSY_BROWN}
+            ColorFill{Color::ROSY_BROWN}
             );
     scrollbar->dec_bt_win->applyStyle<UIWindow::CLICK>(
-            ColorFill{COLOR::GREY}
+            ColorFill{Color::GREY}
             );
 
     scrollbar->slider_win->applyShape<RectangleShape>();
     scrollbar->slider_win->applyStyle<UIWindow::NORMAL>(
-            ColorFill{COLOR::BLUE}
+            ColorFill{Color::BLUE}
     );
     scrollbar->slider_win->applyStyle<UIWindow::CLICK>(
-            ColorFill{COLOR::RED}
+            ColorFill{Color::RED}
             );
 
 
     sb->applyShape<RectangleShape>();
     sb->applyStyle<UIWindow::NORMAL>(
-            ColorFill{COLOR::BLACK}
+            ColorFill{Color::BLACK}
             );
 
     WindowManager::putRoot(sb);

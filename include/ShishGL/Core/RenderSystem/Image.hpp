@@ -11,7 +11,6 @@
 #include <cstdlib>
 
 #include "Color.hpp"
-#include "ColorCollection.hpp"
 #include "Vector2.hpp"
 #include "IPlatform.hpp"
 #include "RenderSystem.hpp"
@@ -24,7 +23,7 @@ namespace Sh {
         using Pixels = std::vector<Color>;
 
         explicit Image(const Vector2<size_t>& size,
-                       const Color& color = COLOR::WHITE)
+                       const Color& color = Color::WHITE)
                 : img_size(size) {
             pixels.resize(size.x * size.y, color);
             assert(reinterpret_cast<uint64_t>(pixels.data()) % 32 == 0);

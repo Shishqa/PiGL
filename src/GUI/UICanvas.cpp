@@ -9,7 +9,7 @@ UICanvas::UICanvas(const Viewport& frame, const Color& color)
         , canvas(static_cast<Vector2<size_t>>(frame.size), color)
         , context(nullptr) {
 
-    context = RENDERER().createContext(canvas.size(), color);
+    context = PLATFORM().createContext(canvas.size(), color);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -22,7 +22,7 @@ UICanvas::~UICanvas() {
 
 void UICanvas::onRender() {
     canvas.paste(context);
-    RENDERER().displayContext(context, getPos());
+    PLATFORM().displayContext(context, getPos());
 }
 
 /*============================================================================*/

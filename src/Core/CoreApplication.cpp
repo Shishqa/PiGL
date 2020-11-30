@@ -15,13 +15,14 @@ bool CoreApplication::is_initialized = false;
 
 /*----------------------------------------------------------------------------*/
 
-bool CoreApplication::init(int *argc_ptr, char **argv) {
+bool CoreApplication::init(int *argc_ptr, char **argv,
+                           const char* runtime_dir) {
 
     if (is_initialized) {
         return false;
     }
 
-    if (-1 == chdir(RUNTIME_DIR)) {
+    if (-1 == chdir(runtime_dir)) {
         return false;
     }
 
@@ -60,7 +61,7 @@ uint8_t CoreApplication::run() {
 
     LogSystem::printLog("Started run session");
 
-    while (RENDERER().isRunning()) {
+    while (PLATFORM().isRunning()) {
 
         TimeDelta event_delta = event_timer.elapsed();
         if (event_delta.count() > 55000000) {
@@ -70,9 +71,9 @@ uint8_t CoreApplication::run() {
 
         profiling_timer.reset();
 
-        RENDERER().pollEvent();
+        PLATFORM().pollEvent();
         EventSystem::dispatchAll();
-        if (!RENDERER().isRunning()) {
+        if (!PLATFORM().isRunning()) {
             break;
         }
 
@@ -83,9 +84,9 @@ uint8_t CoreApplication::run() {
 
         ++frame_counter;
 
-        RENDERER().clear(COLOR::WHITE);
+        PLATFORM().clear(Color::NONE);
         WindowManager::refresh();
-        RENDERER().display();
+        PLATFORM().display();
 
         TimeDelta render = profiling_timer.elapsed();
         if (render - polling > for_render) {

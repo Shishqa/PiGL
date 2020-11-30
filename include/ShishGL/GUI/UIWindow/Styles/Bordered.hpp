@@ -18,7 +18,7 @@ namespace Sh {
 
         void apply(Viewport& viewport, const Shape2D& shape) override {
 
-            RENDERER().setColor(color);
+            PLATFORM().setColor(color);
             shape.draw(viewport);
 
             Vector2<double> offset{width, width};

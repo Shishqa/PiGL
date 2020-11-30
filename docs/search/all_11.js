@@ -16,7 +16,7 @@ var searchData=
   ['rectangleshape_2ehpp_406',['RectangleShape.hpp',['../RectangleShape_8hpp.html',1,'']]],
   ['red_407',['RED',['../namespaceShishGL_1_1COLOR.html#aca1d70ac913996ad796fbdf6dede17a4',1,'ShishGL::COLOR']]],
   ['remap_408',['remap',['../structShishGL_1_1Viewport.html#a71170bbc63cbe34dac05635e908869f8',1,'ShishGL::Viewport']]],
-  ['renderer_409',['Renderer',['../classShishGL_1_1RenderSystem.html#a879a37d5c22881347d7cfd3962273cc4',1,'ShishGL::RenderSystem::Renderer()'],['../namespaceShishGL.html#aa41d4de336dfee42e71670c484ef9ba5',1,'ShishGL::RENDERER()']]],
+  ['PLATFORM_409',['PLATFORM',['../classShishGL_1_1RenderSystem.html#a879a37d5c22881347d7cfd3962273cc4',1,'ShishGL::RenderSystem::PLATFORM()'],['../namespaceShishGL.html#aa41d4de336dfee42e71670c484ef9ba5',1,'ShishGL::PLATFORM()']]],
   ['rendersystem_410',['RenderSystem',['../classShishGL_1_1RenderSystem.html',1,'ShishGL::RenderSystem'],['../classShishGL_1_1IPlatform.html#a06b786d8e0847dfe9cc15e1dea308fcd',1,'ShishGL::IPlatform::RenderSystem()']]],
   ['rendersystem_2ecpp_411',['RenderSystem.cpp',['../RenderSystem_8cpp.html',1,'']]],
   ['rendersystem_2ehpp_412',['RenderSystem.hpp',['../RenderSystem_8hpp.html',1,'']]],

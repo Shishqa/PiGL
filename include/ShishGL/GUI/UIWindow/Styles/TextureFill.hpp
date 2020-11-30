@@ -19,7 +19,7 @@ namespace Sh {
         }
 
         void apply(Viewport& frame, const Shape2D& shape) override {
-            RENDERER().setTexture(ResourceManager::get(file));
+            PLATFORM().setTexture(ResourceManager::get(file));
             shape.draw(frame);
         }
 

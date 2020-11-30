@@ -15,7 +15,8 @@ namespace Sh {
     class CoreApplication {
     public:
 
-        static bool init(int* argc_ptr, char* argv[]);
+        static bool init(int* argc_ptr, char* argv[],
+                         const char* runtime_dir = "./");
 
         static uint8_t run();
 

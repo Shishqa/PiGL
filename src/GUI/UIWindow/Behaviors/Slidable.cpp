@@ -12,7 +12,7 @@ Slidable::Slidable(UIWindow* target, const Segment2<double>& slide, bool send_ev
 
 /*----------------------------------------------------------------------------*/
 
-bool Slidable::onMouseMove(ShishGL::MouseEvent &event) {
+bool Slidable::onMouseMove(MouseEvent &event) {
 
     if (!Draggable::isHeld()) {
         return Draggable::onMouseMove(event);

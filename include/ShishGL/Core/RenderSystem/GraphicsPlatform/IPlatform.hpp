@@ -6,7 +6,6 @@
 
 #include "Vector2.hpp"
 #include "Color.hpp"
-#include "ColorCollection.hpp"
 #include "ResourceManager.hpp"
 /*============================================================================*/
 namespace Sh {

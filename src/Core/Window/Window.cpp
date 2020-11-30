@@ -59,7 +59,7 @@ void Window::render() {
 /*----------------------------------------------------------------------------*/
 
 void Window::onRender() {
-    RENDERER().setViewport(view.pos, view.size);
+    PLATFORM().setViewport(view.pos, view.size);
 }
 
 /*============================================================================*/

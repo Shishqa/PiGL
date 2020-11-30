@@ -6,7 +6,7 @@ using namespace Sh;
 /*============================================================================*/
 
 void RectangleShape::draw(const Viewport& viewport) const {
-    RENDERER().drawRectangle(viewport.pos, viewport.size);
+    PLATFORM().drawRectangle(viewport.pos, viewport.size);
 }
 
 /*----------------------------------------------------------------------------*/

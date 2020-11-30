@@ -1,6 +1,5 @@
 /*============================================================================*/
 #include "Platform.hpp"
-#include "ColorCollection.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
@@ -9,7 +8,7 @@ SfmlPlatform::SfmlPlatform()
     : display_size({})
     , is_running(false)
     , canvas(nullptr)
-    , active_color(COLOR::NONE)
+    , active_color(Color::NONE)
     , active_texture(nullptr)
     , active_font(nullptr)
     { }

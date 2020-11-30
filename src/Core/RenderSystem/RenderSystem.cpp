@@ -18,10 +18,10 @@ IPlatform* RenderSystem::active_platform = nullptr;
 
 /*----------------------------------------------------------------------------*/
 
-IPlatform& RenderSystem::Renderer() {
+IPlatform& RenderSystem::Platform() {
     if (!active_platform) {
-        LogSystem::printError("Using Renderer() before initialization!");
-        throw std::runtime_error("Error: using class Renderer()"
+        LogSystem::printError("Using PLATFORM() before initialization!");
+        throw std::runtime_error("Error: using class PLATFORM()"
                                  "which is not initialized");
     }
     return *active_platform;
@@ -29,8 +29,8 @@ IPlatform& RenderSystem::Renderer() {
 
 /*----------------------------------------------------------------------------*/
 
-IPlatform& ShishGL::RENDERER() {
-    return RenderSystem::Renderer();
+IPlatform& Sh::PLATFORM() {
+    return RenderSystem::Platform();
 }
 
 /*----------------------------------------------------------------------------*/
@@ -68,7 +68,7 @@ bool RenderSystem::terminate() {
 
     LogSystem::printLog("Terminating platform...");
 
-    Renderer().closeDisplay();
+    PLATFORM().closeDisplay();
 
     delete active_platform;
     active_platform = nullptr;

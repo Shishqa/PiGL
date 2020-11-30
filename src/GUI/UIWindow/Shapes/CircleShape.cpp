@@ -7,7 +7,7 @@ using namespace Sh;
 
 void CircleShape::draw(const Viewport& viewport) const {
     double radius = std::min(viewport.size.x, viewport.size.y) / 2.0;
-    RENDERER().drawCircle(viewport.pos, radius);
+    PLATFORM().drawCircle(viewport.pos, radius);
 }
 
 /*----------------------------------------------------------------------------*/

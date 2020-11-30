@@ -37,7 +37,7 @@ namespace Sh {
         public:
 
             explicit SfmlContext(const Vector2<size_t>& size,
-                                 const Color& color = COLOR::BLACK);
+                                 const Color& color);
 
             explicit SfmlContext(const std::string_view& filename);
 

@@ -10,7 +10,7 @@ namespace Sh {
     class UICanvas : public UIWindow {
     public:
 
-        explicit UICanvas(const Viewport& frame, const Color& color = COLOR::NONE);
+        explicit UICanvas(const Viewport& frame, const Color& color = Color::NONE);
 
         void onRender() override;
 

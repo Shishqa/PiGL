@@ -6,7 +6,7 @@ using namespace Sh;
 /*============================================================================*/
 
 void Viewport::set() const {
-    RENDERER().setViewport(pos, size);
+    PLATFORM().setViewport(pos, size);
 }
 
 /*----------------------------------------------------------------------------*/
