@@ -9,7 +9,7 @@
 #include "Shape2D.hpp"
 #include "Behavior.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class UIWindow : public Window {
     public:

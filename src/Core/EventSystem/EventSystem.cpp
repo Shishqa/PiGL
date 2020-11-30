@@ -5,7 +5,7 @@
 #include "SubscriptionManager.hpp"
 #include "EventSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 bool EventSystem::sendEvent(Listener* sender, Event& event) {

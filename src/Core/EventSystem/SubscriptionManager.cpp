@@ -2,7 +2,7 @@
 #include "SubscriptionManager.hpp"
 #include "EventSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 SubscriptionManager::SubscriptionPool& SubscriptionManager::Subscriptions() {

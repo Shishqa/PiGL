@@ -3,7 +3,7 @@
 
 #include "Image.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 void Image::blend(const Image& other) {

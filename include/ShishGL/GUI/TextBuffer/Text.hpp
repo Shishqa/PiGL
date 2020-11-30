@@ -7,7 +7,7 @@
 
 #include "ResourceManager.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Text {
     public:

@@ -9,7 +9,7 @@
 
 #include "IPlatform.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class SfmlPlatform : public IPlatform {
     public:

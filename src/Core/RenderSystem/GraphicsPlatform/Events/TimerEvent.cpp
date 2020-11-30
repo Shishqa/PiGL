@@ -2,7 +2,7 @@
 #include "TimerEvent.hpp"
 #include "PlatformListener.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 TimerEvent::TimerEvent(const TimeDelta &delta)

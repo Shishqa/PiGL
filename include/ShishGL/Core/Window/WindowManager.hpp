@@ -6,7 +6,7 @@
 #include <unordered_set>
 #include <string_view>
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Window;
 

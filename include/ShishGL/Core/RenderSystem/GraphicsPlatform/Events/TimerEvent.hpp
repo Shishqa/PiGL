@@ -6,7 +6,7 @@
 #include "Event.hpp"
 #include "PlatformListener.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class TimerEvent : public Event {
     public:

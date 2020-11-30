@@ -6,7 +6,7 @@
 #include <string_view>
 #include <unordered_map>
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class ResourceManager {
     public:

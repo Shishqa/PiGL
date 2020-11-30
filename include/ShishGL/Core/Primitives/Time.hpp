@@ -4,7 +4,7 @@
 /*============================================================================*/
 #include <chrono>
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     using Clock     = std::chrono::system_clock;
     using TimePoint = Clock::time_point;

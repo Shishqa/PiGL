@@ -16,7 +16,7 @@
 #include "IPlatform.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Image {
     public:

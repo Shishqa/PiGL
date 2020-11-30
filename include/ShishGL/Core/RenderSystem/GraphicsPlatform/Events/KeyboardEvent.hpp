@@ -6,7 +6,7 @@
 #include "Keyboard.hpp"
 #include "PlatformListener.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class KeyboardEvent : public Event {
     public:

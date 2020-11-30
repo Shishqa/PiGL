@@ -7,7 +7,7 @@
 
 #include "Event.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class EventManager {
     private:

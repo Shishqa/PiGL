@@ -6,7 +6,7 @@
 
 #include "DefaultBehavior.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Clickable : public DefaultBehavior {
     public:

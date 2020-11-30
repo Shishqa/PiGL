@@ -4,7 +4,7 @@
 #include "LogSystem.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Window::Window(const Viewport& frame)

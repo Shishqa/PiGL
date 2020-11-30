@@ -2,7 +2,7 @@
 #include "LogSystem.hpp"
 #include "Platform.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 SfmlPlatform::SfmlContext::SfmlContext(const Vector2<size_t>& size,

@@ -2,7 +2,7 @@
 #include "KeyboardEvent.hpp"
 #include "PlatformListener.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 KeyboardEvent::KeyboardEvent(Keyboard::Key key,

@@ -4,7 +4,7 @@
 /*============================================================================*/
 #include "PlatformListener.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Behavior : public PlatformListener {
     public:

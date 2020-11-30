@@ -16,7 +16,7 @@
 #include "Draggable.hpp"
 #include "Slidable.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 int main(int argc, char* argv[]) {
 

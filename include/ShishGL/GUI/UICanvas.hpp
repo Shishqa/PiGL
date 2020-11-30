@@ -5,7 +5,7 @@
 #include "Image.hpp"
 #include "UIWindow.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class UICanvas : public UIWindow {
     public:

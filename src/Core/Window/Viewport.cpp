@@ -2,7 +2,7 @@
 #include "Viewport.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 void Viewport::set() const {

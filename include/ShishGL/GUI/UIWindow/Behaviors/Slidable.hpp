@@ -6,7 +6,7 @@
 #include "Segment2.hpp"
 #include "Event.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Slidable : public Draggable {
     public:

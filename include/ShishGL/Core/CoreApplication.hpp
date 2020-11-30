@@ -7,7 +7,7 @@
 
 #include "IPlatform.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     static constexpr char RUNTIME_DIR[] = "/home/shishqa/dev/MIPT/2020_3/CPP/projects/"
                                           "00_ShishGL/assets";

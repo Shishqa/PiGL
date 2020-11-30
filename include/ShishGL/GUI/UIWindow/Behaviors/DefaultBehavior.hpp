@@ -5,7 +5,7 @@
 #include "Behavior.hpp"
 #include "UIWindow.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class DefaultBehavior : public Behavior {
     public:

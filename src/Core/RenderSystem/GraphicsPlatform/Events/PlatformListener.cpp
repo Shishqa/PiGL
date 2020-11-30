@@ -2,7 +2,7 @@
 #include "PlatformListener.hpp"
 #include "EventSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 bool PlatformListener::onMouseMove(class MouseEvent&) { return false; }

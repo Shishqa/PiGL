@@ -10,7 +10,7 @@
 #include "Listener.hpp"
 #include "Event.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
 
     class SubscriptionManager {

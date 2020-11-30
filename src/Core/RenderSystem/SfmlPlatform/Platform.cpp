@@ -2,7 +2,7 @@
 #include "Platform.hpp"
 #include "ColorCollection.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 SfmlPlatform::SfmlPlatform()

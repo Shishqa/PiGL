@@ -7,7 +7,7 @@
 
 #include "Time.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class LogSystem {
     public:

@@ -9,7 +9,7 @@
 #include "ColorCollection.hpp"
 #include "ResourceManager.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class IPlatform {
     public:

@@ -2,7 +2,7 @@
 #ifndef SHISHGL_WINDOW_IPP
 #define SHISHGL_WINDOW_IPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <typename SomeWindow, typename... Args>
     SomeWindow* Window::attach(Args&&... args) {

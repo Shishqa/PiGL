@@ -3,7 +3,7 @@
 #include "EventManager.hpp"
 #include "UIScrollbar.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Scrollbar::Scrollbar(UIWindow* target, double slider_size, double slider_pos,

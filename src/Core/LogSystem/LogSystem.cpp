@@ -6,7 +6,7 @@
 #include "Time.hpp"
 #include "LogSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 FILE* LogSystem::LOG_FILE = nullptr;

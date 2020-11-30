@@ -4,7 +4,7 @@
 #include "EventSystem.hpp"
 #include "UIWindow.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 DefaultBehavior::DefaultBehavior(UIWindow* target)

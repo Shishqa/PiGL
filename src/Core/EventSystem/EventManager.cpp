@@ -2,7 +2,7 @@
 #include "LogSystem.hpp"
 #include "EventManager.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 EventManager::EventQueue& EventManager::Events() {

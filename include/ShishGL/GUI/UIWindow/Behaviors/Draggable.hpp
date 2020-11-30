@@ -5,7 +5,7 @@
 #include "Clickable.hpp"
 #include "Vector2.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Draggable : public Holdable {
     public:

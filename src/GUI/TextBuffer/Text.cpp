@@ -8,7 +8,7 @@
 #include "Text.hpp"
 #include "ResourceManager.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Text::Text(const std::string_view& file)

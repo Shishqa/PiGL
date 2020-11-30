@@ -8,7 +8,7 @@
 #include "WindowManager.hpp"
 #include "TimerEvent.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 bool CoreApplication::is_initialized = false;

@@ -2,7 +2,7 @@
 #include "CircleShape.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 void CircleShape::draw(const Viewport& viewport) const {

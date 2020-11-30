@@ -2,7 +2,7 @@
 #include "Listener.hpp"
 #include "SubscriptionManager.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Listener::~Listener() {

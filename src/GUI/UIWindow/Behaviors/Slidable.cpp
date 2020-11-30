@@ -1,7 +1,7 @@
 /*============================================================================*/
 #include "Slidable.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Slidable::Slidable(UIWindow* target, const Segment2<double>& slide, bool send_event)

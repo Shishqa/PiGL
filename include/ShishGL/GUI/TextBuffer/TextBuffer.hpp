@@ -5,7 +5,7 @@
 #include "Text.hpp"
 #include "Window.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class TextBuffer : public Window {
     protected:

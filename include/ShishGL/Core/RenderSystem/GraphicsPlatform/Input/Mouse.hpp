@@ -2,7 +2,7 @@
 #ifndef SHISHGL_MOUSE_HPP
 #define SHISHGL_MOUSE_HPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Mouse {
     public:

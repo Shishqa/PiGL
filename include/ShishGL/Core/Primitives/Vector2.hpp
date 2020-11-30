@@ -2,7 +2,7 @@
 #ifndef SHISHGL_VECTOR_2_HPP
 #define SHISHGL_VECTOR_2_HPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <typename T>
     struct Vector2 {

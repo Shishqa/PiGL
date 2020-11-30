@@ -4,7 +4,7 @@
 /*============================================================================*/
 #include <cstdio>
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <int SomeState, typename... Args>
     void UIWindow::applyStyle(Args&&... args) {

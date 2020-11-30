@@ -8,7 +8,7 @@
 #include "ResourceManager.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class TextureFill : public Style {
     public:

@@ -8,7 +8,7 @@
 
 #include "ResourceManager.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 ResourceManager::ResourceMap& ResourceManager::Resources() {

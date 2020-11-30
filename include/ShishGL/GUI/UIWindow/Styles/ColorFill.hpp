@@ -6,7 +6,7 @@
 #include "Color.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class ColorFill : public Style {
     public:

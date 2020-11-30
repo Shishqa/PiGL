@@ -6,7 +6,7 @@
 #include "MouseEvent.hpp"
 #include "KeyboardEvent.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 bool pollMouseButton(const sf::Event& sf_event) {

@@ -4,7 +4,7 @@
 /*============================================================================*/
 #include "Shape2D.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class RectangleShape : public Shape2D {
     public:

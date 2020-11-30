@@ -11,7 +11,7 @@
 #include "Viewport.hpp"
 #include "WindowManager.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Window {
     public:

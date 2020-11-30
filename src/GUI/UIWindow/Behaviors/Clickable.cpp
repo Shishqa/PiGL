@@ -3,7 +3,7 @@
 #include "SubscriptionManager.hpp"
 #include "EventSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 Clickable::Clickable(UIWindow *target)

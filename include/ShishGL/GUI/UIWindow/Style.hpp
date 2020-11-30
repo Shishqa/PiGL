@@ -7,7 +7,7 @@
 #include "Shape2D.hpp"
 #include "Viewport.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Style {
     public:

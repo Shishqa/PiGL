@@ -5,7 +5,7 @@
 #include "RenderSystem.hpp"
 #include "ColorCollection.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 TextBuffer::TextBuffer(const Viewport& viewport,

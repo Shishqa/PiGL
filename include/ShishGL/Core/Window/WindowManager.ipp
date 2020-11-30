@@ -2,7 +2,7 @@
 #ifndef SHISHGL_WINDOW_MANAGER_IPP
 #define SHISHGL_WINDOW_MANAGER_IPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <typename SomeWindow, typename... Args>
     SomeWindow* WindowManager::create(Args&&... args) {

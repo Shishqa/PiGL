@@ -6,7 +6,7 @@
 
 #include "Listener.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     typedef uint64_t EventMask;
 

@@ -5,7 +5,7 @@
 #include "Style.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Bordered : public Style {
     public:

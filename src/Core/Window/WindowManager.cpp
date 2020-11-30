@@ -5,7 +5,7 @@
 #include "Window.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 WindowManager::WindowPool& WindowManager::Pool() {

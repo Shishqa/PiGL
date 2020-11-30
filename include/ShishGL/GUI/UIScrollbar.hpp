@@ -5,7 +5,7 @@
 #include "Clickable.hpp"
 #include "Slidable.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class Scrollbar : public Clickable {
     protected:

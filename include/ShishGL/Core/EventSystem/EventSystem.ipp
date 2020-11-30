@@ -2,7 +2,7 @@
 #ifndef SHISHGL_EVENT_SYSTEM_IPP
 #define SHISHGL_EVENT_SYSTEM_IPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <typename SomeEvent, typename... Args>
     bool EventSystem::sendEvent(Listener* sender, Args&&... args) {

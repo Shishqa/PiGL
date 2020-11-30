@@ -2,7 +2,7 @@
 #ifndef SHISHGL_EVENT_MANAGER_IPP
 #define SHISHGL_EVENT_MANAGER_IPP
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     template <typename SomeEvent, typename... Args>
     EventManager::Helper<SomeEvent, void>

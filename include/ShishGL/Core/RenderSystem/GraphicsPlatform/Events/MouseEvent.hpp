@@ -7,7 +7,7 @@
 #include "Vector2.hpp"
 #include "PlatformListener.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
     class MouseEvent : public Event {
     public:

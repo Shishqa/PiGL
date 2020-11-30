@@ -2,7 +2,7 @@
 #include "RectangleShape.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
-using namespace ShishGL;
+using namespace Sh;
 /*============================================================================*/
 
 void RectangleShape::draw(const Viewport& viewport) const {
