@@ -7,52 +7,46 @@
 /*============================================================================*/
 namespace Sh {
 
-    class Scrollbar : public Clickable {
-    protected:
-
-        class Button;
-
-        static constexpr double DEFAULT_PROPORTION = 0.2;
-        static constexpr double DEFAULT_STEP_SIZE = 1.0;
-        static constexpr double MIN_SLIDER_RATIO = 0.1;
-
+    class UIScrollbar : public UIWindow {
     public:
+
+        static constexpr double MIN_SLIDER_SIZE     = 0.15,
+                                DEFAULT_SLIDER_SIZE = MIN_SLIDER_SIZE,
+                                DEFAULT_SLIDER_POS  = 0;
 
         enum Type {
             VERTICAL,
             HORIZONTAL
         };
 
-        explicit Scrollbar(UIWindow* target, double slider_size, double slider_pos,
-                           Scrollbar::Type type);
+        explicit UIScrollbar(const Frame& frame, UIScrollbar::Type type,
+                             double slider_size = DEFAULT_SLIDER_SIZE,
+                             double slider_pos  = DEFAULT_SLIDER_POS);
+
+        UIWindow* inc_button;
+        UIWindow* dec_button;
+        UIWindow* slider;
+
+    };
+
+    void applyDefaultStyle(UIScrollbar* scrollbar);
+
+    /*------------------------------------------------------------------------*/
+
+    class ScrollbarBackground : public Clickable {
+    public:
+
+        explicit ScrollbarBackground(UIWindow* target);
 
         void reactOnPress(MouseButtonEvent& event) override;
 
-        bool onMouseScroll(MouseScrollEvent& event) override;
-
-        // TODO: destructor
-
-        Button* inc_button;
-        Button* dec_button;
-        Slidable* slider;
-
-        UIWindow* inc_bt_win;
-        UIWindow* dec_bt_win;
-        UIWindow* slider_win;
-
-    private:
-
-        void constructVertical(UIWindow* target, double slider_size, double slider_pos);
-
-        void constructHorizontal(UIWindow* target, double slider_size, double slider_pos);
-
-        Type s_type;
+        bool onMouseScroll(MouseScrollEvent&) override { return false; }
 
     };
 
     /*------------------------------------------------------------------------*/
 
-    class Scrollbar::Button : public Holdable {
+    class ScrollbarButton : public Holdable {
     protected:
 
         Mouse::ScrollDelta m_delta;
@@ -60,23 +54,32 @@ namespace Sh {
 
     public:
 
-        Button(UIWindow* target,
-               Mouse::ScrollDelta delta,
-               Mouse::ScrollType type)
+        ScrollbarButton(UIWindow* target, Mouse::ScrollDelta delta,
+                        Mouse::ScrollType type)
                : Holdable(target)
                , m_delta(delta)
                , m_type(type)
                { }
 
-        ~Button() override = default;
-
     protected:
 
         void reactOnHold(TimerEvent&) override {
+            printf("HOLD!\n");
             EventSystem::sendEvent<MouseScrollEvent>(
                     this, target<UIWindow>()->getPos(), m_delta, m_type
                     );
         }
+
+    };
+
+    /*------------------------------------------------------------------------*/
+
+    class ScrollbarSlider : public Slidable {
+    public:
+
+        explicit ScrollbarSlider(UIWindow* targer, const Segment2<double>& slide);
+
+        bool onMouseScroll(MouseScrollEvent& event) override;
 
     };
 

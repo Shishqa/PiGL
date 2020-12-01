@@ -18,10 +18,10 @@ namespace Sh {
 
         SubscriptionManager() = delete;
 
-        static void subscribe(Listener* sender, Listener* receiver,
+        static void subscribe(Listener* receiver, Listener* sender,
                               EventMask mask);
 
-        static void unsubscribe(Listener* sender, Listener* receiver,
+        static void unsubscribe(Listener* receiver, Listener* sender,
                                 EventMask mask);
 
         static void unsubscribeAll(Listener* sender);
@@ -33,8 +33,6 @@ namespace Sh {
         virtual ~SubscriptionManager() = default;
 
     private:
-
-        static void dump(FILE* file,  std::pair<const Listener*, EventMask> root);
 
         using SubscriptionPool =
             std::unordered_map<Listener*, std::unordered_map<Listener*, EventMask>>;

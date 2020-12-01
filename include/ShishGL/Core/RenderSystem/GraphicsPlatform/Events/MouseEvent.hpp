@@ -79,7 +79,7 @@ namespace Sh {
         }
 
         [[nodiscard]]
-        inline Mouse::ScrollDelta delta() const;
+        Mouse::ScrollDelta delta() const;
 
         [[nodiscard]]
         Mouse::ScrollType type() const;

@@ -7,7 +7,8 @@
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
 //#include "CursorLocator.hpp"
-//#include "UIScrollbar.hpp"
+#include "UIScrollbar.hpp"
+#include "UIFrame.hpp"
 #include "ColorFill.hpp"
 #include "TextureFill.hpp"
 #include "Bordered.hpp"
@@ -26,6 +27,7 @@ int main(int argc, char* argv[]) {
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
+    /*
     for (int h = 0; h < 3; ++h) {
         for (int l = 0; l < 15; ++l) {
             auto win_1 = WindowManager::Root()->attach<UIWindow>(
@@ -58,16 +60,15 @@ int main(int argc, char* argv[]) {
                     ->applyStyle<UIWindow::NORMAL>(
                             ColorFill{Color::BLUE_VIOLET}
                             );
-
-            SubscriptionManager::unsubscribe(EventSystem::SystemEvents, win_1->as<Draggable>(),
-                                             MOUSE_BUTTON);
         }
     }
+     */
 
-    WindowManager::Root()->attach<UIWindow>(
-            Frame{ {20, 500}, {300, 300} }
-                    )
-            ->applyStyle<UIWindow::NORMAL>(
+    auto frame = WindowManager::Root()->attach<UIFrame>(
+            Frame{ {20, 500}, {300, 300} },
+            Frame{ {20, 500}, {1000, 1000} }
+                    );
+            frame->applyStyle<UIWindow::NORMAL>(
                     ColorFill{Color::WHITE}
                     )
             ->attach<UIWindow>(
@@ -77,7 +78,7 @@ int main(int argc, char* argv[]) {
                     ->applyStyle<UIWindow::NORMAL>(
                             ColorFill{ Color::GREEN_YELLOW }
                             );
-
+            /*
     WindowManager::Root()->attach<UIWindow>(
                     Frame{ {800, 500}, {300, 300} }
             )
@@ -92,52 +93,41 @@ int main(int argc, char* argv[]) {
                     ColorFill{ Color::GREEN_YELLOW }
             );
 
-    /*
-    auto sb = WindowManager::create<UIWindow>(
-            Frame{ {500, 50}, {50, 800}}
+    auto sb = WindowManager::Root()->attach<UIScrollbar>(
+            Frame{ {500, 50}, {50, 800} }, UIScrollbar::VERTICAL
             );
-    auto scrollbar = sb->addBehavior<Scrollbar>(
-            0.3, 0.3, Scrollbar::VERTICAL
+    sb->applyStyle<UIWindow::NORMAL>(
+            ColorFill{Color::FOREST_GREEN}
             );
-    scrollbar->inc_bt_win->applyShape<RectangleShape>();
-    scrollbar->inc_bt_win->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BEIGE}
-            );
-    scrollbar->inc_bt_win->applyStyle<UIWindow::HOVER>(
-            ColorFill{Color::ROSY_BROWN}
-            );
-    scrollbar->inc_bt_win->applyStyle<UIWindow::CLICK>(
-            ColorFill{Color::GREY}
-    );
-
-    scrollbar->dec_bt_win->applyShape<RectangleShape>();
-    scrollbar->dec_bt_win->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BEIGE}
-    );
-    scrollbar->dec_bt_win->applyStyle<UIWindow::HOVER>(
-            ColorFill{Color::ROSY_BROWN}
-            );
-    scrollbar->dec_bt_win->applyStyle<UIWindow::CLICK>(
-            ColorFill{Color::GREY}
+    sb->inc_button->applyShape<CircleShape>()
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{Color::ALICE_BLUE}
+                    )
+            ->applyStyle<UIWindow::HOVER>(
+                    ColorFill{Color::SKY_BLUE}
+                    )
+            ->applyStyle<UIWindow::CLICK>(
+                    ColorFill{Color::LIGHT_BLUE}
+                    );
+    sb->dec_button->applyShape<CircleShape>()
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{Color::ALICE_BLUE}
+            )
+            ->applyStyle<UIWindow::HOVER>(
+                    ColorFill{Color::SKY_BLUE}
+            )
+            ->applyStyle<UIWindow::CLICK>(
+                    ColorFill{Color::LIGHT_BLUE}
             );
 
-    scrollbar->slider_win->applyShape<RectangleShape>();
-    scrollbar->slider_win->applyStyle<UIWindow::NORMAL>(
+    sb->slider->applyStyle<UIWindow::NORMAL>(
             ColorFill{Color::BLUE}
-    );
-    scrollbar->slider_win->applyStyle<UIWindow::CLICK>(
+    )
+              ->applyStyle<UIWindow::CLICK>(
             ColorFill{Color::RED}
             );
 
-
-    sb->applyShape<RectangleShape>();
-    sb->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BLACK}
-            );
-
-    WindowManager::putRoot(sb);
     */
-
     WindowManager::dump("LayoutDump.dot");
     SubscriptionManager::dump("Sub.dot");
 

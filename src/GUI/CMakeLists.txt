@@ -10,11 +10,12 @@ target_include_directories(ShishGL-GUI
 target_sources(ShishGL-GUI
   PUBLIC
     ${INCROOT}/UICanvas.hpp
-    #${INCROOT}/UIScrollbar.hpp
-    #${INCROOT}/UIFrame.hpp
+    ${INCROOT}/UIScrollbar.hpp
+    ${INCROOT}/UIFrame.hpp
   PRIVATE
     UICanvas.cpp
-    #UIScrollbar.cpp
+    UIScrollbar.cpp
+    UIFrame.cpp
   )
 
 target_link_libraries(ShishGL-GUI

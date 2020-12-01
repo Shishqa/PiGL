@@ -14,14 +14,14 @@ namespace Sh {
 
     template <typename SomeWindow>
     SomeWindow* Window::attach(SomeWindow* child) {
-        children.insert(child);
+        children.push_back(child);
         child->setParent(this);
         return child;
     }
 
     template <typename SomeWindow>
     SomeWindow* Window::detach(SomeWindow* child) {
-        children.erase(child);
+        children.remove(child);
         child->setParent(nullptr);
     }
 

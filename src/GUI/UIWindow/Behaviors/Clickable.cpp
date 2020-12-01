@@ -8,7 +8,7 @@ using namespace Sh;
 
 Clickable::Clickable(UIWindow *target)
         : DefaultBehavior(target) {
-    SubscriptionManager::subscribe(EventSystem::SystemEvents, this,
+    SubscriptionManager::subscribe(this, EventSystem::SystemEvents,
                                    MOUSE_BUTTON);
 }
 
@@ -44,8 +44,9 @@ bool Clickable::onMouseButton(MouseButtonEvent& event) {
 
 Holdable::Holdable(UIWindow* target)
         : Clickable(target)
-        , n_held(0)
-        { }
+        , n_held(0) {
+    SubscriptionManager::subscribe(this, EventSystem::SystemEvents, TIMER);
+}
 
 bool Holdable::isHeld() const {
     return n_held;

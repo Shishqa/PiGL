@@ -55,7 +55,7 @@ namespace Sh {
         void translate(const Vector2<double>& delta);
         /*-----------------------------------------------*/
 
-        const std::unordered_set<Window*>& getChildren() {
+        const std::list<Window*>& getChildren() {
             return children;
         }
 
@@ -79,7 +79,7 @@ namespace Sh {
         Frame frame;
         Frame viewport;
         Window* parent;
-        std::unordered_set<Window*> children;
+        std::list<Window*> children;
 
     };
 

@@ -2,36 +2,42 @@
 #ifndef SHISHGL_UI_FRAME_HPP
 #define SHISHGL_UI_FRAME_HPP
 /*============================================================================*/
-#include "Slidable.hpp"
+#include "UIWindow.hpp"
+#include "UIScrollbar.hpp"
+#include "DefaultBehavior.hpp"
 /*============================================================================*/
-namespace ShishGL {
+namespace Sh {
 
-    class Frame : public SlideListener {
+    class UIFrame : public UIWindow {
     public:
 
-        explicit Frame(UIWindow* target)
-                : SlideListener(target)
-                , v_scrollbar(nullptr)
-                , h_scrollbar(nullptr)
-                , content_view(target->getFrame()) {
+        UIFrame(const Frame& frame, const Frame& contents_frame);
 
-            for (auto& child : target->getChildren()) {
+        UIScrollbar* v_scrollbar;
+        UIScrollbar* h_scrollbar;
 
-                const Viewport& child_frame = child->getFrame();
-                if (child_frame.pos.x > content_view.pos.x)
+        Frame content_frame;
+    };
 
+    /*------------------------------------------------------------------------*/
 
-            }
+    class FrameScrollable : public DefaultBehavior {
+    public:
 
-
-        }
+        explicit FrameScrollable(UIWindow* target);
 
         bool onMouseScroll(MouseScrollEvent& event) override;
 
-        UIWindow* v_scrollbar;
-        UIWindow* h_scrollbar;
+    };
 
-        Viewport content_view;
+    /*------------------------------------------------------------------------*/
+
+    class FrameSlidable : public SlideListener {
+    public:
+
+        explicit FrameSlidable(UIWindow* target);
+
+        bool onSlide(SlideEvent& event) override;
 
     };
 
