@@ -4,7 +4,7 @@
 /*============================================================================*/
 #include <string_view>
 
-#include "Vector2.hpp"
+#include "Frame.hpp"
 #include "Color.hpp"
 #include "ResourceManager.hpp"
 /*============================================================================*/
@@ -23,8 +23,7 @@ namespace Sh {
 
         /* View */
         /*--------------------------------------------------------------------*/
-        virtual void setViewport(const Vector2<double>& pos,
-                                 const Vector2<double>& size) = 0;
+        virtual void setViewport(const Frame& frame) = 0;
 
         virtual const Vector2<double>& getDisplaySize() = 0;
         /*--------------------------------------------------------------------*/

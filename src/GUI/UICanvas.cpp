@@ -4,7 +4,7 @@
 using namespace Sh;
 /*============================================================================*/
 
-UICanvas::UICanvas(const Viewport& frame, const Color& color)
+UICanvas::UICanvas(const Frame& frame, const Color& color)
         : UIWindow(frame)
         , canvas(static_cast<Vector2<size_t>>(frame.size), color)
         , context(nullptr) {

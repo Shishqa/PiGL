@@ -13,19 +13,18 @@ WindowManager::WindowPool& WindowManager::Pool() {
     return POOL;
 }
 
-WindowManager::WinLayout& WindowManager::RootChildren() {
-    static WinLayout CHILDREN;
-    return CHILDREN;
+Window* WindowManager::ROOT = nullptr;
+
+Window* WindowManager::Root() {
+    return ROOT;
 }
 
 /*============================================================================*/
 
-void WindowManager::putRoot(Window* window) {
-    window->setParent(ROOT);
-    RootChildren().push_back(window);
+void WindowManager::init() {
+    ROOT = new Window(Frame{ {0, 0}, PLATFORM().getDisplaySize() });
+    Pool().insert(ROOT);
 }
-
-/*----------------------------------------------------------------------------*/
 
 void WindowManager::clear() {
     for (auto& win : Pool()) {
@@ -36,9 +35,7 @@ void WindowManager::clear() {
 /*----------------------------------------------------------------------------*/
 
 void WindowManager::refresh() {
-    for (auto& win : RootChildren()) {
-        win->render();
-    }
+    ROOT->render();
 }
 
 /*----------------------------------------------------------------------------*/
@@ -50,7 +47,7 @@ void WindowManager::dump(const std::string_view& file_name) {
     fprintf(file, "digraph {\n"
                   "\tnode [shape=record]\n");
 
-    for (auto& child : RootChildren()) {
+    for (auto& child : ROOT->getChildren()) {
         dump(file, child);
     }
 
@@ -66,14 +63,14 @@ void WindowManager::dump(FILE* file, Window* root) {
     fprintf(file,
             "\tnode%p [label = \"{"
             "address : %p |"
-            "transform : %lgx%lg at (%lg; %lg) |"
-            "viewport to set : %lgx%lg at (%lg; %lg)"
+            "frame : %lgx%lg at (%lg; %lg) |"
+            "viewport : %lgx%lg at (%lg; %lg)"
             "}\"];\n\n",
             reinterpret_cast<void*>(root), reinterpret_cast<void*>(root),
             root->getFrame().size.x, root->getFrame().size.y,
             root->getPos().x, root->getPos().y,
-            root->view.size.x, root->view.size.x,
-            root->view.pos.x, root->view.pos.y
+            root->viewport.size.x, root->viewport.size.x,
+            root->viewport.pos.x, root->viewport.pos.y
             );
 
     for (auto& child : root->children) {

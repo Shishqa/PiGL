@@ -3,11 +3,12 @@
 #define SHISHGL_UI_WINDOW_HPP
 /*============================================================================*/
 #include <unordered_map>
+#include <memory>
 
 #include "Window.hpp"
 #include "Style.hpp"
 #include "Shape2D.hpp"
-#include "Behavior.hpp"
+#include "BehaviorManager.hpp"
 /*============================================================================*/
 namespace Sh {
 
@@ -22,13 +23,16 @@ namespace Sh {
         };
 
         template <int SomeState, typename... Args>
-        void applyStyle(Args&&... args);
+        UIWindow* applyStyle(Args&&... args);
 
         template <typename SomeShape, typename... Args>
-        void applyShape(Args&&... args);
+        UIWindow* applyShape(Args&&... args);
 
         template <typename SomeBehavior, typename... Args>
-        SomeBehavior* addBehavior(Args&&... args);
+        UIWindow* addBehavior(Args&&... args);
+
+        template <typename SomeBehavior>
+        SomeBehavior* as();
 
         [[nodiscard]]
         int getState() const;
@@ -42,8 +46,7 @@ namespace Sh {
 
     protected:
 
-        explicit UIWindow(const Viewport& viewport);
-
+        explicit UIWindow(const Frame& viewport);
 
         void onRender() override;
 
@@ -59,8 +62,6 @@ namespace Sh {
         int state;
 
         StyleMap style_map; // TODO: style set + mask
-
-        std::unordered_set<Behavior*> behaviors;
 
         Shape2D* shape_impl;
 

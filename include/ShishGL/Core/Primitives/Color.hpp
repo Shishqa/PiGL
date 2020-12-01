@@ -12,6 +12,19 @@ namespace Sh {
 
         uint8_t r, g, b, a;
 
+        /* each channel (r, g, b) is multiplied by intensity */
+        Color& operator*=(const uint8_t& intensity);
+        Color operator*(const uint8_t& intensity);
+
+        /* by-channel multiplying */
+        Color& operator*=(const Color& right);
+        Color operator*(const Color& right);
+
+        /* by-channel sum */
+        Color& operator+=(const Color& right);
+        Color operator+(const Color& right);
+
+        /*====================================================================*/
         static const Color NONE;
         static const Color INDIAN_RED;
         static const Color LIGHT_CORAL;

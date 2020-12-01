@@ -5,13 +5,13 @@
 using namespace Sh;
 /*============================================================================*/
 
-void RectangleShape::draw(const Viewport& viewport) const {
+void RectangleShape::draw(const Frame& viewport) const {
     PLATFORM().drawRectangle(viewport.pos, viewport.size);
 }
 
 /*----------------------------------------------------------------------------*/
 
-bool RectangleShape::contains(const Viewport&,
+bool RectangleShape::contains(const Frame&,
                               const Vector2<double>&) const {
     return true;
 }

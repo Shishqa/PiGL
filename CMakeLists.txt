@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(ShishGL
   VERSION 1.0
-  DESCRIPTION "A window manager"
+  DESCRIPTION "A simple modular cross-platform graphics library"
   LANGUAGES CXX)
 
 
@@ -65,3 +65,4 @@ endif()
 
 add_subdirectory(src)
 add_subdirectory(tests)
+add_subdirectory(examples)

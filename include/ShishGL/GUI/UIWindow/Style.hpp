@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "Shape2D.hpp"
-#include "Viewport.hpp"
+#include "Frame.hpp"
 /*============================================================================*/
 namespace Sh {
 
@@ -14,7 +14,7 @@ namespace Sh {
 
         Style() = default;
 
-        virtual void apply(Viewport& viewport, const Shape2D& shape) = 0;
+        virtual void apply(Frame& viewport, const Shape2D& shape) = 0;
 
         virtual ~Style() = default;
 
@@ -32,7 +32,7 @@ namespace Sh {
             add(std::forward<Args>(args)...);
         }
 
-        void apply(Viewport& viewport, const Shape2D& shape) override {
+        void apply(Frame& viewport, const Shape2D& shape) override {
             for (auto& style : styles) {
                 style->apply(viewport, shape);
             }

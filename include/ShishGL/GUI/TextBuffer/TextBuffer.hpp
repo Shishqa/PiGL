@@ -17,7 +17,7 @@ namespace Sh {
 
     public:
 
-        TextBuffer(const Viewport& viewport, const Text& text);
+        TextBuffer(const Frame& viewport, const Text& text);
 
         ~TextBuffer() override = default;
 

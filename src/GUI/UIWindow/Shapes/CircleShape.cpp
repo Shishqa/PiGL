@@ -5,14 +5,14 @@
 using namespace Sh;
 /*============================================================================*/
 
-void CircleShape::draw(const Viewport& viewport) const {
+void CircleShape::draw(const Frame& viewport) const {
     double radius = std::min(viewport.size.x, viewport.size.y) / 2.0;
     PLATFORM().drawCircle(viewport.pos, radius);
 }
 
 /*----------------------------------------------------------------------------*/
 
-bool CircleShape::contains(const Viewport &viewport,
+bool CircleShape::contains(const Frame &viewport,
                            const Vector2<double> &point) const {
 
     double radius = std::min(viewport.size.x, viewport.size.y) / 2.0;

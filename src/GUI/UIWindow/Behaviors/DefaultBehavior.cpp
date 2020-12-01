@@ -1,4 +1,6 @@
 /*============================================================================*/
+#include <cstdio>
+
 #include "DefaultBehavior.hpp"
 #include "SubscriptionManager.hpp"
 #include "EventSystem.hpp"
@@ -9,6 +11,7 @@ using namespace Sh;
 
 DefaultBehavior::DefaultBehavior(UIWindow* target)
         : Behavior(target) {
+    printf("HELLO!\n");
     SubscriptionManager::subscribe(EventSystem::SystemEvents, this, MOUSE_MOVE);
 }
 

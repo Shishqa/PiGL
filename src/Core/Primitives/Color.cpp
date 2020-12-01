@@ -8,6 +8,55 @@ Color::Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha)
         : r(red), g(green), b(blue), a(alpha)
         { }
 
+/*----------------------------------------------------------------------------*/
+
+uint8_t multiply(const uint8_t& a, const uint8_t& b) {
+    return static_cast<uint8_t>(
+            static_cast<uint16_t>(a) * static_cast<uint16_t>(b) / 255
+    );
+}
+
+uint8_t add(const uint8_t& a, const uint8_t& b) {
+
+    uint16_t sum = static_cast<uint16_t>(a) + static_cast<uint16_t>(b);
+
+    return static_cast<uint8_t>(sum > 255 ? 255 : sum);
+}
+
+Color& Color::operator*=(const uint8_t& intensity) {
+    r = multiply(r, intensity);
+    g = multiply(g, intensity);
+    b = multiply(b, intensity);
+    return *this;
+}
+
+Color Color::operator*(const uint8_t& intensity) {
+    return (Color{*this} *= intensity);
+}
+
+Color& Color::operator*=(const Color& right) {
+    r = multiply(r, right.r);
+    r = multiply(g, right.g);
+    r = multiply(b, right.b);
+    return *this;
+}
+
+Color Color::operator*(const Color& right) {
+    return (Color{*this} *= right);
+}
+
+Color& Color::operator+=(const Color& right) {
+    r = add(r, right.r);
+    g = add(g, right.g);
+    b = add(b, right.b);
+    return *this;
+}
+
+Color Color::operator+(const Color& right) {
+    return (Color{*this} += right);
+}
+
+
 /*============================================================================*/
 
 const Color Color::NONE                     (  0,   0,   0,  0);

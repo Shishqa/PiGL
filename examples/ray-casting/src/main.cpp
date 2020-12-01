@@ -1,20 +1,25 @@
-#include "Sphere/sphere_canvas.hpp"
-#include "Sphere/gamification_button.hpp"
-
-using namespace ShishGL;
+/*============================================================================*/
+#include "SphereCast.hpp"
+#include <CoreApplication.hpp>
+#include <RectangleShape.hpp>
+/*============================================================================*/
 
 int main(int argc, char* argv[]) {
 
-    ShishGL::init(&argc, argv);
+    Sh::CoreApplication::init(&argc, argv);
 
-    Window* canvas = new SphereCanvas(200, FOREST_GREEN, BLACK, WHITE);
+    auto canvas = Sh::WindowManager::create<SphereCanvas>(
+            Sh::Frame{ {100, 100}, {800, 800} },
+            200, Sh::Color::FOREST_GREEN,
+            Sh::Color::GREEN_YELLOW,
+            Sh::Color::WHITE
+            );
+    canvas->addBehavior<CanvasBehavior>();
+    canvas->applyShape<Sh::RectangleShape>();
 
-    canvas->display();
-    ShishGL::enterMainLoop();
+    Sh::WindowManager::putRoot(canvas);
 
-    delete canvas;
+    Sh::WindowManager::dump("windows.dot");
 
-    ShishGL::terminate();
-
-    return 0;
+    return Sh::CoreApplication::run();
 }

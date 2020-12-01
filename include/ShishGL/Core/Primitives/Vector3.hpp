@@ -1,6 +1,6 @@
 /*============================================================================*/
-#ifndef SPHERE_RENDERING_VECTOR3_HPP
-#define SPHERE_RENDERING_VECTOR3_HPP
+#ifndef SHISHGL_VECTOR3_HPP
+#define SHISHGL_VECTOR3_HPP
 /*============================================================================*/
 
 #include <cmath>
@@ -8,7 +8,7 @@
 
 /*============================================================================*/
 
-namespace ShishGL {
+namespace Sh {
 
     template <typename T>
     struct Vector3 {
@@ -147,5 +147,5 @@ namespace ShishGL {
 }
 
 /*============================================================================*/
-#endif //SPHERE_RENDERING_VECTOR3_HPP
+#endif //SHISHGL_VECTOR3_HPP
 /*============================================================================*/

@@ -7,29 +7,34 @@
 namespace Sh {
 
     template <int SomeState, typename... Args>
-    void UIWindow::applyStyle(Args&&... args) {
+    UIWindow* UIWindow::applyStyle(Args&&... args) {
         style_map[SomeState].add(std::forward<Args>(args)...);
+        return this;
     }
 
     /*------------------------------------------------------------------------*/
 
     template <typename SomeShape, typename... Args>
-    void UIWindow::applyShape(Args&&... args) {
+    UIWindow* UIWindow::applyShape(Args&&... args) {
         delete shape_impl;
         shape_impl = new SomeShape(std::forward(args)...);
         /* TODO: point to already allocated implementation */
+        return this;
     }
 
     /*------------------------------------------------------------------------*/
 
     template <typename SomeBehavior, typename... Args>
-    SomeBehavior* UIWindow::addBehavior(Args&&... args) {
+    UIWindow* UIWindow::addBehavior(Args&&... args) {
+        BehaviorManager::add<SomeBehavior>(this, std::forward<Args>(args)...);
+        return this;
+    }
 
-        auto behavior = new SomeBehavior(this, std::forward<Args>(args)...);
+    /*------------------------------------------------------------------------*/
 
-        behaviors.insert(behavior);
-
-        return behavior;
+    template <typename SomeBehavior>
+    SomeBehavior* UIWindow::as() {
+        return BehaviorManager::get<SomeBehavior>(this);
     }
 
 }

@@ -7,7 +7,7 @@
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
 //#include "CursorLocator.hpp"
-#include "UIScrollbar.hpp"
+//#include "UIScrollbar.hpp"
 #include "ColorFill.hpp"
 #include "TextureFill.hpp"
 #include "Bordered.hpp"
@@ -28,54 +28,73 @@ int main(int argc, char* argv[]) {
 
     for (int h = 0; h < 3; ++h) {
         for (int l = 0; l < 15; ++l) {
-            auto win_1 = WindowManager::create<UIWindow>(
-                    Viewport{
-                            {static_cast<double>(l * 100),
-                             static_cast<double>(h * 100)},
+            auto win_1 = WindowManager::Root()->attach<UIWindow>(
+                    Frame{ {static_cast<double>(l * 100),
+                            static_cast<double>(h * 100)},
                             {100,   100}
-                    }
-            );
-            win_1->addBehavior<Draggable>();
-            win_1->applyShape<RectangleShape>();
-            win_1->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::WHITE}
-            );
-            win_1->applyStyle<UIWindow::HOVER>(
-                    Bordered{10, Color::GREEN},
-                    ColorFill{Color::WHITE}
-            );
-            win_1->applyStyle<UIWindow::CLICK>(
-                    Bordered{10, Color::BLUE},
-                    ColorFill{Color::WHITE}
-            );
-            win_1->applyStyle<UIWindow::HOLD>(
-                    Bordered{10, Color::RED},
-                    ColorFill{Color::WHITE}
-            );
+                            })
+                    ->addBehavior<Draggable>()
+                    ->applyStyle<UIWindow::NORMAL>(
+                            ColorFill{Color::WHITE}
+                            )
+                    ->applyStyle<UIWindow::HOVER>(
+                            Bordered{10, Color::GREEN},
+                            ColorFill{Color::WHITE}
+                            )
+                    ->applyStyle<UIWindow::CLICK>(
+                            Bordered{10, Color::BLUE},
+                            ColorFill{Color::WHITE}
+                            )
+                    ->applyStyle<UIWindow::HOLD>(
+                            Bordered{10, Color::RED},
+                            ColorFill{Color::WHITE}
+                            );
 
-            auto win_2 = win_1->attach<UIWindow>(
-                    Viewport{
-                            {10, 10},
-                            {50, 50}
-                    }
-            );
-            win_2->applyShape<CircleShape>();
-            win_2->addBehavior<Slidable>(
-                    Segment2<double>{
-                            {10, 10},
-                            {50, 50}
-                    }
-                    );
-            win_2->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::BLUE_VIOLET}
-            );
+            win_1->attach<UIWindow>( Frame{ {10, 10}, {50, 50} } )
+                    ->applyShape<CircleShape>()
+                    ->addBehavior<Slidable>(
+                            Segment2<double>{ {10, 10}, {50, 50} }
+                            )
+                    ->applyStyle<UIWindow::NORMAL>(
+                            ColorFill{Color::BLUE_VIOLET}
+                            );
 
-            WindowManager::putRoot(win_1);
+            SubscriptionManager::unsubscribe(EventSystem::SystemEvents, win_1->as<Draggable>(),
+                                             MOUSE_BUTTON);
         }
     }
 
+    WindowManager::Root()->attach<UIWindow>(
+            Frame{ {20, 500}, {300, 300} }
+                    )
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{Color::WHITE}
+                    )
+            ->attach<UIWindow>(
+                    Frame{ {0, 0}, {50, 50} }
+                            )
+                    ->addBehavior<Draggable>()
+                    ->applyStyle<UIWindow::NORMAL>(
+                            ColorFill{ Color::GREEN_YELLOW }
+                            );
+
+    WindowManager::Root()->attach<UIWindow>(
+                    Frame{ {800, 500}, {300, 300} }
+            )
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{Color::WHITE}
+            )
+            ->attach<UIWindow>(
+                    Frame{ {0, 0}, {50, 50} }
+            )
+            ->addBehavior<Draggable>()
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{ Color::GREEN_YELLOW }
+            );
+
+    /*
     auto sb = WindowManager::create<UIWindow>(
-            Viewport{ {500, 50}, {50, 800}}
+            Frame{ {500, 50}, {50, 800}}
             );
     auto scrollbar = sb->addBehavior<Scrollbar>(
             0.3, 0.3, Scrollbar::VERTICAL
@@ -117,10 +136,10 @@ int main(int argc, char* argv[]) {
             );
 
     WindowManager::putRoot(sb);
-
+    */
 
     WindowManager::dump("LayoutDump.dot");
-    SubscriptionManager::dump("Subscriptions.dot");
+    SubscriptionManager::dump("Sub.dot");
 
     return CoreApplication::run();
 

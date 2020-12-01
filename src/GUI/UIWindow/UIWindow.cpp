@@ -1,23 +1,22 @@
 /*============================================================================*/
 #include "UIWindow.hpp"
+#include "RectangleShape.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
 
-UIWindow::UIWindow(const Viewport& viewport)
+UIWindow::UIWindow(const Frame& viewport)
         : Window(viewport)
         , state(NORMAL)
         , style_map({})
-        , shape_impl(nullptr)
-        { }
+        , shape_impl(nullptr) {
+    applyShape<RectangleShape>();
+}
 
 /*----------------------------------------------------------------------------*/
 
 UIWindow::~UIWindow() {
     delete shape_impl;
-    for (auto& behavior : behaviors) {
-        delete behavior;
-    }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -46,7 +45,7 @@ void UIWindow::onRender() {
 
     Window::onRender();
 
-    Viewport frame = getFrame();
+    Frame frame = getFrame();
 
     for (int st = getState(); st >= NORMAL; --st) {
         if (styles().count(st)) {

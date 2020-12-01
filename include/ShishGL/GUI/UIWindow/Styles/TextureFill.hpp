@@ -18,7 +18,7 @@ namespace Sh {
             ResourceManager::load(file);
         }
 
-        void apply(Viewport& frame, const Shape2D& shape) override {
+        void apply(Frame& frame, const Shape2D& shape) override {
             PLATFORM().setTexture(ResourceManager::get(file));
             shape.draw(frame);
         }

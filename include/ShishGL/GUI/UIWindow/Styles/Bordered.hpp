@@ -16,7 +16,7 @@ namespace Sh {
             , color(border_color)
             { }
 
-        void apply(Viewport& viewport, const Shape2D& shape) override {
+        void apply(Frame& viewport, const Shape2D& shape) override {
 
             PLATFORM().setColor(color);
             shape.draw(viewport);

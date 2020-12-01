@@ -7,9 +7,9 @@
 using namespace Sh;
 /*============================================================================*/
 
-Window::Window(const Viewport& frame)
+Window::Window(const Frame& frame)
         : frame(frame)
-        , view({})
+        , viewport({})
         , parent(WindowManager::ROOT) {
     fitParent();
 }
@@ -20,7 +20,7 @@ const Window* Window::getParent() const {
     return parent;
 }
 
-const Viewport& Window::getFrame() const {
+const Frame& Window::getFrame() const {
     return frame;
 }
 
@@ -32,19 +32,6 @@ void Window::setParent(Window* new_parent) {
         translate(parent->getPos());
     }
     fitParent();
-}
-
-/*----------------------------------------------------------------------------*/
-
-void Window::attach(Window* child) {
-    children.insert(child);
-    child->setParent(this);
-}
-
-/*----------------------------------------------------------------------------*/
-
-void Window::detach(Window* child) {
-    children.erase(child);
 }
 
 /*============================================================================*/
@@ -59,15 +46,15 @@ void Window::render() {
 /*----------------------------------------------------------------------------*/
 
 void Window::onRender() {
-    PLATFORM().setViewport(view.pos, view.size);
+    PLATFORM().setViewport(viewport);
 }
 
 /*============================================================================*/
 
 void Window::fitParent() {
-    view = frame;
+    viewport = frame;
     if (parent) {
-        view.fit_into(parent->view);
+        viewport.fit_into(parent->viewport);
         for (auto& child : children) {
             child->fitParent();
         }
@@ -109,8 +96,8 @@ void Window::translate(const Vector2<double>& delta) {
 /*----------------------------------------------------------------------------*/
 
 bool Window::contains(const Vector2<double>& point) const {
-    return (view.pos.x <= point.x && point.x <= view.pos.x + view.size.x &&
-            view.pos.y <= point.y && point.y <= view.pos.y + view.size.y);
+    return (viewport.pos.x <= point.x && point.x <= viewport.pos.x + viewport.size.x &&
+            viewport.pos.y <= point.y && point.y <= viewport.pos.y + viewport.size.y);
 }
 
 /*============================================================================*/

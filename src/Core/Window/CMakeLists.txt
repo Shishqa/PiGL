@@ -10,13 +10,11 @@ target_include_directories(ShishGL-Window
 
 target_sources(ShishGL-Window
   PUBLIC
-    ${INCROOT}/Viewport.hpp
     ${INCROOT}/Window.hpp
     ${INCROOT}/WindowManager.hpp
   PRIVATE
     ${INCROOT}/Window.ipp
     ${INCROOT}/WindowManager.ipp
-    Viewport.cpp
     Window.cpp
     WindowManager.cpp
   )

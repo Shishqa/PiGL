@@ -15,14 +15,12 @@ namespace Sh {
 
         WindowManager() = delete;
 
+        static void init();
+
         template <typename SomeWindow, typename... Args>
         static SomeWindow* create(Args&&... args);
 
-        /*----------------------------------------------*/
-        static constexpr Window* ROOT = nullptr;
-
-        static void putRoot(Window* window);
-        /*----------------------------------------------*/
+        static Window* Root();
 
         static void dump(const std::string_view& file_name);
 
@@ -39,8 +37,9 @@ namespace Sh {
         using WindowPool = std::unordered_set<Window*>;
         static WindowPool& Pool();
 
-        using WinLayout = std::list<Window*>;
-        static WinLayout& RootChildren();
+        /*----------------------------------------------*/
+        static Window* ROOT;
+        /*----------------------------------------------*/
 
         friend class Window;
         friend class CoreApplication;

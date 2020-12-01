@@ -7,7 +7,7 @@
 using namespace Sh;
 /*============================================================================*/
 
-TextBuffer::TextBuffer(const Viewport& viewport,
+TextBuffer::TextBuffer(const Frame& viewport,
                        const Text& text)
     : Window(viewport)
     , curr_line_height(DEFAULT_FONT_HEIGHT)

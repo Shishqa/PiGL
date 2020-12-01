@@ -25,8 +25,7 @@ namespace Sh {
 
         /* View */
         /*--------------------------------------------------------------------*/
-        void setViewport(const Vector2<double>& pos,
-                         const Vector2<double>& size) override;
+        void setViewport(const Frame& frame) override;
 
         const Vector2<double>& getDisplaySize() override;
         /*--------------------------------------------------------------------*/

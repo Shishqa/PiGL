@@ -54,21 +54,20 @@ void SfmlPlatform::saveContextAsImage(IContext* context, const std::string_view&
 
 /*----------------------------------------------------------------------------*/
 
-void SfmlPlatform::setViewport(const Vector2<double>& pos,
-                               const Vector2<double>& size) {
+void SfmlPlatform::setViewport(const Frame& frame) {
 
     sf::View view(sf::FloatRect{
-            static_cast<float>(pos.x),
-            static_cast<float>(pos.y),
-            static_cast<float>(size.x),
-            static_cast<float>(size.y)
+            static_cast<float>(frame.pos.x),
+            static_cast<float>(frame.pos.y),
+            static_cast<float>(frame.size.x),
+            static_cast<float>(frame.size.y)
     });
 
     view.setViewport(sf::FloatRect{
-            static_cast<float>(pos.x / display_size.x),
-            static_cast<float>(pos.y / display_size.y),
-            static_cast<float>(size.x / display_size.x),
-            static_cast<float>(size.y / display_size.y)
+            static_cast<float>(frame.pos.x / display_size.x),
+            static_cast<float>(frame.pos.y / display_size.y),
+            static_cast<float>(frame.size.x / display_size.x),
+            static_cast<float>(frame.size.y / display_size.y)
     });
 
     canvas->setView(view);

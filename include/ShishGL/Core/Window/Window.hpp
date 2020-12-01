@@ -8,7 +8,7 @@
 #include "PlatformListener.hpp"
 #include "MouseEvent.hpp"
 #include "EventSystem.hpp"
-#include "Viewport.hpp"
+#include "Frame.hpp"
 #include "WindowManager.hpp"
 /*============================================================================*/
 namespace Sh {
@@ -33,14 +33,16 @@ namespace Sh {
         template <typename SomeWindow, typename... Args>
         SomeWindow* attach(Args&&... args);
 
-        virtual void attach(Window* child);
+        template <typename SomeWindow>
+        SomeWindow* attach(SomeWindow* child);
 
-        virtual void detach(Window* child);
+        template <typename SomeWindow>
+        SomeWindow* detach(SomeWindow* child);
         /*-----------------------------------------------*/
 
         /*-----------------------------------------------*/
         [[nodiscard]]
-        const Viewport& getFrame() const;
+        const Frame& getFrame() const;
 
         [[nodiscard]]
         const Vector2<double>& getPos() const;
@@ -59,7 +61,7 @@ namespace Sh {
 
     protected:
 
-        explicit Window(const Viewport& frame);
+        explicit Window(const Frame& frame);
 
         virtual void onRender();
 
@@ -74,8 +76,8 @@ namespace Sh {
         friend class WindowManager;
 
         /* DATA */
-        Viewport frame;
-        Viewport view;
+        Frame frame;
+        Frame viewport;
         Window* parent;
         std::unordered_set<Window*> children;
 

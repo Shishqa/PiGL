@@ -9,9 +9,9 @@ target_include_directories(ShishGL-UIWindow
 
 target_sources(ShishGL-UIWindow
   PUBLIC
-    ${INCROOT}/Shape2D.hpp
     ${INCROOT}/Style.hpp
     ${INCROOT}/Behavior.hpp
+    ${INCROOT}/BehaviorManager.hpp
     ${INCROOT}/UIWindow.hpp
     ${INCROOT}/UIWindow.ipp
   PRIVATE
@@ -21,6 +21,7 @@ target_sources(ShishGL-UIWindow
 target_link_libraries(ShishGL-UIWindow
   PUBLIC
     ShishGL-Window
+    ShishGL-Shapes
   )
 
 add_subdirectory(Shapes)

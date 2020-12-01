@@ -61,21 +61,21 @@ void Scrollbar::constructVertical(UIWindow* target, double slider_size_ratio,
     slider_guide.end   = {0, size.y - button_size.y - slider_size.y};
 
     inc_bt_win = target->attach<UIWindow>(
-            Viewport{ {0, 0}, button_size }
+            Frame{ {0, 0}, button_size }
     );
     inc_button = inc_bt_win->addBehavior<Scrollbar::Button>(
             1.0, Mouse::VERTICAL
     );
 
     dec_bt_win = target->attach<UIWindow>(
-            Viewport{ {0, size.y - button_size.y}, button_size }
+            Frame{ {0, size.y - button_size.y}, button_size }
     );
     dec_button = dec_bt_win->addBehavior<Scrollbar::Button>(
             -1.0, Mouse::VERTICAL
     );
 
     slider_win = target->attach<UIWindow>(
-            Viewport{ slider_guide.begin + slider_pos * slider_guide.guide(), slider_size }
+            Frame{ slider_guide.begin + slider_pos * slider_guide.guide(), slider_size }
     );
     slider = slider_win->addBehavior<Slidable>(
             slider_guide
@@ -97,21 +97,21 @@ void Scrollbar::constructHorizontal(UIWindow* target, double slider_size_ratio,
     slider_guide.end   = {size.x - button_size.x - slider_size.x, 0};
 
     inc_bt_win = target->attach<UIWindow>(
-            Viewport{ {0, 0}, button_size }
+            Frame{ {0, 0}, button_size }
     );
     inc_button = inc_bt_win->addBehavior<Scrollbar::Button>(
             1.0, Mouse::HORIZONTAL
             );
 
     dec_bt_win = target->attach<UIWindow>(
-            Viewport{ {size.x - button_size.x, 0}, button_size }
+            Frame{ {size.x - button_size.x, 0}, button_size }
     );
     dec_button = dec_bt_win->addBehavior<Scrollbar::Button>(
             -1.0, Mouse::HORIZONTAL
             );
 
     slider_win = target->attach<UIWindow>(
-            Viewport{ slider_guide.begin + slider_pos * slider_guide.guide(), slider_size }
+            Frame{ slider_guide.begin + slider_pos * slider_guide.guide(), slider_size }
     );
     slider = slider_win->addBehavior<Slidable>(
             slider_guide

@@ -9,10 +9,10 @@ namespace Sh {
     class CircleShape : public Shape2D {
     public:
 
-        void draw(const Viewport& viewport) const override;
+        void draw(const Frame& viewport) const override;
 
         [[nodiscard]]
-        bool contains(const Viewport& viewport,
+        bool contains(const Frame& viewport,
                       const Vector2<double>& point) const override;
 
     };

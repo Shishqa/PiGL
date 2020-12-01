@@ -1,17 +1,10 @@
 /*============================================================================*/
-#include "Viewport.hpp"
-#include "RenderSystem.hpp"
+#include "Frame.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
 
-void Viewport::set() const {
-    PLATFORM().setViewport(pos, size);
-}
-
-/*----------------------------------------------------------------------------*/
-
-void Viewport::fit_into(const Viewport& other) {
+void Frame::fit_into(const Frame& other) {
 
     size.x = std::min(size.x, other.pos.x + other.size.x - pos.x);
     size.y = std::min(size.y, other.pos.y + other.size.y - pos.y);
@@ -29,7 +22,7 @@ void Viewport::fit_into(const Viewport& other) {
 
 /*----------------------------------------------------------------------------*/
 
-Vector2<double> Viewport::remap(const Vector2<double> &point) const {
+Vector2<double> Frame::remap(const Vector2<double> &point) const {
     return point - pos;
 }
 

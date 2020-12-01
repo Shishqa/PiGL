@@ -30,6 +30,7 @@ bool CoreApplication::init(int *argc_ptr, char **argv,
     LogSystem::printLog("Initializing RenderSystem...");
 
     RenderSystem::init(argc_ptr, argv);
+    WindowManager::init();
 
     LogSystem::printLog("RenderSystem initialized");
 
