@@ -48,10 +48,17 @@ namespace Sh {
                 buf[curr_pos++] = to_set;
                 return true;
 
-            } else if (event.key() == Keyboard::BACKSPACE && curr_pos) {
+            } else if (event.key() == Keyboard::BACKSPACE) {
 
-                buf[--curr_pos] = 0;
+                if (curr_pos) {
+                    buf[--curr_pos] = 0;
+                }
                 return true;
+
+            } else if (curr_pos < buf_size) {
+
+                buf[curr_pos++] = '*';
+
             }
 
             return false;

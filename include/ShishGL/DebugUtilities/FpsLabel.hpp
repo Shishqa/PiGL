@@ -24,20 +24,12 @@ namespace Sh {
                 snprintf(fps_buf, sizeof(fps_buf),
                          "fps: %lu", frames_count);
 
-                printf("%s\n", fps_buf);
-
-                //applyShape<TextShape>(std::string_view(fps_buf, sizeof(fps_buf)));
-
                 frames_count = 0;
                 timer.reset();
 
             } else {
 
                 ++frames_count;
-                if (frames_count % 100 == 0) {
-                    printf(".");
-                    fflush(stdout);
-                }
             }
 
             UILabel::onRender();

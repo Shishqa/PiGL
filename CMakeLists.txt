@@ -6,12 +6,12 @@ project(ShishGL
   DESCRIPTION "A simple modular cross-platform graphics library"
   LANGUAGES CXX)
 
-
 option(USE_XORG "Use Xlib platform" OFF)
 option(USE_SFML "Use SFML platform" ON)
 
-
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+
+  set(DEFAULT_BUILD_TYPE "Release")
 
   set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -60,9 +60,11 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   else()
     message(STATUS "Doxygen not found, not building docs")
   endif()
+
 endif()
 
 
 add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(examples)
+
