@@ -29,3 +29,4 @@ target_compile_features(ShishGL-Primitives
   PUBLIC
     cxx_std_17
   )
+

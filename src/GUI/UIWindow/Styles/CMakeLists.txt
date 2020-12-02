@@ -20,3 +20,4 @@ target_link_libraries(ShishGL-Styles
     ShishGL-Core
     ShishGL-Shapes
   )
+

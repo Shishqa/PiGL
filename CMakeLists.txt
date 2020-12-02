@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
 
-
 project(ShishGL
   VERSION 1.0
   DESCRIPTION "A simple modular cross-platform graphics library"
@@ -63,8 +62,52 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
 endif()
 
+add_library(ShishGL INTERFACE)
 
-add_subdirectory(src)
+set(INCROOT ${ShishGL_SOURCE_DIR}/include/ShishGL)
+
+target_include_directories(ShishGL
+  INTERFACE
+  ${INCROOT})
+
+target_link_libraries(ShishGL
+  INTERFACE
+  ShishGL-Core
+  ShishGL-DebugUtilities
+  ShishGL-GUI
+  )
+
+add_subdirectory(src/Core)
+add_subdirectory(src/DebugUtilities)
+add_subdirectory(src/GUI)
+
+export(TARGETS
+  ShishGL
+
+  ShishGL-Core
+  ShishGL-LogSystem
+  ShishGL-EventSystem
+  ShishGL-ResourceManager
+  ShishGL-Primitives
+  ShishGL-RenderSystem
+  ShishGL-GraphicsPlatform
+  ShishGL-PlatformInput
+  ShishGL-PlatformEvents
+  ShishGL-SfmlPlatform
+  ShishGL-Window
+
+  ShishGL-GUI
+  ShishGL-UIWindow
+  ShishGL-Behaviors
+  ShishGL-Styles
+  ShishGL-Shapes
+
+  ShishGL-DebugUtilities
+
+  FILE ShishGLTargets.cmake)
+
+set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
+export(PACKAGE ShishGL)
+
 add_subdirectory(tests)
-add_subdirectory(examples)
 

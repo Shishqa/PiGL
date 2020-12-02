@@ -27,3 +27,8 @@ target_compile_features(ShishGL-GraphicsPlatform
 
 add_subdirectory(Events)
 add_subdirectory(Input)
+
+
+export(TARGETS ShishGL-GraphicsPlatform
+  FILE ShishGL-GraphicsPlatform-Targets.cmake)
+

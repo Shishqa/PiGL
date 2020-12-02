@@ -18,3 +18,4 @@ target_link_libraries(ShishGL-LogSystem
   PUBLIC
     ShishGL-Primitives
   )
+

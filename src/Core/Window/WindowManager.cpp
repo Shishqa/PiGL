@@ -69,7 +69,7 @@ void WindowManager::dump(FILE* file, Window* root) {
             reinterpret_cast<void*>(root), reinterpret_cast<void*>(root),
             root->getFrame().size.x, root->getFrame().size.y,
             root->getPos().x, root->getPos().y,
-            root->viewport.size.x, root->viewport.size.x,
+            root->viewport.size.x, root->viewport.size.y,
             root->viewport.pos.x, root->viewport.pos.y
             );
 

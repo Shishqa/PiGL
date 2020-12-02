@@ -18,3 +18,4 @@ target_compile_features(ShishGL-ResourceManager
   PUBLIC
     cxx_std_17
   )
+

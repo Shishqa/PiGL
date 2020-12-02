@@ -30,3 +30,4 @@ target_compile_features(ShishGL-PlatformEvents
   PUBLIC
     cxx_std_17
   )
+

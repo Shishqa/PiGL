@@ -29,3 +29,4 @@ target_link_libraries(ShishGL-EventSystem
     ShishGL-LogSystem
     ShishGL-Primitives
   )
+

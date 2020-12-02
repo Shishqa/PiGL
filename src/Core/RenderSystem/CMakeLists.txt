@@ -22,6 +22,11 @@ target_link_libraries(ShishGL-RenderSystem
     ShishGL-GraphicsPlatform
   )
 
+target_compile_options(ShishGL-RenderSystem
+  PUBLIC
+    -march=native
+  )
+
 add_subdirectory(GraphicsPlatform)
 
 #==============================================================================#
@@ -39,17 +44,3 @@ if (USE_SFML)
     )
 endif (USE_SFML)
 
-#==============================================================================#
-
-if (USE_XORG)
-  message(STATUS "Compiling with XORG")
-  add_subdirectory(XPlatform)
-  target_link_libraries(ShishGL-RenderSystem
-    PUBLIC
-      ShishGL-XPlatform
-    )
-  target_compile_definitions(ShishGL-RenderSystem
-    PRIVATE
-      USE_XORG
-    )
-endif(USE_XORG)
