@@ -15,6 +15,8 @@ target_sources(ShishGL-GUI
     ${INCROOT}/UICanvas.hpp
     ${INCROOT}/UIScrollbar.hpp
     ${INCROOT}/UIFrame.hpp
+    ${INCROOT}/UISlider.hpp
+    ${INCROOT}/UISlider2D.hpp
   PRIVATE
     UICanvas.cpp
     UIScrollbar.cpp

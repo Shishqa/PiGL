@@ -19,7 +19,7 @@ namespace Sh {
 
         void slide(const Vector2<double>& delta, Mouse::Button button);
 
-    private:
+    protected:
 
         bool need_reaction;
         Segment2<double> slide_seg;

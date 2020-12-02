@@ -19,6 +19,8 @@
 #include "UICheckbox.hpp"
 #include "UILabel.hpp"
 #include "Font.hpp"
+#include "UISlider.hpp"
+#include "UISlider2D.hpp"
 
 using namespace Sh;
 /*============================================================================*/
@@ -55,6 +57,23 @@ public:
 
 };
 
+class DummySelector {
+public:
+
+    void set(const double& value) const {
+        printf("%lg set\n", value);
+    }
+
+};
+
+class DummySelector2D {
+public:
+
+    void set(const Vector2<double>& value) const {
+        printf("(%lg; %lg) set\n", value.x, value.y);
+    }
+};
+
 /*============================================================================*/
 int main(int argc, char* argv[]) {
 
@@ -75,7 +94,7 @@ int main(int argc, char* argv[]) {
             ->attach<UILabel>(
                     Frame{ {0, 0}, {100, 100} }, "HELLO, WORLD!\n:)0:0)0234"
                             )
-                    ->addBehavior<Draggable>()
+                    ->addBehavior<FrameDraggable>(Frame{ {20, 20}, {600, 600} })
                     ->applyStyle<UIWindow::NORMAL>(
                             Font{"fonts/FiraCode-Regular.ttf"},
                             FontSize{30},
@@ -106,6 +125,42 @@ int main(int argc, char* argv[]) {
             ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
                     ColorFill{ Color::GREEN }
                     );
+
+
+    auto sl = WindowManager::Root()->attach<UISlider<DummySelector>>(
+            Frame{ {900, 200}, {60, 20} },
+            Segment2<double>{ {900, 200}, {1000, 200} }
+            );
+    sl->applyStyle<UIWindow::CLICK>(
+                    ColorFill{ Color::WHEAT }
+            )
+            ->applyStyle<UIWindow::HOVER>(
+                    ColorFill{ Color::GAINSBORO }
+            )
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{ Color::PALE_VIOLET_RED }
+            )
+            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
+                    ColorFill{ Color::GREEN }
+            );
+
+
+    auto frame_sl = WindowManager::Root()->attach<UISlider2D<DummySelector2D>>(
+            Frame{ {1000, 200}, {60, 20} },
+            Frame{ {1000, 200}, {300, 300} }
+    );
+    frame_sl->applyStyle<UIWindow::CLICK>(
+                    ColorFill{ Color::WHEAT }
+            )
+            ->applyStyle<UIWindow::HOVER>(
+                    ColorFill{ Color::GAINSBORO }
+            )
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{ Color::PALE_VIOLET_RED }
+            )
+            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
+                    ColorFill{ Color::GREEN }
+            );
 
     WindowManager::dump("LayoutDump.dot");
     SubscriptionManager::dump("Sub.dot");
