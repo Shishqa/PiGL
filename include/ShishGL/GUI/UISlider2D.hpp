@@ -19,7 +19,7 @@ namespace Sh {
 
         bool onMouseMove(MouseEvent& event) override {
 
-            if (FrameDraggable::onMouseMove(event)) {
+            if (FrameDraggable::onMouseMove(event) && FrameDraggable::isHeld()) {
 
                 Frame frame = target<UIWindow>()->getFrame();
 

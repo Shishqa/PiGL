@@ -22,13 +22,13 @@ namespace Sh {
         }
 
         [[nodiscard]]
-        inline Keyboard::Key key() const;
+        Keyboard::Key key() const;
 
         [[nodiscard]]
-        inline Keyboard::KeyState state() const;
+        Keyboard::KeyState state() const;
 
         [[nodiscard]]
-        inline Keyboard::ModifierMask modifiers() const;
+        Keyboard::ModifierMask modifiers() const;
 
         bool happen(Listener* listener) override;
 

@@ -96,7 +96,7 @@ namespace Sh {
         };
 
         [[nodiscard]]
-        static inline bool isConvertible(Keyboard::Key key);
+        static bool isConvertible(Keyboard::Key key);
 
         [[nodiscard]]
         static uint8_t convertToChar(Keyboard::Key key);

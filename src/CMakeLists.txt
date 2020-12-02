@@ -9,10 +9,10 @@ target_include_directories(ShishGL
 target_link_libraries(ShishGL
   INTERFACE
     ShishGL-Core
-    #ShishGL-DebugUtilities
+    ShishGL-DebugUtilities
     ShishGL-GUI
   )
 
 add_subdirectory(Core)
-#add_subdirectory(DebugUtilities)
+add_subdirectory(DebugUtilities)
 add_subdirectory(GUI)

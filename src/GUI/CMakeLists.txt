@@ -17,10 +17,12 @@ target_sources(ShishGL-GUI
     ${INCROOT}/UIFrame.hpp
     ${INCROOT}/UISlider.hpp
     ${INCROOT}/UISlider2D.hpp
+    ${INCROOT}/UITextInput.hpp
   PRIVATE
     UICanvas.cpp
     UIScrollbar.cpp
     UIFrame.cpp
+    UITextInput.cpp
   )
 
 target_link_libraries(ShishGL-GUI

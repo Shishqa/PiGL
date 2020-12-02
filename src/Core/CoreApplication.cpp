@@ -94,13 +94,6 @@ uint8_t CoreApplication::run() {
             for_render = render - polling;
         }
 
-        TimeDelta delta = frame_timer.elapsed();
-        if (delta.count() > 1000000000LL) {
-            printf("fps: %lu\n", frame_counter);
-            frame_counter = 0;
-            frame_timer.reset();
-        }
-
         /*
         printf("POLL MAX: %lu\n"
            "RENDER MAX: %lu\n",

@@ -4,6 +4,10 @@
 /*============================================================================*/
 #include "Behavior.hpp"
 #include "UIWindow.hpp"
+#include "Keyboard.hpp"
+#include "KeyboardEvent.hpp"
+#include "Mouse.hpp"
+#include "MouseEvent.hpp"
 /*============================================================================*/
 namespace Sh {
 

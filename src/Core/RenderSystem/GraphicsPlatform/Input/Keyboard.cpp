@@ -17,7 +17,7 @@ uint8_t Keyboard::convertToChar(Keyboard::Key key) {
     }
 
     if (key <= Keyboard::Key::Z) {
-        return static_cast<uint8_t>(key) + 'A';
+        return static_cast<uint8_t>(key) + 'a';
     }
 
     switch (key) {

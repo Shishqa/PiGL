@@ -98,9 +98,9 @@ bool pollKeyboard(const sf::Event& sf_event) {
 
         key = static_cast<Keyboard::Key>(sf_event.key.code);
 
-    } else {
+    } else if (sf_event.key.code == sf::Keyboard::BackSpace) {
 
-        key = Keyboard::Key::UNKNOWN;
+        key = Keyboard::Key::BACKSPACE;
         /* todo: handle others */
 
     }

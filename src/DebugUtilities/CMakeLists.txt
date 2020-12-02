@@ -9,9 +9,9 @@ target_include_directories(ShishGL-DebugUtilities
 
 target_sources(ShishGL-DebugUtilities
   PUBLIC
-    ${INCROOT}/CursorLocator.hpp
+    ${INCROOT}/FpsLabel.hpp
   PRIVATE
-    CursorLocator.cpp
+    FpsLabel.cpp
   )
 
 target_link_libraries(ShishGL-DebugUtilities

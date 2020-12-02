@@ -21,6 +21,8 @@
 #include "Font.hpp"
 #include "UISlider.hpp"
 #include "UISlider2D.hpp"
+#include "FpsLabel.hpp"
+#include "UITextInput.hpp"
 
 using namespace Sh;
 /*============================================================================*/
@@ -84,6 +86,27 @@ int main(int argc, char* argv[]) {
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
+    auto fps = WindowManager::Root()->attach<FpsLabel>(
+            Frame{ {1000, 0}, {164, 40} }
+            );
+    fps->applyStyle<UIWindow::NORMAL>(
+            Font{"fonts/FiraCode-Regular.ttf"},
+            FontSize{30},
+            ColorFill{Color::WHITE}
+            );
+
+    char buffer[5] = "abc";
+
+    auto input = WindowManager::Root()->attach<UITextInput>(
+            Frame{ {1300, 0}, {164, 40} },
+            buffer, sizeof(buffer)
+    );
+    input->applyStyle<UIWindow::NORMAL>(
+            Font{"fonts/FiraCode-Regular.ttf"},
+            FontSize{30},
+            ColorFill{Color::WHITE}
+    );
+
     auto frame = WindowManager::Root()->attach<UIFrame>(
             Frame{ {20, 20}, {600, 600} },
             Frame{ {20, 20}, {1000, 1000} }
@@ -143,7 +166,6 @@ int main(int argc, char* argv[]) {
             ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
                     ColorFill{ Color::GREEN }
             );
-
 
     auto frame_sl = WindowManager::Root()->attach<UISlider2D<DummySelector2D>>(
             Frame{ {1000, 200}, {60, 20} },
