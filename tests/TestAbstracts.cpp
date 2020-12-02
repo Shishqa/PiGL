@@ -3,7 +3,7 @@
 #include "RectangleShape.hpp"
 #include "CircleShape.hpp"
 #include "WindowManager.hpp"
-#include "TextBuffer.hpp"
+#include "UILabel.hpp"
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
 //#include "CursorLocator.hpp"
@@ -17,6 +17,8 @@
 #include "Slidable.hpp"
 #include "UIButton.hpp"
 #include "UICheckbox.hpp"
+#include "UILabel.hpp"
+#include "Font.hpp"
 
 using namespace Sh;
 /*============================================================================*/
@@ -70,12 +72,14 @@ int main(int argc, char* argv[]) {
             frame->applyStyle<UIWindow::NORMAL>(
                     ColorFill{Color::WHITE}
                     )
-            ->attach<UIWindow>(
-                    Frame{ {0, 0}, {50, 50} }
+            ->attach<UILabel>(
+                    Frame{ {0, 0}, {100, 100} }, "HELLO, WORLD!\n:)0:0)0234"
                             )
                     ->addBehavior<Draggable>()
                     ->applyStyle<UIWindow::NORMAL>(
-                            ColorFill{ Color::GREEN_YELLOW }
+                            Font{"fonts/FiraCode-Regular.ttf"},
+                            FontSize{30},
+                            ColorFill{Color::BLACK}
                             );
 
     auto dummy = WindowManager::Root()->attach<UIButton<Dummy>>(Frame{ {800, 200}, {60, 20} }, 12);

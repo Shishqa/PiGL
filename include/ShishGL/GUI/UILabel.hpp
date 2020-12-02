@@ -3,27 +3,21 @@
 #define SHISHGL_TEXT_BUFFER_HPP
 /*============================================================================*/
 #include "Text.hpp"
-#include "Window.hpp"
+#include "UIWindow.hpp"
+#include "TextShape.hpp"
 /*============================================================================*/
 namespace Sh {
 
-    class TextBuffer : public Window {
-    protected:
-
-        static constexpr size_t DEFAULT_FONT_HEIGHT = 14;
-        size_t curr_line_height;
-
-        Text text;
-
+    class UILabel : public UIWindow {
     public:
 
-        TextBuffer(const Frame& viewport, const Text& text);
+        UILabel(const Frame& frame, const std::string_view& text)
+                : UIWindow(frame) {
+            applyShape<TextShape>(text);
+        }
 
-        ~TextBuffer() override = default;
+        ~UILabel() override = default;
 
-    protected:
-
-        void onRender() override;
     };
 
 }

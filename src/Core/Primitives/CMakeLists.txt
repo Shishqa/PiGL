@@ -15,6 +15,7 @@ target_sources(ShishGL-Primitives
     ${INCROOT}/Color.hpp
     ${INCROOT}/Time.hpp
     ${INCROOT}/Vector3.hpp
+    ${INCROOT}/Text.hpp
   PRIVATE
     ${INCROOT}/Vector2.ipp
     Color.cpp

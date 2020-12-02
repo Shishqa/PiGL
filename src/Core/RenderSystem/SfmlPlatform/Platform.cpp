@@ -11,6 +11,7 @@ SfmlPlatform::SfmlPlatform()
     , active_color(Color::NONE)
     , active_texture(nullptr)
     , active_font(nullptr)
+    , font_size(10)
     { }
 
 /*----------------------------------------------------------------------------*/

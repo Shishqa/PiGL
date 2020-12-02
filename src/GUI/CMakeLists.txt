@@ -9,6 +9,7 @@ target_include_directories(ShishGL-GUI
 
 target_sources(ShishGL-GUI
   PUBLIC
+    ${INCROOT}/UILabel.hpp
     ${INCROOT}/UIButton.hpp
     ${INCROOT}/UICheckbox.hpp
     ${INCROOT}/UICanvas.hpp
@@ -27,8 +28,6 @@ target_link_libraries(ShishGL-GUI
     ShishGL-Styles
     ShishGL-Shapes
     ShishGL-Behaviors
-    ShishGL-TextBuffer
   )
 
 add_subdirectory(UIWindow)
-add_subdirectory(TextBuffer)

@@ -17,7 +17,7 @@ namespace Sh {
     template <typename SomeShape, typename... Args>
     UIWindow* UIWindow::applyShape(Args&&... args) {
         delete shape_impl;
-        shape_impl = new SomeShape(std::forward(args)...);
+        shape_impl = new SomeShape(std::forward<Args>(args)...);
         /* TODO: point to already allocated implementation */
         return this;
     }

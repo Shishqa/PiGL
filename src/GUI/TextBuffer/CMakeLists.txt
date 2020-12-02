@@ -13,7 +13,7 @@ target_sources(ShishGL-TextBuffer
     ${INCROOT}/TextBuffer.hpp
   PRIVATE
     Text.cpp
-    TextBuffer.cpp
+  UILabel.cpp
   )
 
 target_link_libraries(ShishGL-TextBuffer

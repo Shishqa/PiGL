@@ -87,8 +87,9 @@ namespace Sh {
         /*--------------------------------------------------------------------*/
         void setFont(const ResourceManager::Resource& font) override;
 
+        void setFontSize(const size_t& font_size) override;
+
         void displayText(const std::string_view& text,
-                         const size_t& font_size,
                          const Vector2<double>& pos) override;
         /*--------------------------------------------------------------------*/
 
@@ -134,6 +135,8 @@ namespace Sh {
 
         sf::Font* active_font;
         std::unordered_map<std::string_view, sf::Font*> fonts;
+
+        size_t font_size;
 
     };
 

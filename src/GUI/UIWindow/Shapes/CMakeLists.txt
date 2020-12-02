@@ -12,6 +12,7 @@ target_sources(ShishGL-Shapes
     ${INCROOT}/Shape2D.hpp
     ${INCROOT}/RectangleShape.hpp
     ${INCROOT}/CircleShape.hpp
+    ${INCROOT}/TextShape.hpp
   PRIVATE
     RectangleShape.cpp
     CircleShape.cpp

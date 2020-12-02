@@ -79,8 +79,9 @@ namespace Sh {
         /*--------------------------------------------------------------------*/
         virtual void setFont(const ResourceManager::Resource& font) = 0;
 
+        virtual void setFontSize(const size_t& font_size) = 0;
+
         virtual void displayText(const std::string_view& text,
-                                 const size_t& font_size,
                                  const Vector2<double>& pos) = 0;
         /*--------------------------------------------------------------------*/
 

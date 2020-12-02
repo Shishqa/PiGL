@@ -1,7 +1,7 @@
 /*============================================================================*/
 #include <cassert>
 
-#include "TextBuffer.hpp"
+#include "../../../include/ShishGL/GUI/UILabel.hpp"
 #include "RenderSystem.hpp"
 /*============================================================================*/
 using namespace Sh;

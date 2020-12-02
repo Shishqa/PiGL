@@ -230,15 +230,19 @@ void SfmlPlatform::setFont(const ResourceManager::Resource& font) {
 
 /*----------------------------------------------------------------------------*/
 
+void SfmlPlatform::setFontSize(const size_t& font_sz) {
+    font_size = font_sz;
+}
+
+/*----------------------------------------------------------------------------*/
+
 void SfmlPlatform::displayText(const std::string_view& text,
-                               const size_t& font_size,
                                const Vector2<double>& pos) {
 
     if (!active_font) {
         return;
     }
 
-    /*
     sf::Text display_text(sf::String{text.data()}, *active_font,
                           static_cast<unsigned int>(font_size));
 
@@ -252,8 +256,7 @@ void SfmlPlatform::displayText(const std::string_view& text,
     display_text.setPosition(sf::Vector2f(static_cast<float>(pos.x),
                                           static_cast<float>(pos.y)));
 
-    //canvas->draw(display_text);
-     */
+    canvas->draw(display_text);
 }
 
 /*============================================================================*/
