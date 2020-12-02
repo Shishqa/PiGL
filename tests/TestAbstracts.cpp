@@ -15,8 +15,44 @@
 #include "UIWindow.hpp"
 #include "Draggable.hpp"
 #include "Slidable.hpp"
+#include "UIButton.hpp"
+#include "UICheckbox.hpp"
 
 using namespace Sh;
+/*============================================================================*/
+
+class Dummy {
+public:
+
+    explicit Dummy(int value)
+        : val(value)
+        { }
+
+    void operator()() const {
+        printf("VALUE %d\n", val);
+    }
+
+private:
+
+    int val;
+
+};
+
+class TogglerDummy {
+public:
+
+    explicit TogglerDummy() = default;
+
+    void on() const {
+        printf("ON\n");
+    }
+
+    void off() const {
+        printf("OFF\n");
+    }
+
+};
+
 /*============================================================================*/
 int main(int argc, char* argv[]) {
 
@@ -27,46 +63,9 @@ int main(int argc, char* argv[]) {
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
-    /*
-    for (int h = 0; h < 3; ++h) {
-        for (int l = 0; l < 15; ++l) {
-            auto win_1 = WindowManager::Root()->attach<UIWindow>(
-                    Frame{ {static_cast<double>(l * 100),
-                            static_cast<double>(h * 100)},
-                            {100,   100}
-                            })
-                    ->addBehavior<Draggable>()
-                    ->applyStyle<UIWindow::NORMAL>(
-                            ColorFill{Color::WHITE}
-                            )
-                    ->applyStyle<UIWindow::HOVER>(
-                            Bordered{10, Color::GREEN},
-                            ColorFill{Color::WHITE}
-                            )
-                    ->applyStyle<UIWindow::CLICK>(
-                            Bordered{10, Color::BLUE},
-                            ColorFill{Color::WHITE}
-                            )
-                    ->applyStyle<UIWindow::HOLD>(
-                            Bordered{10, Color::RED},
-                            ColorFill{Color::WHITE}
-                            );
-
-            win_1->attach<UIWindow>( Frame{ {10, 10}, {50, 50} } )
-                    ->applyShape<CircleShape>()
-                    ->addBehavior<Slidable>(
-                            Segment2<double>{ {10, 10}, {50, 50} }
-                            )
-                    ->applyStyle<UIWindow::NORMAL>(
-                            ColorFill{Color::BLUE_VIOLET}
-                            );
-        }
-    }
-     */
-
     auto frame = WindowManager::Root()->attach<UIFrame>(
-            Frame{ {20, 500}, {300, 300} },
-            Frame{ {20, 500}, {1000, 1000} }
+            Frame{ {20, 20}, {600, 600} },
+            Frame{ {20, 20}, {1000, 1000} }
                     );
             frame->applyStyle<UIWindow::NORMAL>(
                     ColorFill{Color::WHITE}
@@ -78,56 +77,32 @@ int main(int argc, char* argv[]) {
                     ->applyStyle<UIWindow::NORMAL>(
                             ColorFill{ Color::GREEN_YELLOW }
                             );
-            /*
-    WindowManager::Root()->attach<UIWindow>(
-                    Frame{ {800, 500}, {300, 300} }
+
+    auto dummy = WindowManager::Root()->attach<UIButton<Dummy>>(Frame{ {800, 200}, {60, 20} }, 12);
+    dummy->applyStyle<UIWindow::CLICK>(
+            ColorFill{ Color::WHEAT }
             )
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::WHITE}
+         ->applyStyle<UIWindow::HOVER>(
+            ColorFill{ Color::GAINSBORO }
             )
-            ->attach<UIWindow>(
-                    Frame{ {0, 0}, {50, 50} }
-            )
-            ->addBehavior<Draggable>()
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{ Color::GREEN_YELLOW }
+         ->applyStyle<UIWindow::NORMAL>(
+            ColorFill{ Color::PALE_VIOLET_RED }
             );
 
-    auto sb = WindowManager::Root()->attach<UIScrollbar>(
-            Frame{ {500, 50}, {50, 800} }, UIScrollbar::VERTICAL
-            );
-    sb->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::FOREST_GREEN}
-            );
-    sb->inc_button->applyShape<CircleShape>()
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::ALICE_BLUE}
-                    )
+    auto ch = WindowManager::Root()->attach<UICheckbox<TogglerDummy>>(Frame{ {700, 200}, {60, 20} });
+    ch->applyStyle<UIWindow::CLICK>(
+                    ColorFill{ Color::WHEAT }
+            )
             ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{Color::SKY_BLUE}
-                    )
-            ->applyStyle<UIWindow::CLICK>(
-                    ColorFill{Color::LIGHT_BLUE}
+                    ColorFill{ Color::GAINSBORO }
+            )
+            ->applyStyle<UIWindow::NORMAL>(
+                    ColorFill{ Color::PALE_VIOLET_RED }
+            )
+            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
+                    ColorFill{ Color::GREEN }
                     );
-    sb->dec_button->applyShape<CircleShape>()
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::ALICE_BLUE}
-            )
-            ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{Color::SKY_BLUE}
-            )
-            ->applyStyle<UIWindow::CLICK>(
-                    ColorFill{Color::LIGHT_BLUE}
-            );
 
-    sb->slider->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BLUE}
-    )
-              ->applyStyle<UIWindow::CLICK>(
-            ColorFill{Color::RED}
-            );
-
-    */
     WindowManager::dump("LayoutDump.dot");
     SubscriptionManager::dump("Sub.dot");
 

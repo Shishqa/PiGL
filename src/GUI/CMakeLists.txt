@@ -9,6 +9,8 @@ target_include_directories(ShishGL-GUI
 
 target_sources(ShishGL-GUI
   PUBLIC
+    ${INCROOT}/UIButton.hpp
+    ${INCROOT}/UICheckbox.hpp
     ${INCROOT}/UICanvas.hpp
     ${INCROOT}/UIScrollbar.hpp
     ${INCROOT}/UIFrame.hpp

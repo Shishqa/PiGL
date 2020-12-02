@@ -36,8 +36,8 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
         inc_button = attach<UIWindow>(Frame{ {0, 0}, button_size });
         dec_button = attach<UIWindow>(Frame{ {0, frame.size.y - button_size.y}, button_size });
 
-        inc_button->addBehavior<ScrollbarButton>( 1.0, Mouse::VERTICAL);
-        dec_button->addBehavior<ScrollbarButton>(-1.0, Mouse::VERTICAL);
+        inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::VERTICAL);
+        dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::VERTICAL);
 
         Vector2<double> slider_size{
                 frame.size.x,
@@ -64,8 +64,8 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
         inc_button = attach<UIWindow>(Frame{ {0, 0}, button_size });
         dec_button = attach<UIWindow>(Frame{ {frame.size.x - button_size.x, 0}, button_size });
 
-        inc_button->addBehavior<ScrollbarButton>( 1.0, Mouse::HORIZONTAL);
-        dec_button->addBehavior<ScrollbarButton>(-1.0, Mouse::HORIZONTAL);
+        inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::HORIZONTAL);
+        dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::HORIZONTAL);
 
         Vector2<double> slider_size{
                 (frame.size.x - 2 * button_size.x) * slider_size_ratio,
