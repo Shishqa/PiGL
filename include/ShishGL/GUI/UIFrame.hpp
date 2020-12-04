@@ -24,7 +24,7 @@ namespace Sh {
     class FrameScrollable : public DefaultBehavior {
     public:
 
-        explicit FrameScrollable(UIWindow* target);
+        explicit FrameScrollable(UIWindow* target, UIScrollbar* scrollbar);
 
         bool onMouseScroll(MouseScrollEvent& event) override;
 
@@ -35,7 +35,7 @@ namespace Sh {
     class FrameSlidable : public SlideListener {
     public:
 
-        explicit FrameSlidable(UIWindow* target);
+        explicit FrameSlidable(UIWindow* target, UIScrollbar* scrollbar);
 
         bool onSlide(SlideEvent& event) override;
 

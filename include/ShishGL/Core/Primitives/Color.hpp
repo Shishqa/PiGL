@@ -173,8 +173,6 @@ namespace Sh {
         static const Color SLATE_GREY;
         static const Color DARK_SLATE_GRAY;
         static const Color DARK_SLATE_GREY;
-
-
     };
 
     struct ColorPair {

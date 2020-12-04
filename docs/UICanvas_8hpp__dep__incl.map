@@ -1,4 +1,7 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UICanvas.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UICanvas.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,208,61"/>
-<area shape="rect" id="node2" href="$UICanvas_8cpp.html" title=" " alt="" coords="16,109,197,165"/>
+<area shape="rect" id="node1" title=" " alt="" coords="251,5,454,61"/>
+<area shape="rect" id="node2" href="$SphereCast_8hpp.html" title=" " alt="" coords="126,109,353,180"/>
+<area shape="rect" id="node5" href="$UICanvas_8cpp.html" title=" " alt="" coords="377,117,558,173"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="5,228,225,284"/>
+<area shape="rect" id="node4" href="$SphereCast_8cpp.html" title=" " alt="" coords="250,228,477,284"/>
 </map>

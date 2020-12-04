@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('functions_func_f.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,25 +97,43 @@ $(function() {
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>fill()
-: <a class="el" href="classShishGL_1_1Image.html#ab309b47a6264aeb4b5d13826f69bce1b">ShishGL::Image</a>
+: <a class="el" href="classSh_1_1Image.html#a3e08c8e3265e556d9ba6d4c3919b385d">Sh::Image</a>
 </li>
 <li>fit_into()
-: <a class="el" href="structShishGL_1_1Viewport.html#a222e0aa5e41804419fabaf9fcbed2b13">ShishGL::Viewport</a>
+: <a class="el" href="structSh_1_1Frame.html#a715b7c53db23cef0ac48774006bf418a">Sh::Frame</a>
 </li>
 <li>flush()
-: <a class="el" href="classShishGL_1_1LogSystem.html#acbfb70288ab01861cb71d19d7fa4d0eb">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#acbfb70288ab01861cb71d19d7fa4d0eb">Sh::LogSystem</a>
+</li>
+<li>Font()
+: <a class="el" href="classSh_1_1Font.html#ad519c17a668563df8bab91d7b9ec8fcb">Sh::Font</a>
+</li>
+<li>FontSize()
+: <a class="el" href="classSh_1_1FontSize.html#a476bc3bf8881c5a0b0e034229a35c317">Sh::FontSize</a>
 </li>
 <li>forget()
-: <a class="el" href="classShishGL_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">ShishGL::ResourceManager</a>
+: <a class="el" href="classSh_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">Sh::ResourceManager</a>
 </li>
-<li>Frame()
-: <a class="el" href="classShishGL_1_1Frame.html#ad50a3bd1c509da385fbfcb54a72ca521">ShishGL::Frame</a>
+<li>FpsLabel()
+: <a class="el" href="classSh_1_1FpsLabel.html#a8fb5197e8a48a35c7af96aea6478758b">Sh::FpsLabel</a>
+</li>
+<li>FrameDraggable()
+: <a class="el" href="classSh_1_1FrameDraggable.html#a11110fe3ffd750d0cf593f416628dc82">Sh::FrameDraggable</a>
+</li>
+<li>FrameScrollable()
+: <a class="el" href="classSh_1_1FrameScrollable.html#aa0d57e66a960508ca8858f5ce33dbd0e">Sh::FrameScrollable</a>
+</li>
+<li>FrameSlidable()
+: <a class="el" href="classSh_1_1FrameSlidable.html#a1d88d229df710249fe830798a28e8071">Sh::FrameSlidable</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

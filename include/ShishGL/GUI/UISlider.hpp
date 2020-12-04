@@ -24,9 +24,17 @@ namespace Sh {
 
             if (status && Slidable::isHeld()) {
 
+                Segment2<double> slide = Slidable::slide_seg;
+                const Window* parent = target<Window>()->getParent();
+
+                if (parent) {
+                    slide.begin += parent->getPos();
+                    slide.end   += parent->getPos();
+                }
+
                 selector.set(
-                        (target<UIWindow>()->getPos() - Slidable::slide_seg.begin).length() /
-                        Slidable::slide_seg.guide().length());
+                        (target<UIWindow>()->getPos() - slide.begin).length() /
+                        slide.guide().length());
 
             }
 

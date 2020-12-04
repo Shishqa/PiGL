@@ -1,9 +1,0 @@
-<map id="ShishGL::Event" name="ShishGL::Event">
-<area shape="rect" id="node1" title=" " alt="" coords="323,5,441,32"/>
-<area shape="rect" id="node2" href="$classShishGL_1_1KeyboardEvent.html" title=" " alt="" coords="5,80,185,107"/>
-<area shape="rect" id="node3" href="$classShishGL_1_1MouseEvent.html" title=" " alt="" coords="210,80,373,107"/>
-<area shape="rect" id="node6" href="$classShishGL_1_1SlideEvent.html" title=" " alt="" coords="397,80,548,107"/>
-<area shape="rect" id="node7" href="$classShishGL_1_1TimerEvent.html" title=" " alt="" coords="573,80,730,107"/>
-<area shape="rect" id="node4" href="$classShishGL_1_1MouseButtonEvent.html" title=" " alt="" coords="75,155,281,181"/>
-<area shape="rect" id="node5" href="$classShishGL_1_1MouseScrollEvent.html" title=" " alt="" coords="305,155,504,181"/>
-</map>

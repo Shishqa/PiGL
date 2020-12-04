@@ -13,7 +13,6 @@ namespace Sh {
     class IPlatform {
     public:
 
-
         virtual bool isRunning() = 0;
 
         /* Input */

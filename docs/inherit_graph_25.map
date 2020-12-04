@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structShishGL_1_1Vector2.html" title=" " alt="" coords="5,5,204,32"/>
+<area shape="rect" id="node1" href="$classSh_1_1Style.html" title=" " alt="" coords="5,132,84,159"/>
+<area shape="rect" id="node2" href="$classSh_1_1Bordered.html" title=" " alt="" coords="136,5,241,32"/>
+<area shape="rect" id="node3" href="$classSh_1_1ColorFill.html" title=" " alt="" coords="139,56,238,83"/>
+<area shape="rect" id="node4" href="$classSh_1_1Font.html" title=" " alt="" coords="151,107,226,133"/>
+<area shape="rect" id="node5" href="$classSh_1_1FontSize.html" title=" " alt="" coords="138,157,239,184"/>
+<area shape="rect" id="node6" href="$classSh_1_1StylePack.html" title=" " alt="" coords="134,208,243,235"/>
+<area shape="rect" id="node7" href="$classSh_1_1TextureFill.html" title=" " alt="" coords="132,259,245,285"/>
 </map>

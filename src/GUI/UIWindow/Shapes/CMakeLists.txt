@@ -9,6 +9,7 @@ target_include_directories(ShishGL-Shapes
 
 target_sources(ShishGL-Shapes
   PUBLIC
+    ${INCROOT}/Shapes.hpp
     ${INCROOT}/Shape2D.hpp
     ${INCROOT}/RectangleShape.hpp
     ${INCROOT}/CircleShape.hpp

@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('functions_~.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,110 +97,106 @@ $(function() {
 
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
 <li>~Bordered()
-: <a class="el" href="classShishGL_1_1Bordered.html#af80da48dcb92c2a6106024e38b6a1c72">ShishGL::Bordered</a>
-</li>
-<li>~Button()
-: <a class="el" href="classShishGL_1_1Scrollbar_1_1Button.html#acefa5730b6af50e3c3bd6080dbaa9828">ShishGL::Scrollbar::Button</a>
+: <a class="el" href="classSh_1_1Bordered.html#a75fab9c252eaa0f48f90c7790f9feb88">Sh::Bordered</a>
 </li>
 <li>~ColorFill()
-: <a class="el" href="classShishGL_1_1ColorFill.html#a3aeb4772ba4e01390f9c5ed19a29fb2c">ShishGL::ColorFill</a>
+: <a class="el" href="classSh_1_1ColorFill.html#a294cd805be49161ab07e8e5b68c2fb48">Sh::ColorFill</a>
 </li>
 <li>~CoreApplication()
-: <a class="el" href="classShishGL_1_1CoreApplication.html#a69a88bdf6b48316ddef7a2fa21f8bc26">ShishGL::CoreApplication</a>
+: <a class="el" href="classSh_1_1CoreApplication.html#abe2bbef5dd26cfc12d75b910ffeaab48">Sh::CoreApplication</a>
 </li>
 <li>~DefaultBehavior()
-: <a class="el" href="classShishGL_1_1DefaultBehavior.html#a23f7d06ee237be3b028ce78b921cbf58">ShishGL::DefaultBehavior</a>
+: <a class="el" href="classSh_1_1DefaultBehavior.html#a6d432cad4813df763afb7f0a53555e5b">Sh::DefaultBehavior</a>
 </li>
 <li>~Event()
-: <a class="el" href="classShishGL_1_1Event.html#a9a1790a34442ab07fd09fb79b7a08957">ShishGL::Event</a>
+: <a class="el" href="classSh_1_1Event.html#aa40d7d1ef734f6329c35d08c6a103b9d">Sh::Event</a>
 </li>
 <li>~EventManager()
-: <a class="el" href="classShishGL_1_1EventManager.html#aaf6a15720bf2341333ab1cefb3f40528">ShishGL::EventManager</a>
+: <a class="el" href="classSh_1_1EventManager.html#a2c5e6a54c1827c548957444dd0b09736">Sh::EventManager</a>
 </li>
 <li>~EventSystem()
-: <a class="el" href="classShishGL_1_1EventSystem.html#a3fc03a10ca31bb561542c75921296079">ShishGL::EventSystem</a>
+: <a class="el" href="classSh_1_1EventSystem.html#a7b0bc00995e34f2c1ecf46429937c2fa">Sh::EventSystem</a>
 </li>
 <li>~IContext()
-: <a class="el" href="classShishGL_1_1IPlatform_1_1IContext.html#a25ce90c11cb7391324a8b9de4e9ac072">ShishGL::IPlatform::IContext</a>
+: <a class="el" href="classSh_1_1IPlatform_1_1IContext.html#a653c74c434267f8875bbac82d0f04df2">Sh::IPlatform::IContext</a>
 </li>
 <li>~IPlatform()
-: <a class="el" href="classShishGL_1_1IPlatform.html#a59ebc9715e208f485262396700ff34a6">ShishGL::IPlatform</a>
+: <a class="el" href="classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb">Sh::IPlatform</a>
 </li>
 <li>~KeyboardEvent()
-: <a class="el" href="classShishGL_1_1KeyboardEvent.html#a24654a50e1a3a3d82993499b280d126f">ShishGL::KeyboardEvent</a>
+: <a class="el" href="classSh_1_1KeyboardEvent.html#a7b8496f4dd9dd0922dd289648b5bf4f9">Sh::KeyboardEvent</a>
 </li>
 <li>~Listener()
-: <a class="el" href="classShishGL_1_1Listener.html#a8946fdcfe2142e49ef4d31bd23769da0">ShishGL::Listener</a>
+: <a class="el" href="classSh_1_1Listener.html#a8946fdcfe2142e49ef4d31bd23769da0">Sh::Listener</a>
 </li>
 <li>~LogSystem()
-: <a class="el" href="classShishGL_1_1LogSystem.html#a3e7604e7c72c1207bba65504574ac697">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#af8cd6001eb767708d09b8f285f070d1f">Sh::LogSystem</a>
 </li>
 <li>~MouseButtonEvent()
-: <a class="el" href="classShishGL_1_1MouseButtonEvent.html#ad4a9cb1d2d7d203e5f799a0b709fd2dd">ShishGL::MouseButtonEvent</a>
+: <a class="el" href="classSh_1_1MouseButtonEvent.html#a645538caef74acdf64ae3587f4dfd0d3">Sh::MouseButtonEvent</a>
 </li>
 <li>~MouseEvent()
-: <a class="el" href="classShishGL_1_1MouseEvent.html#a6e4d25db1fe01acb394bcc3f0a204dfe">ShishGL::MouseEvent</a>
+: <a class="el" href="classSh_1_1MouseEvent.html#aa90f636ebece40bc9b8d860378f06132">Sh::MouseEvent</a>
 </li>
 <li>~MouseScrollEvent()
-: <a class="el" href="classShishGL_1_1MouseScrollEvent.html#adef2e0be47060794db5597a2598d9ea9">ShishGL::MouseScrollEvent</a>
+: <a class="el" href="classSh_1_1MouseScrollEvent.html#ad9219f36e48b70cc2a95721879893b92">Sh::MouseScrollEvent</a>
 </li>
 <li>~PlatformListener()
-: <a class="el" href="classShishGL_1_1PlatformListener.html#ada63af6db7e63b972a34f6ba96480bff">ShishGL::PlatformListener</a>
+: <a class="el" href="classSh_1_1PlatformListener.html#af690b127a2fd2ec87a2fdaf16ef3b21d">Sh::PlatformListener</a>
 </li>
 <li>~SfmlContext()
-: <a class="el" href="classShishGL_1_1SfmlPlatform_1_1SfmlContext.html#a0f3f7e340fa5e5276b29ea9546241dad">ShishGL::SfmlPlatform::SfmlContext</a>
+: <a class="el" href="classSh_1_1SfmlPlatform_1_1SfmlContext.html#a6e311270aba12bf258172a423d3b4771">Sh::SfmlPlatform::SfmlContext</a>
 </li>
 <li>~SfmlPlatform()
-: <a class="el" href="classShishGL_1_1SfmlPlatform.html#a854bd9d7c30f8b449ebad2a7f988ae74">ShishGL::SfmlPlatform</a>
-, <a class="el" href="classShishGL_1_1XorgPlatform.html#a240b825aa7c7973b215f997f4a2d2435">ShishGL::XorgPlatform</a>
+: <a class="el" href="classSh_1_1SfmlPlatform.html#a1efb9cdfc10762ae61bdc7cdefeacbf9">Sh::SfmlPlatform</a>
 </li>
 <li>~Shape2D()
-: <a class="el" href="classShishGL_1_1Shape2D.html#a4e93d9bd23c6ee1ac918eaff2490cf16">ShishGL::Shape2D</a>
+: <a class="el" href="classSh_1_1Shape2D.html#ab79d9294d2b4d3fc80ca2d2d91139663">Sh::Shape2D</a>
+</li>
+<li>~SphereCanvas()
+: <a class="el" href="classSphereCanvas.html#a7e8dc5ad5dd5fee1b007864236e31ca8">SphereCanvas</a>
 </li>
 <li>~Style()
-: <a class="el" href="classShishGL_1_1Style.html#aae5dfeb2dc82f606c9002575718cd33e">ShishGL::Style</a>
+: <a class="el" href="classSh_1_1Style.html#a76c24347b9e68ffd08fca33e6bfe77f2">Sh::Style</a>
 </li>
 <li>~StylePack()
-: <a class="el" href="classShishGL_1_1StylePack.html#a9d4dbad066035f9a6bcb7ecc000eb135">ShishGL::StylePack</a>
+: <a class="el" href="classSh_1_1StylePack.html#a446a504118a4c75a1fd173edd2695f04">Sh::StylePack</a>
 </li>
 <li>~SubscriptionManager()
-: <a class="el" href="classShishGL_1_1SubscriptionManager.html#a5c687efbe3d8fab56746a7643e691742">ShishGL::SubscriptionManager</a>
-</li>
-<li>~Text()
-: <a class="el" href="classShishGL_1_1Text.html#a3731ec55dfe23d29a5b3b17ada102eb1">ShishGL::Text</a>
-</li>
-<li>~TextBuffer()
-: <a class="el" href="classShishGL_1_1TextBuffer.html#a893d9e175f9b5fddcba40595a223de58">ShishGL::TextBuffer</a>
+: <a class="el" href="classSh_1_1SubscriptionManager.html#a9fa6578c03f40921f924539afdef89df">Sh::SubscriptionManager</a>
 </li>
 <li>~TextureFill()
-: <a class="el" href="classShishGL_1_1TextureFill.html#ad3d25aaab61ba8263d2a85445f0d7f7d">ShishGL::TextureFill</a>
+: <a class="el" href="classSh_1_1TextureFill.html#a5737f10a5d22d54ae59951a84a04a21e">Sh::TextureFill</a>
 </li>
 <li>~Timer()
-: <a class="el" href="classShishGL_1_1Timer.html#ad98b653cc0dab1d20240d6f9e45cca28">ShishGL::Timer</a>
+: <a class="el" href="classSh_1_1Timer.html#a76fa8ecdd66fca829dc4c2f123965a53">Sh::Timer</a>
 </li>
 <li>~TimerEvent()
-: <a class="el" href="classShishGL_1_1TimerEvent.html#ad51fe0d9e49e04a723105756cdf70aa7">ShishGL::TimerEvent</a>
+: <a class="el" href="classSh_1_1TimerEvent.html#aee0cbdb4eb5d68745451bebb37eaa39b">Sh::TimerEvent</a>
 </li>
 <li>~UICanvas()
-: <a class="el" href="classShishGL_1_1UICanvas.html#a53c9f134ab431ed1ce7b9cca792337d7">ShishGL::UICanvas</a>
+: <a class="el" href="classSh_1_1UICanvas.html#a53c9f134ab431ed1ce7b9cca792337d7">Sh::UICanvas</a>
+</li>
+<li>~UILabel()
+: <a class="el" href="classSh_1_1UILabel.html#a9c25b9ca4425a42c0656b5177c50701a">Sh::UILabel</a>
 </li>
 <li>~UIWindow()
-: <a class="el" href="classShishGL_1_1UIWindow.html#aeae28bd937ec123002e4832390499bd6">ShishGL::UIWindow</a>
+: <a class="el" href="classSh_1_1UIWindow.html#aeae28bd937ec123002e4832390499bd6">Sh::UIWindow</a>
 </li>
 <li>~Window()
-: <a class="el" href="classShishGL_1_1Window.html#ab82f2a22e0636dcfc46019f21f1754d0">ShishGL::Window</a>
+: <a class="el" href="classSh_1_1Window.html#a18b1112243987ec813f679f4089ff640">Sh::Window</a>
 </li>
 <li>~WindowManager()
-: <a class="el" href="classShishGL_1_1WindowManager.html#a51555cac05e0e381ad83d62db1dfabd8">ShishGL::WindowManager</a>
-</li>
-<li>~XContext()
-: <a class="el" href="classShishGL_1_1XorgPlatform_1_1XContext.html#a0b9a083e487b0745a6572d514054c393">ShishGL::XorgPlatform::XContext</a>
+: <a class="el" href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">Sh::WindowManager</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

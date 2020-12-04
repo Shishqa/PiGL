@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -70,193 +100,250 @@ $(function() {
 <div class="textblock">
 <p><a href="hierarchy.html">Go to the textual class hierarchy</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" usemap="#aShishGL_1_1Color" alt=""/>
-<map name="ShishGL_1_1Color" id="aShishGL_1_1Color">
-<area shape="rect" href="structShishGL_1_1Color.html" title=" " alt="" coords="5,5,121,32"/>
+<tr><td><img src="inherit_graph_0.png" border="0" usemap="#aDummy" alt=""/>
+<map name="Dummy" id="aDummy">
+<area shape="rect" href="classDummy.html" title=" " alt="" coords="5,5,80,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aShishGL_1_1ColorPair" alt=""/>
-<map name="ShishGL_1_1ColorPair" id="aShishGL_1_1ColorPair">
-<area shape="rect" href="structShishGL_1_1ColorPair.html" title=" " alt="" coords="5,5,145,32"/>
+<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aDummySelector" alt=""/>
+<map name="DummySelector" id="aDummySelector">
+<area shape="rect" href="classDummySelector.html" title=" " alt="" coords="5,5,132,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" usemap="#aShishGL_1_1CoreApplication" alt=""/>
-<map name="ShishGL_1_1CoreApplication" id="aShishGL_1_1CoreApplication">
-<area shape="rect" href="classShishGL_1_1CoreApplication.html" title=" " alt="" coords="5,5,191,32"/>
+<tr><td><img src="inherit_graph_2.png" border="0" usemap="#aDummySelector2D" alt=""/>
+<map name="DummySelector2D" id="aDummySelector2D">
+<area shape="rect" href="classDummySelector2D.html" title=" " alt="" coords="5,5,151,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" usemap="#aShishGL_1_1Event" alt=""/>
-<map name="ShishGL_1_1Event" id="aShishGL_1_1Event">
-<area shape="rect" href="classShishGL_1_1Event.html" title=" " alt="" coords="5,81,124,108"/>
-<area shape="rect" href="classShishGL_1_1KeyboardEvent.html" title=" " alt="" coords="172,5,352,32"/>
-<area shape="rect" href="classShishGL_1_1MouseEvent.html" title=" " alt="" coords="181,56,343,83"/>
-<area shape="rect" href="classShishGL_1_1SlideEvent.html" title=" " alt="" coords="187,107,337,133"/>
-<area shape="rect" href="classShishGL_1_1TimerEvent.html" title=" " alt="" coords="183,157,341,184"/>
-<area shape="rect" href="classShishGL_1_1MouseButtonEvent.html" title=" " alt="" coords="400,31,605,57"/>
-<area shape="rect" href="classShishGL_1_1MouseScrollEvent.html" title=" " alt="" coords="403,81,602,108"/>
+<tr><td><img src="inherit_graph_3.png" border="0" usemap="#aSh_1_1BehaviorManager" alt=""/>
+<map name="Sh_1_1BehaviorManager" id="aSh_1_1BehaviorManager">
+<area shape="rect" href="classSh_1_1BehaviorManager.html" title=" " alt="" coords="5,5,167,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" usemap="#aShishGL_1_1EventManager" alt=""/>
-<map name="ShishGL_1_1EventManager" id="aShishGL_1_1EventManager">
-<area shape="rect" href="classShishGL_1_1EventManager.html" title=" " alt="" coords="5,5,181,32"/>
+<tr><td><img src="inherit_graph_4.png" border="0" usemap="#aSh_1_1Color" alt=""/>
+<map name="Sh_1_1Color" id="aSh_1_1Color">
+<area shape="rect" href="structSh_1_1Color.html" title=" " alt="" coords="5,5,85,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" usemap="#aShishGL_1_1EventSystem" alt=""/>
-<map name="ShishGL_1_1EventSystem" id="aShishGL_1_1EventSystem">
-<area shape="rect" href="classShishGL_1_1EventSystem.html" title=" " alt="" coords="5,5,173,32"/>
+<tr><td><img src="inherit_graph_5.png" border="0" usemap="#aSh_1_1ColorPair" alt=""/>
+<map name="Sh_1_1ColorPair" id="aSh_1_1ColorPair">
+<area shape="rect" href="structSh_1_1ColorPair.html" title=" " alt="" coords="5,5,109,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" usemap="#aShishGL_1_1Image" alt=""/>
-<map name="ShishGL_1_1Image" id="aShishGL_1_1Image">
-<area shape="rect" href="classShishGL_1_1Image.html" title=" " alt="" coords="5,5,128,32"/>
+<tr><td><img src="inherit_graph_6.png" border="0" usemap="#aSh_1_1CoreApplication" alt=""/>
+<map name="Sh_1_1CoreApplication" id="aSh_1_1CoreApplication">
+<area shape="rect" href="classSh_1_1CoreApplication.html" title=" " alt="" coords="5,5,155,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" usemap="#aShishGL_1_1IPlatform" alt=""/>
-<map name="ShishGL_1_1IPlatform" id="aShishGL_1_1IPlatform">
-<area shape="rect" href="classShishGL_1_1IPlatform.html" title=" " alt="" coords="5,31,148,57"/>
-<area shape="rect" href="classShishGL_1_1SfmlPlatform.html" title=" " alt="" coords="196,5,364,32"/>
-<area shape="rect" href="classShishGL_1_1XorgPlatform.html" title=" " alt="" coords="196,56,364,83"/>
+<tr><td><img src="inherit_graph_7.png" border="0" usemap="#aSh_1_1Event" alt=""/>
+<map name="Sh_1_1Event" id="aSh_1_1Event">
+<area shape="rect" href="classSh_1_1Event.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" href="classSh_1_1KeyboardEvent.html" title=" " alt="" coords="136,5,280,32"/>
+<area shape="rect" href="classSh_1_1MouseEvent.html" title=" " alt="" coords="145,56,271,83"/>
+<area shape="rect" href="classSh_1_1SlideEvent.html" title=" " alt="" coords="151,107,265,133"/>
+<area shape="rect" href="classSh_1_1TimerEvent.html" title=" " alt="" coords="147,157,269,184"/>
+<area shape="rect" href="classSh_1_1MouseButtonEvent.html" title=" " alt="" coords="328,31,497,57"/>
+<area shape="rect" href="classSh_1_1MouseScrollEvent.html" title=" " alt="" coords="331,81,494,108"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aShishGL_1_1IPlatform_1_1IContext" alt=""/>
-<map name="ShishGL_1_1IPlatform_1_1IContext" id="aShishGL_1_1IPlatform_1_1IContext">
-<area shape="rect" href="classShishGL_1_1IPlatform_1_1IContext.html" title=" " alt="" coords="5,5,148,47"/>
-<area shape="rect" href="classShishGL_1_1XorgPlatform_1_1XContext.html" title=" " alt="" coords="196,5,364,47"/>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aSh_1_1EventManager" alt=""/>
+<map name="Sh_1_1EventManager" id="aSh_1_1EventManager">
+<area shape="rect" href="classSh_1_1EventManager.html" title=" " alt="" coords="5,5,145,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aShishGL_1_1Keyboard" alt=""/>
-<map name="ShishGL_1_1Keyboard" id="aShishGL_1_1Keyboard">
-<area shape="rect" href="classShishGL_1_1Keyboard.html" title=" " alt="" coords="5,5,148,32"/>
+<tr><td><img src="inherit_graph_9.png" border="0" usemap="#aSh_1_1EventSystem" alt=""/>
+<map name="Sh_1_1EventSystem" id="aSh_1_1EventSystem">
+<area shape="rect" href="classSh_1_1EventSystem.html" title=" " alt="" coords="5,5,137,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" usemap="#aShishGL_1_1Listener" alt=""/>
-<map name="ShishGL_1_1Listener" id="aShishGL_1_1Listener">
-<area shape="rect" href="classShishGL_1_1Listener.html" title=" " alt="" coords="5,111,140,137"/>
-<area shape="rect" href="classShishGL_1_1PlatformListener.html" title=" " alt="" coords="188,111,379,137"/>
-<area shape="rect" href="classShishGL_1_1Behavior.html" title=" " alt="" coords="427,111,567,137"/>
-<area shape="rect" href="classShishGL_1_1DefaultBehavior.html" title=" " alt="" coords="615,85,803,112"/>
-<area shape="rect" href="classShishGL_1_1SlideListener.html" title=" " alt="" coords="625,136,792,163"/>
-<area shape="rect" href="classShishGL_1_1Clickable.html" title=" " alt="" coords="851,85,992,112"/>
-<area shape="rect" href="classShishGL_1_1Holdable.html" title=" " alt="" coords="1040,60,1180,87"/>
-<area shape="rect" href="classShishGL_1_1Scrollbar.html" title=" " alt="" coords="1041,111,1179,137"/>
-<area shape="rect" href="classShishGL_1_1Draggable.html" title=" " alt="" coords="1228,31,1377,57"/>
-<area shape="rect" href="classShishGL_1_1Scrollbar_1_1Button.html" title=" " alt="" coords="1233,82,1372,123"/>
-<area shape="rect" href="classShishGL_1_1Dialog.html" title=" " alt="" coords="1431,5,1555,32"/>
-<area shape="rect" href="classShishGL_1_1Slidable.html" title=" " alt="" coords="1425,56,1560,83"/>
-<area shape="rect" href="classShishGL_1_1Frame.html" title=" " alt="" coords="860,136,983,163"/>
+<tr><td><img src="inherit_graph_10.png" border="0" usemap="#aSh_1_1Frame" alt=""/>
+<map name="Sh_1_1Frame" id="aSh_1_1Frame">
+<area shape="rect" href="structSh_1_1Frame.html" title=" " alt="" coords="5,5,92,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aShishGL_1_1LogSystem" alt=""/>
-<map name="ShishGL_1_1LogSystem" id="aShishGL_1_1LogSystem">
-<area shape="rect" href="classShishGL_1_1LogSystem.html" title=" " alt="" coords="5,5,160,32"/>
+<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aSh_1_1Image" alt=""/>
+<map name="Sh_1_1Image" id="aSh_1_1Image">
+<area shape="rect" href="classSh_1_1Image.html" title=" " alt="" coords="5,5,92,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aShishGL_1_1Mouse" alt=""/>
-<map name="ShishGL_1_1Mouse" id="aShishGL_1_1Mouse">
-<area shape="rect" href="classShishGL_1_1Mouse.html" title=" " alt="" coords="5,5,131,32"/>
+<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aSh_1_1IPlatform" alt=""/>
+<map name="Sh_1_1IPlatform" id="aSh_1_1IPlatform">
+<area shape="rect" href="classSh_1_1IPlatform.html" title=" " alt="" coords="5,5,112,32"/>
+<area shape="rect" href="classSh_1_1SfmlPlatform.html" title=" " alt="" coords="160,5,292,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aShishGL_1_1RenderSystem" alt=""/>
-<map name="ShishGL_1_1RenderSystem" id="aShishGL_1_1RenderSystem">
-<area shape="rect" href="classShishGL_1_1RenderSystem.html" title=" " alt="" coords="5,5,183,32"/>
+<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aSh_1_1IPlatform_1_1IContext" alt=""/>
+<map name="Sh_1_1IPlatform_1_1IContext" id="aSh_1_1IPlatform_1_1IContext">
+<area shape="rect" href="classSh_1_1IPlatform_1_1IContext.html" title=" " alt="" coords="5,5,175,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aShishGL_1_1ResourceManager" alt=""/>
-<map name="ShishGL_1_1ResourceManager" id="aShishGL_1_1ResourceManager">
-<area shape="rect" href="classShishGL_1_1ResourceManager.html" title=" " alt="" coords="5,5,204,32"/>
+<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aSh_1_1Keyboard" alt=""/>
+<map name="Sh_1_1Keyboard" id="aSh_1_1Keyboard">
+<area shape="rect" href="classSh_1_1Keyboard.html" title=" " alt="" coords="5,5,112,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" usemap="#aShishGL_1_1ResourceManager_1_1Resource" alt=""/>
-<map name="ShishGL_1_1ResourceManager_1_1Resource" id="aShishGL_1_1ResourceManager_1_1Resource">
-<area shape="rect" href="structShishGL_1_1ResourceManager_1_1Resource.html" title=" " alt="" coords="5,5,204,47"/>
+<tr><td><img src="inherit_graph_15.png" border="0" usemap="#aSh_1_1Listener" alt=""/>
+<map name="Sh_1_1Listener" id="aSh_1_1Listener">
+<area shape="rect" href="classSh_1_1Listener.html" title=" " alt="" coords="5,187,104,214"/>
+<area shape="rect" href="classSh_1_1PlatformListener.html" title=" " alt="" coords="152,187,307,214"/>
+<area shape="rect" href="classSh_1_1Behavior.html" title=" " alt="" coords="355,187,459,214"/>
+<area shape="rect" href="classSh_1_1DefaultBehavior.html" title=" " alt="" coords="507,162,659,189"/>
+<area shape="rect" href="classSh_1_1SlideListener.html" title=" " alt="" coords="517,213,648,239"/>
+<area shape="rect" href="classCanvasBehavior.html" title=" " alt="" coords="718,86,846,113"/>
+<area shape="rect" href="classSh_1_1Clickable.html" title=" " alt="" coords="729,137,835,163"/>
+<area shape="rect" href="classSh_1_1FrameScrollable.html" title=" " alt="" coords="707,187,857,214"/>
+<area shape="rect" href="classSh_1_1ButtonBehavior.html" title=" " alt="" coords="922,5,1069,47"/>
+<area shape="rect" href="classSh_1_1CheckboxBehavior.html" title=" " alt="" coords="911,71,1079,112"/>
+<area shape="rect" href="classSh_1_1Holdable.html" title=" " alt="" coords="943,137,1047,163"/>
+<area shape="rect" href="classSh_1_1ScrollbarBackground.html" title=" " alt="" coords="905,187,1085,214"/>
+<area shape="rect" href="classSh_1_1TextField.html" title=" " alt="" coords="943,238,1047,265"/>
+<area shape="rect" href="classSh_1_1Draggable.html" title=" " alt="" coords="1150,111,1263,138"/>
+<area shape="rect" href="classSh_1_1ScrollbarButton.html" title=" " alt="" coords="1133,162,1280,189"/>
+<area shape="rect" href="classSh_1_1Dialog.html" title=" " alt="" coords="1361,61,1449,87"/>
+<area shape="rect" href="classSh_1_1FrameDraggable.html" title=" " alt="" coords="1328,111,1483,138"/>
+<area shape="rect" href="classSh_1_1Slidable.html" title=" " alt="" coords="1356,162,1455,189"/>
+<area shape="rect" href="classSh_1_1Slider2D.html" title=" " alt="" coords="1531,111,1733,138"/>
+<area shape="rect" href="classSh_1_1ScrollbarSlider.html" title=" " alt="" coords="1562,162,1702,189"/>
+<area shape="rect" href="classSh_1_1Slider.html" title=" " alt="" coords="1549,213,1715,239"/>
+<area shape="rect" href="classSh_1_1FrameSlidable.html" title=" " alt="" coords="713,238,851,265"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" usemap="#aShishGL_1_1Segment2_3_01double_01_4" alt=""/>
-<map name="ShishGL_1_1Segment2_3_01double_01_4" id="aShishGL_1_1Segment2_3_01double_01_4">
-<area shape="rect" href="structShishGL_1_1Segment2.html" title=" " alt="" coords="5,5,164,47"/>
+<tr><td><img src="inherit_graph_16.png" border="0" usemap="#aSh_1_1LogSystem" alt=""/>
+<map name="Sh_1_1LogSystem" id="aSh_1_1LogSystem">
+<area shape="rect" href="classSh_1_1LogSystem.html" title=" " alt="" coords="5,5,124,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" usemap="#aShishGL_1_1Segment2_3_01T_01_4" alt=""/>
-<map name="ShishGL_1_1Segment2_3_01T_01_4" id="aShishGL_1_1Segment2_3_01T_01_4">
-<area shape="rect" href="structShishGL_1_1Segment2.html" title=" " alt="" coords="5,5,192,32"/>
+<tr><td><img src="inherit_graph_17.png" border="0" usemap="#aSh_1_1Mouse" alt=""/>
+<map name="Sh_1_1Mouse" id="aSh_1_1Mouse">
+<area shape="rect" href="classSh_1_1Mouse.html" title=" " alt="" coords="5,5,95,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" usemap="#aShishGL_1_1SfmlPlatform_1_1SfmlContext" alt=""/>
-<map name="ShishGL_1_1SfmlPlatform_1_1SfmlContext" id="aShishGL_1_1SfmlPlatform_1_1SfmlContext">
-<area shape="rect" title=" " alt="" coords="5,13,83,39"/>
-<area shape="rect" href="classShishGL_1_1SfmlPlatform_1_1SfmlContext.html" title=" " alt="" coords="131,5,299,47"/>
+<tr><td><img src="inherit_graph_18.png" border="0" usemap="#aSh_1_1RenderSystem" alt=""/>
+<map name="Sh_1_1RenderSystem" id="aSh_1_1RenderSystem">
+<area shape="rect" href="classSh_1_1RenderSystem.html" title=" " alt="" coords="5,5,147,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" usemap="#aShishGL_1_1Shape2D" alt=""/>
-<map name="ShishGL_1_1Shape2D" id="aShishGL_1_1Shape2D">
-<area shape="rect" href="classShishGL_1_1Shape2D.html" title=" " alt="" coords="5,31,145,57"/>
-<area shape="rect" href="classShishGL_1_1CircleShape.html" title=" " alt="" coords="207,5,366,32"/>
-<area shape="rect" href="classShishGL_1_1RectangleShape.html" title=" " alt="" coords="193,56,380,83"/>
+<tr><td><img src="inherit_graph_19.png" border="0" usemap="#aSh_1_1ResourceManager" alt=""/>
+<map name="Sh_1_1ResourceManager" id="aSh_1_1ResourceManager">
+<area shape="rect" href="classSh_1_1ResourceManager.html" title=" " alt="" coords="5,5,168,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" usemap="#aShishGL_1_1Style" alt=""/>
-<map name="ShishGL_1_1Style" id="aShishGL_1_1Style">
-<area shape="rect" href="classShishGL_1_1Style.html" title=" " alt="" coords="5,81,120,108"/>
-<area shape="rect" href="classShishGL_1_1Bordered.html" title=" " alt="" coords="172,5,313,32"/>
-<area shape="rect" href="classShishGL_1_1ColorFill.html" title=" " alt="" coords="175,56,310,83"/>
-<area shape="rect" href="classShishGL_1_1StylePack.html" title=" " alt="" coords="170,107,315,133"/>
-<area shape="rect" href="classShishGL_1_1TextureFill.html" title=" " alt="" coords="168,157,317,184"/>
+<tr><td><img src="inherit_graph_20.png" border="0" usemap="#aSh_1_1ResourceManager_1_1Resource" alt=""/>
+<map name="Sh_1_1ResourceManager_1_1Resource" id="aSh_1_1ResourceManager_1_1Resource">
+<area shape="rect" href="structSh_1_1ResourceManager_1_1Resource.html" title=" " alt="" coords="5,5,168,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_21.png" border="0" usemap="#aShishGL_1_1SubscriptionManager" alt=""/>
-<map name="ShishGL_1_1SubscriptionManager" id="aShishGL_1_1SubscriptionManager">
-<area shape="rect" href="classShishGL_1_1SubscriptionManager.html" title=" " alt="" coords="5,5,224,32"/>
+<tr><td><img src="inherit_graph_21.png" border="0" usemap="#aSh_1_1Segment2_3_01double_01_4" alt=""/>
+<map name="Sh_1_1Segment2_3_01double_01_4" id="aSh_1_1Segment2_3_01double_01_4">
+<area shape="rect" href="structSh_1_1Segment2.html" title=" " alt="" coords="5,5,192,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_22.png" border="0" usemap="#aShishGL_1_1Text" alt=""/>
-<map name="ShishGL_1_1Text" id="aShishGL_1_1Text">
-<area shape="rect" href="classShishGL_1_1Text.html" title=" " alt="" coords="5,5,115,32"/>
+<tr><td><img src="inherit_graph_22.png" border="0" usemap="#aSh_1_1Segment2_3_01T_01_4" alt=""/>
+<map name="Sh_1_1Segment2_3_01T_01_4" id="aSh_1_1Segment2_3_01T_01_4">
+<area shape="rect" href="structSh_1_1Segment2.html" title=" " alt="" coords="5,5,156,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_23.png" border="0" usemap="#aShishGL_1_1Timer" alt=""/>
-<map name="ShishGL_1_1Timer" id="aShishGL_1_1Timer">
-<area shape="rect" href="classShishGL_1_1Timer.html" title=" " alt="" coords="5,5,125,32"/>
+<tr><td><img src="inherit_graph_23.png" border="0" usemap="#aSh_1_1SfmlPlatform_1_1SfmlContext" alt=""/>
+<map name="Sh_1_1SfmlPlatform_1_1SfmlContext" id="aSh_1_1SfmlPlatform_1_1SfmlContext">
+<area shape="rect" title=" " alt="" coords="5,5,83,32"/>
+<area shape="rect" href="classSh_1_1SfmlPlatform_1_1SfmlContext.html" title=" " alt="" coords="131,5,352,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_24.png" border="0" usemap="#aShishGL_1_1Vector2_3_01double_01_4" alt=""/>
-<map name="ShishGL_1_1Vector2_3_01double_01_4" id="aShishGL_1_1Vector2_3_01double_01_4">
-<area shape="rect" href="structShishGL_1_1Vector2.html" title=" " alt="" coords="5,5,211,32"/>
+<tr><td><img src="inherit_graph_24.png" border="0" usemap="#aSh_1_1Shape2D" alt=""/>
+<map name="Sh_1_1Shape2D" id="aSh_1_1Shape2D">
+<area shape="rect" href="classSh_1_1Shape2D.html" title=" " alt="" coords="5,56,109,83"/>
+<area shape="rect" href="classSh_1_1CircleShape.html" title=" " alt="" coords="171,5,294,32"/>
+<area shape="rect" href="classSh_1_1RectangleShape.html" title=" " alt="" coords="157,56,308,83"/>
+<area shape="rect" href="classSh_1_1TextShape.html" title=" " alt="" coords="176,107,289,133"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_25.png" border="0" usemap="#aShishGL_1_1Vector2_3_01size__t_01_4" alt=""/>
-<map name="ShishGL_1_1Vector2_3_01size__t_01_4" id="aShishGL_1_1Vector2_3_01size__t_01_4">
-<area shape="rect" href="structShishGL_1_1Vector2.html" title=" " alt="" coords="5,5,204,32"/>
+<tr><td><img src="inherit_graph_25.png" border="0" usemap="#aSh_1_1Style" alt=""/>
+<map name="Sh_1_1Style" id="aSh_1_1Style">
+<area shape="rect" href="classSh_1_1Style.html" title=" " alt="" coords="5,132,84,159"/>
+<area shape="rect" href="classSh_1_1Bordered.html" title=" " alt="" coords="136,5,241,32"/>
+<area shape="rect" href="classSh_1_1ColorFill.html" title=" " alt="" coords="139,56,238,83"/>
+<area shape="rect" href="classSh_1_1Font.html" title=" " alt="" coords="151,107,226,133"/>
+<area shape="rect" href="classSh_1_1FontSize.html" title=" " alt="" coords="138,157,239,184"/>
+<area shape="rect" href="classSh_1_1StylePack.html" title=" " alt="" coords="134,208,243,235"/>
+<area shape="rect" href="classSh_1_1TextureFill.html" title=" " alt="" coords="132,259,245,285"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_26.png" border="0" usemap="#aShishGL_1_1Vector2_3_01T_01_4" alt=""/>
-<map name="ShishGL_1_1Vector2_3_01T_01_4" id="aShishGL_1_1Vector2_3_01T_01_4">
-<area shape="rect" href="structShishGL_1_1Vector2.html" title=" " alt="" coords="5,5,175,32"/>
+<tr><td><img src="inherit_graph_26.png" border="0" usemap="#aSh_1_1SubscriptionManager" alt=""/>
+<map name="Sh_1_1SubscriptionManager" id="aSh_1_1SubscriptionManager">
+<area shape="rect" href="classSh_1_1SubscriptionManager.html" title=" " alt="" coords="5,5,188,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_27.png" border="0" usemap="#aShishGL_1_1Viewport" alt=""/>
-<map name="ShishGL_1_1Viewport" id="aShishGL_1_1Viewport">
-<area shape="rect" href="structShishGL_1_1Viewport.html" title=" " alt="" coords="5,5,145,32"/>
+<tr><td><img src="inherit_graph_27.png" border="0" usemap="#aSh_1_1Timer" alt=""/>
+<map name="Sh_1_1Timer" id="aSh_1_1Timer">
+<area shape="rect" href="classSh_1_1Timer.html" title=" " alt="" coords="5,5,89,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_28.png" border="0" usemap="#aShishGL_1_1Window" alt=""/>
-<map name="ShishGL_1_1Window" id="aShishGL_1_1Window">
-<area shape="rect" href="classShishGL_1_1Window.html" title=" " alt="" coords="5,31,140,57"/>
-<area shape="rect" href="classShishGL_1_1TextBuffer.html" title=" " alt="" coords="188,5,336,32"/>
-<area shape="rect" href="classShishGL_1_1UIWindow.html" title=" " alt="" coords="188,56,336,83"/>
-<area shape="rect" href="classShishGL_1_1CursorLocator.html" title=" " alt="" coords="384,31,556,57"/>
-<area shape="rect" href="classShishGL_1_1UICanvas.html" title=" " alt="" coords="398,81,542,108"/>
+<tr><td><img src="inherit_graph_28.png" border="0" usemap="#aSh_1_1Vector2_3_01double_01_4" alt=""/>
+<map name="Sh_1_1Vector2_3_01double_01_4" id="aSh_1_1Vector2_3_01double_01_4">
+<area shape="rect" href="structSh_1_1Vector2.html" title=" " alt="" coords="5,5,175,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_29.png" border="0" usemap="#aShishGL_1_1WindowManager" alt=""/>
-<map name="ShishGL_1_1WindowManager" id="aShishGL_1_1WindowManager">
-<area shape="rect" href="classShishGL_1_1WindowManager.html" title=" " alt="" coords="5,5,196,32"/>
+<tr><td><img src="inherit_graph_29.png" border="0" usemap="#aSh_1_1Vector2_3_01size__t_01_4" alt=""/>
+<map name="Sh_1_1Vector2_3_01size__t_01_4" id="aSh_1_1Vector2_3_01size__t_01_4">
+<area shape="rect" href="structSh_1_1Vector2.html" title=" " alt="" coords="5,5,168,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_30.png" border="0" usemap="#aSh_1_1Vector2_3_01T_01_4" alt=""/>
+<map name="Sh_1_1Vector2_3_01T_01_4" id="aSh_1_1Vector2_3_01T_01_4">
+<area shape="rect" href="structSh_1_1Vector2.html" title=" " alt="" coords="5,5,139,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_31.png" border="0" usemap="#aSh_1_1Vector3_3_01double_01_4" alt=""/>
+<map name="Sh_1_1Vector3_3_01double_01_4" id="aSh_1_1Vector3_3_01double_01_4">
+<area shape="rect" href="structSh_1_1Vector3.html" title=" " alt="" coords="5,5,175,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_32.png" border="0" usemap="#aSh_1_1Vector3_3_01T_01_4" alt=""/>
+<map name="Sh_1_1Vector3_3_01T_01_4" id="aSh_1_1Vector3_3_01T_01_4">
+<area shape="rect" href="structSh_1_1Vector3.html" title=" " alt="" coords="5,5,139,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_33.png" border="0" usemap="#aSh_1_1Window" alt=""/>
+<map name="Sh_1_1Window" id="aSh_1_1Window">
+<area shape="rect" href="classSh_1_1Window.html" title=" " alt="" coords="5,183,104,209"/>
+<area shape="rect" href="classSh_1_1UIWindow.html" title=" " alt="" coords="152,183,264,209"/>
+<area shape="rect" href="classSh_1_1UIButton.html" title=" " alt="" coords="325,5,515,32"/>
+<area shape="rect" href="classSh_1_1UICanvas.html" title=" " alt="" coords="366,56,474,83"/>
+<area shape="rect" href="classSh_1_1UICheckbox.html" title=" " alt="" coords="319,107,521,133"/>
+<area shape="rect" href="classSh_1_1UIFrame.html" title=" " alt="" coords="369,157,471,184"/>
+<area shape="rect" href="classSh_1_1UILabel.html" title=" " alt="" coords="373,208,467,235"/>
+<area shape="rect" href="classSh_1_1UIScrollbar.html" title=" " alt="" coords="361,259,479,285"/>
+<area shape="rect" href="classSh_1_1UISlider.html" title=" " alt="" coords="330,309,510,336"/>
+<area shape="rect" href="classSh_1_1UISlider2D.html" title=" " alt="" coords="312,360,528,387"/>
+<area shape="rect" href="classSphereCanvas.html" title=" " alt="" coords="579,56,693,83"/>
+<area shape="rect" href="classSh_1_1FpsLabel.html" title=" " alt="" coords="584,183,688,209"/>
+<area shape="rect" href="classSh_1_1UITextInput.html" title=" " alt="" coords="576,233,696,260"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_34.png" border="0" usemap="#aSh_1_1WindowManager" alt=""/>
+<map name="Sh_1_1WindowManager" id="aSh_1_1WindowManager">
+<area shape="rect" href="classSh_1_1WindowManager.html" title=" " alt="" coords="5,5,160,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_35.png" border="0" usemap="#aShishGL_1_1CursorLocator" alt=""/>
+<map name="ShishGL_1_1CursorLocator" id="aShishGL_1_1CursorLocator">
+<area shape="rect" title=" " alt="" coords="5,5,93,32"/>
+<area shape="rect" href="classShishGL_1_1CursorLocator.html" title=" " alt="" coords="141,5,313,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_36.png" border="0" usemap="#aTogglerDummy" alt=""/>
+<map name="TogglerDummy" id="aTogglerDummy">
+<area shape="rect" href="classTogglerDummy.html" title=" " alt="" coords="5,5,127,32"/>
 </map>
 </td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

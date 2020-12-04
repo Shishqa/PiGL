@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('RenderSystem_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RenderSystem.hpp</div>  </div>
@@ -77,46 +103,50 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IPlatform_8hpp.html">IPlatform.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classShishGL_1_1RenderSystem.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1RenderSystem.html">RenderSystem</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classSh_1_1RenderSystem.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1RenderSystem.html">RenderSystem</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1RenderSystem.html#a5471bc3fe9be11e2cd3e214e362d338d">init</a>(<span class="keywordtype">int</span>* argc_ptr, <span class="keywordtype">char</span>* argv[]);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1RenderSystem.html#a5471bc3fe9be11e2cd3e214e362d338d">init</a>(<span class="keywordtype">int</span>* argc_ptr, <span class="keywordtype">char</span>* argv[]);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">terminate</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">terminate</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1RenderSystem.html#a2c5725e393ea81a46c79645cd264b9a8">isInitialized</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1RenderSystem.html#a2c5725e393ea81a46c79645cd264b9a8">isInitialized</a>();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">static</span> <a class="code" href="classShishGL_1_1IPlatform.html">IPlatform</a>&amp; <a class="code" href="classShishGL_1_1RenderSystem.html#a879a37d5c22881347d7cfd3962273cc4">PLATFORM</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1IPlatform.html">IPlatform</a>&amp; <a class="code" href="classSh_1_1RenderSystem.html#a62340e0124eec9a5caefdce7bc022f5a">Platform</a>();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> is_initialized;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <a class="code" href="classShishGL_1_1IPlatform.html">IPlatform</a>* active_platform;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1IPlatform.html">IPlatform</a>* active_platform;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classShishGL_1_1IPlatform.html">IPlatform</a>&amp; <a class="code" href="namespaceShishGL.html#aa41d4de336dfee42e71670c484ef9ba5">PLATFORM</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classSh_1_1IPlatform.html">IPlatform</a>&amp; <a class="code" href="namespaceSh.html#a8bf478f3c252e3311115b2a14bba5d7d">PLATFORM</a>();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif //SHISHGL_RENDER_SYSTEM_HPP</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceShishGL_html_aa41d4de336dfee42e71670c484ef9ba5"><div class="ttname"><a href="namespaceShishGL.html#aa41d4de336dfee42e71670c484ef9ba5">ShishGL::PLATFORM</a></div><div class="ttdeci">IPlatform &amp; PLATFORM()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:32</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html"><div class="ttname"><a href="classShishGL_1_1IPlatform.html">ShishGL::IPlatform</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:14</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html_ad366270331b9d5705e29e92c6561e6da"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">ShishGL::RenderSystem::terminate</a></div><div class="ttdeci">static bool terminate()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:67</div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html">ShishGL::RenderSystem</a></div><div class="ttdef"><b>Definition:</b> RenderSystem.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html_a879a37d5c22881347d7cfd3962273cc4"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html#a879a37d5c22881347d7cfd3962273cc4">ShishGL::RenderSystem::PLATFORM</a></div><div class="ttdeci">static IPlatform &amp; PLATFORM()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:21</div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html_a5471bc3fe9be11e2cd3e214e362d338d"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html#a5471bc3fe9be11e2cd3e214e362d338d">ShishGL::RenderSystem::init</a></div><div class="ttdeci">static bool init(int *argc_ptr, char *argv[])</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:44</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1RenderSystem_html"><div class="ttname"><a href="classSh_1_1RenderSystem.html">Sh::RenderSystem</a></div><div class="ttdef"><b>Definition:</b> RenderSystem.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1RenderSystem_html_ad366270331b9d5705e29e92c6561e6da"><div class="ttname"><a href="classSh_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">Sh::RenderSystem::terminate</a></div><div class="ttdeci">static bool terminate()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:67</div></div>
+<div class="ttc" id="anamespaceSh_html_a8bf478f3c252e3311115b2a14bba5d7d"><div class="ttname"><a href="namespaceSh.html#a8bf478f3c252e3311115b2a14bba5d7d">Sh::PLATFORM</a></div><div class="ttdeci">IPlatform &amp; PLATFORM()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:32</div></div>
+<div class="ttc" id="aclassSh_1_1RenderSystem_html_a2c5725e393ea81a46c79645cd264b9a8"><div class="ttname"><a href="classSh_1_1RenderSystem.html#a2c5725e393ea81a46c79645cd264b9a8">Sh::RenderSystem::isInitialized</a></div><div class="ttdeci">static bool isInitialized()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:38</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html"><div class="ttname"><a href="classSh_1_1IPlatform.html">Sh::IPlatform</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:13</div></div>
+<div class="ttc" id="aclassSh_1_1RenderSystem_html_a62340e0124eec9a5caefdce7bc022f5a"><div class="ttname"><a href="classSh_1_1RenderSystem.html#a62340e0124eec9a5caefdce7bc022f5a">Sh::RenderSystem::Platform</a></div><div class="ttdeci">static IPlatform &amp; Platform()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:21</div></div>
 <div class="ttc" id="aIPlatform_8hpp_html"><div class="ttname"><a href="IPlatform_8hpp.html">IPlatform.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html_a2c5725e393ea81a46c79645cd264b9a8"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html#a2c5725e393ea81a46c79645cd264b9a8">ShishGL::RenderSystem::isInitialized</a></div><div class="ttdeci">static bool isInitialized()</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:38</div></div>
+<div class="ttc" id="aclassSh_1_1RenderSystem_html_a5471bc3fe9be11e2cd3e214e362d338d"><div class="ttname"><a href="classSh_1_1RenderSystem.html#a5471bc3fe9be11e2cd3e214e362d338d">Sh::RenderSystem::init</a></div><div class="ttdeci">static bool init(int *argc_ptr, char *argv[])</div><div class="ttdef"><b>Definition:</b> RenderSystem.cpp:44</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="RenderSystem_8hpp.html">RenderSystem.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

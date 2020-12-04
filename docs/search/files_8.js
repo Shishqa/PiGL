@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['platform_2ecpp_718',['Platform.cpp',['../SfmlPlatform_2Platform_8cpp.html',1,'(Global Namespace)'],['../XPlatform_2Platform_8cpp.html',1,'(Global Namespace)']]],
-  ['platform_2ehpp_719',['Platform.hpp',['../SfmlPlatform_2Platform_8hpp.html',1,'(Global Namespace)'],['../XPlatform_2Platform_8hpp.html',1,'(Global Namespace)']]],
-  ['platformlistener_2ecpp_720',['PlatformListener.cpp',['../PlatformListener_8cpp.html',1,'']]],
-  ['platformlistener_2ehpp_721',['PlatformListener.hpp',['../PlatformListener_8hpp.html',1,'']]],
-  ['prettify_5fcolors_2epy_722',['prettify_colors.py',['../prettify__colors_8py.html',1,'']]]
+  ['listener_2ecpp_796',['Listener.cpp',['../Listener_8cpp.html',1,'']]],
+  ['listener_2ehpp_797',['Listener.hpp',['../Listener_8hpp.html',1,'']]],
+  ['logsystem_2ecpp_798',['LogSystem.cpp',['../LogSystem_8cpp.html',1,'']]],
+  ['logsystem_2ehpp_799',['LogSystem.hpp',['../LogSystem_8hpp.html',1,'']]]
 ];

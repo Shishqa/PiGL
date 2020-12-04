@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('KeyboardEvent_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li><li class="navelem"><a class="el" href="dir_a21acd2c75a5e3ea456ed71ad31372b0.html">Events</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">KeyboardEvent.hpp</div>  </div>
@@ -79,37 +105,37 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Keyboard_8hpp.html">Keyboard.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PlatformListener_8hpp.html">PlatformListener.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1KeyboardEvent.html">KeyboardEvent</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Event.html">Event</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1KeyboardEvent.html">KeyboardEvent</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Event.html">Event</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classShishGL_1_1KeyboardEvent.html#afce6b902f30641462c0a7897a9e60ed7">KeyboardEvent</a>(<a class="code" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2">Keyboard::Key</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">key</a>,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                      <a class="code" href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374a">Keyboard::KeyState</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">state</a>,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                      <a class="code" href="classShishGL_1_1Keyboard.html#a7d4104364e7d3a57004cdbac97b7faf5">Keyboard::ModifierMask</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">modifiers</a>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classSh_1_1KeyboardEvent.html#afce6b902f30641462c0a7897a9e60ed7">KeyboardEvent</a>(<a class="code" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661c">Keyboard::Key</a> <a class="code" href="classSh_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">key</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                      <a class="code" href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224a">Keyboard::KeyState</a> <a class="code" href="classSh_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">state</a>,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                      <a class="code" href="classSh_1_1Keyboard.html#aa81fb9b99228b312022b3b2d662d8b4e">Keyboard::ModifierMask</a> <a class="code" href="classSh_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">modifiers</a>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html#a24654a50e1a3a3d82993499b280d126f">   18</a></span>&#160;        <a class="code" href="classShishGL_1_1KeyboardEvent.html#a24654a50e1a3a3d82993499b280d126f">~KeyboardEvent</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html#a7b8496f4dd9dd0922dd289648b5bf4f9">   18</a></span>&#160;        <a class="code" href="classSh_1_1KeyboardEvent.html#a7b8496f4dd9dd0922dd289648b5bf4f9">~KeyboardEvent</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html#ad56a5e4c5264410784b753356a9fae8f">   20</a></span>&#160;        <a class="code" href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">EventMask</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#ad56a5e4c5264410784b753356a9fae8f">mask</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html#a3508b14564a8045eda48e28849726596">   20</a></span>&#160;        <a class="code" href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">EventMask</a> <a class="code" href="classSh_1_1KeyboardEvent.html#a3508b14564a8045eda48e28849726596">mask</a>()<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> KEYBOARD;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2">Keyboard::Key</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">key</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661c">Keyboard::Key</a> <a class="code" href="classSh_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">key</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374a">Keyboard::KeyState</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">state</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224a">Keyboard::KeyState</a> <a class="code" href="classSh_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">state</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classShishGL_1_1Keyboard.html#a7d4104364e7d3a57004cdbac97b7faf5">Keyboard::ModifierMask</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">modifiers</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#aa81fb9b99228b312022b3b2d662d8b4e">Keyboard::ModifierMask</a> <a class="code" href="classSh_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">modifiers</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">happen</a>(<a class="code" href="classShishGL_1_1Listener.html">Listener</a>* listener) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">happen</a>(<a class="code" href="classSh_1_1Listener.html">Listener</a>* listener) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html#a98016bedbb6727525888be43c05b468e">   37</a></span>&#160;        <a class="code" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2">Keyboard::Key</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#a98016bedbb6727525888be43c05b468e">k_key</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html#affd6973687072fc08a919b480424635f">   38</a></span>&#160;        <a class="code" href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374a">Keyboard::KeyState</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#affd6973687072fc08a919b480424635f">k_state</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classShishGL_1_1KeyboardEvent.html#af371e92d1a7f354b98796ae95c3810ad">   39</a></span>&#160;        <a class="code" href="classShishGL_1_1Keyboard.html#a7d4104364e7d3a57004cdbac97b7faf5">Keyboard::ModifierMask</a> <a class="code" href="classShishGL_1_1KeyboardEvent.html#af371e92d1a7f354b98796ae95c3810ad">k_modifiers</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html#a511d692715d0615f880c193364d4f6be">   37</a></span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661c">Keyboard::Key</a> <a class="code" href="classSh_1_1KeyboardEvent.html#a511d692715d0615f880c193364d4f6be">k_key</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html#a164a7508c85529e01f7047b5fc026c17">   38</a></span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224a">Keyboard::KeyState</a> <a class="code" href="classSh_1_1KeyboardEvent.html#a164a7508c85529e01f7047b5fc026c17">k_state</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classSh_1_1KeyboardEvent.html#af9bb7e3c719528418d78561bdc300bb1">   39</a></span>&#160;        <a class="code" href="classSh_1_1Keyboard.html#aa81fb9b99228b312022b3b2d662d8b4e">Keyboard::ModifierMask</a> <a class="code" href="classSh_1_1KeyboardEvent.html#af9bb7e3c719528418d78561bdc300bb1">k_modifiers</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
@@ -118,30 +144,34 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif //SHISHGL_KEYBOARD_EVENT_HPP</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1Keyboard_html_a562377e2f2f486aa2e6df0dcc02e374a"><div class="ttname"><a href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374a">ShishGL::Keyboard::KeyState</a></div><div class="ttdeci">KeyState</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:12</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_ac96950e46ea2d114212bcc121f76b091"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">ShishGL::KeyboardEvent::happen</a></div><div class="ttdeci">bool happen(Listener *listener) override</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:18</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_ae7bec2fbb80fd08752bce652086d897f"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">ShishGL::KeyboardEvent::key</a></div><div class="ttdeci">Keyboard::Key key() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:24</div></div>
-<div class="ttc" id="aclassShishGL_1_1Listener_html"><div class="ttname"><a href="classShishGL_1_1Listener.html">ShishGL::Listener</a></div><div class="ttdef"><b>Definition:</b> Listener.hpp:7</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_aae58e5063176c9f73dfd99a33eca6ffd"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">ShishGL::KeyboardEvent::modifiers</a></div><div class="ttdeci">Keyboard::ModifierMask modifiers() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:36</div></div>
-<div class="ttc" id="anamespaceShishGL_html_a628fd76d54ed733de32b03ec3f502f23"><div class="ttname"><a href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">ShishGL::EventMask</a></div><div class="ttdeci">uint64_t EventMask</div><div class="ttdef"><b>Definition:</b> Event.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_a24654a50e1a3a3d82993499b280d126f"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#a24654a50e1a3a3d82993499b280d126f">ShishGL::KeyboardEvent::~KeyboardEvent</a></div><div class="ttdeci">~KeyboardEvent() override=default</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_aae58e5063176c9f73dfd99a33eca6ffd"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#aae58e5063176c9f73dfd99a33eca6ffd">Sh::KeyboardEvent::modifiers</a></div><div class="ttdeci">Keyboard::ModifierMask modifiers() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:36</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_a511d692715d0615f880c193364d4f6be"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#a511d692715d0615f880c193364d4f6be">Sh::KeyboardEvent::k_key</a></div><div class="ttdeci">Keyboard::Key k_key</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:37</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_a3562374d88f5a34b481896ebb0a4cb84"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">Sh::KeyboardEvent::state</a></div><div class="ttdeci">Keyboard::KeyState state() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:30</div></div>
+<div class="ttc" id="aclassSh_1_1Keyboard_html_a838be056eef07967c49043e2733d661c"><div class="ttname"><a href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661c">Sh::Keyboard::Key</a></div><div class="ttdeci">Key</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:28</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_a3508b14564a8045eda48e28849726596"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#a3508b14564a8045eda48e28849726596">Sh::KeyboardEvent::mask</a></div><div class="ttdeci">EventMask mask() override</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:20</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_afce6b902f30641462c0a7897a9e60ed7"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#afce6b902f30641462c0a7897a9e60ed7">Sh::KeyboardEvent::KeyboardEvent</a></div><div class="ttdeci">KeyboardEvent(Keyboard::Key key, Keyboard::KeyState state, Keyboard::ModifierMask modifiers)</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:8</div></div>
+<div class="ttc" id="aclassSh_1_1Keyboard_html_aa81fb9b99228b312022b3b2d662d8b4e"><div class="ttname"><a href="classSh_1_1Keyboard.html#aa81fb9b99228b312022b3b2d662d8b4e">Sh::Keyboard::ModifierMask</a></div><div class="ttdeci">uint8_t ModifierMask</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:17</div></div>
 <div class="ttc" id="aEvent_8hpp_html"><div class="ttname"><a href="Event_8hpp.html">Event.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html">ShishGL::KeyboardEvent</a></div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_a98016bedbb6727525888be43c05b468e"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#a98016bedbb6727525888be43c05b468e">ShishGL::KeyboardEvent::k_key</a></div><div class="ttdeci">Keyboard::Key k_key</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:37</div></div>
+<div class="ttc" id="aclassSh_1_1Event_html"><div class="ttname"><a href="classSh_1_1Event.html">Sh::Event</a></div><div class="ttdef"><b>Definition:</b> Event.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_a164a7508c85529e01f7047b5fc026c17"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#a164a7508c85529e01f7047b5fc026c17">Sh::KeyboardEvent::k_state</a></div><div class="ttdeci">Keyboard::KeyState k_state</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:38</div></div>
 <div class="ttc" id="aPlatformListener_8hpp_html"><div class="ttname"><a href="PlatformListener_8hpp.html">PlatformListener.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_a3562374d88f5a34b481896ebb0a4cb84"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#a3562374d88f5a34b481896ebb0a4cb84">ShishGL::KeyboardEvent::state</a></div><div class="ttdeci">Keyboard::KeyState state() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:30</div></div>
-<div class="ttc" id="aclassShishGL_1_1Keyboard_html_a7d4104364e7d3a57004cdbac97b7faf5"><div class="ttname"><a href="classShishGL_1_1Keyboard.html#a7d4104364e7d3a57004cdbac97b7faf5">ShishGL::Keyboard::ModifierMask</a></div><div class="ttdeci">uint8_t ModifierMask</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_ad56a5e4c5264410784b753356a9fae8f"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#ad56a5e4c5264410784b753356a9fae8f">ShishGL::KeyboardEvent::mask</a></div><div class="ttdeci">EventMask mask() override</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:20</div></div>
-<div class="ttc" id="aclassShishGL_1_1Event_html"><div class="ttname"><a href="classShishGL_1_1Event.html">ShishGL::Event</a></div><div class="ttdef"><b>Definition:</b> Event.hpp:26</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_af371e92d1a7f354b98796ae95c3810ad"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#af371e92d1a7f354b98796ae95c3810ad">ShishGL::KeyboardEvent::k_modifiers</a></div><div class="ttdeci">Keyboard::ModifierMask k_modifiers</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:39</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_afce6b902f30641462c0a7897a9e60ed7"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#afce6b902f30641462c0a7897a9e60ed7">ShishGL::KeyboardEvent::KeyboardEvent</a></div><div class="ttdeci">KeyboardEvent(Keyboard::Key key, Keyboard::KeyState state, Keyboard::ModifierMask modifiers)</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:8</div></div>
-<div class="ttc" id="aclassShishGL_1_1Keyboard_html_a132d55a5e7365c2c2515a0e00e7796a2"><div class="ttname"><a href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2">ShishGL::Keyboard::Key</a></div><div class="ttdeci">Key</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:28</div></div>
-<div class="ttc" id="aclassShishGL_1_1KeyboardEvent_html_affd6973687072fc08a919b480424635f"><div class="ttname"><a href="classShishGL_1_1KeyboardEvent.html#affd6973687072fc08a919b480424635f">ShishGL::KeyboardEvent::k_state</a></div><div class="ttdeci">Keyboard::KeyState k_state</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:38</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_af9bb7e3c719528418d78561bdc300bb1"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#af9bb7e3c719528418d78561bdc300bb1">Sh::KeyboardEvent::k_modifiers</a></div><div class="ttdeci">Keyboard::ModifierMask k_modifiers</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:39</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html">Sh::KeyboardEvent</a></div><div class="ttdef"><b>Definition:</b> KeyboardEvent.hpp:11</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_a7b8496f4dd9dd0922dd289648b5bf4f9"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#a7b8496f4dd9dd0922dd289648b5bf4f9">Sh::KeyboardEvent::~KeyboardEvent</a></div><div class="ttdeci">~KeyboardEvent() override=default</div></div>
+<div class="ttc" id="aclassSh_1_1Listener_html"><div class="ttname"><a href="classSh_1_1Listener.html">Sh::Listener</a></div><div class="ttdef"><b>Definition:</b> Listener.hpp:7</div></div>
+<div class="ttc" id="aclassSh_1_1Keyboard_html_a15082a8503cdd9f52e34bdd120ff224a"><div class="ttname"><a href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224a">Sh::Keyboard::KeyState</a></div><div class="ttdeci">KeyState</div><div class="ttdef"><b>Definition:</b> Keyboard.hpp:12</div></div>
+<div class="ttc" id="anamespaceSh_html_a9beeec1e2abaf6654301d0e9ea1bc802"><div class="ttname"><a href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">Sh::EventMask</a></div><div class="ttdeci">uint64_t EventMask</div><div class="ttdef"><b>Definition:</b> Event.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_ac96950e46ea2d114212bcc121f76b091"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">Sh::KeyboardEvent::happen</a></div><div class="ttdeci">bool happen(Listener *listener) override</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:18</div></div>
+<div class="ttc" id="aclassSh_1_1KeyboardEvent_html_ae7bec2fbb80fd08752bce652086d897f"><div class="ttname"><a href="classSh_1_1KeyboardEvent.html#ae7bec2fbb80fd08752bce652086d897f">Sh::KeyboardEvent::key</a></div><div class="ttdeci">Keyboard::Key key() const</div><div class="ttdef"><b>Definition:</b> KeyboardEvent.cpp:24</div></div>
 <div class="ttc" id="aKeyboard_8hpp_html"><div class="ttname"><a href="Keyboard_8hpp.html">Keyboard.hpp</a></div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li><li class="navelem"><a class="el" href="dir_a21acd2c75a5e3ea456ed71ad31372b0.html">Events</a></li><li class="navelem"><a class="el" href="KeyboardEvent_8hpp.html">KeyboardEvent.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

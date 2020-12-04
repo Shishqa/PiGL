@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_1176',['y',['../structShishGL_1_1Vector2.html#a650124f48bf17cf3466d3f9be4a33779',1,'ShishGL::Vector2']]],
-  ['yellow_1177',['YELLOW',['../namespaceShishGL_1_1COLOR.html#aca3877c459dbf99f18fa6df0e4ebfaf0',1,'ShishGL::COLOR']]],
-  ['yellow_5fgreen_1178',['YELLOW_GREEN',['../namespaceShishGL_1_1COLOR.html#af0e208bec17b8023654ff358944d6f27',1,'ShishGL::COLOR']]]
+  ['y_1298',['y',['../structSh_1_1Vector2.html#af137942e3ed7458c0402a2be6c7b6964',1,'Sh::Vector2::y()'],['../structSh_1_1Vector3.html#a06b692f62e49164c074ec8856f0a94dd',1,'Sh::Vector3::y()']]],
+  ['yellow_1299',['YELLOW',['../structSh_1_1Color.html#a7be81f3cdaa03037bb46504083ea8937',1,'Sh::Color']]],
+  ['yellow_5fgreen_1300',['YELLOW_GREEN',['../structSh_1_1Color.html#a5cca93ee548105e2358c857f3b744683',1,'Sh::Color']]]
 ];

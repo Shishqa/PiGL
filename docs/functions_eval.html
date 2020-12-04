@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('functions_eval.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,342 +97,348 @@ $(function() {
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>A
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a2c6a3634273dbd41494209dcf6269c75">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cad9694500658bbc3e0841f7f846a6c596">Sh::Keyboard</a>
 </li>
 <li>ARROW_DOWN
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ad9ad0567484c86bfe6d305387fbb8f3d">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caabd48b3e979d6a5bb57da6b4b43d7dd3">Sh::Keyboard</a>
 </li>
 <li>ARROW_LEFT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2afa6f1f980727e5cbedf1df2bb2a48f96">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca390c36b45bb5b201d7b052a6111ff90e">Sh::Keyboard</a>
 </li>
 <li>ARROW_RIGHT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ac7cb32b3349de3473ba74706852a2699">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caf5abd6e1cc855961c746be9546f399e0">Sh::Keyboard</a>
 </li>
 <li>ARROW_UP
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ab0b25483f29801f415716eef77509ac5">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae7ccfa9a95668c99b08b71e030fabad7">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>B
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a3f6d94cbbee5976912eca670ec65194a">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caf6721f6a1afcc56de2bdcbc2639e8cd7">Sh::Keyboard</a>
 </li>
 <li>BACKSPACE
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a53c01f643ca7e0979526648520042949">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca766d8d42da7c1e6470e60e5813876740">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>C
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2af42a2452dcd6e9341de14d99c5662b17">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca306260b1ff838772985891f206173221">Sh::Keyboard</a>
 </li>
 <li>CAPS_LOCK
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2abe9bd6f7f9c23f22f0d2bdcb7885254f">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca13d1e45bc52df49f412d5b9f649d4065">Sh::Keyboard</a>
+</li>
+<li>CHECKED
+: <a class="el" href="classSh_1_1UICheckbox.html#a3c1a8f61b00e097af1aa957a1d5ee2e3a2e4dbdfc36d622aee3d6252fe713dc13">Sh::UICheckbox&lt; Toggler &gt;</a>
 </li>
 <li>CLICK
-: <a class="el" href="classShishGL_1_1UIWindow.html#a21e852cbc186bac5648c914bebf4344fada8d7e0404cd15edae0cce54198006f4">ShishGL::UIWindow</a>
+: <a class="el" href="classSh_1_1UIWindow.html#a7d44f43f00987ab20ee35b6eded93451a316fa370d15213441d3151e59bc4e073">Sh::UIWindow</a>
 </li>
 <li>COMMA
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aa3d6a277347675703a4d06ff7906ae67">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cafe11ffcd49df328a1908795115c3731b">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>D
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a4a6773f3a79a270d7b8003162fd855a2">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6383249eb4bd794e7fe930ce2e6efba6">Sh::Keyboard</a>
 </li>
 <li>DEL
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a67a9b9ed2a101838b6e8cfb8edc1877a">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae7f1671ad07967ce9e6701d696c50959">Sh::Keyboard</a>
 </li>
 <li>DOT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aa89e774faebd2d1c1e0d386df544bce6">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae826ebd8bdc98cd66361e74bec41e1ef">Sh::Keyboard</a>
 </li>
 <li>DOWN
-: <a class="el" href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374aabc164c24bcc47e1c8f83b3497792e9aa">ShishGL::Keyboard</a>
-, <a class="el" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97">ShishGL::Mouse</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224aad67446dedfa11b5b51012fadb9211d41">Sh::Keyboard</a>
+, <a class="el" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22">Sh::Mouse</a>
 </li>
 </ul>
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>E
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a0a6df2df5f3352031acfcb58b496547a">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca95b91d6b9b415849518c23b8da064950">Sh::Keyboard</a>
 </li>
 <li>ESC
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a5c78b6c5decec0daca1427b04fcb934e">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca5243e81109e796053d77bd4d572628a3">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>F
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aa05ebbb925a8ca6ecaa86af9effad773">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caf8eefeb4620406b0aab52d7be7e8d195">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>G
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ad29c1103630ca39f6424d63ca78178a4">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca352b8a9f18a32be06594ab48e600854a">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>H
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a7562a4d36d89962dc264ddb2155498c0">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca26dc71f956c0b2d256835a5358c9077e">Sh::Keyboard</a>
 </li>
 <li>HOLD
-: <a class="el" href="classShishGL_1_1UIWindow.html#a21e852cbc186bac5648c914bebf4344faa1562c9b42d3f9fa9f8a176059bb524f">ShishGL::UIWindow</a>
+: <a class="el" href="classSh_1_1UIWindow.html#a7d44f43f00987ab20ee35b6eded93451adaa5cb802c4e6ff80a814c7575239193">Sh::UIWindow</a>
 </li>
 <li>HORIZONTAL
-: <a class="el" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fadc76708964957a91a6bc8341ad79c8dc">ShishGL::Mouse</a>
-, <a class="el" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda637036ce6af27509cd6a7ad34f0c3534">ShishGL::Scrollbar</a>
+: <a class="el" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745ab169f3192d3f0ba87729d1ddcd2eebdd">Sh::Mouse</a>
+, <a class="el" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12a28230aea0fced806b31bc0d645a306b0">Sh::UIScrollbar</a>
 </li>
 <li>HOVER
-: <a class="el" href="classShishGL_1_1UIWindow.html#a21e852cbc186bac5648c914bebf4344fa0b9a0ac410f8887cb09535728127489d">ShishGL::UIWindow</a>
+: <a class="el" href="classSh_1_1UIWindow.html#a7d44f43f00987ab20ee35b6eded93451af218e9cdacec8491bad1e8d00df85ff5">Sh::UIWindow</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>I
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ad6a2c7976b0535e06f7ef95701e5cf8b">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caee758097595e8f2c4888b5a9f421ae91">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_j"></a>- j -</h3><ul>
 <li>J
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a6ad845f08ca188e12de6eed5b75c6f22">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca904e7016e9e8996afb661b1d1aa32a5d">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_k"></a>- k -</h3><ul>
 <li>K
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2af8f4eea310d2d9eb129082a2acc9a998">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca049c9d35f9c8e8bae0917fa224398126">Sh::Keyboard</a>
 </li>
 <li>KEY_COUNT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a05b0d3606df8ef909c59ca58ca62cbaa">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caea2bbb0e573ba0769bc586dd71861882">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>L
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aa45842885b9e4a487edbea59690ea841">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca782af240bb49ab840afb739a2fe0126e">Sh::Keyboard</a>
 </li>
 <li>L_ALT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a1da8da7d3769776324cae2e7f392fc8c">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6762d80f2d7902ab0f6679c68142cfe8">Sh::Keyboard</a>
 </li>
 <li>L_CTRL
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a3317566acf554efd7544b6cadbb32aef">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca9845808ccf88374b9918f6db1593809e">Sh::Keyboard</a>
 </li>
 <li>L_SHIFT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a84fae01c6324f1b785fa666096ada2dc">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca8528fab10a19c6196dd833071725592a">Sh::Keyboard</a>
 </li>
 <li>LAST_CONVERTIBLE
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ab655168e01c7aee10bbee4e766591f2e">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cade707efebb62a6eb8e7d121238fbd006">Sh::Keyboard</a>
 </li>
 <li>LEFT
-: <a class="el" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3af2a09591b9326bdc1132b2a4039b1fc1">ShishGL::Mouse</a>
+: <a class="el" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca77c5aa3bfecee0e727e6408114f092fe">Sh::Mouse</a>
 </li>
 <li>LOG_ALREADY_OPENED
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0ad7c09e154943ae1a826c6fce0a56254d">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aaeb2aeefbcf4f2daf4ff65a4b56588a6b">Sh::LogSystem</a>
 </li>
 <li>LOG_CLOSE_ERR
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0ad2a19d6818159c0944756d8f16dd4db0">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aa50320c65e328152bc434cbda2f7e5f6d">Sh::LogSystem</a>
 </li>
 <li>LOG_FILE_BROKEN
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0a62835ec51934bf928ae21eecb0627f6d">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aaa72c42b2ef01d1e227c169f5f4c1ef45">Sh::LogSystem</a>
 </li>
 <li>LOG_OK
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0aaa64deea9d1cb2e27aae31c1a01af7ee">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aab01643a2d441894430db71971a681d17">Sh::LogSystem</a>
 </li>
 <li>LOG_OPEN_ERR
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0aa67ab85e83ad42a433e21b83a27c0a7b">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aa0b33725d89060eb0272d5339925fa5ec">Sh::LogSystem</a>
 </li>
 <li>LOG_PRINT_ERR
-: <a class="el" href="classShishGL_1_1LogSystem.html#ac8de1ce9feadaa0a24fc331f40369ee0aed7d6c47f35c9afeec850168ec5722a7">ShishGL::LogSystem</a>
+: <a class="el" href="classSh_1_1LogSystem.html#aefc1d2a7d58fabceaf91de75ce15c78aa1aaee661f845589567b8d9b2fb79bbbe">Sh::LogSystem</a>
 </li>
 </ul>
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>M
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2afcc7b6734fdd61a4ece037e235fb4898">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca3ba922690b5624b6312cd634201632f4">Sh::Keyboard</a>
 </li>
 <li>META
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a9988bbdacd55418f3fb64bf40cadb547">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca0ce3efa8c8c874892caf66d2fb1a4f8d">Sh::Keyboard</a>
 </li>
 <li>MIDDLE
-: <a class="el" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3a5a069b522096a0050a766511333c4247">ShishGL::Mouse</a>
+: <a class="el" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca01c46cc1098f061c9950db6f2b79ae3e">Sh::Mouse</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>N
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2af9c8dd1317c42183a372a52b9a8ba3bc">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cacc917e38a80d4b8aaa7393109af7a8bc">Sh::Keyboard</a>
 </li>
 <li>NORMAL
-: <a class="el" href="classShishGL_1_1UIWindow.html#a21e852cbc186bac5648c914bebf4344faf07caae9b5e23b27178d241dcf363a26">ShishGL::UIWindow</a>
+: <a class="el" href="classSh_1_1UIWindow.html#a7d44f43f00987ab20ee35b6eded93451a270a33ad421f8de6ce14a10e4c2e0c3a">Sh::UIWindow</a>
 </li>
 <li>Num0
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a42fc95d804e810903c0fa9d677c56e4b">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca10fec9578bed3e4172633a663ada78b1">Sh::Keyboard</a>
 </li>
 <li>Num1
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a59d23b2c544154a747a1094200e49280">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca18e83a63d9dfc4daa346393f3e1c0204">Sh::Keyboard</a>
 </li>
 <li>Num2
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a31f492c5d0e774a2f04119bc8c07a50b">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caf53a5f7d9e0466a8ed558b97cd618710">Sh::Keyboard</a>
 </li>
 <li>Num3
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2af64c1acde23c09fea11e3517dbf59c92">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6c4be2d700e38ba5ccf4414d111fbc9f">Sh::Keyboard</a>
 </li>
 <li>Num4
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a601b207d7c85298b9d11c945230f0e9e">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cadec2a47459d5a11451f0ced5ddf01c95">Sh::Keyboard</a>
 </li>
 <li>Num5
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a907321763299ca15257f4e8ad24c11bf">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6440bbe3707782cb0665fc62de862366">Sh::Keyboard</a>
 </li>
 <li>Num6
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a64558eefc91f98edd71e15f6d7d94a15">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca4ac3a1da65c8ab5d47c260b55a964b0a">Sh::Keyboard</a>
 </li>
 <li>Num7
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a21e68213fd53dd7255f230499bdf72d4">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6164cfc0d5dbf87a0824d1d05bacbee8">Sh::Keyboard</a>
 </li>
 <li>Num8
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a508697a5ea925dca5244e2d33dcb9e79">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca78108a8c96865bb2f6c3c80bc3f359ad">Sh::Keyboard</a>
 </li>
 <li>Num9
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ab8ed5ca1c3f4852d622241d4bde3934a">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae619f3bdf0cfb7d866dc0752dd1bec6a">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>O
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a56fc543ed9bb422aad8c6ad699831419">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cab53f65b479fb4360e159705551e9b6bf">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>P
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a9322a70703bb5e00d7639b7c8635ed99">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca014680d257dc61f7652ddcc47b063cf8">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_q"></a>- q -</h3><ul>
 <li>Q
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ad4e7f2b92c6fdf99d0e4e492b89a14a1">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca60ce03c2d27b64432ccb2726f330ab2f">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>R
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a32f3fa1137afc26c16b55b641571a553">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cacc2e1160a31d036a3dfb7ac7ccc0c44a">Sh::Keyboard</a>
 </li>
 <li>R_ALT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2abbb7dba4d5eb0fdbca0ddcaf90894177">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cabc97de6637a32d11a1a3a4d29a53fb11">Sh::Keyboard</a>
 </li>
 <li>R_CTRL
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a614618bb0308e460763a9368ac86884f">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca405f08bec0873b580bb63472e58e5466">Sh::Keyboard</a>
 </li>
 <li>R_SHIFT
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aef4f715d0cd9dbecce7de89ff15c65ff">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca9fa041eba04b9854776e78a82301cfe7">Sh::Keyboard</a>
 </li>
 <li>RETURN
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a27ed3cd1a698863617eb610458173128">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca90bb11184f62473b43613744047f2de0">Sh::Keyboard</a>
 </li>
 <li>RIGHT
-: <a class="el" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3aae8a59f3f7252ba30d59949d6ced395b">ShishGL::Mouse</a>
+: <a class="el" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca032257e1e6782773cb930b4249b601a6">Sh::Mouse</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>S
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a29c477974f964ea028541dcd780bc4b5">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cafe2ef6933994fa4ecc6fabe3134ab1b0">Sh::Keyboard</a>
 </li>
 <li>SPACE
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a11264eb57b6c15c0323dfebee0671ef7">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca5b5bf3f37abcf10e497fa14219aa0df7">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>T
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a9e3f708e962200314b9dc8d101db6c33">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca2f463154b222882dfd7a41f33ebba414">Sh::Keyboard</a>
 </li>
 <li>TAB
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2afc7f7be81ed2947a071ba1af6c9d871e">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cab4e78f986e7bae0284f042e678440992">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_u"></a>- u -</h3><ul>
 <li>U
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2abff37d37141a38991f104c026ceba4db">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661caba242be7c2c6dd9ff6bbece315027f39">Sh::Keyboard</a>
 </li>
 <li>UNKNOWN
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a193c9b3cfdd22e5b5e10cd19460279f6">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca4ae88210ea41eb66f853efe81e778979">Sh::Keyboard</a>
 </li>
 <li>UP
-: <a class="el" href="classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374aabecc893a07652b978c2b54cc78406658">ShishGL::Keyboard</a>
-, <a class="el" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa9709c0a64decc5caeef7a709c0109531">ShishGL::Mouse</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224aae92ff15f320b6f22f2a44408348cfbb1">Sh::Keyboard</a>
+, <a class="el" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88ac1133f384989bf6d112b17359f740a64">Sh::Mouse</a>
 </li>
 </ul>
 
 
 <h3><a id="index_v"></a>- v -</h3><ul>
 <li>V
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a3318fbed3c4f3919e4659ecc89d62263">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca64829b743034bea8c8f3733b17c91554">Sh::Keyboard</a>
 </li>
 <li>VERTICAL
-: <a class="el" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fab702504469c066390f578986420a4855">ShishGL::Mouse</a>
-, <a class="el" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda2b0b6f01234d8922ebec90be37a97c6f">ShishGL::Scrollbar</a>
+: <a class="el" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745aa9bd0bfdf24d9b5a44b45aa201127924">Sh::Mouse</a>
+, <a class="el" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12ae07a4e044e018393221be2307b3970dc">Sh::UIScrollbar</a>
 </li>
 </ul>
 
 
 <h3><a id="index_w"></a>- w -</h3><ul>
 <li>W
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a4ace6321264452510d269193633b1bb6">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cad2cb896e431620b1fe760aff3af61486">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_x"></a>- x -</h3><ul>
 <li>X
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ac58df1570d2b9f11e831e1d100d88c20">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca46bfd1f722b1bcca2b9b72776a0c9f06">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_y"></a>- y -</h3><ul>
 <li>Y
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ae664d40f2e3d478e4c0b952bafe0c692">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca09a93393c7624f3ca3237fbe549b9468">Sh::Keyboard</a>
 </li>
 </ul>
 
 
 <h3><a id="index_z"></a>- z -</h3><ul>
 <li>Z
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a36fa4edfe63b90e5e1c21dce08f11425">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cab1c57531549c7686ccc09257c72031e4">Sh::Keyboard</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

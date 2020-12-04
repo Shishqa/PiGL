@@ -9,6 +9,7 @@ target_include_directories(ShishGL-Behaviors
 
 target_sources(ShishGL-Behaviors
   PUBLIC
+    ${INCROOT}/Behaviors.hpp
     ${INCROOT}/DefaultBehavior.hpp
     ${INCROOT}/Dialog.hpp
     ${INCROOT}/Clickable.hpp

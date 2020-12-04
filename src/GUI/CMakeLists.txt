@@ -9,6 +9,7 @@ target_include_directories(ShishGL-GUI
 
 target_sources(ShishGL-GUI
   PUBLIC
+    ${INCROOT}/GUI.hpp
     ${INCROOT}/UILabel.hpp
     ${INCROOT}/UIButton.hpp
     ${INCROOT}/UICheckbox.hpp

@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('Style_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Style.hpp</div>  </div>
@@ -78,53 +104,53 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Shape2D_8hpp.html">Shape2D.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Viewport_8hpp.html">Viewport.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Frame_8hpp.html">Frame.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classShishGL_1_1Style.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Style.html">Style</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classSh_1_1Style.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1Style.html">Style</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classShishGL_1_1Style.html#a6e1f344439df48d7918f4580b347621b">   15</a></span>&#160;        <a class="code" href="classShishGL_1_1Style.html#a6e1f344439df48d7918f4580b347621b">Style</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classSh_1_1Style.html#a5e2b479f73bfac79188367ab24150d6d">   15</a></span>&#160;        <a class="code" href="classSh_1_1Style.html#a5e2b479f73bfac79188367ab24150d6d">Style</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classShishGL_1_1Style.html#a77b7912c6cbaffcd46dea2ab1f6e5181">   17</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Style.html#a77b7912c6cbaffcd46dea2ab1f6e5181">apply</a>(<a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; viewport, <span class="keyword">const</span> <a class="code" href="classShishGL_1_1Shape2D.html">Shape2D</a>&amp; shape) = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSh_1_1Style.html#aeb21131927b62d937c6af2af469e8a04">   17</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1Style.html#aeb21131927b62d937c6af2af469e8a04">apply</a>(<a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; viewport, <span class="keyword">const</span> <a class="code" href="classSh_1_1Shape2D.html">Shape2D</a>&amp; shape) = 0;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classShishGL_1_1Style.html#aae5dfeb2dc82f606c9002575718cd33e">   19</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1Style.html#aae5dfeb2dc82f606c9002575718cd33e">~Style</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classSh_1_1Style.html#a76c24347b9e68ffd08fca33e6bfe77f2">   19</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1Style.html#a76c24347b9e68ffd08fca33e6bfe77f2">~Style</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">/*-------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1StylePack.html">StylePack</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Style.html">Style</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1StylePack.html">StylePack</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Style.html">Style</a> {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#a0638c5ed4398b90c8a1ba131a9db3ada">   28</a></span>&#160;        <a class="code" href="classShishGL_1_1StylePack.html#a0638c5ed4398b90c8a1ba131a9db3ada">StylePack</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#aadff99a2ecf8fbf6e7fe112c6abf1c36">   28</a></span>&#160;        <a class="code" href="classSh_1_1StylePack.html#aadff99a2ecf8fbf6e7fe112c6abf1c36">StylePack</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#a5a160ca3d973bbe4d7cdb1c13204b8d8">   31</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1StylePack.html#a5a160ca3d973bbe4d7cdb1c13204b8d8">StylePack</a>(Args&amp;&amp;... args) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">add</a>(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#a29269536fdd0753336f16ded308458c1">   31</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1StylePack.html#a29269536fdd0753336f16ded308458c1">StylePack</a>(Args&amp;&amp;... args) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">add</a>(std::forward&lt;Args&gt;(args)...);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#a08bbe9f261b0fb4a38027384ec23e594">   35</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1StylePack.html#a08bbe9f261b0fb4a38027384ec23e594">apply</a>(<a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; viewport, <span class="keyword">const</span> <a class="code" href="classShishGL_1_1Shape2D.html">Shape2D</a>&amp; shape)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#a2c1a151e1223331e5d2470b12a4685e8">   35</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1StylePack.html#a2c1a151e1223331e5d2470b12a4685e8">apply</a>(<a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; viewport, <span class="keyword">const</span> <a class="code" href="classSh_1_1Shape2D.html">Shape2D</a>&amp; shape)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; style : styles) {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                style-&gt;apply(viewport, shape);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#a9d4dbad066035f9a6bcb7ecc000eb135">   41</a></span>&#160;        <a class="code" href="classShishGL_1_1StylePack.html#a9d4dbad066035f9a6bcb7ecc000eb135">~StylePack</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#a446a504118a4c75a1fd173edd2695f04">   41</a></span>&#160;        <a class="code" href="classSh_1_1StylePack.html#a446a504118a4c75a1fd173edd2695f04">~StylePack</a>()<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; style : styles) {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keyword">delete</span> style;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> SomeStyle, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">add</a>(<span class="keyword">const</span> SomeStyle&amp; style, Args&amp;&amp;... args) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">add</a>(style);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">add</a>(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">add</a>(<span class="keyword">const</span> SomeStyle&amp; style, Args&amp;&amp;... args) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">add</a>(style);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">add</a>(std::forward&lt;Args&gt;(args)...);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> SomeStyle&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classShishGL_1_1StylePack.html#aa7b5501807574faeee748b0483553ebd">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1StylePack.html#aa7b5501807574faeee748b0483553ebd">add</a>(<span class="keyword">const</span> SomeStyle&amp; style) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classSh_1_1StylePack.html#aa950e4f2b50a18527c3e9f4f0c6e8f18">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1StylePack.html#aa950e4f2b50a18527c3e9f4f0c6e8f18">add</a>(<span class="keyword">const</span> SomeStyle&amp; style) {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">auto</span>* new_style = <span class="keyword">new</span> SomeStyle(style);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            styles.emplace_back(new_style);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
@@ -140,25 +166,29 @@ $(function() {
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif //SHISHGL_STYLE_HPP</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_a0638c5ed4398b90c8a1ba131a9db3ada"><div class="ttname"><a href="classShishGL_1_1StylePack.html#a0638c5ed4398b90c8a1ba131a9db3ada">ShishGL::StylePack::StylePack</a></div><div class="ttdeci">StylePack()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1Style_html_a6e1f344439df48d7918f4580b347621b"><div class="ttname"><a href="classShishGL_1_1Style.html#a6e1f344439df48d7918f4580b347621b">ShishGL::Style::Style</a></div><div class="ttdeci">Style()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_aa7b5501807574faeee748b0483553ebd"><div class="ttname"><a href="classShishGL_1_1StylePack.html#aa7b5501807574faeee748b0483553ebd">ShishGL::StylePack::add</a></div><div class="ttdeci">void add(const SomeStyle &amp;style)</div><div class="ttdef"><b>Definition:</b> Style.hpp:54</div></div>
-<div class="ttc" id="aclassShishGL_1_1Style_html"><div class="ttname"><a href="classShishGL_1_1Style.html">ShishGL::Style</a></div><div class="ttdef"><b>Definition:</b> Style.hpp:12</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html"><div class="ttname"><a href="classShishGL_1_1StylePack.html">ShishGL::StylePack</a></div><div class="ttdef"><b>Definition:</b> Style.hpp:25</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1Shape2D_html"><div class="ttname"><a href="classSh_1_1Shape2D.html">Sh::Shape2D</a></div><div class="ttdef"><b>Definition:</b> Shape2D.hpp:12</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_aadff99a2ecf8fbf6e7fe112c6abf1c36"><div class="ttname"><a href="classSh_1_1StylePack.html#aadff99a2ecf8fbf6e7fe112c6abf1c36">Sh::StylePack::StylePack</a></div><div class="ttdeci">StylePack()=default</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_a446a504118a4c75a1fd173edd2695f04"><div class="ttname"><a href="classSh_1_1StylePack.html#a446a504118a4c75a1fd173edd2695f04">Sh::StylePack::~StylePack</a></div><div class="ttdeci">~StylePack() override</div><div class="ttdef"><b>Definition:</b> Style.hpp:41</div></div>
+<div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1Style_html_a5e2b479f73bfac79188367ab24150d6d"><div class="ttname"><a href="classSh_1_1Style.html#a5e2b479f73bfac79188367ab24150d6d">Sh::Style::Style</a></div><div class="ttdeci">Style()=default</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_aa950e4f2b50a18527c3e9f4f0c6e8f18"><div class="ttname"><a href="classSh_1_1StylePack.html#aa950e4f2b50a18527c3e9f4f0c6e8f18">Sh::StylePack::add</a></div><div class="ttdeci">void add(const SomeStyle &amp;style)</div><div class="ttdef"><b>Definition:</b> Style.hpp:54</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html"><div class="ttname"><a href="classSh_1_1StylePack.html">Sh::StylePack</a></div><div class="ttdef"><b>Definition:</b> Style.hpp:25</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_a2f077ef68959e34ea05023daf83fac23"><div class="ttname"><a href="classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23">Sh::StylePack::add</a></div><div class="ttdeci">void add(const SomeStyle &amp;style, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Style.hpp:48</div></div>
 <div class="ttc" id="aShape2D_8hpp_html"><div class="ttname"><a href="Shape2D_8hpp.html">Shape2D.hpp</a></div></div>
-<div class="ttc" id="aViewport_8hpp_html"><div class="ttname"><a href="Viewport_8hpp.html">Viewport.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_a0c766e61375fa87df944c5b56369ac26"><div class="ttname"><a href="classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26">ShishGL::StylePack::add</a></div><div class="ttdeci">void add(const SomeStyle &amp;style, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Style.hpp:48</div></div>
-<div class="ttc" id="aclassShishGL_1_1Style_html_a77b7912c6cbaffcd46dea2ab1f6e5181"><div class="ttname"><a href="classShishGL_1_1Style.html#a77b7912c6cbaffcd46dea2ab1f6e5181">ShishGL::Style::apply</a></div><div class="ttdeci">virtual void apply(Viewport &amp;viewport, const Shape2D &amp;shape)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_a9d4dbad066035f9a6bcb7ecc000eb135"><div class="ttname"><a href="classShishGL_1_1StylePack.html#a9d4dbad066035f9a6bcb7ecc000eb135">ShishGL::StylePack::~StylePack</a></div><div class="ttdeci">~StylePack() override</div><div class="ttdef"><b>Definition:</b> Style.hpp:41</div></div>
-<div class="ttc" id="astructShishGL_1_1Viewport_html"><div class="ttname"><a href="structShishGL_1_1Viewport.html">ShishGL::Viewport</a></div><div class="ttdef"><b>Definition:</b> Viewport.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1Style_html_aae5dfeb2dc82f606c9002575718cd33e"><div class="ttname"><a href="classShishGL_1_1Style.html#aae5dfeb2dc82f606c9002575718cd33e">ShishGL::Style::~Style</a></div><div class="ttdeci">virtual ~Style()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_a5a160ca3d973bbe4d7cdb1c13204b8d8"><div class="ttname"><a href="classShishGL_1_1StylePack.html#a5a160ca3d973bbe4d7cdb1c13204b8d8">ShishGL::StylePack::StylePack</a></div><div class="ttdeci">StylePack(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Style.hpp:31</div></div>
-<div class="ttc" id="aclassShishGL_1_1StylePack_html_a08bbe9f261b0fb4a38027384ec23e594"><div class="ttname"><a href="classShishGL_1_1StylePack.html#a08bbe9f261b0fb4a38027384ec23e594">ShishGL::StylePack::apply</a></div><div class="ttdeci">void apply(Viewport &amp;viewport, const Shape2D &amp;shape) override</div><div class="ttdef"><b>Definition:</b> Style.hpp:35</div></div>
-<div class="ttc" id="aclassShishGL_1_1Shape2D_html"><div class="ttname"><a href="classShishGL_1_1Shape2D.html">ShishGL::Shape2D</a></div><div class="ttdef"><b>Definition:</b> Shape2D.hpp:12</div></div>
+<div class="ttc" id="aclassSh_1_1Style_html"><div class="ttname"><a href="classSh_1_1Style.html">Sh::Style</a></div><div class="ttdef"><b>Definition:</b> Style.hpp:12</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aFrame_8hpp_html"><div class="ttname"><a href="Frame_8hpp.html">Frame.hpp</a></div></div>
+<div class="ttc" id="aclassSh_1_1Style_html_a76c24347b9e68ffd08fca33e6bfe77f2"><div class="ttname"><a href="classSh_1_1Style.html#a76c24347b9e68ffd08fca33e6bfe77f2">Sh::Style::~Style</a></div><div class="ttdeci">virtual ~Style()=default</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_a2c1a151e1223331e5d2470b12a4685e8"><div class="ttname"><a href="classSh_1_1StylePack.html#a2c1a151e1223331e5d2470b12a4685e8">Sh::StylePack::apply</a></div><div class="ttdeci">void apply(Frame &amp;viewport, const Shape2D &amp;shape) override</div><div class="ttdef"><b>Definition:</b> Style.hpp:35</div></div>
+<div class="ttc" id="aclassSh_1_1StylePack_html_a29269536fdd0753336f16ded308458c1"><div class="ttname"><a href="classSh_1_1StylePack.html#a29269536fdd0753336f16ded308458c1">Sh::StylePack::StylePack</a></div><div class="ttdeci">StylePack(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> Style.hpp:31</div></div>
+<div class="ttc" id="aclassSh_1_1Style_html_aeb21131927b62d937c6af2af469e8a04"><div class="ttname"><a href="classSh_1_1Style.html#aeb21131927b62d937c6af2af469e8a04">Sh::Style::apply</a></div><div class="ttdeci">virtual void apply(Frame &amp;viewport, const Shape2D &amp;shape)=0</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li><li class="navelem"><a class="el" href="Style_8hpp.html">Style.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

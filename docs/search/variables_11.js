@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['tan_1161',['TAN',['../namespaceShishGL_1_1COLOR.html#af135e4681fc7270a7e944f27ccc9ddcd',1,'ShishGL::COLOR']]],
-  ['teal_1162',['TEAL',['../namespaceShishGL_1_1COLOR.html#ab5a5f03d05aa8c007274f6643d766fe8',1,'ShishGL::COLOR']]],
-  ['text_1163',['text',['../classShishGL_1_1TextBuffer.html#a1fb3c7098f1820b51111905de4405e44',1,'ShishGL::TextBuffer::text()'],['../namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a',1,'prettify_colors.text()']]],
-  ['text_5flines_1164',['text_lines',['../classShishGL_1_1Text.html#aceab1af3dc1e662fa34576f73c8bbc04',1,'ShishGL::Text']]],
-  ['thistle_1165',['THISTLE',['../namespaceShishGL_1_1COLOR.html#af0c680ab6b8d0e6ca0c0372ce4f3c529',1,'ShishGL::COLOR']]],
-  ['time_5fdelta_1166',['time_delta',['../classShishGL_1_1TimerEvent.html#af91f1510c6198d3e7914e3f9cfde2dff',1,'ShishGL::TimerEvent']]],
-  ['tomato_1167',['TOMATO',['../namespaceShishGL_1_1COLOR.html#a5dbaaaa8df36849eca55764fc43a3c84',1,'ShishGL::COLOR']]],
-  ['truly_1168',['truly',['../TEST__TEXT_8txt.html#a62ace9a69c13cf4e54741d13ae212489',1,'TEST_TEXT.txt']]],
-  ['turquoise_1169',['TURQUOISE',['../namespaceShishGL_1_1COLOR.html#a5f64463ddbb8733d9feefab9de0c8c35',1,'ShishGL::COLOR']]]
+  ['tan_1284',['TAN',['../structSh_1_1Color.html#aa9f0b7ae3905f1d83523d86583c7db7a',1,'Sh::Color']]],
+  ['teal_1285',['TEAL',['../structSh_1_1Color.html#adf3a3ed0b6f5b141516f068d3dc4c013',1,'Sh::Color']]],
+  ['text_1286',['text',['../namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a',1,'prettify_colors']]],
+  ['thistle_1287',['THISTLE',['../structSh_1_1Color.html#a15cc83db8f04fbcb7910a0be115ca67a',1,'Sh::Color']]],
+  ['time_5fdelta_1288',['time_delta',['../classSh_1_1TimerEvent.html#a1ed46575f6440f3dd502256ad5eedc8b',1,'Sh::TimerEvent']]],
+  ['tomato_1289',['TOMATO',['../structSh_1_1Color.html#ad8ad74a5140cfecf03ae310766a8af41',1,'Sh::Color']]],
+  ['truly_1290',['truly',['../TEST__TEXT_8txt.html#a62ace9a69c13cf4e54741d13ae212489',1,'TEST_TEXT.txt']]],
+  ['turquoise_1291',['TURQUOISE',['../structSh_1_1Color.html#a8598e0b9071e5d97f0c2be9a9a00dfa0',1,'Sh::Color']]]
 ];

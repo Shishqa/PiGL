@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('CursorLocator_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_9d79ca06dc37db35a2aabde33bf06688.html">DebugUtilities</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">CursorLocator.hpp</div>  </div>
@@ -77,20 +103,20 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="UIWindow_8hpp.html">UIWindow.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceShishGL.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1CursorLocator.html">CursorLocator</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1CursorLocator.html">CursorLocator</a> : <span class="keyword">public</span> UIWindow {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html#ad5fa6e132e56990470927e69d1ef0def">   12</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1CursorLocator.html#ad5fa6e132e56990470927e69d1ef0def">CursorLocator</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; viewport)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            : <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>(viewport) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="classShishGL_1_1SubscriptionManager.html#a3ceced68626b61d8f5dba6a2abbbf1fc">SubscriptionManager::subscribe</a>(<a class="code" href="classShishGL_1_1EventSystem.html#a198e2b98707767e882b87aaa74c90ded">EventSystem::SystemEvents</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html#ad5fa6e132e56990470927e69d1ef0def">   12</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1CursorLocator.html#ad5fa6e132e56990470927e69d1ef0def">CursorLocator</a>(<span class="keyword">const</span> Viewport&amp; viewport)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            : UIWindow(viewport) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            SubscriptionManager::subscribe(EventSystem::SystemEvents, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">   19</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">onMouseMove</a>(<a class="code" href="classShishGL_1_1MouseEvent.html">MouseEvent</a>&amp; event)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="classShishGL_1_1Window.html#adbf6cbc7a36efb3ad46c4b95b559c73d">UIWindow::setPos</a>(event.<a class="code" href="classShishGL_1_1MouseEvent.html#a4a3c6fa8b13a9c465227217c9dfac443">where</a>());</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">   19</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">onMouseMove</a>(MouseEvent&amp; event)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            UIWindow::setPos(event.where());</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
@@ -101,21 +127,18 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif //SHISHGL_CURSOR_LOCATOR_HPP</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aclassShishGL_1_1CursorLocator_html"><div class="ttname"><a href="classShishGL_1_1CursorLocator.html">ShishGL::CursorLocator</a></div><div class="ttdef"><b>Definition:</b> CursorLocator.hpp:9</div></div>
 <div class="ttc" id="aclassShishGL_1_1CursorLocator_html_af1b94a5150951e40e077a729a8221f13"><div class="ttname"><a href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">ShishGL::CursorLocator::onMouseMove</a></div><div class="ttdeci">bool onMouseMove(MouseEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> CursorLocator.hpp:19</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseEvent_html_a4a3c6fa8b13a9c465227217c9dfac443"><div class="ttname"><a href="classShishGL_1_1MouseEvent.html#a4a3c6fa8b13a9c465227217c9dfac443">ShishGL::MouseEvent::where</a></div><div class="ttdeci">const Vector2&lt; double &gt; &amp; where() const</div><div class="ttdef"><b>Definition:</b> MouseEvent.cpp:13</div></div>
-<div class="ttc" id="aclassShishGL_1_1EventSystem_html_a198e2b98707767e882b87aaa74c90ded"><div class="ttname"><a href="classShishGL_1_1EventSystem.html#a198e2b98707767e882b87aaa74c90ded">ShishGL::EventSystem::SystemEvents</a></div><div class="ttdeci">static constexpr Listener * SystemEvents</div><div class="ttdef"><b>Definition:</b> EventSystem.hpp:12</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Window_html_adbf6cbc7a36efb3ad46c4b95b559c73d"><div class="ttname"><a href="classShishGL_1_1Window.html#adbf6cbc7a36efb3ad46c4b95b559c73d">ShishGL::Window::setPos</a></div><div class="ttdeci">void setPos(const Vector2&lt; double &gt; &amp;pos)</div><div class="ttdef"><b>Definition:</b> Window.cpp:85</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseEvent_html"><div class="ttname"><a href="classShishGL_1_1MouseEvent.html">ShishGL::MouseEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:12</div></div>
-<div class="ttc" id="astructShishGL_1_1Viewport_html"><div class="ttname"><a href="structShishGL_1_1Viewport.html">ShishGL::Viewport</a></div><div class="ttdef"><b>Definition:</b> Viewport.hpp:9</div></div>
+<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CursorLocator.hpp:7</div></div>
 <div class="ttc" id="aUIWindow_8hpp_html"><div class="ttname"><a href="UIWindow_8hpp.html">UIWindow.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a3ceced68626b61d8f5dba6a2abbbf1fc"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a3ceced68626b61d8f5dba6a2abbbf1fc">ShishGL::SubscriptionManager::subscribe</a></div><div class="ttdeci">static void subscribe(Listener *sender, Listener *receiver, EventMask mask)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:15</div></div>
 <div class="ttc" id="aclassShishGL_1_1CursorLocator_html_ad5fa6e132e56990470927e69d1ef0def"><div class="ttname"><a href="classShishGL_1_1CursorLocator.html#ad5fa6e132e56990470927e69d1ef0def">ShishGL::CursorLocator::CursorLocator</a></div><div class="ttdeci">CursorLocator(const Viewport &amp;viewport)</div><div class="ttdef"><b>Definition:</b> CursorLocator.hpp:12</div></div>
-<div class="ttc" id="aclassShishGL_1_1UIWindow_html"><div class="ttname"><a href="classShishGL_1_1UIWindow.html">ShishGL::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:14</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_9d79ca06dc37db35a2aabde33bf06688.html">DebugUtilities</a></li><li class="navelem"><a class="el" href="CursorLocator_8hpp.html">CursorLocator.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

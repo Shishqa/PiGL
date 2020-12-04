@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('Clickable_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_acd634bedb26ae18fb931944831f76df.html">Behaviors</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Clickable.hpp</div>  </div>
@@ -79,39 +105,39 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DefaultBehavior_8hpp.html">DefaultBehavior.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classShishGL_1_1Clickable.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Clickable.html">Clickable</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1DefaultBehavior.html">DefaultBehavior</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1Clickable.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1Clickable.html">Clickable</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1DefaultBehavior.html">DefaultBehavior</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1Clickable.html#a1743efcd60889fc2d39baa5bed4181db">Clickable</a>(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1Clickable.html#a1743efcd60889fc2d39baa5bed4181db">Clickable</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Clickable.html#a3e2271e3ed2c187742518716ed8cf9d4">reactOnPress</a>(<a class="code" href="classShishGL_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1Clickable.html#a3e2271e3ed2c187742518716ed8cf9d4">reactOnPress</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Clickable.html#a39096fe21b98e7c2c34209178b571bcc">reactOnRelease</a>(<a class="code" href="classShishGL_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1Clickable.html#a39096fe21b98e7c2c34209178b571bcc">reactOnRelease</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Clickable.html#a895bb64d22b27e71b07af2fd44969f75">onMouseButton</a>(<a class="code" href="classShishGL_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1Clickable.html#a895bb64d22b27e71b07af2fd44969f75">onMouseButton</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classShishGL_1_1Holdable.html">   26</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Holdable.html">Holdable</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Clickable.html">Clickable</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSh_1_1Holdable.html">   26</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1Holdable.html">Holdable</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Clickable.html">Clickable</a> {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1Holdable.html#ac14eb5a889a5ab0b1cdd21f076b5af32">Holdable</a>(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1Holdable.html#ac14eb5a889a5ab0b1cdd21f076b5af32">Holdable</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Holdable.html#a19b9a60a9ba77119418dd936b44abf7f">isHeld</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1Holdable.html#a19b9a60a9ba77119418dd936b44abf7f">isHeld</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        uint8_t <a class="code" href="classShishGL_1_1Holdable.html#ae4e7299efb477d0382ec0784c45baa2a">numHeld</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        uint8_t <a class="code" href="classSh_1_1Holdable.html#ae4e7299efb477d0382ec0784c45baa2a">numHeld</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Holdable.html#ae003fbb943ba03d7dd0f72a35ef1d777">reactOnHold</a>(<a class="code" href="classShishGL_1_1TimerEvent.html">TimerEvent</a>&amp; event);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1Holdable.html#ae003fbb943ba03d7dd0f72a35ef1d777">reactOnHold</a>(<a class="code" href="classSh_1_1TimerEvent.html">TimerEvent</a>&amp; event);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Holdable.html#a229bb83e42e717634e27d24fba59bd42">onTimer</a>(<a class="code" href="classShishGL_1_1TimerEvent.html">TimerEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1Holdable.html#a229bb83e42e717634e27d24fba59bd42">onTimer</a>(<a class="code" href="classSh_1_1TimerEvent.html">TimerEvent</a>&amp; event) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Holdable.html#a8a9e68a4a723d29fbaf8c78a006c4870">onMouseButton</a>(<a class="code" href="classShishGL_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1Holdable.html#a8a9e68a4a723d29fbaf8c78a006c4870">onMouseButton</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
@@ -124,28 +150,32 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif //SHISHGL_UI_BUTTON_HPP</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_a8a9e68a4a723d29fbaf8c78a006c4870"><div class="ttname"><a href="classShishGL_1_1Holdable.html#a8a9e68a4a723d29fbaf8c78a006c4870">ShishGL::Holdable::onMouseButton</a></div><div class="ttdeci">bool onMouseButton(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:59</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html_a1743efcd60889fc2d39baa5bed4181db"><div class="ttname"><a href="classShishGL_1_1Clickable.html#a1743efcd60889fc2d39baa5bed4181db">ShishGL::Clickable::Clickable</a></div><div class="ttdeci">Clickable(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html_a39096fe21b98e7c2c34209178b571bcc"><div class="ttname"><a href="classShishGL_1_1Clickable.html#a39096fe21b98e7c2c34209178b571bcc">ShishGL::Clickable::reactOnRelease</a></div><div class="ttdeci">virtual void reactOnRelease(MouseButtonEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:18</div></div>
-<div class="ttc" id="aclassShishGL_1_1DefaultBehavior_html"><div class="ttname"><a href="classShishGL_1_1DefaultBehavior.html">ShishGL::DefaultBehavior</a></div><div class="ttdef"><b>Definition:</b> DefaultBehavior.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseButtonEvent_html"><div class="ttname"><a href="classShishGL_1_1MouseButtonEvent.html">ShishGL::MouseButtonEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:38</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html_a895bb64d22b27e71b07af2fd44969f75"><div class="ttname"><a href="classShishGL_1_1Clickable.html#a895bb64d22b27e71b07af2fd44969f75">ShishGL::Clickable::onMouseButton</a></div><div class="ttdeci">bool onMouseButton(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:22</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_a229bb83e42e717634e27d24fba59bd42"><div class="ttname"><a href="classShishGL_1_1Holdable.html#a229bb83e42e717634e27d24fba59bd42">ShishGL::Holdable::onTimer</a></div><div class="ttdeci">bool onTimer(TimerEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:78</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html_a3e2271e3ed2c187742518716ed8cf9d4"><div class="ttname"><a href="classShishGL_1_1Clickable.html#a3e2271e3ed2c187742518716ed8cf9d4">ShishGL::Clickable::reactOnPress</a></div><div class="ttdeci">virtual void reactOnPress(MouseButtonEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html"><div class="ttname"><a href="classShishGL_1_1Clickable.html">ShishGL::Clickable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:11</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1Clickable_html_a39096fe21b98e7c2c34209178b571bcc"><div class="ttname"><a href="classSh_1_1Clickable.html#a39096fe21b98e7c2c34209178b571bcc">Sh::Clickable::reactOnRelease</a></div><div class="ttdeci">virtual void reactOnRelease(MouseButtonEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:18</div></div>
+<div class="ttc" id="aclassSh_1_1DefaultBehavior_html"><div class="ttname"><a href="classSh_1_1DefaultBehavior.html">Sh::DefaultBehavior</a></div><div class="ttdef"><b>Definition:</b> DefaultBehavior.hpp:14</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_a19b9a60a9ba77119418dd936b44abf7f"><div class="ttname"><a href="classSh_1_1Holdable.html#a19b9a60a9ba77119418dd936b44abf7f">Sh::Holdable::isHeld</a></div><div class="ttdeci">bool isHeld() const</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:51</div></div>
+<div class="ttc" id="aclassSh_1_1Clickable_html_a3e2271e3ed2c187742518716ed8cf9d4"><div class="ttname"><a href="classSh_1_1Clickable.html#a3e2271e3ed2c187742518716ed8cf9d4">Sh::Clickable::reactOnPress</a></div><div class="ttdeci">virtual void reactOnPress(MouseButtonEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1Behavior_html_a939a6c482cda497bd994c6779b904433"><div class="ttname"><a href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">Sh::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_a229bb83e42e717634e27d24fba59bd42"><div class="ttname"><a href="classSh_1_1Holdable.html#a229bb83e42e717634e27d24fba59bd42">Sh::Holdable::onTimer</a></div><div class="ttdeci">bool onTimer(TimerEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:79</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_ae003fbb943ba03d7dd0f72a35ef1d777"><div class="ttname"><a href="classSh_1_1Holdable.html#ae003fbb943ba03d7dd0f72a35ef1d777">Sh::Holdable::reactOnHold</a></div><div class="ttdeci">virtual void reactOnHold(TimerEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:77</div></div>
+<div class="ttc" id="aclassSh_1_1UIWindow_html"><div class="ttname"><a href="classSh_1_1UIWindow.html">Sh::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_ae4e7299efb477d0382ec0784c45baa2a"><div class="ttname"><a href="classSh_1_1Holdable.html#ae4e7299efb477d0382ec0784c45baa2a">Sh::Holdable::numHeld</a></div><div class="ttdeci">uint8_t numHeld() const</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:55</div></div>
 <div class="ttc" id="aDefaultBehavior_8hpp_html"><div class="ttname"><a href="DefaultBehavior_8hpp.html">DefaultBehavior.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_a19b9a60a9ba77119418dd936b44abf7f"><div class="ttname"><a href="classShishGL_1_1Holdable.html#a19b9a60a9ba77119418dd936b44abf7f">ShishGL::Holdable::isHeld</a></div><div class="ttdeci">bool isHeld() const</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:50</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_ae003fbb943ba03d7dd0f72a35ef1d777"><div class="ttname"><a href="classShishGL_1_1Holdable.html#ae003fbb943ba03d7dd0f72a35ef1d777">ShishGL::Holdable::reactOnHold</a></div><div class="ttdeci">virtual void reactOnHold(TimerEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:76</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_ae4e7299efb477d0382ec0784c45baa2a"><div class="ttname"><a href="classShishGL_1_1Holdable.html#ae4e7299efb477d0382ec0784c45baa2a">ShishGL::Holdable::numHeld</a></div><div class="ttdeci">uint8_t numHeld() const</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:54</div></div>
-<div class="ttc" id="aclassShishGL_1_1TimerEvent_html"><div class="ttname"><a href="classShishGL_1_1TimerEvent.html">ShishGL::TimerEvent</a></div><div class="ttdef"><b>Definition:</b> TimerEvent.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1Behavior_html_aba20c7d900f049707e7d371d5b0fde5a"><div class="ttname"><a href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">ShishGL::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1UIWindow_html"><div class="ttname"><a href="classShishGL_1_1UIWindow.html">ShishGL::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:14</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html_ac14eb5a889a5ab0b1cdd21f076b5af32"><div class="ttname"><a href="classShishGL_1_1Holdable.html#ac14eb5a889a5ab0b1cdd21f076b5af32">ShishGL::Holdable::Holdable</a></div><div class="ttdeci">Holdable(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:45</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html"><div class="ttname"><a href="classShishGL_1_1Holdable.html">ShishGL::Holdable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1TimerEvent_html"><div class="ttname"><a href="classSh_1_1TimerEvent.html">Sh::TimerEvent</a></div><div class="ttdef"><b>Definition:</b> TimerEvent.hpp:11</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1Clickable_html_a895bb64d22b27e71b07af2fd44969f75"><div class="ttname"><a href="classSh_1_1Clickable.html#a895bb64d22b27e71b07af2fd44969f75">Sh::Clickable::onMouseButton</a></div><div class="ttdeci">bool onMouseButton(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:22</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_ac14eb5a889a5ab0b1cdd21f076b5af32"><div class="ttname"><a href="classSh_1_1Holdable.html#ac14eb5a889a5ab0b1cdd21f076b5af32">Sh::Holdable::Holdable</a></div><div class="ttdeci">Holdable(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:45</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html"><div class="ttname"><a href="classSh_1_1Holdable.html">Sh::Holdable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1Clickable_html_a1743efcd60889fc2d39baa5bed4181db"><div class="ttname"><a href="classSh_1_1Clickable.html#a1743efcd60889fc2d39baa5bed4181db">Sh::Clickable::Clickable</a></div><div class="ttdeci">Clickable(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1Clickable_html"><div class="ttname"><a href="classSh_1_1Clickable.html">Sh::Clickable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html_a8a9e68a4a723d29fbaf8c78a006c4870"><div class="ttname"><a href="classSh_1_1Holdable.html#a8a9e68a4a723d29fbaf8c78a006c4870">Sh::Holdable::onMouseButton</a></div><div class="ttdeci">bool onMouseButton(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> Clickable.cpp:60</div></div>
+<div class="ttc" id="aclassSh_1_1MouseButtonEvent_html"><div class="ttname"><a href="classSh_1_1MouseButtonEvent.html">Sh::MouseButtonEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:38</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_acd634bedb26ae18fb931944831f76df.html">Behaviors</a></li><li class="navelem"><a class="el" href="Clickable_8hpp.html">Clickable.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

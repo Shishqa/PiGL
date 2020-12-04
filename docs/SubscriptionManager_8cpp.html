@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('SubscriptionManager_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,44 +92,46 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a2f0e5642e47e7ed59fe0f0829eafb5f.html">Core</a></li><li class="navelem"><a class="el" href="dir_6501ae4c1fbd903a68e27471420fde52.html">EventSystem</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">SubscriptionManager.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="SubscriptionManager_8hpp_source.html">SubscriptionManager.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &quot;<a class="el" href="SubscriptionManager_8hpp_source.html">SubscriptionManager.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EventSystem_8hpp_source.html">EventSystem.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for SubscriptionManager.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="SubscriptionManager_8cpp__incl.png" border="0" usemap="#a_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2Core_2EventSystem_2SubscriptionManager_8cpp" alt=""/></div>
 <map name="_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2Core_2EventSystem_2SubscriptionManager_8cpp" id="a_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2Core_2EventSystem_2SubscriptionManager_8cpp">
-<area shape="rect" title=" " alt="" coords="447,5,678,76"/>
-<area shape="rect" href="SubscriptionManager_8hpp.html" title=" " alt="" coords="325,199,512,225"/>
-<area shape="rect" href="EventSystem_8hpp.html" title=" " alt="" coords="640,124,776,151"/>
-<area shape="rect" title=" " alt="" coords="5,273,67,300"/>
-<area shape="rect" title=" " alt="" coords="91,273,189,300"/>
-<area shape="rect" title=" " alt="" coords="213,273,337,300"/>
-<area shape="rect" title=" " alt="" coords="361,273,476,300"/>
-<area shape="rect" href="Listener_8hpp.html" title=" " alt="" coords="463,348,564,375"/>
-<area shape="rect" href="Event_8hpp.html" title=" " alt="" coords="551,273,638,300"/>
-<area shape="rect" title=" " alt="" coords="588,348,655,375"/>
-<area shape="rect" href="EventManager_8hpp.html" title=" " alt="" coords="637,199,779,225"/>
-<area shape="rect" href="EventSystem_8ipp.html" title=" " alt="" coords="803,199,935,225"/>
-<area shape="rect" title=" " alt="" coords="662,273,754,300"/>
-<area shape="rect" title=" " alt="" coords="778,273,841,300"/>
-<area shape="rect" href="EventManager_8ipp.html" title=" " alt="" coords="865,273,1004,300"/>
+<area shape="rect" title=" " alt="" coords="571,5,801,76"/>
+<area shape="rect" title=" " alt="" coords="661,273,724,300"/>
+<area shape="rect" title=" " alt="" coords="833,124,902,151"/>
+<area shape="rect" href="SubscriptionManager_8hpp.html" title=" " alt="" coords="334,199,521,225"/>
+<area shape="rect" href="EventSystem_8hpp.html" title=" " alt="" coords="673,124,809,151"/>
+<area shape="rect" title=" " alt="" coords="465,273,526,300"/>
+<area shape="rect" title=" " alt="" coords="5,273,103,300"/>
+<area shape="rect" title=" " alt="" coords="127,273,251,300"/>
+<area shape="rect" title=" " alt="" coords="275,273,390,300"/>
+<area shape="rect" href="Listener_8hpp.html" title=" " alt="" coords="406,348,507,375"/>
+<area shape="rect" href="Event_8hpp.html" title=" " alt="" coords="551,273,637,300"/>
+<area shape="rect" title=" " alt="" coords="561,348,627,375"/>
+<area shape="rect" href="EventManager_8hpp.html" title=" " alt="" coords="672,199,815,225"/>
+<area shape="rect" href="EventSystem_8ipp.html" title=" " alt="" coords="839,199,971,225"/>
+<area shape="rect" title=" " alt="" coords="748,273,840,300"/>
+<area shape="rect" href="EventManager_8ipp.html" title=" " alt="" coords="865,273,1003,300"/>
 </map>
 </div>
 </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a2f0e5642e47e7ed59fe0f0829eafb5f.html">Core</a></li><li class="navelem"><a class="el" href="dir_6501ae4c1fbd903a68e27471420fde52.html">EventSystem</a></li><li class="navelem"><a class="el" href="SubscriptionManager_8cpp.html">SubscriptionManager.cpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

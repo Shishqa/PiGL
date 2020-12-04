@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('ResourceManager_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_07a876e7ae475bf39ceee39b924659f0.html">ResourceManager</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ResourceManager.hpp</div>  </div>
@@ -79,26 +105,26 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classShishGL_1_1ResourceManager.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1ResourceManager.html">ResourceManager</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1ResourceManager.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1ResourceManager.html">ResourceManager</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structShishGL_1_1ResourceManager_1_1Resource.html">   14</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html">Resource</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structShishGL_1_1ResourceManager_1_1Resource.html#a2bd121b4c360f802f501d82399b1d968">   15</a></span>&#160;            std::string_view <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html#a2bd121b4c360f802f501d82399b1d968">filename</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structShishGL_1_1ResourceManager_1_1Resource.html#a87036fa3c4ec5cf55137f96a68753d88">   16</a></span>&#160;            <span class="keywordtype">size_t</span> <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html#a87036fa3c4ec5cf55137f96a68753d88">size</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structShishGL_1_1ResourceManager_1_1Resource.html#a217ab7ada7f18c34b73707db0b07a16a">   17</a></span>&#160;            uint8_t* <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html#a217ab7ada7f18c34b73707db0b07a16a">data</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structSh_1_1ResourceManager_1_1Resource.html">   14</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structSh_1_1ResourceManager_1_1Resource.html">Resource</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structSh_1_1ResourceManager_1_1Resource.html#a44b888b0f095f2b95c9ec7317217a59a">   15</a></span>&#160;            std::string_view <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html#a44b888b0f095f2b95c9ec7317217a59a">filename</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structSh_1_1ResourceManager_1_1Resource.html#a57aa42437f0d38d4d8dfc75276767d77">   16</a></span>&#160;            <span class="keywordtype">size_t</span> <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html#a57aa42437f0d38d4d8dfc75276767d77">size</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structSh_1_1ResourceManager_1_1Resource.html#ad0f1fc49506e9d63c7ed09d6452bf2e2">   17</a></span>&#160;            uint8_t* <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html#ad0f1fc49506e9d63c7ed09d6452bf2e2">data</a>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        };</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classShishGL_1_1ResourceManager.html#addf32db6caed18c02de76adaae352a59">   20</a></span>&#160;        <a class="code" href="classShishGL_1_1ResourceManager.html#addf32db6caed18c02de76adaae352a59">ResourceManager</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSh_1_1ResourceManager.html#ac7dd5cc9be34dc4ce9ef3b4eb72a9d3b">   20</a></span>&#160;        <a class="code" href="classSh_1_1ResourceManager.html#ac7dd5cc9be34dc4ce9ef3b4eb72a9d3b">ResourceManager</a>() = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1ResourceManager.html#a89175f692f92c7a3e27633609b825702">load</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ResourceManager.html#a89175f692f92c7a3e27633609b825702">load</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html">Resource</a>&amp; <a class="code" href="classShishGL_1_1ResourceManager.html#a4661646ced329d6340992303067552ed">get</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html">Resource</a>&amp; <a class="code" href="classSh_1_1ResourceManager.html#a4661646ced329d6340992303067552ed">get</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">forget</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">forget</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1ResourceManager.html#a50cf42daa0ff355fef64431740e498ab">clear</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ResourceManager.html#a50cf42daa0ff355fef64431740e498ab">clear</a>();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
@@ -112,20 +138,24 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif //SHISHGL_RESOURCE_MANAGER_HPP</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructShishGL_1_1ResourceManager_1_1Resource_html_a217ab7ada7f18c34b73707db0b07a16a"><div class="ttname"><a href="structShishGL_1_1ResourceManager_1_1Resource.html#a217ab7ada7f18c34b73707db0b07a16a">ShishGL::ResourceManager::Resource::data</a></div><div class="ttdeci">uint8_t * data</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html_a89175f692f92c7a3e27633609b825702"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html#a89175f692f92c7a3e27633609b825702">ShishGL::ResourceManager::load</a></div><div class="ttdeci">static void load(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:21</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html_addf32db6caed18c02de76adaae352a59"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html#addf32db6caed18c02de76adaae352a59">ShishGL::ResourceManager::ResourceManager</a></div><div class="ttdeci">ResourceManager()=delete</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html_a4661646ced329d6340992303067552ed"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html#a4661646ced329d6340992303067552ed">ShishGL::ResourceManager::get</a></div><div class="ttdeci">static const Resource &amp; get(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:61</div></div>
-<div class="ttc" id="astructShishGL_1_1ResourceManager_1_1Resource_html_a2bd121b4c360f802f501d82399b1d968"><div class="ttname"><a href="structShishGL_1_1ResourceManager_1_1Resource.html#a2bd121b4c360f802f501d82399b1d968">ShishGL::ResourceManager::Resource::filename</a></div><div class="ttdeci">std::string_view filename</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:15</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html">ShishGL::ResourceManager</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:11</div></div>
-<div class="ttc" id="astructShishGL_1_1ResourceManager_1_1Resource_html"><div class="ttname"><a href="structShishGL_1_1ResourceManager_1_1Resource.html">ShishGL::ResourceManager::Resource</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:14</div></div>
-<div class="ttc" id="astructShishGL_1_1ResourceManager_1_1Resource_html_a87036fa3c4ec5cf55137f96a68753d88"><div class="ttname"><a href="structShishGL_1_1ResourceManager_1_1Resource.html#a87036fa3c4ec5cf55137f96a68753d88">ShishGL::ResourceManager::Resource::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:16</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html_af6102254b8aaee9d6388a1376cd85487"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">ShishGL::ResourceManager::forget</a></div><div class="ttdeci">static void forget(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:72</div></div>
-<div class="ttc" id="aclassShishGL_1_1ResourceManager_html_a50cf42daa0ff355fef64431740e498ab"><div class="ttname"><a href="classShishGL_1_1ResourceManager.html#a50cf42daa0ff355fef64431740e498ab">ShishGL::ResourceManager::clear</a></div><div class="ttdeci">static void clear()</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:79</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1ResourceManager_html_a50cf42daa0ff355fef64431740e498ab"><div class="ttname"><a href="classSh_1_1ResourceManager.html#a50cf42daa0ff355fef64431740e498ab">Sh::ResourceManager::clear</a></div><div class="ttdeci">static void clear()</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:79</div></div>
+<div class="ttc" id="aclassSh_1_1ResourceManager_html_a4661646ced329d6340992303067552ed"><div class="ttname"><a href="classSh_1_1ResourceManager.html#a4661646ced329d6340992303067552ed">Sh::ResourceManager::get</a></div><div class="ttdeci">static const Resource &amp; get(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:61</div></div>
+<div class="ttc" id="aclassSh_1_1ResourceManager_html_a89175f692f92c7a3e27633609b825702"><div class="ttname"><a href="classSh_1_1ResourceManager.html#a89175f692f92c7a3e27633609b825702">Sh::ResourceManager::load</a></div><div class="ttdeci">static void load(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:21</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1ResourceManager_html_ac7dd5cc9be34dc4ce9ef3b4eb72a9d3b"><div class="ttname"><a href="classSh_1_1ResourceManager.html#ac7dd5cc9be34dc4ce9ef3b4eb72a9d3b">Sh::ResourceManager::ResourceManager</a></div><div class="ttdeci">ResourceManager()=delete</div></div>
+<div class="ttc" id="astructSh_1_1ResourceManager_1_1Resource_html_ad0f1fc49506e9d63c7ed09d6452bf2e2"><div class="ttname"><a href="structSh_1_1ResourceManager_1_1Resource.html#ad0f1fc49506e9d63c7ed09d6452bf2e2">Sh::ResourceManager::Resource::data</a></div><div class="ttdeci">uint8_t * data</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1ResourceManager_html_af6102254b8aaee9d6388a1376cd85487"><div class="ttname"><a href="classSh_1_1ResourceManager.html#af6102254b8aaee9d6388a1376cd85487">Sh::ResourceManager::forget</a></div><div class="ttdeci">static void forget(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:72</div></div>
+<div class="ttc" id="astructSh_1_1ResourceManager_1_1Resource_html"><div class="ttname"><a href="structSh_1_1ResourceManager_1_1Resource.html">Sh::ResourceManager::Resource</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:14</div></div>
+<div class="ttc" id="aclassSh_1_1ResourceManager_html"><div class="ttname"><a href="classSh_1_1ResourceManager.html">Sh::ResourceManager</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:11</div></div>
+<div class="ttc" id="astructSh_1_1ResourceManager_1_1Resource_html_a57aa42437f0d38d4d8dfc75276767d77"><div class="ttname"><a href="structSh_1_1ResourceManager_1_1Resource.html#a57aa42437f0d38d4d8dfc75276767d77">Sh::ResourceManager::Resource::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:16</div></div>
+<div class="ttc" id="astructSh_1_1ResourceManager_1_1Resource_html_a44b888b0f095f2b95c9ec7317217a59a"><div class="ttname"><a href="structSh_1_1ResourceManager_1_1Resource.html#a44b888b0f095f2b95c9ec7317217a59a">Sh::ResourceManager::Resource::filename</a></div><div class="ttdeci">std::string_view filename</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:15</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_07a876e7ae475bf39ceee39b924659f0.html">ResourceManager</a></li><li class="navelem"><a class="el" href="ResourceManager_8hpp.html">ResourceManager.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

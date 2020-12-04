@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('Mouse_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li><li class="navelem"><a class="el" href="dir_4c7bf190400043511137ada1d6dfd8ef.html">Input</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Mouse.hpp</div>  </div>
@@ -75,28 +101,28 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef SHISHGL_MOUSE_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define SHISHGL_MOUSE_HPP</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html">    7</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Mouse.html">Mouse</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html">    7</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1Mouse.html">Mouse</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61a">   10</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61a">ButtonState</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97">   11</a></span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97">DOWN</a>,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa9709c0a64decc5caeef7a709c0109531">UP</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa9709c0a64decc5caeef7a709c0109531">   13</a></span>&#160;        };</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88">   10</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88">ButtonState</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22">   11</a></span>&#160;            <a class="code" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22">DOWN</a>,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            <a class="code" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88ac1133f384989bf6d112b17359f740a64">UP</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88ac1133f384989bf6d112b17359f740a64">   13</a></span>&#160;        };</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3">   15</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3">Button</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3af2a09591b9326bdc1132b2a4039b1fc1">   16</a></span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3af2a09591b9326bdc1132b2a4039b1fc1">LEFT</a>,</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3aae8a59f3f7252ba30d59949d6ced395b">   17</a></span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3aae8a59f3f7252ba30d59949d6ced395b">RIGHT</a>,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3a5a069b522096a0050a766511333c4247">MIDDLE</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3a5a069b522096a0050a766511333c4247">   19</a></span>&#160;        };</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087c">   15</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087c">Button</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca77c5aa3bfecee0e727e6408114f092fe">   16</a></span>&#160;            <a class="code" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca77c5aa3bfecee0e727e6408114f092fe">LEFT</a>,</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca032257e1e6782773cb930b4249b601a6">   17</a></span>&#160;            <a class="code" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca032257e1e6782773cb930b4249b601a6">RIGHT</a>,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca01c46cc1098f061c9950db6f2b79ae3e">MIDDLE</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca01c46cc1098f061c9950db6f2b79ae3e">   19</a></span>&#160;        };</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">   21</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">ScrollType</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fab702504469c066390f578986420a4855">   22</a></span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fab702504469c066390f578986420a4855">VERTICAL</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fadc76708964957a91a6bc8341ad79c8dc">HORIZONTAL</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fadc76708964957a91a6bc8341ad79c8dc">   24</a></span>&#160;        };</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">   21</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">ScrollType</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745aa9bd0bfdf24d9b5a44b45aa201127924">   22</a></span>&#160;            <a class="code" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745aa9bd0bfdf24d9b5a44b45aa201127924">VERTICAL</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745ab169f3192d3f0ba87729d1ddcd2eebdd">HORIZONTAL</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745ab169f3192d3f0ba87729d1ddcd2eebdd">   24</a></span>&#160;        };</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">   26</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">ScrollDelta</a> = double;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">   26</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">ScrollDelta</a> = double;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
@@ -105,22 +131,26 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif //SHISHGL_MOUSE_HPP</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a6170e18a99b7bb4a934c51d9b95183a3a5a069b522096a0050a766511333c4247"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3a5a069b522096a0050a766511333c4247">ShishGL::Mouse::MIDDLE</a></div><div class="ttdeci">@ MIDDLE</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:18</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a593ffab325bbba3698121d2430752af6"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">ShishGL::Mouse::ScrollDelta</a></div><div class="ttdeci">double ScrollDelta</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:26</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a6170e18a99b7bb4a934c51d9b95183a3"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3">ShishGL::Mouse::Button</a></div><div class="ttdeci">Button</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:15</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a6170e18a99b7bb4a934c51d9b95183a3aae8a59f3f7252ba30d59949d6ced395b"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3aae8a59f3f7252ba30d59949d6ced395b">ShishGL::Mouse::RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a6170e18a99b7bb4a934c51d9b95183a3af2a09591b9326bdc1132b2a4039b1fc1"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a6170e18a99b7bb4a934c51d9b95183a3af2a09591b9326bdc1132b2a4039b1fc1">ShishGL::Mouse::LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:16</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a17fba059652d1e619086487e627f484fadc76708964957a91a6bc8341ad79c8dc"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fadc76708964957a91a6bc8341ad79c8dc">ShishGL::Mouse::HORIZONTAL</a></div><div class="ttdeci">@ HORIZONTAL</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:23</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html"><div class="ttname"><a href="classShishGL_1_1Mouse.html">ShishGL::Mouse</a></div><div class="ttdef"><b>Definition:</b> Mouse.hpp:7</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a17fba059652d1e619086487e627f484fab702504469c066390f578986420a4855"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484fab702504469c066390f578986420a4855">ShishGL::Mouse::VERTICAL</a></div><div class="ttdeci">@ VERTICAL</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:22</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a17fba059652d1e619086487e627f484f"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">ShishGL::Mouse::ScrollType</a></div><div class="ttdeci">ScrollType</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:21</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a4c859831b34a4b747c96758a79f8b61aa9709c0a64decc5caeef7a709c0109531"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa9709c0a64decc5caeef7a709c0109531">ShishGL::Mouse::UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:12</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97">ShishGL::Mouse::DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a4c859831b34a4b747c96758a79f8b61a"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61a">ShishGL::Mouse::ButtonState</a></div><div class="ttdeci">ButtonState</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:10</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1Mouse_html"><div class="ttname"><a href="classSh_1_1Mouse.html">Sh::Mouse</a></div><div class="ttdef"><b>Definition:</b> Mouse.hpp:7</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a50a56dcc4bbbbcff418c866a2f6e0745"><div class="ttname"><a href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">Sh::Mouse::ScrollType</a></div><div class="ttdeci">ScrollType</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:21</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a50a56dcc4bbbbcff418c866a2f6e0745aa9bd0bfdf24d9b5a44b45aa201127924"><div class="ttname"><a href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745aa9bd0bfdf24d9b5a44b45aa201127924">Sh::Mouse::VERTICAL</a></div><div class="ttdeci">@ VERTICAL</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:22</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22"><div class="ttname"><a href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22">Sh::Mouse::DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a5ee2b5f1e7735f175e92d3a29a1d087c"><div class="ttname"><a href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087c">Sh::Mouse::Button</a></div><div class="ttdeci">Button</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a50a56dcc4bbbbcff418c866a2f6e0745ab169f3192d3f0ba87729d1ddcd2eebdd"><div class="ttname"><a href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745ab169f3192d3f0ba87729d1ddcd2eebdd">Sh::Mouse::HORIZONTAL</a></div><div class="ttdeci">@ HORIZONTAL</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:23</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a5ee2b5f1e7735f175e92d3a29a1d087ca032257e1e6782773cb930b4249b601a6"><div class="ttname"><a href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca032257e1e6782773cb930b4249b601a6">Sh::Mouse::RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:17</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a5ee2b5f1e7735f175e92d3a29a1d087ca77c5aa3bfecee0e727e6408114f092fe"><div class="ttname"><a href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca77c5aa3bfecee0e727e6408114f092fe">Sh::Mouse::LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:16</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_afaa0fe9f5f39282a1be7d6691c8e1f88"><div class="ttname"><a href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88">Sh::Mouse::ButtonState</a></div><div class="ttdeci">ButtonState</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_afaa0fe9f5f39282a1be7d6691c8e1f88ac1133f384989bf6d112b17359f740a64"><div class="ttname"><a href="classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88ac1133f384989bf6d112b17359f740a64">Sh::Mouse::UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:12</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a5ee2b5f1e7735f175e92d3a29a1d087ca01c46cc1098f061c9950db6f2b79ae3e"><div class="ttname"><a href="classSh_1_1Mouse.html#a5ee2b5f1e7735f175e92d3a29a1d087ca01c46cc1098f061c9950db6f2b79ae3e">Sh::Mouse::MIDDLE</a></div><div class="ttdeci">@ MIDDLE</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:18</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a1b7d002874c853ae30e49c7f508bca40"><div class="ttname"><a href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">Sh::Mouse::ScrollDelta</a></div><div class="ttdeci">double ScrollDelta</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:26</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li><li class="navelem"><a class="el" href="dir_4c7bf190400043511137ada1d6dfd8ef.html">Input</a></li><li class="navelem"><a class="el" href="Mouse_8hpp.html">Mouse.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

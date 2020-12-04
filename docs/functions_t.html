@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('functions_t.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,57 +97,72 @@ $(function() {
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>T
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a9e3f708e962200314b9dc8d101db6c33">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca2f463154b222882dfd7a41f33ebba414">Sh::Keyboard</a>
 </li>
 <li>TAB
-: <a class="el" href="classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2afc7f7be81ed2947a071ba1af6c9d871e">ShishGL::Keyboard</a>
+: <a class="el" href="classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cab4e78f986e7bae0284f042e678440992">Sh::Keyboard</a>
+</li>
+<li>TAN
+: <a class="el" href="structSh_1_1Color.html#aa9f0b7ae3905f1d83523d86583c7db7a">Sh::Color</a>
 </li>
 <li>target()
-: <a class="el" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">ShishGL::Behavior</a>
+: <a class="el" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">Sh::Behavior</a>
+</li>
+<li>TEAL
+: <a class="el" href="structSh_1_1Color.html#adf3a3ed0b6f5b141516f068d3dc4c013">Sh::Color</a>
 </li>
 <li>terminate()
-: <a class="el" href="classShishGL_1_1CoreApplication.html#a0ed59ddf76463be7068b037545ae101a">ShishGL::CoreApplication</a>
-, <a class="el" href="classShishGL_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">ShishGL::RenderSystem</a>
+: <a class="el" href="classSh_1_1CoreApplication.html#a0ed59ddf76463be7068b037545ae101a">Sh::CoreApplication</a>
+, <a class="el" href="classSh_1_1RenderSystem.html#ad366270331b9d5705e29e92c6561e6da">Sh::RenderSystem</a>
 </li>
-<li>Text()
-: <a class="el" href="classShishGL_1_1Text.html#a7e8ecefbed550f9353420632b2c95b25">ShishGL::Text</a>
+<li>TextField()
+: <a class="el" href="classSh_1_1TextField.html#a037b1fd02623bdf2c2cf55b1c58be6b4">Sh::TextField</a>
 </li>
-<li>text
-: <a class="el" href="classShishGL_1_1TextBuffer.html#a1fb3c7098f1820b51111905de4405e44">ShishGL::TextBuffer</a>
-</li>
-<li>text_lines
-: <a class="el" href="classShishGL_1_1Text.html#aceab1af3dc1e662fa34576f73c8bbc04">ShishGL::Text</a>
-</li>
-<li>TextBuffer()
-: <a class="el" href="classShishGL_1_1TextBuffer.html#a4acca6eab23c14cbd81bba66523f2209">ShishGL::TextBuffer</a>
+<li>TextShape()
+: <a class="el" href="classSh_1_1TextShape.html#a07e1039aa6421750f209f2124863a508">Sh::TextShape</a>
 </li>
 <li>TextureFill()
-: <a class="el" href="classShishGL_1_1TextureFill.html#a5dc3b544f8fbd9cc65e3b283e736833a">ShishGL::TextureFill</a>
+: <a class="el" href="classSh_1_1TextureFill.html#af37e5a6ef35dc1776c42a5abfee41744">Sh::TextureFill</a>
+</li>
+<li>THISTLE
+: <a class="el" href="structSh_1_1Color.html#a15cc83db8f04fbcb7910a0be115ca67a">Sh::Color</a>
 </li>
 <li>time_delta
-: <a class="el" href="classShishGL_1_1TimerEvent.html#af91f1510c6198d3e7914e3f9cfde2dff">ShishGL::TimerEvent</a>
+: <a class="el" href="classSh_1_1TimerEvent.html#a1ed46575f6440f3dd502256ad5eedc8b">Sh::TimerEvent</a>
 </li>
 <li>Timer()
-: <a class="el" href="classShishGL_1_1Timer.html#a12082e0ada8bfe1b1dbfe8ab73f01b2a">ShishGL::Timer</a>
+: <a class="el" href="classSh_1_1Timer.html#a5f16e8da27d2a5a5242dead46de05d97">Sh::Timer</a>
 </li>
 <li>TimerEvent
-: <a class="el" href="classShishGL_1_1PlatformListener.html#a7f9c386c7ca82abf456bc9d04a2e38a2">ShishGL::PlatformListener</a>
-, <a class="el" href="classShishGL_1_1TimerEvent.html#a2729646259d823561700730f09699f8f">ShishGL::TimerEvent</a>
+: <a class="el" href="classSh_1_1PlatformListener.html#a7f9c386c7ca82abf456bc9d04a2e38a2">Sh::PlatformListener</a>
+, <a class="el" href="classSh_1_1TimerEvent.html#a2729646259d823561700730f09699f8f">Sh::TimerEvent</a>
+</li>
+<li>TogglerDummy()
+: <a class="el" href="classTogglerDummy.html#a7e9277e2f950ff05a895eb70735cc5ae">TogglerDummy</a>
+</li>
+<li>TOMATO
+: <a class="el" href="structSh_1_1Color.html#ad8ad74a5140cfecf03ae310766a8af41">Sh::Color</a>
 </li>
 <li>translate()
-: <a class="el" href="classShishGL_1_1Window.html#a7ae02038d84f3758724e22ffb534a979">ShishGL::Window</a>
+: <a class="el" href="classSh_1_1Window.html#a7ae02038d84f3758724e22ffb534a979">Sh::Window</a>
+</li>
+<li>TURQUOISE
+: <a class="el" href="structSh_1_1Color.html#a8598e0b9071e5d97f0c2be9a9a00dfa0">Sh::Color</a>
 </li>
 <li>type()
-: <a class="el" href="classShishGL_1_1MouseScrollEvent.html#a357c05ab3743967d4f88e30850e1c7c4">ShishGL::MouseScrollEvent</a>
+: <a class="el" href="classSh_1_1MouseScrollEvent.html#a357c05ab3743967d4f88e30850e1c7c4">Sh::MouseScrollEvent</a>
 </li>
 <li>Type
-: <a class="el" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">ShishGL::Scrollbar</a>
+: <a class="el" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12">Sh::UIScrollbar</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -21,11 +21,18 @@ namespace Sh {
 
             if (FrameDraggable::onMouseMove(event) && FrameDraggable::isHeld()) {
 
+                Sh::Frame border = frame;
+                const Window* parent = Behavior::target<UIWindow>()->getParent();
+
+                if (parent) {
+                    border.pos += parent->getPos();
+                }
+
                 Frame frame = target<UIWindow>()->getFrame();
 
                 selector.set(Vector2<double>{
-                        (frame.pos.x - FrameDraggable::frame.pos.x) / (FrameDraggable::frame.size.x - frame.size.x),
-                        (frame.pos.y - FrameDraggable::frame.pos.y) / (FrameDraggable::frame.size.y - frame.size.y),
+                        (frame.pos.x - border.pos.x) / (border.size.x - frame.size.x),
+                        (frame.pos.y - border.pos.y) / (border.size.y - frame.size.y),
                 });
 
                 return true;

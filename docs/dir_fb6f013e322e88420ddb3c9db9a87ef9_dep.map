@@ -1,10 +1,8 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI">
-<area shape="rect" id="node3" href="dir_9562454004c2c131410614b5e173c65d.html" title="UIWindow" alt="" coords="44,159,132,207"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000017_000019.html" title="4" alt="" coords="85,132,95,147"/>
-<area shape="rect" id="node2" href="dir_213e67e3ca6d54d9387bb0ca77c756df.html" title="TextBuffer" alt="" coords="133,63,221,111"/>
-<area shape="rect" id="node4" href="dir_6ec439aaf268998a1210d7c46faeead9.html" title="Core" alt="" coords="95,255,167,303"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000018_000004.html" title="2" alt="" coords="145,232,155,246"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000019_000004.html" title="12" alt="" coords="112,227,129,242"/>
-<area shape="rect" id="clust2" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html" alt="" coords="27,52,232,217"/>
-<area shape="rect" id="clust1" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html" title="ShishGL" alt="" coords="16,16,243,228"/>
+<area shape="rect" id="node2" href="dir_9562454004c2c131410614b5e173c65d.html" title="UIWindow" alt="" coords="37,159,125,207"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000019_000020.html" title="19" alt="" coords="81,133,98,148"/>
+<area shape="rect" id="node3" href="dir_6ec439aaf268998a1210d7c46faeead9.html" title="Core" alt="" coords="45,255,117,303"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000020_000007.html" title="20" alt="" coords="81,229,98,244"/>
+<area shape="rect" id="clust2" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html" alt="" coords="27,52,136,217"/>
+<area shape="rect" id="clust1" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html" title="ShishGL" alt="" coords="16,16,147,228"/>
 </map>

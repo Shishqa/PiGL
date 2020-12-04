@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('RectangleShape_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4e4e2e75df7fa6971448b424c011c8b5.html">GUI</a></li><li class="navelem"><a class="el" href="dir_d2d0451ddad16bf8781aafb837af9f0a.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_0f445bbc2db04eb6557b796588df2f2e.html">Shapes</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RectangleShape.cpp File Reference</div>  </div>
@@ -78,27 +104,30 @@ Include dependency graph for RectangleShape.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="RectangleShape_8cpp__incl.png" border="0" usemap="#a_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2GUI_2UIWindow_2Shapes_2RectangleShape_8cpp" alt=""/></div>
 <map name="_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2GUI_2UIWindow_2Shapes_2RectangleShape_8cpp" id="a_2home_2shishqa_2dev_2MIPT_22020__3_200__ShishGL_2src_2GUI_2UIWindow_2Shapes_2RectangleShape_8cpp">
-<area shape="rect" title=" " alt="" coords="86,5,326,76"/>
-<area shape="rect" href="RectangleShape_8hpp.html" title=" " alt="" coords="42,124,197,151"/>
-<area shape="rect" href="RenderSystem_8hpp.html" title=" " alt="" coords="231,124,376,151"/>
-<area shape="rect" href="Shape2D_8hpp.html" title=" " alt="" coords="45,199,153,225"/>
-<area shape="rect" href="Viewport_8hpp.html" title=" " alt="" coords="5,273,113,300"/>
-<area shape="rect" href="Vector2_8hpp.html" title=" " alt="" coords="57,348,155,375"/>
-<area shape="rect" href="Vector2_8ipp.html" title=" " alt="" coords="59,423,153,449"/>
-<area shape="rect" title=" " alt="" coords="75,497,137,524"/>
-<area shape="rect" href="IPlatform_8hpp.html" title=" " alt="" coords="253,199,364,225"/>
-<area shape="rect" title=" " alt="" coords="373,348,471,375"/>
-<area shape="rect" href="Color_8hpp.html" title=" " alt="" coords="266,348,349,375"/>
-<area shape="rect" href="ColorCollection_8hpp.html" title=" " alt="" coords="239,273,389,300"/>
-<area shape="rect" href="ResourceManager_8hpp.html" title=" " alt="" coords="471,273,637,300"/>
-<area shape="rect" title=" " alt="" coords="449,423,515,449"/>
-<area shape="rect" title=" " alt="" coords="495,348,619,375"/>
+<area shape="rect" title=" " alt="" coords="49,5,289,76"/>
+<area shape="rect" href="RectangleShape_8hpp.html" title=" " alt="" coords="5,124,160,151"/>
+<area shape="rect" href="RenderSystem_8hpp.html" title=" " alt="" coords="185,124,330,151"/>
+<area shape="rect" href="Shape2D_8hpp.html" title=" " alt="" coords="29,199,137,225"/>
+<area shape="rect" href="Frame_8hpp.html" title=" " alt="" coords="37,273,128,300"/>
+<area shape="rect" href="Vector2_8hpp.html" title=" " alt="" coords="33,348,132,375"/>
+<area shape="rect" href="Vector2_8ipp.html" title=" " alt="" coords="35,423,130,449"/>
+<area shape="rect" title=" " alt="" coords="51,497,114,524"/>
+<area shape="rect" href="IPlatform_8hpp.html" title=" " alt="" coords="202,199,313,225"/>
+<area shape="rect" title=" " alt="" coords="415,348,513,375"/>
+<area shape="rect" href="Color_8hpp.html" title=" " alt="" coords="152,273,235,300"/>
+<area shape="rect" href="ResourceManager_8hpp.html" title=" " alt="" coords="259,273,426,300"/>
+<area shape="rect" title=" " alt="" coords="168,348,235,375"/>
+<area shape="rect" title=" " alt="" coords="267,348,391,375"/>
 </map>
 </div>
 </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4e4e2e75df7fa6971448b424c011c8b5.html">GUI</a></li><li class="navelem"><a class="el" href="dir_d2d0451ddad16bf8781aafb837af9f0a.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_0f445bbc2db04eb6557b796588df2f2e.html">Shapes</a></li><li class="navelem"><a class="el" href="RectangleShape_8cpp.html">RectangleShape.cpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

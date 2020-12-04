@@ -1,0 +1,11 @@
+<map id="Sh::FrameDraggable" name="Sh::FrameDraggable">
+<area shape="rect" id="node1" title=" " alt="" coords="29,528,184,555"/>
+<area shape="rect" id="node9" href="$classSh_1_1Slider2D.html" title=" " alt="" coords="5,603,208,629"/>
+<area shape="rect" id="node2" href="$classSh_1_1Draggable.html" title=" " alt="" coords="50,453,163,480"/>
+<area shape="rect" id="node3" href="$classSh_1_1Holdable.html" title=" " alt="" coords="55,379,159,405"/>
+<area shape="rect" id="node4" href="$classSh_1_1Clickable.html" title=" " alt="" coords="54,304,159,331"/>
+<area shape="rect" id="node5" href="$classSh_1_1DefaultBehavior.html" title=" " alt="" coords="31,229,183,256"/>
+<area shape="rect" id="node6" href="$classSh_1_1Behavior.html" title=" " alt="" coords="55,155,159,181"/>
+<area shape="rect" id="node7" href="$classSh_1_1PlatformListener.html" title=" " alt="" coords="29,80,184,107"/>
+<area shape="rect" id="node8" href="$classSh_1_1Listener.html" title=" " alt="" coords="57,5,156,32"/>
+</map>

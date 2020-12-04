@@ -47,9 +47,7 @@ void WindowManager::dump(const std::string_view& file_name) {
     fprintf(file, "digraph {\n"
                   "\tnode [shape=record]\n");
 
-    for (auto& child : ROOT->getChildren()) {
-        dump(file, child);
-    }
+    dump(file, Root());
 
     fprintf(file, "}\n");
 

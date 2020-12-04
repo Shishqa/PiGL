@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['d_1206',['D',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a4a6773f3a79a270d7b8003162fd855a2',1,'ShishGL::Keyboard']]],
-  ['del_1207',['DEL',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2a67a9b9ed2a101838b6e8cfb8edc1877a',1,'ShishGL::Keyboard']]],
-  ['dot_1208',['DOT',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2aa89e774faebd2d1c1e0d386df544bce6',1,'ShishGL::Keyboard']]],
-  ['down_1209',['DOWN',['../classShishGL_1_1Keyboard.html#a562377e2f2f486aa2e6df0dcc02e374aabc164c24bcc47e1c8f83b3497792e9aa',1,'ShishGL::Keyboard::DOWN()'],['../classShishGL_1_1Mouse.html#a4c859831b34a4b747c96758a79f8b61aa16fa615f1427dfef831aa55b3d8a5d97',1,'ShishGL::Mouse::DOWN()']]]
+  ['d_1331',['D',['../classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca6383249eb4bd794e7fe930ce2e6efba6',1,'Sh::Keyboard']]],
+  ['del_1332',['DEL',['../classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae7f1671ad07967ce9e6701d696c50959',1,'Sh::Keyboard']]],
+  ['dot_1333',['DOT',['../classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661cae826ebd8bdc98cd66361e74bec41e1ef',1,'Sh::Keyboard']]],
+  ['down_1334',['DOWN',['../classSh_1_1Keyboard.html#a15082a8503cdd9f52e34bdd120ff224aad67446dedfa11b5b51012fadb9211d41',1,'Sh::Keyboard::DOWN()'],['../classSh_1_1Mouse.html#afaa0fe9f5f39282a1be7d6691c8e1f88a51061eaa49360cf83086524954e8ae22',1,'Sh::Mouse::DOWN()']]]
 ];

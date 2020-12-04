@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('annotated.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,71 +99,99 @@ $(function() {
 <div class="contents">
 <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
 <div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceShishGL.html" target="_self">ShishGL</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Behavior.html" target="_self">Behavior</a></td><td class="desc"></td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Bordered.html" target="_self">Bordered</a></td><td class="desc"></td></tr>
-<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1CircleShape.html" target="_self">CircleShape</a></td><td class="desc"></td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Clickable.html" target="_self">Clickable</a></td><td class="desc"></td></tr>
-<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1Color.html" target="_self">Color</a></td><td class="desc"></td></tr>
-<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1ColorFill.html" target="_self">ColorFill</a></td><td class="desc"></td></tr>
-<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1ColorPair.html" target="_self">ColorPair</a></td><td class="desc"></td></tr>
-<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1CoreApplication.html" target="_self">CoreApplication</a></td><td class="desc"></td></tr>
-<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1CursorLocator.html" target="_self">CursorLocator</a></td><td class="desc"></td></tr>
-<tr id="row_0_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1DefaultBehavior.html" target="_self">DefaultBehavior</a></td><td class="desc"></td></tr>
-<tr id="row_0_10_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Dialog.html" target="_self">Dialog</a></td><td class="desc"></td></tr>
-<tr id="row_0_11_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Draggable.html" target="_self">Draggable</a></td><td class="desc"></td></tr>
-<tr id="row_0_12_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Event.html" target="_self">Event</a></td><td class="desc"></td></tr>
-<tr id="row_0_13_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1EventManager.html" target="_self">EventManager</a></td><td class="desc"></td></tr>
-<tr id="row_0_14_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1EventSystem.html" target="_self">EventSystem</a></td><td class="desc"></td></tr>
-<tr id="row_0_15_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Frame.html" target="_self">Frame</a></td><td class="desc"></td></tr>
-<tr id="row_0_16_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Holdable.html" target="_self">Holdable</a></td><td class="desc"></td></tr>
-<tr id="row_0_17_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Image.html" target="_self">Image</a></td><td class="desc"></td></tr>
-<tr id="row_0_18_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_18_" class="arrow" onclick="toggleFolder('0_18_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1IPlatform.html" target="_self">IPlatform</a></td><td class="desc"></td></tr>
-<tr id="row_0_18_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1IPlatform_1_1IContext.html" target="_self">IContext</a></td><td class="desc"></td></tr>
-<tr id="row_0_19_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Keyboard.html" target="_self">Keyboard</a></td><td class="desc"></td></tr>
-<tr id="row_0_20_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1KeyboardEvent.html" target="_self">KeyboardEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_21_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Listener.html" target="_self">Listener</a></td><td class="desc"></td></tr>
-<tr id="row_0_22_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1LogSystem.html" target="_self">LogSystem</a></td><td class="desc"></td></tr>
-<tr id="row_0_23_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Mouse.html" target="_self">Mouse</a></td><td class="desc"></td></tr>
-<tr id="row_0_24_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1MouseButtonEvent.html" target="_self">MouseButtonEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_25_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1MouseEvent.html" target="_self">MouseEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_26_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1MouseScrollEvent.html" target="_self">MouseScrollEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_27_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1PlatformListener.html" target="_self">PlatformListener</a></td><td class="desc"></td></tr>
-<tr id="row_0_28_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1RectangleShape.html" target="_self">RectangleShape</a></td><td class="desc"></td></tr>
-<tr id="row_0_29_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1RenderSystem.html" target="_self">RenderSystem</a></td><td class="desc"></td></tr>
-<tr id="row_0_30_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_30_" class="arrow" onclick="toggleFolder('0_30_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1ResourceManager.html" target="_self">ResourceManager</a></td><td class="desc"></td></tr>
-<tr id="row_0_30_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1ResourceManager_1_1Resource.html" target="_self">Resource</a></td><td class="desc"></td></tr>
-<tr id="row_0_31_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_31_" class="arrow" onclick="toggleFolder('0_31_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Scrollbar.html" target="_self">Scrollbar</a></td><td class="desc"></td></tr>
-<tr id="row_0_31_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Scrollbar_1_1Button.html" target="_self">Button</a></td><td class="desc"></td></tr>
-<tr id="row_0_32_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1Segment2.html" target="_self">Segment2</a></td><td class="desc"></td></tr>
-<tr id="row_0_33_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_33_" class="arrow" onclick="toggleFolder('0_33_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1SfmlPlatform.html" target="_self">SfmlPlatform</a></td><td class="desc"></td></tr>
-<tr id="row_0_33_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1SfmlPlatform_1_1SfmlContext.html" target="_self">SfmlContext</a></td><td class="desc"></td></tr>
-<tr id="row_0_34_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Shape2D.html" target="_self">Shape2D</a></td><td class="desc"></td></tr>
-<tr id="row_0_35_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Slidable.html" target="_self">Slidable</a></td><td class="desc"></td></tr>
-<tr id="row_0_36_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1SlideEvent.html" target="_self">SlideEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_37_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1SlideListener.html" target="_self">SlideListener</a></td><td class="desc"></td></tr>
-<tr id="row_0_38_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Style.html" target="_self">Style</a></td><td class="desc"></td></tr>
-<tr id="row_0_39_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1StylePack.html" target="_self">StylePack</a></td><td class="desc"></td></tr>
-<tr id="row_0_40_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1SubscriptionManager.html" target="_self">SubscriptionManager</a></td><td class="desc"></td></tr>
-<tr id="row_0_41_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Text.html" target="_self">Text</a></td><td class="desc"></td></tr>
-<tr id="row_0_42_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1TextBuffer.html" target="_self">TextBuffer</a></td><td class="desc"></td></tr>
-<tr id="row_0_43_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1TextureFill.html" target="_self">TextureFill</a></td><td class="desc"></td></tr>
-<tr id="row_0_44_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Timer.html" target="_self">Timer</a></td><td class="desc"></td></tr>
-<tr id="row_0_45_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1TimerEvent.html" target="_self">TimerEvent</a></td><td class="desc"></td></tr>
-<tr id="row_0_46_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1UICanvas.html" target="_self">UICanvas</a></td><td class="desc"></td></tr>
-<tr id="row_0_47_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1UIWindow.html" target="_self">UIWindow</a></td><td class="desc"></td></tr>
-<tr id="row_0_48_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1Vector2.html" target="_self">Vector2</a></td><td class="desc"></td></tr>
-<tr id="row_0_49_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structShishGL_1_1Viewport.html" target="_self">Viewport</a></td><td class="desc"></td></tr>
-<tr id="row_0_50_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1Window.html" target="_self">Window</a></td><td class="desc"></td></tr>
-<tr id="row_0_51_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1WindowManager.html" target="_self">WindowManager</a></td><td class="desc"></td></tr>
-<tr id="row_0_52_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_52_" class="arrow" onclick="toggleFolder('0_52_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1XorgPlatform.html" target="_self">XorgPlatform</a></td><td class="desc"></td></tr>
-<tr id="row_0_52_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1XorgPlatform_1_1XContext.html" target="_self">XContext</a></td><td class="desc"></td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceSh.html" target="_self">Sh</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Behavior.html" target="_self">Behavior</a></td><td class="desc"></td></tr>
+<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1BehaviorManager.html" target="_self">BehaviorManager</a></td><td class="desc"></td></tr>
+<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Bordered.html" target="_self">Bordered</a></td><td class="desc"></td></tr>
+<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ButtonBehavior.html" target="_self">ButtonBehavior</a></td><td class="desc"></td></tr>
+<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1CheckboxBehavior.html" target="_self">CheckboxBehavior</a></td><td class="desc"></td></tr>
+<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1CircleShape.html" target="_self">CircleShape</a></td><td class="desc"></td></tr>
+<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Clickable.html" target="_self">Clickable</a></td><td class="desc"></td></tr>
+<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1Color.html" target="_self">Color</a></td><td class="desc"></td></tr>
+<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ColorFill.html" target="_self">ColorFill</a></td><td class="desc"></td></tr>
+<tr id="row_0_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1ColorPair.html" target="_self">ColorPair</a></td><td class="desc"></td></tr>
+<tr id="row_0_10_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1CoreApplication.html" target="_self">CoreApplication</a></td><td class="desc"></td></tr>
+<tr id="row_0_11_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1DefaultBehavior.html" target="_self">DefaultBehavior</a></td><td class="desc"></td></tr>
+<tr id="row_0_12_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Dialog.html" target="_self">Dialog</a></td><td class="desc"></td></tr>
+<tr id="row_0_13_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Draggable.html" target="_self">Draggable</a></td><td class="desc"></td></tr>
+<tr id="row_0_14_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Event.html" target="_self">Event</a></td><td class="desc"></td></tr>
+<tr id="row_0_15_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1EventManager.html" target="_self">EventManager</a></td><td class="desc"></td></tr>
+<tr id="row_0_16_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1EventSystem.html" target="_self">EventSystem</a></td><td class="desc"></td></tr>
+<tr id="row_0_17_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Font.html" target="_self">Font</a></td><td class="desc"></td></tr>
+<tr id="row_0_18_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1FontSize.html" target="_self">FontSize</a></td><td class="desc"></td></tr>
+<tr id="row_0_19_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1FpsLabel.html" target="_self">FpsLabel</a></td><td class="desc"></td></tr>
+<tr id="row_0_20_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1Frame.html" target="_self">Frame</a></td><td class="desc"></td></tr>
+<tr id="row_0_21_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1FrameDraggable.html" target="_self">FrameDraggable</a></td><td class="desc"></td></tr>
+<tr id="row_0_22_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1FrameScrollable.html" target="_self">FrameScrollable</a></td><td class="desc"></td></tr>
+<tr id="row_0_23_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1FrameSlidable.html" target="_self">FrameSlidable</a></td><td class="desc"></td></tr>
+<tr id="row_0_24_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Holdable.html" target="_self">Holdable</a></td><td class="desc"></td></tr>
+<tr id="row_0_25_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Image.html" target="_self">Image</a></td><td class="desc"></td></tr>
+<tr id="row_0_26_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_26_" class="arrow" onclick="toggleFolder('0_26_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1IPlatform.html" target="_self">IPlatform</a></td><td class="desc"></td></tr>
+<tr id="row_0_26_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1IPlatform_1_1IContext.html" target="_self">IContext</a></td><td class="desc"></td></tr>
+<tr id="row_0_27_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Keyboard.html" target="_self">Keyboard</a></td><td class="desc"></td></tr>
+<tr id="row_0_28_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1KeyboardEvent.html" target="_self">KeyboardEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_29_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Listener.html" target="_self">Listener</a></td><td class="desc"></td></tr>
+<tr id="row_0_30_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1LogSystem.html" target="_self">LogSystem</a></td><td class="desc"></td></tr>
+<tr id="row_0_31_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Mouse.html" target="_self">Mouse</a></td><td class="desc"></td></tr>
+<tr id="row_0_32_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1MouseButtonEvent.html" target="_self">MouseButtonEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_33_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1MouseEvent.html" target="_self">MouseEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_34_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1MouseScrollEvent.html" target="_self">MouseScrollEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_35_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1PlatformListener.html" target="_self">PlatformListener</a></td><td class="desc"></td></tr>
+<tr id="row_0_36_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1RectangleShape.html" target="_self">RectangleShape</a></td><td class="desc"></td></tr>
+<tr id="row_0_37_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1RenderSystem.html" target="_self">RenderSystem</a></td><td class="desc"></td></tr>
+<tr id="row_0_38_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_38_" class="arrow" onclick="toggleFolder('0_38_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ResourceManager.html" target="_self">ResourceManager</a></td><td class="desc"></td></tr>
+<tr id="row_0_38_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1ResourceManager_1_1Resource.html" target="_self">Resource</a></td><td class="desc"></td></tr>
+<tr id="row_0_39_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ScrollbarBackground.html" target="_self">ScrollbarBackground</a></td><td class="desc"></td></tr>
+<tr id="row_0_40_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ScrollbarButton.html" target="_self">ScrollbarButton</a></td><td class="desc"></td></tr>
+<tr id="row_0_41_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1ScrollbarSlider.html" target="_self">ScrollbarSlider</a></td><td class="desc"></td></tr>
+<tr id="row_0_42_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1Segment2.html" target="_self">Segment2</a></td><td class="desc"></td></tr>
+<tr id="row_0_43_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_43_" class="arrow" onclick="toggleFolder('0_43_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1SfmlPlatform.html" target="_self">SfmlPlatform</a></td><td class="desc"></td></tr>
+<tr id="row_0_43_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1SfmlPlatform_1_1SfmlContext.html" target="_self">SfmlContext</a></td><td class="desc"></td></tr>
+<tr id="row_0_44_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Shape2D.html" target="_self">Shape2D</a></td><td class="desc"></td></tr>
+<tr id="row_0_45_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Slidable.html" target="_self">Slidable</a></td><td class="desc"></td></tr>
+<tr id="row_0_46_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1SlideEvent.html" target="_self">SlideEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_47_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1SlideListener.html" target="_self">SlideListener</a></td><td class="desc"></td></tr>
+<tr id="row_0_48_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Slider.html" target="_self">Slider</a></td><td class="desc"></td></tr>
+<tr id="row_0_49_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Slider2D.html" target="_self">Slider2D</a></td><td class="desc"></td></tr>
+<tr id="row_0_50_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Style.html" target="_self">Style</a></td><td class="desc"></td></tr>
+<tr id="row_0_51_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1StylePack.html" target="_self">StylePack</a></td><td class="desc"></td></tr>
+<tr id="row_0_52_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1SubscriptionManager.html" target="_self">SubscriptionManager</a></td><td class="desc"></td></tr>
+<tr id="row_0_53_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1TextField.html" target="_self">TextField</a></td><td class="desc"></td></tr>
+<tr id="row_0_54_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1TextShape.html" target="_self">TextShape</a></td><td class="desc"></td></tr>
+<tr id="row_0_55_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1TextureFill.html" target="_self">TextureFill</a></td><td class="desc"></td></tr>
+<tr id="row_0_56_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Timer.html" target="_self">Timer</a></td><td class="desc"></td></tr>
+<tr id="row_0_57_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1TimerEvent.html" target="_self">TimerEvent</a></td><td class="desc"></td></tr>
+<tr id="row_0_58_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UIButton.html" target="_self">UIButton</a></td><td class="desc"></td></tr>
+<tr id="row_0_59_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UICanvas.html" target="_self">UICanvas</a></td><td class="desc"></td></tr>
+<tr id="row_0_60_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UICheckbox.html" target="_self">UICheckbox</a></td><td class="desc"></td></tr>
+<tr id="row_0_61_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UIFrame.html" target="_self">UIFrame</a></td><td class="desc"></td></tr>
+<tr id="row_0_62_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UILabel.html" target="_self">UILabel</a></td><td class="desc"></td></tr>
+<tr id="row_0_63_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UIScrollbar.html" target="_self">UIScrollbar</a></td><td class="desc"></td></tr>
+<tr id="row_0_64_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UISlider.html" target="_self">UISlider</a></td><td class="desc"></td></tr>
+<tr id="row_0_65_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UISlider2D.html" target="_self">UISlider2D</a></td><td class="desc"></td></tr>
+<tr id="row_0_66_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UITextInput.html" target="_self">UITextInput</a></td><td class="desc"></td></tr>
+<tr id="row_0_67_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1UIWindow.html" target="_self">UIWindow</a></td><td class="desc"></td></tr>
+<tr id="row_0_68_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1Vector2.html" target="_self">Vector2</a></td><td class="desc"></td></tr>
+<tr id="row_0_69_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structSh_1_1Vector3.html" target="_self">Vector3</a></td><td class="desc"></td></tr>
+<tr id="row_0_70_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1Window.html" target="_self">Window</a></td><td class="desc"></td></tr>
+<tr id="row_0_71_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSh_1_1WindowManager.html" target="_self">WindowManager</a></td><td class="desc"></td></tr>
+<tr id="row_1_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9660;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceShishGL.html" target="_self">ShishGL</a></td><td class="desc"></td></tr>
+<tr id="row_1_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classShishGL_1_1CursorLocator.html" target="_self">CursorLocator</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classCanvasBehavior.html" target="_self">CanvasBehavior</a></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classDummy.html" target="_self">Dummy</a></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classDummySelector.html" target="_self">DummySelector</a></td><td class="desc"></td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classDummySelector2D.html" target="_self">DummySelector2D</a></td><td class="desc"></td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classSphereCanvas.html" target="_self">SphereCanvas</a></td><td class="desc"></td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classTogglerDummy.html" target="_self">TogglerDummy</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

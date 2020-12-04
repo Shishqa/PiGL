@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['icontext_630',['IContext',['../classShishGL_1_1IPlatform_1_1IContext.html',1,'ShishGL::IPlatform']]],
-  ['image_631',['Image',['../classShishGL_1_1Image.html',1,'ShishGL']]],
-  ['iplatform_632',['IPlatform',['../classShishGL_1_1IPlatform.html',1,'ShishGL']]]
+  ['icontext_694',['IContext',['../classSh_1_1IPlatform_1_1IContext.html',1,'Sh::IPlatform']]],
+  ['image_695',['Image',['../classSh_1_1Image.html',1,'Sh']]],
+  ['iplatform_696',['IPlatform',['../classSh_1_1IPlatform.html',1,'Sh']]]
 ];

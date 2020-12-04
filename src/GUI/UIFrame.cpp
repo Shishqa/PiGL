@@ -18,6 +18,8 @@ UIFrame::UIFrame(const Frame& frame, const Frame& contents_frame)
                             UIScrollbar::VERTICAL, frame.size.y / content_frame.size.y);
         applyDefaultStyle(v_scrollbar);
 
+        addBehavior<FrameSlidable>(v_scrollbar);
+        addBehavior<FrameScrollable>(v_scrollbar);
     }
 
     if (content_frame.size.x > frame.size.x) {
@@ -26,21 +28,18 @@ UIFrame::UIFrame(const Frame& frame, const Frame& contents_frame)
                                           UIScrollbar::HORIZONTAL, frame.size.x / content_frame.size.x);
         applyDefaultStyle(h_scrollbar);
 
+        addBehavior<FrameSlidable>(h_scrollbar);
+        addBehavior<FrameScrollable>(h_scrollbar);
     }
-
-    addBehavior<FrameSlidable>();
-    addBehavior<FrameScrollable>();
 
 }
 
 /*----------------------------------------------------------------------------*/
 
-FrameScrollable::FrameScrollable(UIWindow* target)
+FrameScrollable::FrameScrollable(UIWindow* target, UIScrollbar* scrollbar)
         : DefaultBehavior(target) {
     SubscriptionManager::subscribe(this, EventSystem::SystemEvents, MOUSE_SCROLL);
-    SubscriptionManager::subscribe(Behavior::target<UIFrame>()->v_scrollbar->slider->as<ScrollbarSlider>(),
-                                   this, MOUSE_SCROLL);
-    SubscriptionManager::subscribe(Behavior::target<UIFrame>()->h_scrollbar->slider->as<ScrollbarSlider>(),
+    SubscriptionManager::subscribe(scrollbar->slider->as<ScrollbarSlider>(),
                                    this, MOUSE_SCROLL);
 }
 
@@ -51,11 +50,9 @@ bool FrameScrollable::onMouseScroll(MouseScrollEvent& event) {
 
 /*----------------------------------------------------------------------------*/
 
-FrameSlidable::FrameSlidable(UIWindow* target)
+FrameSlidable::FrameSlidable(UIWindow* target, UIScrollbar* scrollbar)
         : SlideListener(target) {
-    SubscriptionManager::subscribe(this, Behavior::target<UIFrame>()->v_scrollbar->slider->as<ScrollbarSlider>(),
-                                   SLIDE);
-    SubscriptionManager::subscribe(this, Behavior::target<UIFrame>()->h_scrollbar->slider->as<ScrollbarSlider>(),
+    SubscriptionManager::subscribe(this, scrollbar->slider->as<ScrollbarSlider>(),
                                    SLIDE);
 }
 

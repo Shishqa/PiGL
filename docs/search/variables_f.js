@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['r_1132',['r',['../structShishGL_1_1Color.html#a975562cea3df6cfe06687e1cb70206a4',1,'ShishGL::Color']]],
-  ['r_5falt_5fmod_1133',['R_ALT_MOD',['../classShishGL_1_1Keyboard.html#ab928ef08adfa43b381086cab454cca95',1,'ShishGL::Keyboard']]],
-  ['r_5fctrl_5fmod_1134',['R_CTRL_MOD',['../classShishGL_1_1Keyboard.html#aa7f64f7ec063384da4acfae35bc65929',1,'ShishGL::Keyboard']]],
-  ['r_5fshift_5fmod_1135',['R_SHIFT_MOD',['../classShishGL_1_1Keyboard.html#adfb828ac4814952b4b09da757566d472',1,'ShishGL::Keyboard']]],
-  ['red_1136',['RED',['../namespaceShishGL_1_1COLOR.html#aca1d70ac913996ad796fbdf6dede17a4',1,'ShishGL::COLOR']]],
-  ['ride_1137',['ride',['../TEST__TEXT_8txt.html#a2089e08d4a8d6362a352363912ab1c79',1,'TEST_TEXT.txt']]],
-  ['root_1138',['ROOT',['../classShishGL_1_1WindowManager.html#a7762810350c89d7ba733ac72635f8608',1,'ShishGL::WindowManager']]],
-  ['rosy_5fbrown_1139',['ROSY_BROWN',['../namespaceShishGL_1_1COLOR.html#a058e5052a1d642dde393c5e4aa60d75b',1,'ShishGL::COLOR']]],
-  ['royal_5fblue_1140',['ROYAL_BLUE',['../namespaceShishGL_1_1COLOR.html#aa18faa5661d58fef1737e54ccff53bad',1,'ShishGL::COLOR']]]
+  ['r_1256',['r',['../structSh_1_1Color.html#a67f332e32491aaade6a300a5200800bc',1,'Sh::Color']]],
+  ['r_5falt_5fmod_1257',['R_ALT_MOD',['../classSh_1_1Keyboard.html#ae7388cd6cbd37e28818ca31b799b39af',1,'Sh::Keyboard']]],
+  ['r_5fctrl_5fmod_1258',['R_CTRL_MOD',['../classSh_1_1Keyboard.html#aabec535092816ee314b5cfaa15fef28f',1,'Sh::Keyboard']]],
+  ['r_5fshift_5fmod_1259',['R_SHIFT_MOD',['../classSh_1_1Keyboard.html#a712dbac882e75d0309083b02eafc7e6d',1,'Sh::Keyboard']]],
+  ['red_1260',['RED',['../structSh_1_1Color.html#aae63fc23cf0d0772e8b07c776f73b019',1,'Sh::Color']]],
+  ['ride_1261',['ride',['../TEST__TEXT_8txt.html#a2089e08d4a8d6362a352363912ab1c79',1,'TEST_TEXT.txt']]],
+  ['rosy_5fbrown_1262',['ROSY_BROWN',['../structSh_1_1Color.html#a005eff7dafe9693f4410b562ca3152ac',1,'Sh::Color']]],
+  ['royal_5fblue_1263',['ROYAL_BLUE',['../structSh_1_1Color.html#acc2d3385584f80234044caf6040770a8',1,'Sh::Color']]]
 ];

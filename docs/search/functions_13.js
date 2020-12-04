@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['where_935',['where',['../classShishGL_1_1MouseEvent.html#a4a3c6fa8b13a9c465227217c9dfac443',1,'ShishGL::MouseEvent']]],
-  ['window_936',['Window',['../classShishGL_1_1Window.html#a86c31c5c11e64daa7c65064295d48960',1,'ShishGL::Window::Window()=delete'],['../classShishGL_1_1Window.html#afd66588deb333d494219cf02ce23638f',1,'ShishGL::Window::Window(const Window &amp;other)=delete'],['../classShishGL_1_1Window.html#a6ee9f5a2aa401d8e1996085fea4d98e6',1,'ShishGL::Window::Window(const Viewport &amp;frame)']]],
-  ['windowmanager_937',['WindowManager',['../classShishGL_1_1WindowManager.html#a0ef7278fc0d29c574cb9ccc696aac25b',1,'ShishGL::WindowManager']]]
+  ['where_1064',['where',['../classSh_1_1MouseEvent.html#a4a3c6fa8b13a9c465227217c9dfac443',1,'Sh::MouseEvent']]],
+  ['window_1065',['Window',['../classSh_1_1Window.html#a8040f7867410076ad7645515bbf3444e',1,'Sh::Window::Window()=delete'],['../classSh_1_1Window.html#ad49e9a05b2b6e521d81599a1ea075e33',1,'Sh::Window::Window(const Window &amp;other)=delete'],['../classSh_1_1Window.html#a17376a50bca0b36924bed629831da879',1,'Sh::Window::Window(const Frame &amp;frame)']]],
+  ['windowmanager_1066',['WindowManager',['../classSh_1_1WindowManager.html#aef204fbd3e459c5585cf5cfa7838cfff',1,'Sh::WindowManager']]]
 ];

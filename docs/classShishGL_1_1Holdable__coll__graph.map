@@ -1,8 +1,0 @@
-<map id="ShishGL::Holdable" name="ShishGL::Holdable">
-<area shape="rect" id="node1" title=" " alt="" coords="31,379,171,405"/>
-<area shape="rect" id="node2" href="$classShishGL_1_1Clickable.html" title=" " alt="" coords="30,304,171,331"/>
-<area shape="rect" id="node3" href="$classShishGL_1_1DefaultBehavior.html" title=" " alt="" coords="7,229,195,256"/>
-<area shape="rect" id="node4" href="$classShishGL_1_1Behavior.html" title=" " alt="" coords="31,155,171,181"/>
-<area shape="rect" id="node5" href="$classShishGL_1_1PlatformListener.html" title=" " alt="" coords="5,80,196,107"/>
-<area shape="rect" id="node6" href="$classShishGL_1_1Listener.html" title=" " alt="" coords="33,5,168,32"/>
-</map>

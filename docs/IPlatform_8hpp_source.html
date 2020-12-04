@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('IPlatform_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">IPlatform.hpp</div>  </div>
@@ -77,169 +103,172 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vector2_8hpp.html">Vector2.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Frame_8hpp.html">Frame.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Color_8hpp.html">Color.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ColorCollection_8hpp.html">ColorCollection.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ResourceManager_8hpp.html">ResourceManager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html">   14</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1IPlatform.html">IPlatform</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ResourceManager_8hpp.html">ResourceManager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1IPlatform.html">IPlatform</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#aa2436bcb7b14c49383ea05e34612ae92">   16</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1IPlatform.html#aa2436bcb7b14c49383ea05e34612ae92">isRunning</a>() = 0;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a931a3f51c489245aba7e3e768b6f994e">   18</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1IPlatform.html#a931a3f51c489245aba7e3e768b6f994e">isRunning</a>() = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">/* Input */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">/* Input */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#ad45c87d70edbe0890b6a8e0861622dc9">   20</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a> <a class="code" href="classSh_1_1IPlatform.html#ad45c87d70edbe0890b6a8e0861622dc9">getMousePos</a>() = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a5db0fa2a2a8065a48c6ab10f82185cbf">   22</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a> <a class="code" href="classShishGL_1_1IPlatform.html#a5db0fa2a2a8065a48c6ab10f82185cbf">getMousePos</a>() = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">/* View */</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a23aee28f00ea3ae206335bdd4d300076">   27</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a23aee28f00ea3ae206335bdd4d300076">setViewport</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; size) = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">/* View */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#ae41e5f09c1c058270b01f0d2cd9d873a">   25</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#ae41e5f09c1c058270b01f0d2cd9d873a">setViewport</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; frame) = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a7e79db4538df7ed5f0f93a9d7bf920d5">   27</a></span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; <a class="code" href="classSh_1_1IPlatform.html#a7e79db4538df7ed5f0f93a9d7bf920d5">getDisplaySize</a>() = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a0520d53bc51eb752232326752188f4c7">   30</a></span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; <a class="code" href="classShishGL_1_1IPlatform.html#a0520d53bc51eb752232326752188f4c7">getDisplaySize</a>() = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">/* Draw */</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">/* Draw */</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform_1_1IContext.html">   35</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html">IContext</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform_1_1IContext.html#a179168ccfecf5a513fd661c3a4e3d45f">   38</a></span>&#160;            <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html#a179168ccfecf5a513fd661c3a4e3d45f">IContext</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform_1_1IContext.html#acf20826dc0a792da0cac580d82662cab">   40</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html#acf20826dc0a792da0cac580d82662cab">update</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Color.html">Color</a>* data) = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform_1_1IContext.html">   32</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a> {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform_1_1IContext.html#ac50a9173ffd6907431cbe6ffb8a226e1">   35</a></span>&#160;            <a class="code" href="classSh_1_1IPlatform_1_1IContext.html#ac50a9173ffd6907431cbe6ffb8a226e1">IContext</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform_1_1IContext.html#a0f38ab7d31ec275bda2f2ad7885a4fe8">   37</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html#a0f38ab7d31ec275bda2f2ad7885a4fe8">update</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Color.html">Color</a>* data) = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform_1_1IContext.html#a4414f128d227ad0aba0bcb3961a5b8a0">   39</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html#a4414f128d227ad0aba0bcb3961a5b8a0">updateAt</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;size_t&gt;</a>&amp; pos,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                  <span class="keyword">const</span> <a class="code" href="structSh_1_1Color.html">Color</a>&amp; color) = 0;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform_1_1IContext.html#af8382fffb84391ecffba6c4c6bb4ecb6">   42</a></span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html#af8382fffb84391ecffba6c4c6bb4ecb6">updateAt</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;size_t&gt;</a>&amp; pos,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                  <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Color.html">Color</a>&amp; color) = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform_1_1IContext.html#a25ce90c11cb7391324a8b9de4e9ac072">   45</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html#a25ce90c11cb7391324a8b9de4e9ac072">~IContext</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform_1_1IContext.html#a653c74c434267f8875bbac82d0f04df2">   42</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html#a653c74c434267f8875bbac82d0f04df2">~IContext</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a68101acdb701c369d9ebe5a211ec0256">   46</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a>* <a class="code" href="classSh_1_1IPlatform.html#a68101acdb701c369d9ebe5a211ec0256">createContext</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;size_t&gt;</a>&amp; size,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                        <span class="keyword">const</span> <a class="code" href="structSh_1_1Color.html">Color</a>&amp; color) = 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a1e95868930411297423db1fa4e07be70">   49</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html">IContext</a>* <a class="code" href="classShishGL_1_1IPlatform.html#a1e95868930411297423db1fa4e07be70">createContext</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;size_t&gt;</a>&amp; size,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                        <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Color.html">Color</a>&amp; color) = 0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a5cadf2ed8301a39790188027a9d32f52">   52</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html">IContext</a>* <a class="code" href="classShishGL_1_1IPlatform.html#a5cadf2ed8301a39790188027a9d32f52">loadContextFromImage</a>(<span class="keyword">const</span> std::string_view&amp; filename) = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a3eae1e0744904bfabadbce9458d7fa5f">   54</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a3eae1e0744904bfabadbce9458d7fa5f">saveContextAsImage</a>(<a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html">IContext</a>* context, <span class="keyword">const</span> std::string_view&amp; filename) = 0;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a3cd125f1b7349a8473a41bc6424c2283">   58</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a3cd125f1b7349a8473a41bc6424c2283">setColor</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Color.html">Color</a>&amp; color) = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#ad3893b31a7574ccc3f51f2f6b27142e4">   60</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#ad3893b31a7574ccc3f51f2f6b27142e4">setTexture</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html">ResourceManager::Resource</a>&amp; texture) = 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#ae17c0905d7fdd7ad84e7dc63a4143bc9">   62</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#ae17c0905d7fdd7ad84e7dc63a4143bc9">drawPoint</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos) = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a569fda644f12f7ac6c78444d0ee4eabc">   49</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a>* <a class="code" href="classSh_1_1IPlatform.html#a569fda644f12f7ac6c78444d0ee4eabc">loadContextFromImage</a>(<span class="keyword">const</span> std::string_view&amp; filename) = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a1c1ba9d831678c548e59034545ae2e92">   51</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a1c1ba9d831678c548e59034545ae2e92">saveContextAsImage</a>(<a class="code" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a>* context, <span class="keyword">const</span> std::string_view&amp; filename) = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a731881c75ff45b8bb94c04b7d37d2882">   55</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a731881c75ff45b8bb94c04b7d37d2882">setColor</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Color.html">Color</a>&amp; color) = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a88d7c0ba5b75e6f726c98c93fe249612">   57</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a88d7c0ba5b75e6f726c98c93fe249612">setTexture</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html">ResourceManager::Resource</a>&amp; texture) = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a0b9f708a0749865bfcdb0f470edf30e7">   59</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a0b9f708a0749865bfcdb0f470edf30e7">drawPoint</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos) = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#aad9e8da2203ead6ff845f8fffc17ab32">   61</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#aad9e8da2203ead6ff845f8fffc17ab32">drawLine</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; start,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                             <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; end) = 0;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#af728d3f72722279339510c6abd96fe96">   64</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#af728d3f72722279339510c6abd96fe96">drawLine</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; start,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                             <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; end) = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a01aa6edef738595458a33f753fb460ca">   64</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a01aa6edef738595458a33f753fb460ca">drawRectangle</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                  <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; size) = 0;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#ae1facbf8ccc033f99b1c208de9e4f6bd">   67</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#ae1facbf8ccc033f99b1c208de9e4f6bd">drawRectangle</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                  <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; size) = 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a89b7bab0206c75656f0a3bd1ff6841d3">   70</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a89b7bab0206c75656f0a3bd1ff6841d3">drawCircle</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; radius) = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a0a2bac5faf848b96e0ea2aa3e01bf684">   67</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a0a2bac5faf848b96e0ea2aa3e01bf684">drawCircle</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; radius) = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">/* Image */</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">/* Image */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#ab4b0d361b54a10d6de4017f2f968bc6e">   73</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#ab4b0d361b54a10d6de4017f2f968bc6e">displayContext</a>(<span class="keyword">const</span> <a class="code" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a>* context,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; position) = 0;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a6130c759ec3e72bd69f988a51e911c74">   76</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a6130c759ec3e72bd69f988a51e911c74">displayContext</a>(<span class="keyword">const</span> <a class="code" href="classShishGL_1_1IPlatform_1_1IContext.html">IContext</a>* context,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                    <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; position) = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">/* Text */</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">/* Text */</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a4126a7d5ca64991e6e1d056b7b274e10">   82</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a4126a7d5ca64991e6e1d056b7b274e10">setFont</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1ResourceManager_1_1Resource.html">ResourceManager::Resource</a>&amp; font) = 0;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#adbbc9c4eacfb3dea431a347c425466c9">   84</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#adbbc9c4eacfb3dea431a347c425466c9">displayText</a>(<span class="keyword">const</span> std::string_view&amp; <a class="code" href="namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a">text</a>,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                 <span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; font_size,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos) = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a73202041116101ca20bb71008a7a9aad">   79</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a73202041116101ca20bb71008a7a9aad">setFont</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1ResourceManager_1_1Resource.html">ResourceManager::Resource</a>&amp; font) = 0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#ac43de6e2712fd2a579710a5076cdce50">   81</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#ac43de6e2712fd2a579710a5076cdce50">setFontSize</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; font_size) = 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#aabc7d08ea7958bee04ac97d142ca0f2f">   83</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#aabc7d08ea7958bee04ac97d142ca0f2f">displayText</a>(<span class="keyword">const</span> std::string_view&amp; <a class="code" href="namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a">text</a>,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; pos) = 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb">   87</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb">~IPlatform</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a59ebc9715e208f485262396700ff34a6">   89</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1IPlatform.html#a59ebc9715e208f485262396700ff34a6">~IPlatform</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a06b786d8e0847dfe9cc15e1dea308fcd">   93</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classShishGL_1_1RenderSystem.html">RenderSystem</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a956e21ab5adaed3b83928e72861e5dbe">   94</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classShishGL_1_1WindowManager.html">WindowManager</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a9f358004c5295a2d5ec5df83c2cb23da">   95</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classShishGL_1_1CoreApplication.html">CoreApplication</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a06b786d8e0847dfe9cc15e1dea308fcd">   91</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1RenderSystem.html">RenderSystem</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a956e21ab5adaed3b83928e72861e5dbe">   92</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1WindowManager.html">WindowManager</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a9f358004c5295a2d5ec5df83c2cb23da">   93</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1CoreApplication.html">CoreApplication</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#aa47d8b7f243b15f10c00d15b14d6910d">   95</a></span>&#160;        <a class="code" href="classSh_1_1IPlatform.html#aa47d8b7f243b15f10c00d15b14d6910d">IPlatform</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#aaae99e5b8f00d5108708bbd76486292d">   97</a></span>&#160;        <a class="code" href="classShishGL_1_1IPlatform.html#aaae99e5b8f00d5108708bbd76486292d">IPlatform</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">/* Essential */</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a1a54ad7f8850c8dbb2ccee7adc5b3a3f">  101</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1IPlatform.html#a1a54ad7f8850c8dbb2ccee7adc5b3a3f">initDisplay</a>(<span class="keywordtype">int</span>* argc_ptr, <span class="keywordtype">char</span>* argv[]) = 0;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#ab6d84c6487dfc0b607388ba447cb8349">  103</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1IPlatform.html#ab6d84c6487dfc0b607388ba447cb8349">closeDisplay</a>() = 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">/* Rendering */</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a31e07bb63673fe513868e97aa56c11a2">  108</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#a31e07bb63673fe513868e97aa56c11a2">clear</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Color.html">Color</a>&amp; color) = 0;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#aea935f9868a86ce7c1b551fc0e891339">  110</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1IPlatform.html#aea935f9868a86ce7c1b551fc0e891339">display</a>() = 0;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">/* Events */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">/* Essential */</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#abef25013e6415cd3afe1ffc0a4cb7ff3">   99</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1IPlatform.html#abef25013e6415cd3afe1ffc0a4cb7ff3">initDisplay</a>(<span class="keywordtype">int</span>* argc_ptr, <span class="keywordtype">char</span>* argv[]) = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#ab50cae7af8fc92b4b3c393a04f4e3413">  101</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1IPlatform.html#ab50cae7af8fc92b4b3c393a04f4e3413">closeDisplay</a>() = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">/* Rendering */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a59055c9082246a702fb45fa9ab5cd39d">  106</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a59055c9082246a702fb45fa9ab5cd39d">clear</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Color.html">Color</a>&amp; color) = 0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#a370070c0e98fd6e55f6e2cdb96229e3c">  108</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1IPlatform.html#a370070c0e98fd6e55f6e2cdb96229e3c">display</a>() = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">/* Events */</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classSh_1_1IPlatform.html#aa80c5fb0fa15c4b24fb90f9dd3f9b7ee">  113</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1IPlatform.html#aa80c5fb0fa15c4b24fb90f9dd3f9b7ee">pollEvent</a>() = 0;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classShishGL_1_1IPlatform.html#a68c2fca660d0f0552f3c7a70ee379531">  115</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1IPlatform.html#a68c2fca660d0f0552f3c7a70ee379531">pollEvent</a>() = 0;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="comment">/*--------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    };</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif //SHISHGL_IPLATFORM_HPP</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif //SHISHGL_IPLATFORM_HPP</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html"><div class="ttname"><a href="classShishGL_1_1IPlatform.html">ShishGL::IPlatform</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:14</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_1_1IContext_html_a25ce90c11cb7391324a8b9de4e9ac072"><div class="ttname"><a href="classShishGL_1_1IPlatform_1_1IContext.html#a25ce90c11cb7391324a8b9de4e9ac072">ShishGL::IPlatform::IContext::~IContext</a></div><div class="ttdeci">virtual ~IContext()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_aea935f9868a86ce7c1b551fc0e891339"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#aea935f9868a86ce7c1b551fc0e891339">ShishGL::IPlatform::display</a></div><div class="ttdeci">virtual void display()=0</div></div>
-<div class="ttc" id="aVector2_8hpp_html"><div class="ttname"><a href="Vector2_8hpp.html">Vector2.hpp</a></div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a68101acdb701c369d9ebe5a211ec0256"><div class="ttname"><a href="classSh_1_1IPlatform.html#a68101acdb701c369d9ebe5a211ec0256">Sh::IPlatform::createContext</a></div><div class="ttdeci">virtual IContext * createContext(const Vector2&lt; size_t &gt; &amp;size, const Color &amp;color)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_aa80c5fb0fa15c4b24fb90f9dd3f9b7ee"><div class="ttname"><a href="classSh_1_1IPlatform.html#aa80c5fb0fa15c4b24fb90f9dd3f9b7ee">Sh::IPlatform::pollEvent</a></div><div class="ttdeci">virtual bool pollEvent()=0</div></div>
+<div class="ttc" id="aclassSh_1_1RenderSystem_html"><div class="ttname"><a href="classSh_1_1RenderSystem.html">Sh::RenderSystem</a></div><div class="ttdef"><b>Definition:</b> RenderSystem.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_1_1IContext_html_a653c74c434267f8875bbac82d0f04df2"><div class="ttname"><a href="classSh_1_1IPlatform_1_1IContext.html#a653c74c434267f8875bbac82d0f04df2">Sh::IPlatform::IContext::~IContext</a></div><div class="ttdeci">virtual ~IContext()=default</div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html"><div class="ttname"><a href="classSh_1_1WindowManager.html">Sh::WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.hpp:13</div></div>
+<div class="ttc" id="aclassSh_1_1CoreApplication_html"><div class="ttname"><a href="classSh_1_1CoreApplication.html">Sh::CoreApplication</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_ab4b0d361b54a10d6de4017f2f968bc6e"><div class="ttname"><a href="classSh_1_1IPlatform.html#ab4b0d361b54a10d6de4017f2f968bc6e">Sh::IPlatform::displayContext</a></div><div class="ttdeci">virtual void displayContext(const IContext *context, const Vector2&lt; double &gt; &amp;position)=0</div></div>
 <div class="ttc" id="anamespaceprettify__colors_html_a641f8a2dfb34306824a9a648c607a58a"><div class="ttname"><a href="namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a">prettify_colors.text</a></div><div class="ttdeci">text</div><div class="ttdef"><b>Definition:</b> prettify_colors.py:6</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_1_1IContext_html"><div class="ttname"><a href="classShishGL_1_1IPlatform_1_1IContext.html">ShishGL::IPlatform::IContext</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:35</div></div>
-<div class="ttc" id="aclassShishGL_1_1WindowManager_html"><div class="ttname"><a href="classShishGL_1_1WindowManager.html">ShishGL::WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.hpp:13</div></div>
-<div class="ttc" id="aclassShishGL_1_1CoreApplication_html"><div class="ttname"><a href="classShishGL_1_1CoreApplication.html">ShishGL::CoreApplication</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:15</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_1_1IContext_html_af8382fffb84391ecffba6c4c6bb4ecb6"><div class="ttname"><a href="classShishGL_1_1IPlatform_1_1IContext.html#af8382fffb84391ecffba6c4c6bb4ecb6">ShishGL::IPlatform::IContext::updateAt</a></div><div class="ttdeci">virtual void updateAt(const Vector2&lt; size_t &gt; &amp;pos, const Color &amp;color)=0</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a1e95868930411297423db1fa4e07be70"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a1e95868930411297423db1fa4e07be70">ShishGL::IPlatform::createContext</a></div><div class="ttdeci">virtual IContext * createContext(const Vector2&lt; size_t &gt; &amp;size, const Color &amp;color)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a4126a7d5ca64991e6e1d056b7b274e10"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a4126a7d5ca64991e6e1d056b7b274e10">ShishGL::IPlatform::setFont</a></div><div class="ttdeci">virtual void setFont(const ResourceManager::Resource &amp;font)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a5cadf2ed8301a39790188027a9d32f52"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a5cadf2ed8301a39790188027a9d32f52">ShishGL::IPlatform::loadContextFromImage</a></div><div class="ttdeci">virtual IContext * loadContextFromImage(const std::string_view &amp;filename)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a3eae1e0744904bfabadbce9458d7fa5f"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a3eae1e0744904bfabadbce9458d7fa5f">ShishGL::IPlatform::saveContextAsImage</a></div><div class="ttdeci">virtual void saveContextAsImage(IContext *context, const std::string_view &amp;filename)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1RenderSystem_html"><div class="ttname"><a href="classShishGL_1_1RenderSystem.html">ShishGL::RenderSystem</a></div><div class="ttdef"><b>Definition:</b> RenderSystem.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a68c2fca660d0f0552f3c7a70ee379531"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a68c2fca660d0f0552f3c7a70ee379531">ShishGL::IPlatform::pollEvent</a></div><div class="ttdeci">virtual bool pollEvent()=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_adbbc9c4eacfb3dea431a347c425466c9"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#adbbc9c4eacfb3dea431a347c425466c9">ShishGL::IPlatform::displayText</a></div><div class="ttdeci">virtual void displayText(const std::string_view &amp;text, const size_t &amp;font_size, const Vector2&lt; double &gt; &amp;pos)=0</div></div>
-<div class="ttc" id="aColorCollection_8hpp_html"><div class="ttname"><a href="ColorCollection_8hpp.html">ColorCollection.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_ab6d84c6487dfc0b607388ba447cb8349"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#ab6d84c6487dfc0b607388ba447cb8349">ShishGL::IPlatform::closeDisplay</a></div><div class="ttdeci">virtual bool closeDisplay()=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a0520d53bc51eb752232326752188f4c7"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a0520d53bc51eb752232326752188f4c7">ShishGL::IPlatform::getDisplaySize</a></div><div class="ttdeci">virtual const Vector2&lt; double &gt; &amp; getDisplaySize()=0</div></div>
+<div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
+<div class="ttc" id="astructSh_1_1Vector2_html"><div class="ttname"><a href="structSh_1_1Vector2.html">Sh::Vector2&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_aabc7d08ea7958bee04ac97d142ca0f2f"><div class="ttname"><a href="classSh_1_1IPlatform.html#aabc7d08ea7958bee04ac97d142ca0f2f">Sh::IPlatform::displayText</a></div><div class="ttdeci">virtual void displayText(const std::string_view &amp;text, const Vector2&lt; double &gt; &amp;pos)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a88d7c0ba5b75e6f726c98c93fe249612"><div class="ttname"><a href="classSh_1_1IPlatform.html#a88d7c0ba5b75e6f726c98c93fe249612">Sh::IPlatform::setTexture</a></div><div class="ttdeci">virtual void setTexture(const ResourceManager::Resource &amp;texture)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_ae41e5f09c1c058270b01f0d2cd9d873a"><div class="ttname"><a href="classSh_1_1IPlatform.html#ae41e5f09c1c058270b01f0d2cd9d873a">Sh::IPlatform::setViewport</a></div><div class="ttdeci">virtual void setViewport(const Frame &amp;frame)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_aa2436bcb7b14c49383ea05e34612ae92"><div class="ttname"><a href="classSh_1_1IPlatform.html#aa2436bcb7b14c49383ea05e34612ae92">Sh::IPlatform::isRunning</a></div><div class="ttdeci">virtual bool isRunning()=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_ad45c87d70edbe0890b6a8e0861622dc9"><div class="ttname"><a href="classSh_1_1IPlatform.html#ad45c87d70edbe0890b6a8e0861622dc9">Sh::IPlatform::getMousePos</a></div><div class="ttdeci">virtual Vector2&lt; double &gt; getMousePos()=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a73202041116101ca20bb71008a7a9aad"><div class="ttname"><a href="classSh_1_1IPlatform.html#a73202041116101ca20bb71008a7a9aad">Sh::IPlatform::setFont</a></div><div class="ttdeci">virtual void setFont(const ResourceManager::Resource &amp;font)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a7e79db4538df7ed5f0f93a9d7bf920d5"><div class="ttname"><a href="classSh_1_1IPlatform.html#a7e79db4538df7ed5f0f93a9d7bf920d5">Sh::IPlatform::getDisplaySize</a></div><div class="ttdeci">virtual const Vector2&lt; double &gt; &amp; getDisplaySize()=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a0b9f708a0749865bfcdb0f470edf30e7"><div class="ttname"><a href="classSh_1_1IPlatform.html#a0b9f708a0749865bfcdb0f470edf30e7">Sh::IPlatform::drawPoint</a></div><div class="ttdeci">virtual void drawPoint(const Vector2&lt; double &gt; &amp;pos)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_aad9e8da2203ead6ff845f8fffc17ab32"><div class="ttname"><a href="classSh_1_1IPlatform.html#aad9e8da2203ead6ff845f8fffc17ab32">Sh::IPlatform::drawLine</a></div><div class="ttdeci">virtual void drawLine(const Vector2&lt; double &gt; &amp;start, const Vector2&lt; double &gt; &amp;end)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a731881c75ff45b8bb94c04b7d37d2882"><div class="ttname"><a href="classSh_1_1IPlatform.html#a731881c75ff45b8bb94c04b7d37d2882">Sh::IPlatform::setColor</a></div><div class="ttdeci">virtual void setColor(const Color &amp;color)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_aa47d8b7f243b15f10c00d15b14d6910d"><div class="ttname"><a href="classSh_1_1IPlatform.html#aa47d8b7f243b15f10c00d15b14d6910d">Sh::IPlatform::IPlatform</a></div><div class="ttdeci">IPlatform()=default</div></div>
 <div class="ttc" id="aResourceManager_8hpp_html"><div class="ttname"><a href="ResourceManager_8hpp.html">ResourceManager.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_af728d3f72722279339510c6abd96fe96"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#af728d3f72722279339510c6abd96fe96">ShishGL::IPlatform::drawLine</a></div><div class="ttdeci">virtual void drawLine(const Vector2&lt; double &gt; &amp;start, const Vector2&lt; double &gt; &amp;end)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_aaae99e5b8f00d5108708bbd76486292d"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#aaae99e5b8f00d5108708bbd76486292d">ShishGL::IPlatform::IPlatform</a></div><div class="ttdeci">IPlatform()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_1_1IContext_html_acf20826dc0a792da0cac580d82662cab"><div class="ttname"><a href="classShishGL_1_1IPlatform_1_1IContext.html#acf20826dc0a792da0cac580d82662cab">ShishGL::IPlatform::IContext::update</a></div><div class="ttdeci">virtual void update(const Color *data)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a23aee28f00ea3ae206335bdd4d300076"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a23aee28f00ea3ae206335bdd4d300076">ShishGL::IPlatform::setViewport</a></div><div class="ttdeci">virtual void setViewport(const Vector2&lt; double &gt; &amp;pos, const Vector2&lt; double &gt; &amp;size)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_ad3893b31a7574ccc3f51f2f6b27142e4"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#ad3893b31a7574ccc3f51f2f6b27142e4">ShishGL::IPlatform::setTexture</a></div><div class="ttdeci">virtual void setTexture(const ResourceManager::Resource &amp;texture)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a59ebc9715e208f485262396700ff34a6"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a59ebc9715e208f485262396700ff34a6">ShishGL::IPlatform::~IPlatform</a></div><div class="ttdeci">virtual ~IPlatform()=default</div></div>
-<div class="ttc" id="astructShishGL_1_1Vector2_html"><div class="ttname"><a href="structShishGL_1_1Vector2.html">ShishGL::Vector2&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a6130c759ec3e72bd69f988a51e911c74"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a6130c759ec3e72bd69f988a51e911c74">ShishGL::IPlatform::displayContext</a></div><div class="ttdeci">virtual void displayContext(const IContext *context, const Vector2&lt; double &gt; &amp;position)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_ae17c0905d7fdd7ad84e7dc63a4143bc9"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#ae17c0905d7fdd7ad84e7dc63a4143bc9">ShishGL::IPlatform::drawPoint</a></div><div class="ttdeci">virtual void drawPoint(const Vector2&lt; double &gt; &amp;pos)=0</div></div>
-<div class="ttc" id="astructShishGL_1_1ResourceManager_1_1Resource_html"><div class="ttname"><a href="structShishGL_1_1ResourceManager_1_1Resource.html">ShishGL::ResourceManager::Resource</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:14</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a31e07bb63673fe513868e97aa56c11a2"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a31e07bb63673fe513868e97aa56c11a2">ShishGL::IPlatform::clear</a></div><div class="ttdeci">virtual void clear(const Color &amp;color)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_1_1IContext_html_a4414f128d227ad0aba0bcb3961a5b8a0"><div class="ttname"><a href="classSh_1_1IPlatform_1_1IContext.html#a4414f128d227ad0aba0bcb3961a5b8a0">Sh::IPlatform::IContext::updateAt</a></div><div class="ttdeci">virtual void updateAt(const Vector2&lt; size_t &gt; &amp;pos, const Color &amp;color)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a0a2bac5faf848b96e0ea2aa3e01bf684"><div class="ttname"><a href="classSh_1_1IPlatform.html#a0a2bac5faf848b96e0ea2aa3e01bf684">Sh::IPlatform::drawCircle</a></div><div class="ttdeci">virtual void drawCircle(const Vector2&lt; double &gt; &amp;pos, const double &amp;radius)=0</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_ab50cae7af8fc92b4b3c393a04f4e3413"><div class="ttname"><a href="classSh_1_1IPlatform.html#ab50cae7af8fc92b4b3c393a04f4e3413">Sh::IPlatform::closeDisplay</a></div><div class="ttdeci">virtual bool closeDisplay()=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a1c1ba9d831678c548e59034545ae2e92"><div class="ttname"><a href="classSh_1_1IPlatform.html#a1c1ba9d831678c548e59034545ae2e92">Sh::IPlatform::saveContextAsImage</a></div><div class="ttdeci">virtual void saveContextAsImage(IContext *context, const std::string_view &amp;filename)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a59055c9082246a702fb45fa9ab5cd39d"><div class="ttname"><a href="classSh_1_1IPlatform.html#a59055c9082246a702fb45fa9ab5cd39d">Sh::IPlatform::clear</a></div><div class="ttdeci">virtual void clear(const Color &amp;color)=0</div></div>
+<div class="ttc" id="aFrame_8hpp_html"><div class="ttname"><a href="Frame_8hpp.html">Frame.hpp</a></div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html"><div class="ttname"><a href="classSh_1_1IPlatform.html">Sh::IPlatform</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:13</div></div>
+<div class="ttc" id="astructSh_1_1Color_html"><div class="ttname"><a href="structSh_1_1Color.html">Sh::Color</a></div><div class="ttdef"><b>Definition:</b> Color.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a01aa6edef738595458a33f753fb460ca"><div class="ttname"><a href="classSh_1_1IPlatform.html#a01aa6edef738595458a33f753fb460ca">Sh::IPlatform::drawRectangle</a></div><div class="ttdeci">virtual void drawRectangle(const Vector2&lt; double &gt; &amp;pos, const Vector2&lt; double &gt; &amp;size)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_1_1IContext_html_ac50a9173ffd6907431cbe6ffb8a226e1"><div class="ttname"><a href="classSh_1_1IPlatform_1_1IContext.html#ac50a9173ffd6907431cbe6ffb8a226e1">Sh::IPlatform::IContext::IContext</a></div><div class="ttdeci">IContext()=default</div></div>
+<div class="ttc" id="astructSh_1_1ResourceManager_1_1Resource_html"><div class="ttname"><a href="structSh_1_1ResourceManager_1_1Resource.html">Sh::ResourceManager::Resource</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:14</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_ac43de6e2712fd2a579710a5076cdce50"><div class="ttname"><a href="classSh_1_1IPlatform.html#ac43de6e2712fd2a579710a5076cdce50">Sh::IPlatform::setFontSize</a></div><div class="ttdeci">virtual void setFontSize(const size_t &amp;font_size)=0</div></div>
 <div class="ttc" id="aColor_8hpp_html"><div class="ttname"><a href="Color_8hpp.html">Color.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a5db0fa2a2a8065a48c6ab10f82185cbf"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a5db0fa2a2a8065a48c6ab10f82185cbf">ShishGL::IPlatform::getMousePos</a></div><div class="ttdeci">virtual Vector2&lt; double &gt; getMousePos()=0</div></div>
-<div class="ttc" id="astructShishGL_1_1Color_html"><div class="ttname"><a href="structShishGL_1_1Color.html">ShishGL::Color</a></div><div class="ttdef"><b>Definition:</b> Color.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a1a54ad7f8850c8dbb2ccee7adc5b3a3f"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a1a54ad7f8850c8dbb2ccee7adc5b3a3f">ShishGL::IPlatform::initDisplay</a></div><div class="ttdeci">virtual bool initDisplay(int *argc_ptr, char *argv[])=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_ae1facbf8ccc033f99b1c208de9e4f6bd"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#ae1facbf8ccc033f99b1c208de9e4f6bd">ShishGL::IPlatform::drawRectangle</a></div><div class="ttdeci">virtual void drawRectangle(const Vector2&lt; double &gt; &amp;pos, const Vector2&lt; double &gt; &amp;size)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_1_1IContext_html_a179168ccfecf5a513fd661c3a4e3d45f"><div class="ttname"><a href="classShishGL_1_1IPlatform_1_1IContext.html#a179168ccfecf5a513fd661c3a4e3d45f">ShishGL::IPlatform::IContext::IContext</a></div><div class="ttdeci">IContext()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a3cd125f1b7349a8473a41bc6424c2283"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a3cd125f1b7349a8473a41bc6424c2283">ShishGL::IPlatform::setColor</a></div><div class="ttdeci">virtual void setColor(const Color &amp;color)=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a931a3f51c489245aba7e3e768b6f994e"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a931a3f51c489245aba7e3e768b6f994e">ShishGL::IPlatform::isRunning</a></div><div class="ttdeci">virtual bool isRunning()=0</div></div>
-<div class="ttc" id="aclassShishGL_1_1IPlatform_html_a89b7bab0206c75656f0a3bd1ff6841d3"><div class="ttname"><a href="classShishGL_1_1IPlatform.html#a89b7bab0206c75656f0a3bd1ff6841d3">ShishGL::IPlatform::drawCircle</a></div><div class="ttdeci">virtual void drawCircle(const Vector2&lt; double &gt; &amp;pos, const double &amp;radius)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a370070c0e98fd6e55f6e2cdb96229e3c"><div class="ttname"><a href="classSh_1_1IPlatform.html#a370070c0e98fd6e55f6e2cdb96229e3c">Sh::IPlatform::display</a></div><div class="ttdeci">virtual void display()=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_1_1IContext_html"><div class="ttname"><a href="classSh_1_1IPlatform_1_1IContext.html">Sh::IPlatform::IContext</a></div><div class="ttdef"><b>Definition:</b> IPlatform.hpp:32</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_1_1IContext_html_a0f38ab7d31ec275bda2f2ad7885a4fe8"><div class="ttname"><a href="classSh_1_1IPlatform_1_1IContext.html#a0f38ab7d31ec275bda2f2ad7885a4fe8">Sh::IPlatform::IContext::update</a></div><div class="ttdeci">virtual void update(const Color *data)=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a770c5cb39467a7f5f070c12fbb5ecbcb"><div class="ttname"><a href="classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb">Sh::IPlatform::~IPlatform</a></div><div class="ttdeci">virtual ~IPlatform()=default</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_abef25013e6415cd3afe1ffc0a4cb7ff3"><div class="ttname"><a href="classSh_1_1IPlatform.html#abef25013e6415cd3afe1ffc0a4cb7ff3">Sh::IPlatform::initDisplay</a></div><div class="ttdeci">virtual bool initDisplay(int *argc_ptr, char *argv[])=0</div></div>
+<div class="ttc" id="aclassSh_1_1IPlatform_html_a569fda644f12f7ac6c78444d0ee4eabc"><div class="ttname"><a href="classSh_1_1IPlatform.html#a569fda644f12f7ac6c78444d0ee4eabc">Sh::IPlatform::loadContextFromImage</a></div><div class="ttdeci">virtual IContext * loadContextFromImage(const std::string_view &amp;filename)=0</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_fbca99812f697e0e415a508518d7f289.html">RenderSystem</a></li><li class="navelem"><a class="el" href="dir_b64a56428797f115de17f0524e1ccb28.html">GraphicsPlatform</a></li><li class="navelem"><a class="el" href="IPlatform_8hpp.html">IPlatform.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('SubscriptionManager_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_8ad88201ed66aeb82695778cc5d5f15b.html">EventSystem</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">SubscriptionManager.hpp</div>  </div>
@@ -83,65 +109,67 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Listener_8hpp.html">Listener.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Event_8hpp.html">Event.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classShishGL_1_1SubscriptionManager.html">   16</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1SubscriptionManager.html">SubscriptionManager</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSh_1_1SubscriptionManager.html">   16</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1SubscriptionManager.html">SubscriptionManager</a> {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classShishGL_1_1SubscriptionManager.html#ace8cba8da37aa8ad7b78fa4621cebadc">   19</a></span>&#160;        <a class="code" href="classShishGL_1_1SubscriptionManager.html#ace8cba8da37aa8ad7b78fa4621cebadc">SubscriptionManager</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classSh_1_1SubscriptionManager.html#a0ca331ade1338323b17af5613d69ac7a">   19</a></span>&#160;        <a class="code" href="classSh_1_1SubscriptionManager.html#a0ca331ade1338323b17af5613d69ac7a">SubscriptionManager</a>() = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a3ceced68626b61d8f5dba6a2abbbf1fc">subscribe</a>(<a class="code" href="classShishGL_1_1Listener.html">Listener</a>* sender, <a class="code" href="classShishGL_1_1Listener.html">Listener</a>* receiver,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                              <a class="code" href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">EventMask</a> mask);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1SubscriptionManager.html#a8829031fc2deb0ba85c0ee76d193867d">subscribe</a>(<a class="code" href="classSh_1_1Listener.html">Listener</a>* receiver, <a class="code" href="classSh_1_1Listener.html">Listener</a>* sender,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                              <a class="code" href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">EventMask</a> mask);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a9dfc0e07b7db2b0ca53ef52845d999a6">unsubscribe</a>(<a class="code" href="classShishGL_1_1Listener.html">Listener</a>* sender, <a class="code" href="classShishGL_1_1Listener.html">Listener</a>* receiver,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                <a class="code" href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">EventMask</a> mask);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1SubscriptionManager.html#af78b89604852cbac638904c5b642f915">unsubscribe</a>(<a class="code" href="classSh_1_1Listener.html">Listener</a>* receiver, <a class="code" href="classSh_1_1Listener.html">Listener</a>* sender,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                <a class="code" href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">EventMask</a> mask);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a0e4e47a49930873fd71ca97dcdec6bf1">unsubscribeAll</a>(<a class="code" href="classShishGL_1_1Listener.html">Listener</a>* sender);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1SubscriptionManager.html#a0e4e47a49930873fd71ca97dcdec6bf1">unsubscribeAll</a>(<a class="code" href="classSh_1_1Listener.html">Listener</a>* sender);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#ad7646fc0747d1bddb11db8dd8b6d87da">unsubscribeFromAll</a>(<a class="code" href="classShishGL_1_1Listener.html">Listener</a>* receiver);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1SubscriptionManager.html#ad7646fc0747d1bddb11db8dd8b6d87da">unsubscribeFromAll</a>(<a class="code" href="classSh_1_1Listener.html">Listener</a>* receiver);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a21ee25c024c2eb519dd2c39db747061a">dump</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1SubscriptionManager.html#a21ee25c024c2eb519dd2c39db747061a">dump</a>(<span class="keyword">const</span> std::string_view&amp; filename);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classShishGL_1_1SubscriptionManager.html#a5c687efbe3d8fab56746a7643e691742">   33</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a5c687efbe3d8fab56746a7643e691742">~SubscriptionManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classSh_1_1SubscriptionManager.html#a9fa6578c03f40921f924539afdef89df">   33</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1SubscriptionManager.html#a9fa6578c03f40921f924539afdef89df">~SubscriptionManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1SubscriptionManager.html#a21ee25c024c2eb519dd2c39db747061a">dump</a>(FILE* file,  std::pair&lt;const Listener*, EventMask&gt; root);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">using</span> SubscriptionPool =</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            std::unordered_map&lt;Listener*, std::unordered_map&lt;Listener*, EventMask&gt;&gt;;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">using</span> SubscriptionPool =</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            std::unordered_map&lt;Listener*, std::unordered_map&lt;Listener*, EventMask&gt;&gt;;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classSh_1_1SubscriptionManager.html#a9daac1e9f186a9341e2a138d426f9867">   40</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1EventSystem.html">EventSystem</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classShishGL_1_1SubscriptionManager.html#a9daac1e9f186a9341e2a138d426f9867">   42</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classShishGL_1_1EventSystem.html">EventSystem</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">static</span> SubscriptionPool&amp; Subscriptions();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> SubscriptionPool&amp; Subscriptions();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classShishGL_1_1SubscriptionManager.html#a956e21ab5adaed3b83928e72861e5dbe">   46</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classShishGL_1_1WindowManager.html">WindowManager</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif //SHISHGL_SUBSCRIPTION_MANAGER_HPP</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classSh_1_1SubscriptionManager.html#a956e21ab5adaed3b83928e72861e5dbe">   44</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1WindowManager.html">WindowManager</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif //SHISHGL_SUBSCRIPTION_MANAGER_HPP</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html">ShishGL::SubscriptionManager</a></div><div class="ttdef"><b>Definition:</b> SubscriptionManager.hpp:16</div></div>
-<div class="ttc" id="aclassShishGL_1_1WindowManager_html"><div class="ttname"><a href="classShishGL_1_1WindowManager.html">ShishGL::WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.hpp:13</div></div>
-<div class="ttc" id="aclassShishGL_1_1Listener_html"><div class="ttname"><a href="classShishGL_1_1Listener.html">ShishGL::Listener</a></div><div class="ttdef"><b>Definition:</b> Listener.hpp:7</div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_ad7646fc0747d1bddb11db8dd8b6d87da"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#ad7646fc0747d1bddb11db8dd8b6d87da">ShishGL::SubscriptionManager::unsubscribeFromAll</a></div><div class="ttdeci">static void unsubscribeFromAll(Listener *receiver)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:35</div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a0e4e47a49930873fd71ca97dcdec6bf1"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a0e4e47a49930873fd71ca97dcdec6bf1">ShishGL::SubscriptionManager::unsubscribeAll</a></div><div class="ttdeci">static void unsubscribeAll(Listener *sender)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:29</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="anamespaceShishGL_html_a628fd76d54ed733de32b03ec3f502f23"><div class="ttname"><a href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">ShishGL::EventMask</a></div><div class="ttdeci">uint64_t EventMask</div><div class="ttdef"><b>Definition:</b> Event.hpp:11</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_a9fa6578c03f40921f924539afdef89df"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#a9fa6578c03f40921f924539afdef89df">Sh::SubscriptionManager::~SubscriptionManager</a></div><div class="ttdeci">virtual ~SubscriptionManager()=default</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_a21ee25c024c2eb519dd2c39db747061a"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#a21ee25c024c2eb519dd2c39db747061a">Sh::SubscriptionManager::dump</a></div><div class="ttdeci">static void dump(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:49</div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html"><div class="ttname"><a href="classSh_1_1WindowManager.html">Sh::WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.hpp:13</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html">Sh::SubscriptionManager</a></div><div class="ttdef"><b>Definition:</b> SubscriptionManager.hpp:16</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_ad7646fc0747d1bddb11db8dd8b6d87da"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#ad7646fc0747d1bddb11db8dd8b6d87da">Sh::SubscriptionManager::unsubscribeFromAll</a></div><div class="ttdeci">static void unsubscribeFromAll(Listener *receiver)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:41</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_af78b89604852cbac638904c5b642f915"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#af78b89604852cbac638904c5b642f915">Sh::SubscriptionManager::unsubscribe</a></div><div class="ttdeci">static void unsubscribe(Listener *receiver, Listener *sender, EventMask mask)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:28</div></div>
 <div class="ttc" id="aEvent_8hpp_html"><div class="ttname"><a href="Event_8hpp.html">Event.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a5c687efbe3d8fab56746a7643e691742"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a5c687efbe3d8fab56746a7643e691742">ShishGL::SubscriptionManager::~SubscriptionManager</a></div><div class="ttdeci">virtual ~SubscriptionManager()=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a9dfc0e07b7db2b0ca53ef52845d999a6"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a9dfc0e07b7db2b0ca53ef52845d999a6">ShishGL::SubscriptionManager::unsubscribe</a></div><div class="ttdeci">static void unsubscribe(Listener *sender, Listener *receiver, EventMask mask)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:22</div></div>
+<div class="ttc" id="aclassSh_1_1EventSystem_html"><div class="ttname"><a href="classSh_1_1EventSystem.html">Sh::EventSystem</a></div><div class="ttdef"><b>Definition:</b> EventSystem.hpp:9</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_a0ca331ade1338323b17af5613d69ac7a"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#a0ca331ade1338323b17af5613d69ac7a">Sh::SubscriptionManager::SubscriptionManager</a></div><div class="ttdeci">SubscriptionManager()=delete</div></div>
 <div class="ttc" id="aListener_8hpp_html"><div class="ttname"><a href="Listener_8hpp.html">Listener.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a3ceced68626b61d8f5dba6a2abbbf1fc"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a3ceced68626b61d8f5dba6a2abbbf1fc">ShishGL::SubscriptionManager::subscribe</a></div><div class="ttdeci">static void subscribe(Listener *sender, Listener *receiver, EventMask mask)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:15</div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_ace8cba8da37aa8ad7b78fa4621cebadc"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#ace8cba8da37aa8ad7b78fa4621cebadc">ShishGL::SubscriptionManager::SubscriptionManager</a></div><div class="ttdeci">SubscriptionManager()=delete</div></div>
-<div class="ttc" id="aclassShishGL_1_1EventSystem_html"><div class="ttname"><a href="classShishGL_1_1EventSystem.html">ShishGL::EventSystem</a></div><div class="ttdef"><b>Definition:</b> EventSystem.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1SubscriptionManager_html_a21ee25c024c2eb519dd2c39db747061a"><div class="ttname"><a href="classShishGL_1_1SubscriptionManager.html#a21ee25c024c2eb519dd2c39db747061a">ShishGL::SubscriptionManager::dump</a></div><div class="ttdeci">static void dump(const std::string_view &amp;filename)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:43</div></div>
+<div class="ttc" id="aclassSh_1_1Listener_html"><div class="ttname"><a href="classSh_1_1Listener.html">Sh::Listener</a></div><div class="ttdef"><b>Definition:</b> Listener.hpp:7</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_a0e4e47a49930873fd71ca97dcdec6bf1"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#a0e4e47a49930873fd71ca97dcdec6bf1">Sh::SubscriptionManager::unsubscribeAll</a></div><div class="ttdeci">static void unsubscribeAll(Listener *sender)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:35</div></div>
+<div class="ttc" id="aclassSh_1_1SubscriptionManager_html_a8829031fc2deb0ba85c0ee76d193867d"><div class="ttname"><a href="classSh_1_1SubscriptionManager.html#a8829031fc2deb0ba85c0ee76d193867d">Sh::SubscriptionManager::subscribe</a></div><div class="ttdeci">static void subscribe(Listener *receiver, Listener *sender, EventMask mask)</div><div class="ttdef"><b>Definition:</b> SubscriptionManager.cpp:18</div></div>
+<div class="ttc" id="anamespaceSh_html_a9beeec1e2abaf6654301d0e9ea1bc802"><div class="ttname"><a href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">Sh::EventMask</a></div><div class="ttdeci">uint64_t EventMask</div><div class="ttdef"><b>Definition:</b> Event.hpp:11</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_6ec439aaf268998a1210d7c46faeead9.html">Core</a></li><li class="navelem"><a class="el" href="dir_8ad88201ed66aeb82695778cc5d5f15b.html">EventSystem</a></li><li class="navelem"><a class="el" href="SubscriptionManager_8hpp.html">SubscriptionManager.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

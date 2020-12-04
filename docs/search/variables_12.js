@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['v_5fscrollbar_1170',['v_scrollbar',['../classShishGL_1_1Frame.html#a01e283dedbaec2a57437ddf3ba821674',1,'ShishGL::Frame']]],
-  ['violet_1171',['VIOLET',['../namespaceShishGL_1_1COLOR.html#a77479ca456de0b4a934b8c4ebd64275f',1,'ShishGL::COLOR']]]
+  ['v_5fscrollbar_1292',['v_scrollbar',['../classSh_1_1UIFrame.html#ae88b63247117b814f215162a89f7c00d',1,'Sh::UIFrame']]],
+  ['violet_1293',['VIOLET',['../structSh_1_1Color.html#aa67e51dcac9d318e5a510b5576b6d2ff',1,'Sh::Color']]]
 ];

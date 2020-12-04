@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['cadet_5fblue_993',['CADET_BLUE',['../namespaceShishGL_1_1COLOR.html#a2c7471937f42712c33af60439d61e52b',1,'ShishGL::COLOR']]],
-  ['canvas_994',['canvas',['../classShishGL_1_1UICanvas.html#ae87f18a881ab871e2e7ad4a8737d9cf5',1,'ShishGL::UICanvas']]],
-  ['chartreuse_995',['CHARTREUSE',['../namespaceShishGL_1_1COLOR.html#a03cb82892dd481767091280d52805b3a',1,'ShishGL::COLOR']]],
-  ['chocolate_996',['CHOCOLATE',['../namespaceShishGL_1_1COLOR.html#a610f6ebbdaf411aa99c92335cd0ecbe7',1,'ShishGL::COLOR']]],
-  ['content_5fview_997',['content_view',['../classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b',1,'ShishGL::Frame']]],
-  ['coral_998',['CORAL',['../namespaceShishGL_1_1COLOR.html#aa716dc88bc903b953383dab38683f47c',1,'ShishGL::COLOR']]],
-  ['cornflower_5fblue_999',['CORNFLOWER_BLUE',['../namespaceShishGL_1_1COLOR.html#a5f30db4746966e3e01a1e67fb61fa662',1,'ShishGL::COLOR']]],
-  ['cornsilk_1000',['CORNSILK',['../namespaceShishGL_1_1COLOR.html#a1d02a833d409fe7e2aa16156a13f7d61',1,'ShishGL::COLOR']]],
-  ['crimson_1001',['CRIMSON',['../namespaceShishGL_1_1COLOR.html#aece869c4089f118decc2059e78ca057b',1,'ShishGL::COLOR']]],
-  ['curr_5fline_5fheight_1002',['curr_line_height',['../classShishGL_1_1TextBuffer.html#a888cfb0a0116c8c8715b1c2e5265d5a8',1,'ShishGL::TextBuffer']]],
-  ['cyan_1003',['CYAN',['../namespaceShishGL_1_1COLOR.html#ab27a697f572f2c9f77f8616fdda8f27f',1,'ShishGL::COLOR']]]
+  ['cadet_5fblue_1118',['CADET_BLUE',['../structSh_1_1Color.html#a8858b0ab623b0d79a0d84e20dfcc99e3',1,'Sh::Color']]],
+  ['canvas_1119',['canvas',['../classSh_1_1UICanvas.html#a4cdf10c8e37c9e788c1fed4f251bd1e5',1,'Sh::UICanvas']]],
+  ['chartreuse_1120',['CHARTREUSE',['../structSh_1_1Color.html#adc9169776cae978e719dcaf92fb9d186',1,'Sh::Color']]],
+  ['chocolate_1121',['CHOCOLATE',['../structSh_1_1Color.html#ab54078142b25f586ceb805602ed3514b',1,'Sh::Color']]],
+  ['content_5fframe_1122',['content_frame',['../classSh_1_1UIFrame.html#a7d431214dca0335047487ea274f79372',1,'Sh::UIFrame']]],
+  ['coral_1123',['CORAL',['../structSh_1_1Color.html#a64c03afeb1cba803f96c4ebc03adefcf',1,'Sh::Color']]],
+  ['cornflower_5fblue_1124',['CORNFLOWER_BLUE',['../structSh_1_1Color.html#a2daad756b5e26aa225dc022a6629b9e0',1,'Sh::Color']]],
+  ['cornsilk_1125',['CORNSILK',['../structSh_1_1Color.html#ac3a7b7c2fe2ca0138442a292ed110611',1,'Sh::Color']]],
+  ['crimson_1126',['CRIMSON',['../structSh_1_1Color.html#a3119a5327c784560c520fe71ca6e746a',1,'Sh::Color']]],
+  ['cyan_1127',['CYAN',['../structSh_1_1Color.html#adeaa1974140f586f6c1cc9b4e90bf210',1,'Sh::Color']]]
 ];

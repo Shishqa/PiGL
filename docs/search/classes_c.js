@@ -1,15 +1,20 @@
 var searchData=
 [
-  ['scrollbar_646',['Scrollbar',['../classShishGL_1_1Scrollbar.html',1,'ShishGL']]],
-  ['segment2_647',['Segment2',['../structShishGL_1_1Segment2.html',1,'ShishGL']]],
-  ['segment2_3c_20double_20_3e_648',['Segment2&lt; double &gt;',['../structShishGL_1_1Segment2.html',1,'ShishGL']]],
-  ['sfmlcontext_649',['SfmlContext',['../classShishGL_1_1SfmlPlatform_1_1SfmlContext.html',1,'ShishGL::SfmlPlatform']]],
-  ['sfmlplatform_650',['SfmlPlatform',['../classShishGL_1_1SfmlPlatform.html',1,'ShishGL']]],
-  ['shape2d_651',['Shape2D',['../classShishGL_1_1Shape2D.html',1,'ShishGL']]],
-  ['slidable_652',['Slidable',['../classShishGL_1_1Slidable.html',1,'ShishGL']]],
-  ['slideevent_653',['SlideEvent',['../classShishGL_1_1SlideEvent.html',1,'ShishGL']]],
-  ['slidelistener_654',['SlideListener',['../classShishGL_1_1SlideListener.html',1,'ShishGL']]],
-  ['style_655',['Style',['../classShishGL_1_1Style.html',1,'ShishGL']]],
-  ['stylepack_656',['StylePack',['../classShishGL_1_1StylePack.html',1,'ShishGL']]],
-  ['subscriptionmanager_657',['SubscriptionManager',['../classShishGL_1_1SubscriptionManager.html',1,'ShishGL']]]
+  ['scrollbarbackground_710',['ScrollbarBackground',['../classSh_1_1ScrollbarBackground.html',1,'Sh']]],
+  ['scrollbarbutton_711',['ScrollbarButton',['../classSh_1_1ScrollbarButton.html',1,'Sh']]],
+  ['scrollbarslider_712',['ScrollbarSlider',['../classSh_1_1ScrollbarSlider.html',1,'Sh']]],
+  ['segment2_713',['Segment2',['../structSh_1_1Segment2.html',1,'Sh']]],
+  ['segment2_3c_20double_20_3e_714',['Segment2&lt; double &gt;',['../structSh_1_1Segment2.html',1,'Sh']]],
+  ['sfmlcontext_715',['SfmlContext',['../classSh_1_1SfmlPlatform_1_1SfmlContext.html',1,'Sh::SfmlPlatform']]],
+  ['sfmlplatform_716',['SfmlPlatform',['../classSh_1_1SfmlPlatform.html',1,'Sh']]],
+  ['shape2d_717',['Shape2D',['../classSh_1_1Shape2D.html',1,'Sh']]],
+  ['slidable_718',['Slidable',['../classSh_1_1Slidable.html',1,'Sh']]],
+  ['slideevent_719',['SlideEvent',['../classSh_1_1SlideEvent.html',1,'Sh']]],
+  ['slidelistener_720',['SlideListener',['../classSh_1_1SlideListener.html',1,'Sh']]],
+  ['slider_721',['Slider',['../classSh_1_1Slider.html',1,'Sh']]],
+  ['slider2d_722',['Slider2D',['../classSh_1_1Slider2D.html',1,'Sh']]],
+  ['spherecanvas_723',['SphereCanvas',['../classSphereCanvas.html',1,'']]],
+  ['style_724',['Style',['../classSh_1_1Style.html',1,'Sh']]],
+  ['stylepack_725',['StylePack',['../classSh_1_1StylePack.html',1,'Sh']]],
+  ['subscriptionmanager_726',['SubscriptionManager',['../classSh_1_1SubscriptionManager.html',1,'Sh']]]
 ];

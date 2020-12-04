@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('namespacemembers.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -63,562 +93,51 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div>
-
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>ALICE_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6f11df73828d664e556183cba1f58c27">ShishGL::COLOR</a>
-</li>
-<li>ANTIQUE_WHITE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a815d9adb39559461d38619a98628732e">ShishGL::COLOR</a>
-</li>
-<li>AQUA
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aecb4ae71a2ab29ee648c43d5ca30ce81">ShishGL::COLOR</a>
-</li>
-<li>AQUAMARINE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6d8eb8426a08bd9142f3818e5b39ebf1">ShishGL::COLOR</a>
-</li>
-<li>AZURE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a81b36e0ff213380a27e6034cfa3c2e9d">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>BEIGE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af1b1f4ea5ada5fe89269ef20bce15f29">ShishGL::COLOR</a>
-</li>
-<li>BISQUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a35e26849677b2c98dc9a3ed2619e1512">ShishGL::COLOR</a>
-</li>
-<li>BLACK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7f0be2bd18141575aa9dc43c0f848bac">ShishGL::COLOR</a>
-</li>
-<li>BLANCHED_ALMOND
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a55f5a4a5a9c30797df8e1a3034cc710a">ShishGL::COLOR</a>
-</li>
-<li>BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a2d56268ef2ba295943d03bf223973189">ShishGL::COLOR</a>
-</li>
-<li>BLUE_VIOLET
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a08ad8875b3268e709f2e70d5cb077c04">ShishGL::COLOR</a>
-</li>
-<li>BROWN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a80aec85b12b16885ddb2ba369fa0c77a">ShishGL::COLOR</a>
-</li>
-<li>BURLY_WOOD
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ad6e7d16d7f58958f0fe13938ca8b6f20">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
-<li>CADET_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a2c7471937f42712c33af60439d61e52b">ShishGL::COLOR</a>
-</li>
-<li>CHARTREUSE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a03cb82892dd481767091280d52805b3a">ShishGL::COLOR</a>
-</li>
-<li>CHOCOLATE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a610f6ebbdaf411aa99c92335cd0ecbe7">ShishGL::COLOR</a>
+<div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div><ul>
+<li>applyDefaultStyle()
+: <a class="el" href="namespaceSh.html#ace32baee2465a051f443adf2c07189bf">Sh</a>
 </li>
 <li>Clock
-: <a class="el" href="namespaceShishGL.html#a5986fea53d262bc855f2602c1a4034ff">ShishGL</a>
+: <a class="el" href="namespaceSh.html#a7a7ddbfb142d1d2a4e707eb396fb5a7c">Sh</a>
 </li>
-<li>CORAL
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aa716dc88bc903b953383dab38683f47c">ShishGL::COLOR</a>
+<li>cos()
+: <a class="el" href="namespaceSh.html#a9637ee51193555efe816b59ff349cbcd">Sh</a>
 </li>
-<li>CORNFLOWER_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5f30db4746966e3e01a1e67fb61fa662">ShishGL::COLOR</a>
-</li>
-<li>CORNSILK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1d02a833d409fe7e2aa16156a13f7d61">ShishGL::COLOR</a>
-</li>
-<li>CRIMSON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aece869c4089f118decc2059e78ca057b">ShishGL::COLOR</a>
-</li>
-<li>CYAN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab27a697f572f2c9f77f8616fdda8f27f">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>DARK_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ac6216db32d73dc33664974bed041df74">ShishGL::COLOR</a>
-</li>
-<li>DARK_CYAN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a17cb527bfd6ae36101cb578a3e25b21f">ShishGL::COLOR</a>
-</li>
-<li>DARK_GOLDEN_ROD
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a167709a1e2afaf15d78e4afd7d526c69">ShishGL::COLOR</a>
-</li>
-<li>DARK_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a2a53c20a942469f28fa9eab3ef72e4b3">ShishGL::COLOR</a>
-</li>
-<li>DARK_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#afcb8a1b4a39bc1ec0d056e68f4f96c05">ShishGL::COLOR</a>
-</li>
-<li>DARK_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a953de9d44a0b7c76bdcb0e37b5145e73">ShishGL::COLOR</a>
-</li>
-<li>DARK_KHAKI
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a95353054623a35ff8471eadd62bcb461">ShishGL::COLOR</a>
-</li>
-<li>DARK_MAGENTA
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a303b09f9006bc943be506e0a410af5f1">ShishGL::COLOR</a>
-</li>
-<li>DARK_OLIVE_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ac0e3476c8bd0d8fef61b2fcb80e366b6">ShishGL::COLOR</a>
-</li>
-<li>DARK_ORANGE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a37875d25b36cfa614429cc4702f67916">ShishGL::COLOR</a>
-</li>
-<li>DARK_ORCHID
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a89e373b32e5b727ef3d84ead011c3e8c">ShishGL::COLOR</a>
-</li>
-<li>DARK_RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab559453b35acfa541dd35062d207899e">ShishGL::COLOR</a>
-</li>
-<li>DARK_SALMON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#acf13308bd3dcf479adb74f7426c2845a">ShishGL::COLOR</a>
-</li>
-<li>DARK_SEA_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a9e0352b3fd06c651d5476411cd02e555">ShishGL::COLOR</a>
-</li>
-<li>DARK_SLATE_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a0062ba4f32531f90fff2927734744f77">ShishGL::COLOR</a>
-</li>
-<li>DARK_SLATE_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7da9bfc2e32d6fb0b7785d9eb95cf3e2">ShishGL::COLOR</a>
-</li>
-<li>DARK_SLATE_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a149a1975c5caf695f2d9442334d642a3">ShishGL::COLOR</a>
-</li>
-<li>DARK_TURQUOISE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a8cab37a7c4d17e86e7ea9e40a78579b0">ShishGL::COLOR</a>
-</li>
-<li>DARK_VIOLET
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a8c4bf3e8367ed3337c295ae981ff2d25">ShishGL::COLOR</a>
-</li>
-<li>DEEP_PINK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6e1003b3ca6c3dd6ec55999313b8cd8b">ShishGL::COLOR</a>
-</li>
-<li>DEEP_SKY_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ad71e3fe7b067cf8d55078b3e1820c074">ShishGL::COLOR</a>
-</li>
-<li>DIM_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a69c832ad11ad62c8fbc261933cfc704d">ShishGL::COLOR</a>
-</li>
-<li>DIM_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab0b5ebca984a9687d5b7f69f6e3ee0d3">ShishGL::COLOR</a>
-</li>
-<li>DODGER_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a8c8389add3d0f5251a95c48b381c72e0">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
 <li>EventMask
-: <a class="el" href="namespaceShishGL.html#a628fd76d54ed733de32b03ec3f502f23">ShishGL</a>
-</li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>FIRE_BRICK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af039cb8fa55203b89fb6fc01e5d9c682">ShishGL::COLOR</a>
-</li>
-<li>FLORAL_WHITE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a0f13a2b0b6ddaa018fe01af32f6ce926">ShishGL::COLOR</a>
-</li>
-<li>FOREST_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7adcb025a6af8754520484ca5496118f">ShishGL::COLOR</a>
-</li>
-<li>FUCHSIA
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a17753fdce5ca0f331cb1beaf9fe03294">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>GAINSBORO
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6f8c5dcbbf09cdc7195b3a7ab231e5d5">ShishGL::COLOR</a>
-</li>
-<li>GHOST_WHITE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae88ec8649383957941b7b7a9bc2bd70a">ShishGL::COLOR</a>
-</li>
-<li>GOLD
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a0f69329ac5c2445c2973f27ea2fec84f">ShishGL::COLOR</a>
-</li>
-<li>GOLDENROD
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#abae89b36a1c1c385612d9e72f82f75fd">ShishGL::COLOR</a>
-</li>
-<li>GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae3f96a7c39c69fe045baf9ebca078e9a">ShishGL::COLOR</a>
-</li>
-<li>GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a34a56146ca25109ae0993ec79dee8fe5">ShishGL::COLOR</a>
-</li>
-<li>GREEN_YELLOW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7e1b3d40724bf45127d2da9248d4e1e5">ShishGL::COLOR</a>
-</li>
-<li>GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a94945a040eaecf660ed01511a1b2233d">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>HONEYDEW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae95dcb73dc5bd1a900c97aa31c8a155f">ShishGL::COLOR</a>
-</li>
-<li>HOT_PINK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a45e02a37a062adc65ed60563abe8b58b">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>INDIAN_RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7d67a1312dc38e31c9f895a94d80dd23">ShishGL::COLOR</a>
-</li>
-<li>INDIGO
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a34fa38ca73c7a64d55327e5df2dbf8da">ShishGL::COLOR</a>
-</li>
-<li>IVORY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5d7407cee5dfe96b2feb171784ede453">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_k"></a>- k -</h3><ul>
-<li>KHAKI
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae413936bc8f78651dc447b11a1fa563d">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>LAVENDER
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a3e84b9004c767c47d575f235026dd600">ShishGL::COLOR</a>
-</li>
-<li>LAVENDER_BLUSH
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae55949d91a886554270b4e54db085fd7">ShishGL::COLOR</a>
-</li>
-<li>LAWN_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a937d98d09d2f9577ba0843111f89f52b">ShishGL::COLOR</a>
-</li>
-<li>LEMON_CHIFFON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab34af38feb68b1bb881563f84e3ba680">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7b5ab843e7f1388fccd5a1a3b49ce969">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_CORAL
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a19bf274acf3de52083c5ee475da0985c">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_CYAN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aaef027d84c0eff91cd3f10769a661bd1">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_GOLDENROD_YELLOW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af0c3e411ad5b45e03772219c117bad5f">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aa51178f8949eb597659f6579c4fa8b3a">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#add6f3e6574b522635c9e9a4185bdc784">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a4cfb7b63dad2303dd0b25bdd950d51d1">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_PINK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aebad8d7f5e1e95ecd329964babec6778">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_SALMON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ac9c83bafe61ace2a68bdcda889c2b78f">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_SEA_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#adfddb742f377491e4037fdd8e45192ed">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_SKY_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#adee90f853f7ae6e7b02bd90719c21659">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_SLATE_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ac7da0d77dee468db53ab10a803c2afb0">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_SLATE_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a9b3e000c82bb0d17079032b73e3d3872">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_STEEL_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a94e23465b7f58c25f89e79a730c94a27">ShishGL::COLOR</a>
-</li>
-<li>LIGHT_YELLOW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1b1ae818d063aeaafd4941ab8049a4e5">ShishGL::COLOR</a>
-</li>
-<li>LIME
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#acd9d2a1e508fbc54ac35d1fa366ab418">ShishGL::COLOR</a>
-</li>
-<li>LIME_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a310a6ad13df1010099b0f855db97bd9d">ShishGL::COLOR</a>
+: <a class="el" href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">Sh</a>
 </li>
 <li>line
 : <a class="el" href="namespaceprettify__colors.html#af57cccc7503eed0f7b84764ebbccf835">prettify_colors</a>
 </li>
-<li>LINEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a498cccf88f83e1d51e1670faf76042ae">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>MAGENTA
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aad58cc90029ab6a75ce91fa30682e976">ShishGL::COLOR</a>
-</li>
-<li>MAROON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aaa46a34c34dad6980f7e8f69a0b1e95a">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_AQUAMARINE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a994ab0063e714d2997b1f8e96b23f232">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1fdb78c25a5d22c691f3ae35ecd98b10">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_ORCHID
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6dcef0be7369bf90414b5ae996c9e8fe">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_PURPLE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a828479e70c5a38de41c57c5445d40688">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_SEA_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae2f052c8aaf4fe6f38e053f3899bb588">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_SLATE_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a179e37849b93dfea40d6b33733dd5880">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_SPRING_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a478d903120b2006650eb3ddcdd67f7db">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_TURQUOISE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab959721ccbc5d22fe6d07cba30484284">ShishGL::COLOR</a>
-</li>
-<li>MEDIUM_VIOLET_RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aa28a8e1d6b9aba720d60213125fcf75e">ShishGL::COLOR</a>
-</li>
-<li>MIDNIGHT_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1a27b7dfdc8df760f11e9e2117138703">ShishGL::COLOR</a>
-</li>
-<li>MINT_CREAM
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5f2cfc12a5c9539f605557a14eb4587d">ShishGL::COLOR</a>
-</li>
-<li>MISTY_ROSE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#acf82a3f2e19953c5dc6f2471c7d7512c">ShishGL::COLOR</a>
-</li>
-<li>MOCCASIN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae325c26b53a3412998e5a2e69ca102cb">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>NAVAJO_WHITE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ae44935ac672ae761bf843ffc0f33c683">ShishGL::COLOR</a>
-</li>
-<li>NAVY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a9d1e6f6a1dfbca3b4816897049feae2b">ShishGL::COLOR</a>
-</li>
-<li>NONE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a92a1f22b99d51123a4a8061257923352">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_o"></a>- o -</h3><ul>
-<li>OLD_LACE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7b7a6894deee9951519cc2fca45cdbca">ShishGL::COLOR</a>
-</li>
-<li>OLIVE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab1c1f7c9f04ce6bf6bbc9f18b43dbe18">ShishGL::COLOR</a>
-</li>
-<li>OLIVE_DRAB
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab9580a2f71bb9cab7ba721b3a50a8ce9">ShishGL::COLOR</a>
-</li>
 <li>operator*()
-: <a class="el" href="namespaceShishGL.html#ae64d68d91dfbf118e8632bf030f44303">ShishGL</a>
+: <a class="el" href="namespaceSh.html#a7373505840d21937cc16008172caa75d">Sh</a>
 </li>
-<li>ORANGE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1aee31f54e38bd68e5a07a727033099e">ShishGL::COLOR</a>
-</li>
-<li>ORANGE_RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ace4ad1c7c15ed50a38353bda7e91f20e">ShishGL::COLOR</a>
-</li>
-<li>ORCHID
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a8f0395f6066eb6bcc4ece25ac9593c89">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>PALE_GOLDENROD
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7890df48fd9aad01391fa97a414fec40">ShishGL::COLOR</a>
-</li>
-<li>PALE_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a1236ddd2392b91c63532bcc00b675416">ShishGL::COLOR</a>
-</li>
-<li>PALE_TURQUOISE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a34fc1a7066d5587636be44a7aacd6d48">ShishGL::COLOR</a>
-</li>
-<li>PALE_VIOLET_RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6670be3f9e53df625b23ac8e62875642">ShishGL::COLOR</a>
-</li>
-<li>PAPAYA_WHIP
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a3730b593dedf5e17845507a88ab1b668">ShishGL::COLOR</a>
-</li>
-<li>PEACH_PUFF
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a322656898fb00d001fda93f9c3173377">ShishGL::COLOR</a>
-</li>
-<li>PERU
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a412697325d42cd48e81f9d5b049e7cfe">ShishGL::COLOR</a>
-</li>
-<li>PINK
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5a7e8850ac977a6d119aa75fa713d905">ShishGL::COLOR</a>
-</li>
-<li>PLUM
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a97220273e634fba93ab848c2e5fb13f4">ShishGL::COLOR</a>
-</li>
-<li>POWDER_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#afee7d6b2a946a19aa7444e8c5fa77430">ShishGL::COLOR</a>
-</li>
-<li>PURPLE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a399874841183f9da3b4e3db34fb8dd34">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>RED
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aca1d70ac913996ad796fbdf6dede17a4">ShishGL::COLOR</a>
+<li>operator&lt;&lt;()
+: <a class="el" href="namespaceSh.html#a2ad02c568240a358242a3a2a7b95976c">Sh</a>
 </li>
 <li>PLATFORM()
-: <a class="el" href="namespaceShishGL.html#aa41d4de336dfee42e71670c484ef9ba5">ShishGL</a>
+: <a class="el" href="namespaceSh.html#a8bf478f3c252e3311115b2a14bba5d7d">Sh</a>
 </li>
-<li>ROSY_BROWN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a058e5052a1d642dde393c5e4aa60d75b">ShishGL::COLOR</a>
-</li>
-<li>ROYAL_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aa18faa5661d58fef1737e54ccff53bad">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>SADDLE_BROWN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ace6bcd154e71a1523064c97351718b2e">ShishGL::COLOR</a>
-</li>
-<li>SALMON
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a642699616d62b9c72af01ad536d252da">ShishGL::COLOR</a>
-</li>
-<li>SANDY_BROWN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a012136631a1e408261f313d35a2f441b">ShishGL::COLOR</a>
-</li>
-<li>SEA_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a61c2832f5ea3e8b34936fd18cad54558">ShishGL::COLOR</a>
-</li>
-<li>SEASHELL
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a630ef3f92ae062ac110650adb554a7dd">ShishGL::COLOR</a>
-</li>
-<li>SIENNA
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a88bd51dcf563f3bdbaa16dc748e5bea2">ShishGL::COLOR</a>
-</li>
-<li>SILVER
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6a12003518a062e89f08be64c4ec9e86">ShishGL::COLOR</a>
-</li>
-<li>SKY_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a73cb4d2e499e5be45fa1f2275b351c71">ShishGL::COLOR</a>
-</li>
-<li>SLATE_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a9d56df37595c7d64101c2e2257d4c2dd">ShishGL::COLOR</a>
-</li>
-<li>SLATE_GRAY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aafd48627b2ac709cf10709be3c035544">ShishGL::COLOR</a>
-</li>
-<li>SLATE_GREY
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a428718e18f278f59692447d5820567f0">ShishGL::COLOR</a>
-</li>
-<li>SNOW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a7872f9c28e546b5370ef7d76d8cec22d">ShishGL::COLOR</a>
-</li>
-<li>SPRING_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#acb901e464639ea4d2c862f1c2c10eed6">ShishGL::COLOR</a>
-</li>
-<li>STEEL_BLUE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ad55346011f91a0fcbd2af5469d899d2d">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>TAN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af135e4681fc7270a7e944f27ccc9ddcd">ShishGL::COLOR</a>
-</li>
-<li>TEAL
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#ab5a5f03d05aa8c007274f6643d766fe8">ShishGL::COLOR</a>
+<li>String
+: <a class="el" href="namespaceSh.html#a5ec512dae99f7e94a76c03c9da6cb2dd">Sh</a>
 </li>
 <li>text
 : <a class="el" href="namespaceprettify__colors.html#a641f8a2dfb34306824a9a648c607a58a">prettify_colors</a>
 </li>
-<li>THISTLE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af0c680ab6b8d0e6ca0c0372ce4f3c529">ShishGL::COLOR</a>
-</li>
 <li>TimeDelta
-: <a class="el" href="namespaceShishGL.html#ad396cb4cb211bdf941ec593b0bc47b11">ShishGL</a>
+: <a class="el" href="namespaceSh.html#a99eb8f29a6efa306f3530f14d5952d76">Sh</a>
 </li>
 <li>TimePoint
-: <a class="el" href="namespaceShishGL.html#a2917a7147ff3b1c4752bcd13b812c26d">ShishGL</a>
-</li>
-<li>TOMATO
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5dbaaaa8df36849eca55764fc43a3c84">ShishGL::COLOR</a>
-</li>
-<li>TURQUOISE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a5f64463ddbb8733d9feefab9de0c8c35">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_v"></a>- v -</h3><ul>
-<li>VIOLET
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a77479ca456de0b4a934b8c4ebd64275f">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_w"></a>- w -</h3><ul>
-<li>WHEAT
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aeebdcfb4f07c2b2b348eb3b1b2c5926a">ShishGL::COLOR</a>
-</li>
-<li>WHITE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a2a61103715fc7d6189c6b48fece8cf70">ShishGL::COLOR</a>
-</li>
-<li>WHITE_SMOKE
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#a6f11b03fc39950cbb8310e0a6710ceb4">ShishGL::COLOR</a>
-</li>
-</ul>
-
-
-<h3><a id="index_y"></a>- y -</h3><ul>
-<li>YELLOW
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#aca3877c459dbf99f18fa6df0e4ebfaf0">ShishGL::COLOR</a>
-</li>
-<li>YELLOW_GREEN
-: <a class="el" href="namespaceShishGL_1_1COLOR.html#af0e208bec17b8023654ff358944d6f27">ShishGL::COLOR</a>
+: <a class="el" href="namespaceSh.html#a9c4f0a871cbdafbd34300b87a96257ab">Sh</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

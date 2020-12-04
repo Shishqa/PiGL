@@ -1,0 +1,6 @@
+<map id="Sh::Shape2D" name="Sh::Shape2D">
+<area shape="rect" id="node1" title=" " alt="" coords="176,5,280,32"/>
+<area shape="rect" id="node2" href="$classSh_1_1CircleShape.html" title=" " alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node3" href="$classSh_1_1RectangleShape.html" title=" " alt="" coords="153,80,303,107"/>
+<area shape="rect" id="node4" href="$classSh_1_1TextShape.html" title=" " alt="" coords="327,80,441,107"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_1269',['Y',['../classShishGL_1_1Keyboard.html#a132d55a5e7365c2c2515a0e00e7796a2ae664d40f2e3d478e4c0b952bafe0c692',1,'ShishGL::Keyboard']]]
+  ['y_1394',['Y',['../classSh_1_1Keyboard.html#a838be056eef07967c49043e2733d661ca09a93393c7624f3ca3237fbe549b9468',1,'Sh::Keyboard']]]
 ];

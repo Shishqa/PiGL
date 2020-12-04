@@ -1,0 +1,10 @@
+<map id="Sh::Draggable" name="Sh::Draggable">
+<area shape="rect" id="node1" title=" " alt="" coords="106,475,219,501"/>
+<area shape="rect" id="node2" href="$classSh_1_1Holdable.html" title=" " alt="" coords="31,385,135,412"/>
+<area shape="rect" id="node3" href="$classSh_1_1Clickable.html" title=" " alt="" coords="30,309,135,336"/>
+<area shape="rect" id="node4" href="$classSh_1_1DefaultBehavior.html" title=" " alt="" coords="7,233,159,260"/>
+<area shape="rect" id="node5" href="$classSh_1_1Behavior.html" title=" " alt="" coords="31,157,135,184"/>
+<area shape="rect" id="node6" href="$classSh_1_1PlatformListener.html" title=" " alt="" coords="5,81,160,108"/>
+<area shape="rect" id="node7" href="$classSh_1_1Listener.html" title=" " alt="" coords="33,5,132,32"/>
+<area shape="rect" id="node8" href="$structSh_1_1Vector2.html" title=" " alt="" coords="159,385,329,412"/>
+</map>

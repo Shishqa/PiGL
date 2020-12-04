@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('CircleShape_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_f3a4b2ca34b5a533278c99be34feac66.html">Shapes</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">CircleShape.hpp</div>  </div>
@@ -77,16 +103,16 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Shape2D_8hpp.html">Shape2D.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classShishGL_1_1CircleShape.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1CircleShape.html">CircleShape</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Shape2D.html">Shape2D</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classSh_1_1CircleShape.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1CircleShape.html">CircleShape</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Shape2D.html">Shape2D</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1CircleShape.html#a480285822e9bca6b50a64fd749c5dd30">draw</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; viewport) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1CircleShape.html#af08e2a1c4aa51f75c48de51773137f2f">draw</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; viewport) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1CircleShape.html#a94e3ca00b7cd2821c99b4cb2381e0035">contains</a>(<span class="keyword">const</span> <a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; viewport,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                      <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; point) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1CircleShape.html#ad6924af726237cab69257cf27cb940b5">contains</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; viewport,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                      <span class="keyword">const</span> <a class="code" href="structSh_1_1Vector2.html">Vector2&lt;double&gt;</a>&amp; point) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
@@ -95,17 +121,21 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif //SHISHGL_CIRCLE_HPP</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1CircleShape_html_a94e3ca00b7cd2821c99b4cb2381e0035"><div class="ttname"><a href="classShishGL_1_1CircleShape.html#a94e3ca00b7cd2821c99b4cb2381e0035">ShishGL::CircleShape::contains</a></div><div class="ttdeci">bool contains(const Viewport &amp;viewport, const Vector2&lt; double &gt; &amp;point) const override</div><div class="ttdef"><b>Definition:</b> CircleShape.cpp:15</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1CircleShape_html_af08e2a1c4aa51f75c48de51773137f2f"><div class="ttname"><a href="classSh_1_1CircleShape.html#af08e2a1c4aa51f75c48de51773137f2f">Sh::CircleShape::draw</a></div><div class="ttdeci">void draw(const Frame &amp;viewport) const override</div><div class="ttdef"><b>Definition:</b> CircleShape.cpp:8</div></div>
+<div class="ttc" id="aclassSh_1_1Shape2D_html"><div class="ttname"><a href="classSh_1_1Shape2D.html">Sh::Shape2D</a></div><div class="ttdef"><b>Definition:</b> Shape2D.hpp:12</div></div>
+<div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1CircleShape_html_ad6924af726237cab69257cf27cb940b5"><div class="ttname"><a href="classSh_1_1CircleShape.html#ad6924af726237cab69257cf27cb940b5">Sh::CircleShape::contains</a></div><div class="ttdeci">bool contains(const Frame &amp;viewport, const Vector2&lt; double &gt; &amp;point) const override</div><div class="ttdef"><b>Definition:</b> CircleShape.cpp:15</div></div>
+<div class="ttc" id="astructSh_1_1Vector2_html"><div class="ttname"><a href="structSh_1_1Vector2.html">Sh::Vector2&lt; double &gt;</a></div></div>
 <div class="ttc" id="aShape2D_8hpp_html"><div class="ttname"><a href="Shape2D_8hpp.html">Shape2D.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1CircleShape_html_a480285822e9bca6b50a64fd749c5dd30"><div class="ttname"><a href="classShishGL_1_1CircleShape.html#a480285822e9bca6b50a64fd749c5dd30">ShishGL::CircleShape::draw</a></div><div class="ttdeci">void draw(const Viewport &amp;viewport) const override</div><div class="ttdef"><b>Definition:</b> CircleShape.cpp:8</div></div>
-<div class="ttc" id="astructShishGL_1_1Vector2_html"><div class="ttname"><a href="structShishGL_1_1Vector2.html">ShishGL::Vector2&lt; double &gt;</a></div></div>
-<div class="ttc" id="astructShishGL_1_1Viewport_html"><div class="ttname"><a href="structShishGL_1_1Viewport.html">ShishGL::Viewport</a></div><div class="ttdef"><b>Definition:</b> Viewport.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1CircleShape_html"><div class="ttname"><a href="classShishGL_1_1CircleShape.html">ShishGL::CircleShape</a></div><div class="ttdef"><b>Definition:</b> CircleShape.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1Shape2D_html"><div class="ttname"><a href="classShishGL_1_1Shape2D.html">ShishGL::Shape2D</a></div><div class="ttdef"><b>Definition:</b> Shape2D.hpp:12</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1CircleShape_html"><div class="ttname"><a href="classSh_1_1CircleShape.html">Sh::CircleShape</a></div><div class="ttdef"><b>Definition:</b> CircleShape.hpp:9</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="dir_9562454004c2c131410614b5e173c65d.html">UIWindow</a></li><li class="navelem"><a class="el" href="dir_f3a4b2ca34b5a533278c99be34feac66.html">Shapes</a></li><li class="navelem"><a class="el" href="CircleShape_8hpp.html">CircleShape.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

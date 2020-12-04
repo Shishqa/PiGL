@@ -48,20 +48,27 @@ namespace Sh {
 
             bool status = Draggable::onMouseMove(event);
 
-            if (status) {
+            if (status && Draggable::isHeld()) {
+
+                Sh::Frame border = frame;
+                const Window* parent = Behavior::target<UIWindow>()->getParent();
+
+                if (parent) {
+                    border.pos += parent->getPos();
+                }
 
                 Frame new_frame = target<UIWindow>()->getFrame();
 
-                if (new_frame.pos.x < frame.pos.x) {
-                    new_frame.pos.x = frame.pos.x;
-                } else if (new_frame.pos.x + new_frame.size.x > frame.pos.x + frame.size.x) {
-                    new_frame.pos.x = frame.pos.x + frame.size.x - new_frame.size.x;
+                if (new_frame.pos.x < border.pos.x) {
+                    new_frame.pos.x = border.pos.x;
+                } else if (new_frame.pos.x + new_frame.size.x > border.pos.x + border.size.x) {
+                    new_frame.pos.x = border.pos.x + border.size.x - new_frame.size.x;
                 }
 
-                if (new_frame.pos.y < frame.pos.y) {
-                    new_frame.pos.y = frame.pos.y;
-                } else if (new_frame.pos.y + new_frame.size.y > frame.pos.y + frame.size.y) {
-                    new_frame.pos.y = frame.pos.y + frame.size.y - new_frame.size.y;
+                if (new_frame.pos.y < border.pos.y) {
+                    new_frame.pos.y = border.pos.y;
+                } else if (new_frame.pos.y + new_frame.size.y > border.pos.y + border.size.y) {
+                    new_frame.pos.y = border.pos.y + border.size.y - new_frame.size.y;
                 }
 
                 target<UIWindow>()->setPos(new_frame.pos);

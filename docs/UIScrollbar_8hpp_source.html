@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('UIScrollbar_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">UIScrollbar.hpp</div>  </div>
@@ -78,124 +104,136 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Clickable_8hpp.html">Clickable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Slidable_8hpp.html">Slidable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Scrollbar.html">Scrollbar</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Clickable.html">Clickable</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">class </span><a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html">Button</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#aa954a31ffd62bcec829036e1b5611996">   15</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> <a class="code" href="classShishGL_1_1Scrollbar.html#aa954a31ffd62bcec829036e1b5611996">DEFAULT_PROPORTION</a> = 0.2;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a0b0639c4948d663382df3b4f8dea3ff8">   16</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> <a class="code" href="classShishGL_1_1Scrollbar.html#a0b0639c4948d663382df3b4f8dea3ff8">DEFAULT_STEP_SIZE</a> = 1.0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a318d75866f28c0da670de14b67f836f2">   17</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> <a class="code" href="classShishGL_1_1Scrollbar.html#a318d75866f28c0da670de14b67f836f2">MIN_SLIDER_RATIO</a> = 0.1;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">   21</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">Type</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda2b0b6f01234d8922ebec90be37a97c6f">   22</a></span>&#160;            <a class="code" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda2b0b6f01234d8922ebec90be37a97c6f">VERTICAL</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda637036ce6af27509cd6a7ad34f0c3534">HORIZONTAL</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda637036ce6af27509cd6a7ad34f0c3534">   24</a></span>&#160;        };</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#ad812521170abcd748eb430ff73ba194c">   13</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">double</span> <a class="code" href="classSh_1_1UIScrollbar.html#ad812521170abcd748eb430ff73ba194c">MIN_SLIDER_SIZE</a>     = 0.15,</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#a93789b7006e9ab94147dd02df9d27e42">   14</a></span>&#160;                                <a class="code" href="classSh_1_1UIScrollbar.html#a93789b7006e9ab94147dd02df9d27e42">DEFAULT_SLIDER_SIZE</a> = <a class="code" href="classSh_1_1UIScrollbar.html#ad812521170abcd748eb430ff73ba194c">MIN_SLIDER_SIZE</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#a50b4211fa458026310a43c3a5554b188">   15</a></span>&#160;                                <a class="code" href="classSh_1_1UIScrollbar.html#a50b4211fa458026310a43c3a5554b188">DEFAULT_SLIDER_POS</a>  = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12">   17</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12">Type</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12ae07a4e044e018393221be2307b3970dc">   18</a></span>&#160;            <a class="code" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12ae07a4e044e018393221be2307b3970dc">VERTICAL</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12a28230aea0fced806b31bc0d645a306b0">HORIZONTAL</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12a28230aea0fced806b31bc0d645a306b0">   20</a></span>&#160;        };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1UIScrollbar.html#a2eab4fe6d5ef118c0ce780974e211886">UIScrollbar</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; frame, <a class="code" href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12">UIScrollbar::Type</a> type,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                             <span class="keywordtype">double</span> slider_size = <a class="code" href="classSh_1_1UIScrollbar.html#a93789b7006e9ab94147dd02df9d27e42">DEFAULT_SLIDER_SIZE</a>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                             <span class="keywordtype">double</span> slider_pos  = <a class="code" href="classSh_1_1UIScrollbar.html#a50b4211fa458026310a43c3a5554b188">DEFAULT_SLIDER_POS</a>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1Scrollbar.html#aa21136db9061dd433eaf6952139fd6c7">Scrollbar</a>(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>, <span class="keywordtype">double</span> slider_size, <span class="keywordtype">double</span> slider_pos,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                           <a class="code" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">Scrollbar::Type</a> type);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Scrollbar.html#a89f76b84b849f9d455483f2a8ded7db6">reactOnPress</a>(<a class="code" href="classShishGL_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Scrollbar.html#aa6dd003b71ddd676d72bf1d4f71f22dc">onMouseScroll</a>(<a class="code" href="classShishGL_1_1MouseScrollEvent.html">MouseScrollEvent</a>&amp; event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// TODO: destructor</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a5dda8b96b25139c2e50b4bfb31615367">   35</a></span>&#160;        <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html">Button</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#a5dda8b96b25139c2e50b4bfb31615367">inc_button</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#ad5db69c902b655b63b8196af6122b6b8">   36</a></span>&#160;        <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html">Button</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#ad5db69c902b655b63b8196af6122b6b8">dec_button</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a2e0089b4a31b70de3a147bef43a122a2">   37</a></span>&#160;        <a class="code" href="classShishGL_1_1Slidable.html">Slidable</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#a2e0089b4a31b70de3a147bef43a122a2">slider</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#ae270c1a93324db9565d2171cf4598593">   26</a></span>&#160;        <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1UIScrollbar.html#ae270c1a93324db9565d2171cf4598593">inc_button</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#ae19167cab2a437ca3578874d05d6e9c3">   27</a></span>&#160;        <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1UIScrollbar.html#ae19167cab2a437ca3578874d05d6e9c3">dec_button</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classSh_1_1UIScrollbar.html#a0acf5a439918422fff74ed36e7a5faba">   28</a></span>&#160;        <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1UIScrollbar.html#a0acf5a439918422fff74ed36e7a5faba">slider</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespaceSh.html#ace32baee2465a051f443adf2c07189bf">applyDefaultStyle</a>(<a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a>* scrollbar);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarBackground.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1ScrollbarBackground.html">ScrollbarBackground</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Clickable.html">Clickable</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a1504381750af6ef86a0b38819831d941">   39</a></span>&#160;        <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#a1504381750af6ef86a0b38819831d941">inc_bt_win</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a2f41bd4de9ccb804cf1fd082158ef63b">   40</a></span>&#160;        <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#a2f41bd4de9ccb804cf1fd082158ef63b">dec_bt_win</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar.html#a35449e5f56deeed63c12ea157df8dd75">   41</a></span>&#160;        <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Scrollbar.html#a35449e5f56deeed63c12ea157df8dd75">slider_win</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1ScrollbarBackground.html#a21252bc4bd5ca03cbaba4855c7a784c7">ScrollbarBackground</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ScrollbarBackground.html#a6b37b36ed2437b41153ad24a1f58d7f2">reactOnPress</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarBackground.html#ae90b4d1cb8c57e8c01755fdc8162c87c">   43</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1ScrollbarBackground.html#ae90b4d1cb8c57e8c01755fdc8162c87c">onMouseScroll</a>(<a class="code" href="classSh_1_1MouseScrollEvent.html">MouseScrollEvent</a>&amp;)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> constructVertical(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>, <span class="keywordtype">double</span> slider_size, <span class="keywordtype">double</span> slider_pos);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> constructHorizontal(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>, <span class="keywordtype">double</span> slider_size, <span class="keywordtype">double</span> slider_pos);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">Type</a> s_type;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarButton.html">   49</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1ScrollbarButton.html">ScrollbarButton</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Holdable.html">Holdable</a> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarButton.html#ad4383820095bb0f837a39bc7e09f7dfb">   52</a></span>&#160;        <a class="code" href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">Mouse::ScrollDelta</a> <a class="code" href="classSh_1_1ScrollbarButton.html#ad4383820095bb0f837a39bc7e09f7dfb">m_delta</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarButton.html#a511b34b714fdcb0cffe175f35ab9787e">   53</a></span>&#160;        <a class="code" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">Mouse::ScrollType</a> <a class="code" href="classSh_1_1ScrollbarButton.html#a511b34b714fdcb0cffe175f35ab9787e">m_type</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html">   55</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html">Scrollbar::Button</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1Holdable.html">Holdable</a> {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html#a55d72f83648f3011d52777523909fa03">   58</a></span>&#160;        <a class="code" href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">Mouse::ScrollDelta</a> <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#a55d72f83648f3011d52777523909fa03">m_delta</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html#aa38d3718923c2577e18481523ea82fbd">   59</a></span>&#160;        <a class="code" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">Mouse::ScrollType</a> <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#aa38d3718923c2577e18481523ea82fbd">m_type</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html#ad8f1cc2dfeb29a94629f6590509efa4f">   63</a></span>&#160;        <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#ad8f1cc2dfeb29a94629f6590509efa4f">Button</a>(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;               <a class="code" href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">Mouse::ScrollDelta</a> delta,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;               <a class="code" href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">Mouse::ScrollType</a> type)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;               : <a class="code" href="classShishGL_1_1Holdable.html">Holdable</a>(<a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;               , <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#a55d72f83648f3011d52777523909fa03">m_delta</a>(delta)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;               , <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#aa38d3718923c2577e18481523ea82fbd">m_type</a>(type)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;               { }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html#acefa5730b6af50e3c3bd6080dbaa9828">   71</a></span>&#160;        <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#acefa5730b6af50e3c3bd6080dbaa9828">~Button</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarButton.html#a4c1be08375f57f310303b5c5fd1a8b0f">   57</a></span>&#160;        <a class="code" href="classSh_1_1ScrollbarButton.html#a4c1be08375f57f310303b5c5fd1a8b0f">ScrollbarButton</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>, <a class="code" href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">Mouse::ScrollDelta</a> delta,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <a class="code" href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">Mouse::ScrollType</a> type)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;               : <a class="code" href="classSh_1_1Holdable.html">Holdable</a>(<a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;               , <a class="code" href="classSh_1_1ScrollbarButton.html#ad4383820095bb0f837a39bc7e09f7dfb">m_delta</a>(delta)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;               , <a class="code" href="classSh_1_1ScrollbarButton.html#a511b34b714fdcb0cffe175f35ab9787e">m_type</a>(type)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;               { }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarButton.html#a040b6d6c5696ec3fb030385ca808324c">   66</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ScrollbarButton.html#a040b6d6c5696ec3fb030385ca808324c">reactOnHold</a>(<a class="code" href="classSh_1_1TimerEvent.html">TimerEvent</a>&amp;)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            printf(<span class="stringliteral">&quot;HOLD!\n&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            EventSystem::sendEvent&lt;MouseScrollEvent&gt;(</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keyword">this</span>, target&lt;UIWindow&gt;()-&gt;getPos(), <a class="code" href="classSh_1_1ScrollbarButton.html#ad4383820095bb0f837a39bc7e09f7dfb">m_delta</a>, <a class="code" href="classSh_1_1ScrollbarButton.html#a511b34b714fdcb0cffe175f35ab9787e">m_type</a></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classShishGL_1_1Scrollbar_1_1Button.html#ab400a1230a0f562250eac9ef67a2bd1d">   75</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#ab400a1230a0f562250eac9ef67a2bd1d">reactOnHold</a>(<a class="code" href="classShishGL_1_1TimerEvent.html">TimerEvent</a>&amp;)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            EventSystem::sendEvent&lt;MouseScrollEvent&gt;(</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    <span class="keyword">this</span>, target&lt;UIWindow&gt;()-&gt;getPos(), <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#a55d72f83648f3011d52777523909fa03">m_delta</a>, <a class="code" href="classShishGL_1_1Scrollbar_1_1Button.html#aa38d3718923c2577e18481523ea82fbd">m_type</a></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    );</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    };</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif //SHISHGL_UI_SCROLLBAR_HPP</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classSh_1_1ScrollbarSlider.html">   77</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1ScrollbarSlider.html">ScrollbarSlider</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Slidable.html">Slidable</a> {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1ScrollbarSlider.html#abeaabbf39bc09a8a462466161da478fc">ScrollbarSlider</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* targer, <span class="keyword">const</span> <a class="code" href="structSh_1_1Segment2.html">Segment2&lt;double&gt;</a>&amp; <a class="code" href="classSh_1_1Slidable.html#a1b8eb7a347c2e43d3d7d7757def94021">slide</a>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1ScrollbarSlider.html#a38c6a56873e6f9e8d42499b085ce0dd9">onMouseScroll</a>(<a class="code" href="classSh_1_1MouseScrollEvent.html">MouseScrollEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    };</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif //SHISHGL_UI_SCROLLBAR_HPP</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html_ab400a1230a0f562250eac9ef67a2bd1d"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html#ab400a1230a0f562250eac9ef67a2bd1d">ShishGL::Scrollbar::Button::reactOnHold</a></div><div class="ttdeci">void reactOnHold(TimerEvent &amp;) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:75</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a593ffab325bbba3698121d2430752af6"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a593ffab325bbba3698121d2430752af6">ShishGL::Mouse::ScrollDelta</a></div><div class="ttdeci">double ScrollDelta</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:26</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a2e0089b4a31b70de3a147bef43a122a2"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a2e0089b4a31b70de3a147bef43a122a2">ShishGL::Scrollbar::slider</a></div><div class="ttdeci">Slidable * slider</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:37</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclassSh_1_1Slidable_html"><div class="ttname"><a href="classSh_1_1Slidable.html">Sh::Slidable</a></div><div class="ttdef"><b>Definition:</b> Slidable.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarBackground_html"><div class="ttname"><a href="classSh_1_1ScrollbarBackground.html">Sh::ScrollbarBackground</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:36</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarSlider_html_abeaabbf39bc09a8a462466161da478fc"><div class="ttname"><a href="classSh_1_1ScrollbarSlider.html#abeaabbf39bc09a8a462466161da478fc">Sh::ScrollbarSlider::ScrollbarSlider</a></div><div class="ttdeci">ScrollbarSlider(UIWindow *targer, const Segment2&lt; double &gt; &amp;slide)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:162</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a50a56dcc4bbbbcff418c866a2f6e0745"><div class="ttname"><a href="classSh_1_1Mouse.html#a50a56dcc4bbbbcff418c866a2f6e0745">Sh::Mouse::ScrollType</a></div><div class="ttdeci">ScrollType</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:21</div></div>
 <div class="ttc" id="aSlidable_8hpp_html"><div class="ttname"><a href="Slidable_8hpp.html">Slidable.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a2f41bd4de9ccb804cf1fd082158ef63b"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a2f41bd4de9ccb804cf1fd082158ef63b">ShishGL::Scrollbar::dec_bt_win</a></div><div class="ttdeci">UIWindow * dec_bt_win</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:40</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseButtonEvent_html"><div class="ttname"><a href="classShishGL_1_1MouseButtonEvent.html">ShishGL::MouseButtonEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:38</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_aa21136db9061dd433eaf6952139fd6c7"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#aa21136db9061dd433eaf6952139fd6c7">ShishGL::Scrollbar::Scrollbar</a></div><div class="ttdeci">Scrollbar(UIWindow *target, double slider_size, double slider_pos, Scrollbar::Type type)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html_aa38d3718923c2577e18481523ea82fbd"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html#aa38d3718923c2577e18481523ea82fbd">ShishGL::Scrollbar::Button::m_type</a></div><div class="ttdeci">Mouse::ScrollType m_type</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:59</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a5dda8b96b25139c2e50b4bfb31615367"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a5dda8b96b25139c2e50b4bfb31615367">ShishGL::Scrollbar::inc_button</a></div><div class="ttdeci">Button * inc_button</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:35</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html_a55d72f83648f3011d52777523909fa03"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html#a55d72f83648f3011d52777523909fa03">ShishGL::Scrollbar::Button::m_delta</a></div><div class="ttdeci">Mouse::ScrollDelta m_delta</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:58</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a35449e5f56deeed63c12ea157df8dd75"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a35449e5f56deeed63c12ea157df8dd75">ShishGL::Scrollbar::slider_win</a></div><div class="ttdeci">UIWindow * slider_win</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:41</div></div>
-<div class="ttc" id="aclassShishGL_1_1Clickable_html"><div class="ttname"><a href="classShishGL_1_1Clickable.html">ShishGL::Clickable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1Slidable_html_a1b8eb7a347c2e43d3d7d7757def94021"><div class="ttname"><a href="classSh_1_1Slidable.html#a1b8eb7a347c2e43d3d7d7757def94021">Sh::Slidable::slide</a></div><div class="ttdeci">void slide(const Vector2&lt; double &gt; &amp;delta, Mouse::Button button)</div><div class="ttdef"><b>Definition:</b> Slidable.cpp:28</div></div>
+<div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_afe9f1fa8e1071338f0d1b37669206b12a28230aea0fced806b31bc0d645a306b0"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12a28230aea0fced806b31bc0d645a306b0">Sh::UIScrollbar::HORIZONTAL</a></div><div class="ttdeci">@ HORIZONTAL</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:19</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarSlider_html_a38c6a56873e6f9e8d42499b085ce0dd9"><div class="ttname"><a href="classSh_1_1ScrollbarSlider.html#a38c6a56873e6f9e8d42499b085ce0dd9">Sh::ScrollbarSlider::onMouseScroll</a></div><div class="ttdeci">bool onMouseScroll(MouseScrollEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:166</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarSlider_html"><div class="ttname"><a href="classSh_1_1ScrollbarSlider.html">Sh::ScrollbarSlider</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:77</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_a0acf5a439918422fff74ed36e7a5faba"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#a0acf5a439918422fff74ed36e7a5faba">Sh::UIScrollbar::slider</a></div><div class="ttdeci">UIWindow * slider</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:28</div></div>
+<div class="ttc" id="aclassSh_1_1Behavior_html_a939a6c482cda497bd994c6779b904433"><div class="ttname"><a href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">Sh::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarButton_html_a040b6d6c5696ec3fb030385ca808324c"><div class="ttname"><a href="classSh_1_1ScrollbarButton.html#a040b6d6c5696ec3fb030385ca808324c">Sh::ScrollbarButton::reactOnHold</a></div><div class="ttdeci">void reactOnHold(TimerEvent &amp;) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:66</div></div>
+<div class="ttc" id="aclassSh_1_1UIWindow_html"><div class="ttname"><a href="classSh_1_1UIWindow.html">Sh::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_a2eab4fe6d5ef118c0ce780974e211886"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#a2eab4fe6d5ef118c0ce780974e211886">Sh::UIScrollbar::UIScrollbar</a></div><div class="ttdeci">UIScrollbar(const Frame &amp;frame, UIScrollbar::Type type, double slider_size=DEFAULT_SLIDER_SIZE, double slider_pos=DEFAULT_SLIDER_POS)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_afe9f1fa8e1071338f0d1b37669206b12"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12">Sh::UIScrollbar::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:17</div></div>
 <div class="ttc" id="aClickable_8hpp_html"><div class="ttname"><a href="Clickable_8hpp.html">Clickable.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_af67bb80e0cb29d2182643446eff7a7ed"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7ed">ShishGL::Scrollbar::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:21</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseScrollEvent_html"><div class="ttname"><a href="classShishGL_1_1MouseScrollEvent.html">ShishGL::MouseScrollEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:68</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_af67bb80e0cb29d2182643446eff7a7eda637036ce6af27509cd6a7ad34f0c3534"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda637036ce6af27509cd6a7ad34f0c3534">ShishGL::Scrollbar::HORIZONTAL</a></div><div class="ttdeci">@ HORIZONTAL</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:23</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_aa6dd003b71ddd676d72bf1d4f71f22dc"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#aa6dd003b71ddd676d72bf1d4f71f22dc">ShishGL::Scrollbar::onMouseScroll</a></div><div class="ttdeci">bool onMouseScroll(MouseScrollEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:142</div></div>
-<div class="ttc" id="aclassShishGL_1_1Mouse_html_a17fba059652d1e619086487e627f484f"><div class="ttname"><a href="classShishGL_1_1Mouse.html#a17fba059652d1e619086487e627f484f">ShishGL::Mouse::ScrollType</a></div><div class="ttdeci">ScrollType</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:21</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_af67bb80e0cb29d2182643446eff7a7eda2b0b6f01234d8922ebec90be37a97c6f"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#af67bb80e0cb29d2182643446eff7a7eda2b0b6f01234d8922ebec90be37a97c6f">ShishGL::Scrollbar::VERTICAL</a></div><div class="ttdeci">@ VERTICAL</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:22</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html">ShishGL::Scrollbar</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_aa954a31ffd62bcec829036e1b5611996"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#aa954a31ffd62bcec829036e1b5611996">ShishGL::Scrollbar::DEFAULT_PROPORTION</a></div><div class="ttdeci">static constexpr double DEFAULT_PROPORTION</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:15</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a0b0639c4948d663382df3b4f8dea3ff8"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a0b0639c4948d663382df3b4f8dea3ff8">ShishGL::Scrollbar::DEFAULT_STEP_SIZE</a></div><div class="ttdeci">static constexpr double DEFAULT_STEP_SIZE</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:16</div></div>
-<div class="ttc" id="aclassShishGL_1_1Slidable_html"><div class="ttname"><a href="classShishGL_1_1Slidable.html">ShishGL::Slidable</a></div><div class="ttdef"><b>Definition:</b> Slidable.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a89f76b84b849f9d455483f2a8ded7db6"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a89f76b84b849f9d455483f2a8ded7db6">ShishGL::Scrollbar::reactOnPress</a></div><div class="ttdeci">void reactOnPress(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:123</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a318d75866f28c0da670de14b67f836f2"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a318d75866f28c0da670de14b67f836f2">ShishGL::Scrollbar::MIN_SLIDER_RATIO</a></div><div class="ttdeci">static constexpr double MIN_SLIDER_RATIO</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html_acefa5730b6af50e3c3bd6080dbaa9828"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html#acefa5730b6af50e3c3bd6080dbaa9828">ShishGL::Scrollbar::Button::~Button</a></div><div class="ttdeci">~Button() override=default</div></div>
-<div class="ttc" id="aclassShishGL_1_1TimerEvent_html"><div class="ttname"><a href="classShishGL_1_1TimerEvent.html">ShishGL::TimerEvent</a></div><div class="ttdef"><b>Definition:</b> TimerEvent.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_a1504381750af6ef86a0b38819831d941"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#a1504381750af6ef86a0b38819831d941">ShishGL::Scrollbar::inc_bt_win</a></div><div class="ttdeci">UIWindow * inc_bt_win</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:39</div></div>
-<div class="ttc" id="aclassShishGL_1_1Behavior_html_aba20c7d900f049707e7d371d5b0fde5a"><div class="ttname"><a href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">ShishGL::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html">ShishGL::Scrollbar::Button</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:55</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_1_1Button_html_ad8f1cc2dfeb29a94629f6590509efa4f"><div class="ttname"><a href="classShishGL_1_1Scrollbar_1_1Button.html#ad8f1cc2dfeb29a94629f6590509efa4f">ShishGL::Scrollbar::Button::Button</a></div><div class="ttdeci">Button(UIWindow *target, Mouse::ScrollDelta delta, Mouse::ScrollType type)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:63</div></div>
-<div class="ttc" id="aclassShishGL_1_1Scrollbar_html_ad5db69c902b655b63b8196af6122b6b8"><div class="ttname"><a href="classShishGL_1_1Scrollbar.html#ad5db69c902b655b63b8196af6122b6b8">ShishGL::Scrollbar::dec_button</a></div><div class="ttdeci">Button * dec_button</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:36</div></div>
-<div class="ttc" id="aclassShishGL_1_1UIWindow_html"><div class="ttname"><a href="classShishGL_1_1UIWindow.html">ShishGL::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:14</div></div>
-<div class="ttc" id="aclassShishGL_1_1Holdable_html"><div class="ttname"><a href="classShishGL_1_1Holdable.html">ShishGL::Holdable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1TimerEvent_html"><div class="ttname"><a href="classSh_1_1TimerEvent.html">Sh::TimerEvent</a></div><div class="ttdef"><b>Definition:</b> TimerEvent.hpp:11</div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_ae19167cab2a437ca3578874d05d6e9c3"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#ae19167cab2a437ca3578874d05d6e9c3">Sh::UIScrollbar::dec_button</a></div><div class="ttdeci">UIWindow * dec_button</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:27</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarButton_html"><div class="ttname"><a href="classSh_1_1ScrollbarButton.html">Sh::ScrollbarButton</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:49</div></div>
+<div class="ttc" id="aclassSh_1_1Holdable_html"><div class="ttname"><a href="classSh_1_1Holdable.html">Sh::Holdable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarBackground_html_a21252bc4bd5ca03cbaba4855c7a784c7"><div class="ttname"><a href="classSh_1_1ScrollbarBackground.html#a21252bc4bd5ca03cbaba4855c7a784c7">Sh::ScrollbarBackground::ScrollbarBackground</a></div><div class="ttdeci">ScrollbarBackground(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:97</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarBackground_html_ae90b4d1cb8c57e8c01755fdc8162c87c"><div class="ttname"><a href="classSh_1_1ScrollbarBackground.html#ae90b4d1cb8c57e8c01755fdc8162c87c">Sh::ScrollbarBackground::onMouseScroll</a></div><div class="ttdeci">bool onMouseScroll(MouseScrollEvent &amp;) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:43</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html"><div class="ttname"><a href="classSh_1_1UIScrollbar.html">Sh::UIScrollbar</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarButton_html_a4c1be08375f57f310303b5c5fd1a8b0f"><div class="ttname"><a href="classSh_1_1ScrollbarButton.html#a4c1be08375f57f310303b5c5fd1a8b0f">Sh::ScrollbarButton::ScrollbarButton</a></div><div class="ttdeci">ScrollbarButton(UIWindow *target, Mouse::ScrollDelta delta, Mouse::ScrollType type)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:57</div></div>
+<div class="ttc" id="astructSh_1_1Segment2_html"><div class="ttname"><a href="structSh_1_1Segment2.html">Sh::Segment2&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassSh_1_1MouseScrollEvent_html"><div class="ttname"><a href="classSh_1_1MouseScrollEvent.html">Sh::MouseScrollEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:68</div></div>
+<div class="ttc" id="aclassSh_1_1Clickable_html"><div class="ttname"><a href="classSh_1_1Clickable.html">Sh::Clickable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarButton_html_ad4383820095bb0f837a39bc7e09f7dfb"><div class="ttname"><a href="classSh_1_1ScrollbarButton.html#ad4383820095bb0f837a39bc7e09f7dfb">Sh::ScrollbarButton::m_delta</a></div><div class="ttdeci">Mouse::ScrollDelta m_delta</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:52</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_a93789b7006e9ab94147dd02df9d27e42"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#a93789b7006e9ab94147dd02df9d27e42">Sh::UIScrollbar::DEFAULT_SLIDER_SIZE</a></div><div class="ttdeci">static constexpr double DEFAULT_SLIDER_SIZE</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:14</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_ae270c1a93324db9565d2171cf4598593"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#ae270c1a93324db9565d2171cf4598593">Sh::UIScrollbar::inc_button</a></div><div class="ttdeci">UIWindow * inc_button</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:26</div></div>
+<div class="ttc" id="anamespaceSh_html_ace32baee2465a051f443adf2c07189bf"><div class="ttname"><a href="namespaceSh.html#ace32baee2465a051f443adf2c07189bf">Sh::applyDefaultStyle</a></div><div class="ttdeci">void applyDefaultStyle(UIScrollbar *scrollbar)</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:126</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_ad812521170abcd748eb430ff73ba194c"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#ad812521170abcd748eb430ff73ba194c">Sh::UIScrollbar::MIN_SLIDER_SIZE</a></div><div class="ttdeci">static constexpr double MIN_SLIDER_SIZE</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:13</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_a50b4211fa458026310a43c3a5554b188"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#a50b4211fa458026310a43c3a5554b188">Sh::UIScrollbar::DEFAULT_SLIDER_POS</a></div><div class="ttdeci">static constexpr double DEFAULT_SLIDER_POS</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html_afe9f1fa8e1071338f0d1b37669206b12ae07a4e044e018393221be2307b3970dc"><div class="ttname"><a href="classSh_1_1UIScrollbar.html#afe9f1fa8e1071338f0d1b37669206b12ae07a4e044e018393221be2307b3970dc">Sh::UIScrollbar::VERTICAL</a></div><div class="ttdeci">@ VERTICAL</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:18</div></div>
+<div class="ttc" id="aclassSh_1_1Mouse_html_a1b7d002874c853ae30e49c7f508bca40"><div class="ttname"><a href="classSh_1_1Mouse.html#a1b7d002874c853ae30e49c7f508bca40">Sh::Mouse::ScrollDelta</a></div><div class="ttdeci">double ScrollDelta</div><div class="ttdef"><b>Definition:</b> Mouse.hpp:26</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarBackground_html_a6b37b36ed2437b41153ad24a1f58d7f2"><div class="ttname"><a href="classSh_1_1ScrollbarBackground.html#a6b37b36ed2437b41153ad24a1f58d7f2">Sh::ScrollbarBackground::reactOnPress</a></div><div class="ttdeci">void reactOnPress(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIScrollbar.cpp:105</div></div>
+<div class="ttc" id="aclassSh_1_1MouseButtonEvent_html"><div class="ttname"><a href="classSh_1_1MouseButtonEvent.html">Sh::MouseButtonEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:38</div></div>
+<div class="ttc" id="aclassSh_1_1ScrollbarButton_html_a511b34b714fdcb0cffe175f35ab9787e"><div class="ttname"><a href="classSh_1_1ScrollbarButton.html#a511b34b714fdcb0cffe175f35ab9787e">Sh::ScrollbarButton::m_type</a></div><div class="ttdeci">Mouse::ScrollType m_type</div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:53</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="UIScrollbar_8hpp.html">UIScrollbar.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

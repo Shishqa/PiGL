@@ -9,6 +9,7 @@ target_include_directories(ShishGL-Styles
 
 target_sources(ShishGL-Styles
   INTERFACE
+    ${INCROOT}/Styles.hpp
     ${INCROOT}/ColorFill.hpp
     ${INCROOT}/TextureFill.hpp
     ${INCROOT}/Bordered.hpp

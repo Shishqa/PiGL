@@ -1,13 +1,13 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/RenderSystem.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/RenderSystem.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="157,5,368,76"/>
-<area shape="rect" id="node2" href="$IPlatform_8hpp.html" title=" " alt="" coords="207,124,318,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="126,273,223,300"/>
-<area shape="rect" id="node4" href="$Vector2_8hpp.html" title=" " alt="" coords="5,199,104,225"/>
-<area shape="rect" id="node7" href="$Color_8hpp.html" title=" " alt="" coords="448,273,531,300"/>
-<area shape="rect" id="node9" href="$ColorCollection_8hpp.html" title=" " alt="" coords="371,199,520,225"/>
-<area shape="rect" id="node10" href="$ResourceManager_8hpp.html" title=" " alt="" coords="179,199,346,225"/>
-<area shape="rect" id="node5" href="$Vector2_8ipp.html" title=" " alt="" coords="7,273,102,300"/>
-<area shape="rect" id="node6" title=" " alt="" coords="23,348,86,375"/>
-<area shape="rect" id="node8" title=" " alt="" coords="341,348,408,375"/>
-<area shape="rect" id="node11" title=" " alt="" coords="299,273,423,300"/>
+<area shape="rect" id="node1" title=" " alt="" coords="128,5,339,76"/>
+<area shape="rect" id="node2" href="$IPlatform_8hpp.html" title=" " alt="" coords="178,124,289,151"/>
+<area shape="rect" id="node3" title=" " alt="" coords="129,273,226,300"/>
+<area shape="rect" id="node4" href="$Frame_8hpp.html" title=" " alt="" coords="33,199,124,225"/>
+<area shape="rect" id="node8" href="$Color_8hpp.html" title=" " alt="" coords="403,199,485,225"/>
+<area shape="rect" id="node10" href="$ResourceManager_8hpp.html" title=" " alt="" coords="211,199,378,225"/>
+<area shape="rect" id="node5" href="$Vector2_8hpp.html" title=" " alt="" coords="5,273,104,300"/>
+<area shape="rect" id="node6" href="$Vector2_8ipp.html" title=" " alt="" coords="7,348,102,375"/>
+<area shape="rect" id="node7" title=" " alt="" coords="23,423,86,449"/>
+<area shape="rect" id="node9" title=" " alt="" coords="407,273,473,300"/>
+<area shape="rect" id="node11" title=" " alt="" coords="250,273,374,300"/>
 </map>

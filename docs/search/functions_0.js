@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['add_767',['add',['../classShishGL_1_1StylePack.html#a0c766e61375fa87df944c5b56369ac26',1,'ShishGL::StylePack::add(const SomeStyle &amp;style, Args &amp;&amp;... args)'],['../classShishGL_1_1StylePack.html#aa7b5501807574faeee748b0483553ebd',1,'ShishGL::StylePack::add(const SomeStyle &amp;style)']]],
-  ['addbehavior_768',['addBehavior',['../classShishGL_1_1UIWindow.html#ab834131e04ab410a64e484d663a0e46a',1,'ShishGL::UIWindow']]],
-  ['apply_769',['apply',['../classShishGL_1_1Style.html#a77b7912c6cbaffcd46dea2ab1f6e5181',1,'ShishGL::Style::apply()'],['../classShishGL_1_1StylePack.html#a08bbe9f261b0fb4a38027384ec23e594',1,'ShishGL::StylePack::apply()'],['../classShishGL_1_1Bordered.html#ac5995153d0c1b97664a32511fdc44a3b',1,'ShishGL::Bordered::apply()'],['../classShishGL_1_1ColorFill.html#a6d7d4c927c10e8d50d13f67821f8a8d1',1,'ShishGL::ColorFill::apply()'],['../classShishGL_1_1TextureFill.html#a648a62f312e3bb534e64baddc3ebb915',1,'ShishGL::TextureFill::apply()']]],
-  ['applyshape_770',['applyShape',['../classShishGL_1_1UIWindow.html#a8a6d46af8208f09c4228cc602a6f893e',1,'ShishGL::UIWindow']]],
-  ['applystyle_771',['applyStyle',['../classShishGL_1_1UIWindow.html#a09ce97c3a6a6269bb25f28a876ab42c4',1,'ShishGL::UIWindow']]],
-  ['attach_772',['attach',['../classShishGL_1_1Window.html#a2d83d564251d2f7dadb419db8350f67a',1,'ShishGL::Window::attach(Args &amp;&amp;... args)'],['../classShishGL_1_1Window.html#af16925e301e769004fc9e3a46ffa8dd2',1,'ShishGL::Window::attach(Window *child)']]]
+  ['add_863',['add',['../classSh_1_1BehaviorManager.html#a09e346bba2c265bb8075094e94a7404e',1,'Sh::BehaviorManager::add()'],['../classSh_1_1StylePack.html#a2f077ef68959e34ea05023daf83fac23',1,'Sh::StylePack::add(const SomeStyle &amp;style, Args &amp;&amp;... args)'],['../classSh_1_1StylePack.html#aa950e4f2b50a18527c3e9f4f0c6e8f18',1,'Sh::StylePack::add(const SomeStyle &amp;style)'],['../Color_8cpp.html#a11b43171a52f77f2048415141cf30983',1,'add():&#160;Color.cpp']]],
+  ['addbehavior_864',['addBehavior',['../classSh_1_1UIWindow.html#a21473790546396e92b73a74bc69fbbda',1,'Sh::UIWindow']]],
+  ['apply_865',['apply',['../classSh_1_1Style.html#aeb21131927b62d937c6af2af469e8a04',1,'Sh::Style::apply()'],['../classSh_1_1StylePack.html#a2c1a151e1223331e5d2470b12a4685e8',1,'Sh::StylePack::apply()'],['../classSh_1_1Bordered.html#aeec3a79f523b63e894fbcf307a9428db',1,'Sh::Bordered::apply()'],['../classSh_1_1ColorFill.html#a91d698be538a52a0b291459a9d5e2e87',1,'Sh::ColorFill::apply()'],['../classSh_1_1Font.html#a05da3b54b4de199d01638a4a0b6e4c10',1,'Sh::Font::apply()'],['../classSh_1_1FontSize.html#a178f328fdcbd745417039f91a67a1a25',1,'Sh::FontSize::apply()'],['../classSh_1_1TextureFill.html#a851f181e1d5c7c8cef1a44529ce7cd3a',1,'Sh::TextureFill::apply()']]],
+  ['applydefaultstyle_866',['applyDefaultStyle',['../namespaceSh.html#ace32baee2465a051f443adf2c07189bf',1,'Sh']]],
+  ['applyshape_867',['applyShape',['../classSh_1_1UIWindow.html#aecc6acd7e0a153848c63a6a954fd6a6b',1,'Sh::UIWindow']]],
+  ['applystyle_868',['applyStyle',['../classSh_1_1UIWindow.html#a85f8ef191112dee8ad0f6202f7fcad70',1,'Sh::UIWindow']]],
+  ['as_869',['as',['../classSh_1_1UIWindow.html#aabaa5344d076ad754d341458bfe33a26',1,'Sh::UIWindow']]],
+  ['attach_870',['attach',['../classSh_1_1Window.html#ad0e436d4956918a618ed54fd2b500144',1,'Sh::Window::attach(Args &amp;&amp;... args)'],['../classSh_1_1Window.html#ab7bfa0827b9bab3d9d90f8c51b958e78',1,'Sh::Window::attach(SomeWindow *child)']]]
 ];

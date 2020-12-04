@@ -1,48 +1,48 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/src/GUI/UICanvas.cpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/src/GUI/UICanvas.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="777,5,959,61"/>
-<area shape="rect" id="node2" href="$UICanvas_8hpp.html" title=" " alt="" coords="812,109,924,136"/>
-<area shape="rect" id="node3" href="$Image_8hpp.html" title=" " alt="" coords="491,184,581,211"/>
-<area shape="rect" id="node22" href="$UIWindow_8hpp.html" title=" " alt="" coords="1144,184,1259,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="189,259,259,285"/>
-<area shape="rect" id="node5" title=" " alt="" coords="866,333,929,360"/>
-<area shape="rect" id="node6" title=" " alt="" coords="284,259,361,285"/>
-<area shape="rect" id="node7" title=" " alt="" coords="487,259,585,285"/>
-<area shape="rect" id="node8" title=" " alt="" coords="711,259,777,285"/>
-<area shape="rect" id="node9" title=" " alt="" coords="5,259,75,285"/>
-<area shape="rect" id="node10" title=" " alt="" coords="99,259,165,285"/>
-<area shape="rect" id="node11" href="$Color_8hpp.html" title=" " alt="" coords="525,483,608,509"/>
-<area shape="rect" id="node13" href="$ColorCollection_8hpp.html" title=" " alt="" coords="436,408,585,435"/>
-<area shape="rect" id="node14" href="$Vector2_8hpp.html" title=" " alt="" coords="721,483,820,509"/>
-<area shape="rect" id="node17" href="$IPlatform_8hpp.html" title=" " alt="" coords="669,333,779,360"/>
-<area shape="rect" id="node21" href="$RenderSystem_8hpp.html" title=" " alt="" coords="802,259,947,285"/>
-<area shape="rect" id="node12" title=" " alt="" coords="943,557,1009,584"/>
-<area shape="rect" id="node15" href="$Vector2_8ipp.html" title=" " alt="" coords="723,557,818,584"/>
-<area shape="rect" id="node16" title=" " alt="" coords="739,632,802,659"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1162,483,1259,509"/>
-<area shape="rect" id="node19" href="$ResourceManager_8hpp.html" title=" " alt="" coords="946,408,1113,435"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1014,483,1138,509"/>
-<area shape="rect" id="node23" href="$Window_8hpp.html" title=" " alt="" coords="1557,259,1659,285"/>
-<area shape="rect" id="node43" href="$Style_8hpp.html" title=" " alt="" coords="1023,259,1105,285"/>
-<area shape="rect" id="node44" href="$Shape2D_8hpp.html" title=" " alt="" coords="1005,333,1113,360"/>
-<area shape="rect" id="node45" href="$Behavior_8hpp.html" title=" " alt="" coords="1935,333,2041,360"/>
-<area shape="rect" id="node46" href="$UIWindow_8ipp.html" title=" " alt="" coords="1239,333,1350,360"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1737,483,1780,509"/>
-<area shape="rect" id="node25" href="$SubscriptionManager_8hpp.html" title=" " alt="" coords="1289,408,1476,435"/>
-<area shape="rect" id="node30" href="$PlatformListener_8hpp.html" title=" " alt="" coords="1903,408,2060,435"/>
-<area shape="rect" id="node31" href="$MouseEvent_8hpp.html" title=" " alt="" coords="1729,333,1860,360"/>
-<area shape="rect" id="node33" href="$EventSystem_8hpp.html" title=" " alt="" coords="2083,333,2219,360"/>
-<area shape="rect" id="node39" href="$Viewport_8hpp.html" title=" " alt="" coords="762,408,870,435"/>
-<area shape="rect" id="node40" href="$WindowManager_8hpp.html" title=" " alt="" coords="1501,408,1659,435"/>
-<area shape="rect" id="node42" href="$Window_8ipp.html" title=" " alt="" coords="1422,333,1519,360"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1284,483,1345,509"/>
-<area shape="rect" id="node27" title=" " alt="" coords="1420,483,1535,509"/>
-<area shape="rect" id="node28" href="$Listener_8hpp.html" title=" " alt="" coords="1805,557,1907,584"/>
-<area shape="rect" id="node29" href="$Event_8hpp.html" title=" " alt="" coords="1813,483,1899,509"/>
-<area shape="rect" id="node32" href="$Mouse_8hpp.html" title=" " alt="" coords="1735,408,1828,435"/>
-<area shape="rect" id="node34" href="$EventManager_8hpp.html" title=" " alt="" coords="2241,408,2383,435"/>
-<area shape="rect" id="node38" href="$EventSystem_8ipp.html" title=" " alt="" coords="2085,408,2217,435"/>
-<area shape="rect" id="node35" title=" " alt="" coords="2406,483,2498,509"/>
-<area shape="rect" id="node36" title=" " alt="" coords="2155,483,2218,509"/>
-<area shape="rect" id="node37" href="$EventManager_8ipp.html" title=" " alt="" coords="2243,483,2381,509"/>
-<area shape="rect" id="node41" href="$WindowManager_8ipp.html" title=" " alt="" coords="1559,483,1713,509"/>
+<area shape="rect" id="node1" title=" " alt="" coords="712,5,893,61"/>
+<area shape="rect" id="node2" href="$UICanvas_8hpp.html" title=" " alt="" coords="747,109,859,136"/>
+<area shape="rect" id="node3" href="$Image_8hpp.html" title=" " alt="" coords="505,184,596,211"/>
+<area shape="rect" id="node22" href="$UIWindow_8hpp.html" title=" " alt="" coords="1095,184,1209,211"/>
+<area shape="rect" id="node4" title=" " alt="" coords="551,259,622,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="821,333,883,360"/>
+<area shape="rect" id="node6" title=" " alt="" coords="959,333,1036,360"/>
+<area shape="rect" id="node7" title=" " alt="" coords="647,259,745,285"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,259,72,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="96,259,165,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="241,259,306,285"/>
+<area shape="rect" id="node11" href="$Color_8hpp.html" title=" " alt="" coords="420,408,503,435"/>
+<area shape="rect" id="node13" href="$Vector2_8hpp.html" title=" " alt="" coords="901,483,1000,509"/>
+<area shape="rect" id="node16" href="$IPlatform_8hpp.html" title=" " alt="" coords="506,333,617,360"/>
+<area shape="rect" id="node21" href="$RenderSystem_8hpp.html" title=" " alt="" coords="330,259,475,285"/>
+<area shape="rect" id="node12" title=" " alt="" coords="577,557,644,584"/>
+<area shape="rect" id="node14" href="$Vector2_8ipp.html" title=" " alt="" coords="903,557,998,584"/>
+<area shape="rect" id="node15" title=" " alt="" coords="919,632,982,659"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1025,483,1122,509"/>
+<area shape="rect" id="node18" href="$Frame_8hpp.html" title=" " alt="" coords="921,408,1012,435"/>
+<area shape="rect" id="node19" href="$ResourceManager_8hpp.html" title=" " alt="" coords="527,408,694,435"/>
+<area shape="rect" id="node20" title=" " alt="" coords="695,483,819,509"/>
+<area shape="rect" id="node23" href="$Window_8hpp.html" title=" " alt="" coords="1728,259,1829,285"/>
+<area shape="rect" id="node42" href="$Style_8hpp.html" title=" " alt="" coords="972,259,1055,285"/>
+<area shape="rect" id="node43" href="$Shape2D_8hpp.html" title=" " alt="" coords="1111,333,1219,360"/>
+<area shape="rect" id="node44" href="$BehaviorManager_8hpp.html" title=" " alt="" coords="1130,259,1294,285"/>
+<area shape="rect" id="node46" href="$UIWindow_8ipp.html" title=" " alt="" coords="1243,333,1354,360"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1888,483,1931,509"/>
+<area shape="rect" id="node25" href="$SubscriptionManager_8hpp.html" title=" " alt="" coords="1152,408,1339,435"/>
+<area shape="rect" id="node30" href="$PlatformListener_8hpp.html" title=" " alt="" coords="1531,408,1688,435"/>
+<area shape="rect" id="node31" href="$MouseEvent_8hpp.html" title=" " alt="" coords="1480,333,1611,360"/>
+<area shape="rect" id="node33" href="$EventSystem_8hpp.html" title=" " alt="" coords="1947,333,2083,360"/>
+<area shape="rect" id="node39" href="$WindowManager_8hpp.html" title=" " alt="" coords="1713,408,1871,435"/>
+<area shape="rect" id="node41" href="$Window_8ipp.html" title=" " alt="" coords="2107,333,2205,360"/>
+<area shape="rect" id="node26" title=" " alt="" coords="1147,483,1208,509"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1283,483,1397,509"/>
+<area shape="rect" id="node28" href="$Listener_8hpp.html" title=" " alt="" coords="1415,557,1516,584"/>
+<area shape="rect" id="node29" href="$Event_8hpp.html" title=" " alt="" coords="1422,483,1509,509"/>
+<area shape="rect" id="node32" href="$Mouse_8hpp.html" title=" " alt="" coords="1413,408,1507,435"/>
+<area shape="rect" id="node34" href="$EventManager_8hpp.html" title=" " alt="" coords="2103,408,2246,435"/>
+<area shape="rect" id="node38" href="$EventSystem_8ipp.html" title=" " alt="" coords="1947,408,2079,435"/>
+<area shape="rect" id="node35" title=" " alt="" coords="2269,483,2361,509"/>
+<area shape="rect" id="node36" title=" " alt="" coords="2018,483,2081,509"/>
+<area shape="rect" id="node37" href="$EventManager_8ipp.html" title=" " alt="" coords="2105,483,2244,509"/>
+<area shape="rect" id="node40" href="$WindowManager_8ipp.html" title=" " alt="" coords="1709,483,1864,509"/>
+<area shape="rect" id="node45" href="$Behavior_8hpp.html" title=" " alt="" coords="1635,333,1741,360"/>
 </map>

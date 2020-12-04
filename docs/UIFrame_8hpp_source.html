@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,8 +33,23 @@
    <div id="projectname">ShishGL
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A window manager</div>
+   <div id="projectbrief">A simple modular cross-platform graphics library</div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,16 +61,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('UIFrame_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +92,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">UIFrame.hpp</div>  </div>
@@ -75,62 +101,80 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef SHISHGL_UI_FRAME_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define SHISHGL_UI_FRAME_HPP</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Slidable_8hpp.html">Slidable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShishGL.html">ShishGL</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classShishGL_1_1Frame.html">Frame</a> : <span class="keyword">public</span> <a class="code" href="classShishGL_1_1SlideListener.html">SlideListener</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html#ad50a3bd1c509da385fbfcb54a72ca521">   12</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classShishGL_1_1Frame.html#ad50a3bd1c509da385fbfcb54a72ca521">Frame</a>(<a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                : <a class="code" href="classShishGL_1_1SlideListener.html">SlideListener</a>(<a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                , <a class="code" href="classShishGL_1_1Frame.html#a01e283dedbaec2a57437ddf3ba821674">v_scrollbar</a>(nullptr)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                , <a class="code" href="classShishGL_1_1Frame.html#a4c5fabba52f5bd92c6a77d57d07f60ff">h_scrollbar</a>(nullptr)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                , <a class="code" href="classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b">content_view</a>(<a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>-&gt;getFrame()) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; child : <a class="code" href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">target</a>-&gt;getChildren()) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keyword">const</span> <a class="code" href="structShishGL_1_1Viewport.html">Viewport</a>&amp; child_frame = child-&gt;getFrame();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">if</span> (child_frame.<a class="code" href="structShishGL_1_1Viewport.html#a88b9ba7abcff77df6dd263e14f2c79d1">pos</a>.<a class="code" href="structShishGL_1_1Vector2.html#a462c53b377dd17db816526903c5cd665">x</a> &gt; <a class="code" href="classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b">content_view</a>.<a class="code" href="structShishGL_1_1Viewport.html#a88b9ba7abcff77df6dd263e14f2c79d1">pos</a>.<a class="code" href="structShishGL_1_1Vector2.html#a462c53b377dd17db816526903c5cd665">x</a>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="UIWindow_8hpp.html">UIWindow.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="UIScrollbar_8hpp.html">UIScrollbar.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DefaultBehavior_8hpp.html">DefaultBehavior.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1UIFrame.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1UIFrame.html">UIFrame</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classSh_1_1UIFrame.html#a9ed36139e2b4357a0b434b131df33b83">UIFrame</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; frame, <span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; contents_frame);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classSh_1_1UIFrame.html#ae88b63247117b814f215162a89f7c00d">   16</a></span>&#160;        <a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a>* <a class="code" href="classSh_1_1UIFrame.html#ae88b63247117b814f215162a89f7c00d">v_scrollbar</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSh_1_1UIFrame.html#a78e72fbcdf59ee7f67af44412dcb82d7">   17</a></span>&#160;        <a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a>* <a class="code" href="classSh_1_1UIFrame.html#a78e72fbcdf59ee7f67af44412dcb82d7">h_scrollbar</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classSh_1_1UIFrame.html#a7d431214dca0335047487ea274f79372">   19</a></span>&#160;        <a class="code" href="structSh_1_1Frame.html">Frame</a> <a class="code" href="classSh_1_1UIFrame.html#a7d431214dca0335047487ea274f79372">content_frame</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classSh_1_1FrameScrollable.html">   24</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1FrameScrollable.html">FrameScrollable</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1DefaultBehavior.html">DefaultBehavior</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1FrameScrollable.html#aa0d57e66a960508ca8858f5ce33dbd0e">FrameScrollable</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>, <a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a>* scrollbar);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html#a24eb77d76d0e62b0d1adb95c7558dca3">   29</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classShishGL_1_1Frame.html#a24eb77d76d0e62b0d1adb95c7558dca3">onMouseScroll</a>(<a class="code" href="classShishGL_1_1MouseScrollEvent.html">MouseScrollEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1FrameScrollable.html#ac8191fb30d3bc086e0b2c02a509fc91f">onMouseScroll</a>(<a class="code" href="classSh_1_1MouseScrollEvent.html">MouseScrollEvent</a>&amp; event) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html#a01e283dedbaec2a57437ddf3ba821674">   31</a></span>&#160;        <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Frame.html#a01e283dedbaec2a57437ddf3ba821674">v_scrollbar</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html#a4c5fabba52f5bd92c6a77d57d07f60ff">   32</a></span>&#160;        <a class="code" href="classShishGL_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classShishGL_1_1Frame.html#a4c5fabba52f5bd92c6a77d57d07f60ff">h_scrollbar</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b">   34</a></span>&#160;        <a class="code" href="structShishGL_1_1Viewport.html">Viewport</a> <a class="code" href="classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b">content_view</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classSh_1_1FrameSlidable.html">   35</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1FrameSlidable.html">FrameSlidable</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1SlideListener.html">SlideListener</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif //SHISHGL_UI_FRAME_HPP</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1FrameSlidable.html#a1d88d229df710249fe830798a28e8071">FrameSlidable</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>, <a class="code" href="classSh_1_1UIScrollbar.html">UIScrollbar</a>* scrollbar);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classSh_1_1FrameSlidable.html#aa3e7218b49ddd44ddd4272b633f363f3">onSlide</a>(<a class="code" href="classSh_1_1SlideEvent.html">SlideEvent</a>&amp; event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif //SHISHGL_UI_FRAME_HPP</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassShishGL_1_1SlideListener_html"><div class="ttname"><a href="classShishGL_1_1SlideListener.html">ShishGL::SlideListener</a></div><div class="ttdef"><b>Definition:</b> Slidable.hpp:31</div></div>
-<div class="ttc" id="aSlidable_8hpp_html"><div class="ttname"><a href="Slidable_8hpp.html">Slidable.hpp</a></div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html_aa5820140952972b813e37e48091a783b"><div class="ttname"><a href="classShishGL_1_1Frame.html#aa5820140952972b813e37e48091a783b">ShishGL::Frame::content_view</a></div><div class="ttdeci">Viewport content_view</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:34</div></div>
-<div class="ttc" id="anamespaceShishGL_html"><div class="ttname"><a href="namespaceShishGL.html">ShishGL</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="astructShishGL_1_1Viewport_html_a88b9ba7abcff77df6dd263e14f2c79d1"><div class="ttname"><a href="structShishGL_1_1Viewport.html#a88b9ba7abcff77df6dd263e14f2c79d1">ShishGL::Viewport::pos</a></div><div class="ttdeci">Vector2&lt; double &gt; pos</div><div class="ttdef"><b>Definition:</b> Viewport.hpp:11</div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html_a24eb77d76d0e62b0d1adb95c7558dca3"><div class="ttname"><a href="classShishGL_1_1Frame.html#a24eb77d76d0e62b0d1adb95c7558dca3">ShishGL::Frame::onMouseScroll</a></div><div class="ttdeci">bool onMouseScroll(MouseScrollEvent &amp;event) override</div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html_ad50a3bd1c509da385fbfcb54a72ca521"><div class="ttname"><a href="classShishGL_1_1Frame.html#ad50a3bd1c509da385fbfcb54a72ca521">ShishGL::Frame::Frame</a></div><div class="ttdeci">Frame(UIWindow *target)</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:12</div></div>
-<div class="ttc" id="astructShishGL_1_1Vector2_html_a462c53b377dd17db816526903c5cd665"><div class="ttname"><a href="structShishGL_1_1Vector2.html#a462c53b377dd17db816526903c5cd665">ShishGL::Vector2::x</a></div><div class="ttdeci">T x</div><div class="ttdef"><b>Definition:</b> Vector2.hpp:10</div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html"><div class="ttname"><a href="classShishGL_1_1Frame.html">ShishGL::Frame</a></div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1MouseScrollEvent_html"><div class="ttname"><a href="classShishGL_1_1MouseScrollEvent.html">ShishGL::MouseScrollEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:68</div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html_a4c5fabba52f5bd92c6a77d57d07f60ff"><div class="ttname"><a href="classShishGL_1_1Frame.html#a4c5fabba52f5bd92c6a77d57d07f60ff">ShishGL::Frame::h_scrollbar</a></div><div class="ttdeci">UIWindow * h_scrollbar</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:32</div></div>
-<div class="ttc" id="astructShishGL_1_1Viewport_html"><div class="ttname"><a href="structShishGL_1_1Viewport.html">ShishGL::Viewport</a></div><div class="ttdef"><b>Definition:</b> Viewport.hpp:9</div></div>
-<div class="ttc" id="aclassShishGL_1_1Frame_html_a01e283dedbaec2a57437ddf3ba821674"><div class="ttname"><a href="classShishGL_1_1Frame.html#a01e283dedbaec2a57437ddf3ba821674">ShishGL::Frame::v_scrollbar</a></div><div class="ttdeci">UIWindow * v_scrollbar</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:31</div></div>
-<div class="ttc" id="aclassShishGL_1_1Behavior_html_aba20c7d900f049707e7d371d5b0fde5a"><div class="ttname"><a href="classShishGL_1_1Behavior.html#aba20c7d900f049707e7d371d5b0fde5a">ShishGL::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
-<div class="ttc" id="aclassShishGL_1_1UIWindow_html"><div class="ttname"><a href="classShishGL_1_1UIWindow.html">ShishGL::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:14</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aUIScrollbar_8hpp_html"><div class="ttname"><a href="UIScrollbar_8hpp.html">UIScrollbar.hpp</a></div></div>
+<div class="ttc" id="aclassSh_1_1UIFrame_html_a7d431214dca0335047487ea274f79372"><div class="ttname"><a href="classSh_1_1UIFrame.html#a7d431214dca0335047487ea274f79372">Sh::UIFrame::content_frame</a></div><div class="ttdeci">Frame content_frame</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:19</div></div>
+<div class="ttc" id="aclassSh_1_1DefaultBehavior_html"><div class="ttname"><a href="classSh_1_1DefaultBehavior.html">Sh::DefaultBehavior</a></div><div class="ttdef"><b>Definition:</b> DefaultBehavior.hpp:14</div></div>
+<div class="ttc" id="aclassSh_1_1FrameScrollable_html_aa0d57e66a960508ca8858f5ce33dbd0e"><div class="ttname"><a href="classSh_1_1FrameScrollable.html#aa0d57e66a960508ca8858f5ce33dbd0e">Sh::FrameScrollable::FrameScrollable</a></div><div class="ttdeci">FrameScrollable(UIWindow *target, UIScrollbar *scrollbar)</div><div class="ttdef"><b>Definition:</b> UIFrame.cpp:39</div></div>
+<div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1SlideListener_html"><div class="ttname"><a href="classSh_1_1SlideListener.html">Sh::SlideListener</a></div><div class="ttdef"><b>Definition:</b> Slidable.hpp:31</div></div>
+<div class="ttc" id="aclassSh_1_1Behavior_html_a939a6c482cda497bd994c6779b904433"><div class="ttname"><a href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">Sh::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1FrameScrollable_html_ac8191fb30d3bc086e0b2c02a509fc91f"><div class="ttname"><a href="classSh_1_1FrameScrollable.html#ac8191fb30d3bc086e0b2c02a509fc91f">Sh::FrameScrollable::onMouseScroll</a></div><div class="ttdeci">bool onMouseScroll(MouseScrollEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIFrame.cpp:46</div></div>
+<div class="ttc" id="aclassSh_1_1UIWindow_html"><div class="ttname"><a href="classSh_1_1UIWindow.html">Sh::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:15</div></div>
+<div class="ttc" id="aDefaultBehavior_8hpp_html"><div class="ttname"><a href="DefaultBehavior_8hpp.html">DefaultBehavior.hpp</a></div></div>
+<div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1FrameSlidable_html_a1d88d229df710249fe830798a28e8071"><div class="ttname"><a href="classSh_1_1FrameSlidable.html#a1d88d229df710249fe830798a28e8071">Sh::FrameSlidable::FrameSlidable</a></div><div class="ttdeci">FrameSlidable(UIWindow *target, UIScrollbar *scrollbar)</div><div class="ttdef"><b>Definition:</b> UIFrame.cpp:53</div></div>
+<div class="ttc" id="aclassSh_1_1UIFrame_html_a9ed36139e2b4357a0b434b131df33b83"><div class="ttname"><a href="classSh_1_1UIFrame.html#a9ed36139e2b4357a0b434b131df33b83">Sh::UIFrame::UIFrame</a></div><div class="ttdeci">UIFrame(const Frame &amp;frame, const Frame &amp;contents_frame)</div><div class="ttdef"><b>Definition:</b> UIFrame.cpp:9</div></div>
+<div class="ttc" id="aclassSh_1_1FrameSlidable_html_aa3e7218b49ddd44ddd4272b633f363f3"><div class="ttname"><a href="classSh_1_1FrameSlidable.html#aa3e7218b49ddd44ddd4272b633f363f3">Sh::FrameSlidable::onSlide</a></div><div class="ttdeci">bool onSlide(SlideEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIFrame.cpp:59</div></div>
+<div class="ttc" id="aclassSh_1_1UIFrame_html_ae88b63247117b814f215162a89f7c00d"><div class="ttname"><a href="classSh_1_1UIFrame.html#ae88b63247117b814f215162a89f7c00d">Sh::UIFrame::v_scrollbar</a></div><div class="ttdeci">UIScrollbar * v_scrollbar</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:16</div></div>
+<div class="ttc" id="aclassSh_1_1UIFrame_html_a78e72fbcdf59ee7f67af44412dcb82d7"><div class="ttname"><a href="classSh_1_1UIFrame.html#a78e72fbcdf59ee7f67af44412dcb82d7">Sh::UIFrame::h_scrollbar</a></div><div class="ttdeci">UIScrollbar * h_scrollbar</div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:17</div></div>
+<div class="ttc" id="aclassSh_1_1UIScrollbar_html"><div class="ttname"><a href="classSh_1_1UIScrollbar.html">Sh::UIScrollbar</a></div><div class="ttdef"><b>Definition:</b> UIScrollbar.hpp:10</div></div>
+<div class="ttc" id="aclassSh_1_1SlideEvent_html"><div class="ttname"><a href="classSh_1_1SlideEvent.html">Sh::SlideEvent</a></div><div class="ttdef"><b>Definition:</b> Slidable.hpp:42</div></div>
+<div class="ttc" id="aUIWindow_8hpp_html"><div class="ttname"><a href="UIWindow_8hpp.html">UIWindow.hpp</a></div></div>
+<div class="ttc" id="aclassSh_1_1MouseScrollEvent_html"><div class="ttname"><a href="classSh_1_1MouseScrollEvent.html">Sh::MouseScrollEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:68</div></div>
+<div class="ttc" id="aclassSh_1_1FrameSlidable_html"><div class="ttname"><a href="classSh_1_1FrameSlidable.html">Sh::FrameSlidable</a></div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:35</div></div>
+<div class="ttc" id="aclassSh_1_1UIFrame_html"><div class="ttname"><a href="classSh_1_1UIFrame.html">Sh::UIFrame</a></div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:11</div></div>
+<div class="ttc" id="aclassSh_1_1FrameScrollable_html"><div class="ttname"><a href="classSh_1_1FrameScrollable.html">Sh::FrameScrollable</a></div><div class="ttdef"><b>Definition:</b> UIFrame.hpp:24</div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_373e6da4dfa4a4008fd180ba8852e4d5.html">ShishGL</a></li><li class="navelem"><a class="el" href="dir_fb6f013e322e88420ddb3c9db9a87ef9.html">GUI</a></li><li class="navelem"><a class="el" href="UIFrame_8hpp.html">UIFrame.hpp</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

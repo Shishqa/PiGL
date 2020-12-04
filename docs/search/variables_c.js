@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['navajo_5fwhite_1111',['NAVAJO_WHITE',['../namespaceShishGL_1_1COLOR.html#ae44935ac672ae761bf843ffc0f33c683',1,'ShishGL::COLOR']]],
-  ['navy_1112',['NAVY',['../namespaceShishGL_1_1COLOR.html#a9d1e6f6a1dfbca3b4816897049feae2b',1,'ShishGL::COLOR']]],
-  ['none_1113',['NONE',['../namespaceShishGL_1_1COLOR.html#a92a1f22b99d51123a4a8061257923352',1,'ShishGL::COLOR']]]
+  ['navajo_5fwhite_1234',['NAVAJO_WHITE',['../structSh_1_1Color.html#a381a6d304b535a067acf657b337d0bbe',1,'Sh::Color']]],
+  ['navy_1235',['NAVY',['../structSh_1_1Color.html#a16ea92564764448602177ea6fb559a65',1,'Sh::Color']]],
+  ['need_5freaction_1236',['need_reaction',['../classSh_1_1Slidable.html#a8e005dc55760bfd67ec979faa897d74c',1,'Sh::Slidable']]],
+  ['none_1237',['NONE',['../structSh_1_1Color.html#aa8d7ed3559e66e35a585b477ba01a509',1,'Sh::Color']]]
 ];

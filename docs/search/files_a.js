@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['segment2_2ehpp_730',['Segment2.hpp',['../Segment2_8hpp.html',1,'']]],
-  ['shape2d_2ehpp_731',['Shape2D.hpp',['../Shape2D_8hpp.html',1,'']]],
-  ['slidable_2ecpp_732',['Slidable.cpp',['../Slidable_8cpp.html',1,'']]],
-  ['slidable_2ehpp_733',['Slidable.hpp',['../Slidable_8hpp.html',1,'']]],
-  ['style_2ehpp_734',['Style.hpp',['../Style_8hpp.html',1,'']]],
-  ['subscriptionmanager_2ecpp_735',['SubscriptionManager.cpp',['../SubscriptionManager_8cpp.html',1,'']]],
-  ['subscriptionmanager_2ehpp_736',['SubscriptionManager.hpp',['../SubscriptionManager_8hpp.html',1,'']]]
+  ['platform_2ecpp_804',['Platform.cpp',['../Platform_8cpp.html',1,'']]],
+  ['platform_2ehpp_805',['Platform.hpp',['../Platform_8hpp.html',1,'']]],
+  ['platformlistener_2ecpp_806',['PlatformListener.cpp',['../PlatformListener_8cpp.html',1,'']]],
+  ['platformlistener_2ehpp_807',['PlatformListener.hpp',['../PlatformListener_8hpp.html',1,'']]],
+  ['prettify_5fcolors_2epy_808',['prettify_colors.py',['../prettify__colors_8py.html',1,'']]]
 ];
