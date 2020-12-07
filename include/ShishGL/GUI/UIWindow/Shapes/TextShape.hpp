@@ -16,8 +16,8 @@ namespace Sh {
             , s_text(text)
             { }
 
-        void draw(const Frame& viewport) const override {
-            PLATFORM().displayText(s_text, viewport.pos);
+        void draw(const Frame&) const override {
+            //PLATFORM().displayText(s_text, viewport.pos);
         }
 
         [[nodiscard]]

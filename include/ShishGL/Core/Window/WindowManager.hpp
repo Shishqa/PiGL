@@ -20,6 +20,8 @@ namespace Sh {
         template <typename SomeWindow, typename... Args>
         static SomeWindow* create(Args&&... args);
 
+        static void destroy(Window* window);
+
         static Window* Root();
 
         static void dump(const std::string_view& file_name);
@@ -35,11 +37,16 @@ namespace Sh {
         static void dump(FILE* file, Window* root);
 
         using WindowPool = std::unordered_set<Window*>;
+
         static WindowPool& Pool();
+        static WindowPool& ToDestroy();
+
 
         /*----------------------------------------------*/
         static Window* ROOT;
         /*----------------------------------------------*/
+
+        static bool pool_locked;
 
         friend class Window;
         friend class CoreApplication;

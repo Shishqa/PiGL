@@ -8,6 +8,7 @@
 #include "Draggable.hpp"
 #include "Slidable.hpp"
 #include "Dialog.hpp"
+#include "OneShot.hpp"
 
 /*============================================================================*/
 #endif //SISHGL_BEHAVIORS_HPP

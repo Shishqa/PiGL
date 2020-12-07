@@ -21,8 +21,11 @@ namespace Sh {
 
     template <typename SomeWindow>
     SomeWindow* Window::detach(SomeWindow* child) {
+        printf("detaching\n");
         children.remove(child);
         child->setParent(nullptr);
+        printf("detached\n");
+        return child;
     }
 
 }

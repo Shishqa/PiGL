@@ -10,8 +10,14 @@ using namespace Sh;
 Window::Window(const Frame& frame)
         : frame(frame)
         , viewport({})
-        , parent(WindowManager::ROOT) {
+        , parent(nullptr) {
     fitParent();
+}
+
+Window::~Window() {
+    for (auto& child : children) {
+        WindowManager::destroy(child);
+    }
 }
 
 /*----------------------------------------------------------------------------*/

@@ -26,6 +26,10 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
         slider_pos_ratio = 0.0;
     }
 
+    ScrollbarButton* inc = nullptr;
+    ScrollbarButton* dec = nullptr;
+    ScrollbarSlider* sli = nullptr;
+
     if (VERTICAL == type) {
 
         Vector2<double> button_size{
@@ -36,8 +40,8 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
         inc_button = attach<UIWindow>(Frame{ {0, 0}, button_size });
         dec_button = attach<UIWindow>(Frame{ {0, frame.size.y - button_size.y}, button_size });
 
-        inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::VERTICAL);
-        dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::VERTICAL);
+        inc = inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::VERTICAL);
+        dec = dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::VERTICAL);
 
         Vector2<double> slider_size{
                 frame.size.x,
@@ -52,7 +56,7 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
             slider_guide.begin + slider_pos_ratio * slider_guide.guide(),
             slider_size
         });
-        slider->addBehavior<ScrollbarSlider>(slider_guide);
+        sli = slider->addBehavior<ScrollbarSlider>(slider_guide);
 
     } else {
 
@@ -64,8 +68,8 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
         inc_button = attach<UIWindow>(Frame{ {0, 0}, button_size });
         dec_button = attach<UIWindow>(Frame{ {frame.size.x - button_size.x, 0}, button_size });
 
-        inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::HORIZONTAL);
-        dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::HORIZONTAL);
+        inc = inc_button->addBehavior<ScrollbarButton>(-1.0, Mouse::HORIZONTAL);
+        dec = dec_button->addBehavior<ScrollbarButton>( 1.0, Mouse::HORIZONTAL);
 
         Vector2<double> slider_size{
                 (frame.size.x - 2 * button_size.x) * slider_size_ratio,
@@ -80,24 +84,22 @@ UIScrollbar::UIScrollbar(const Frame& frame, UIScrollbar::Type type,
                 slider_guide.begin + slider_pos_ratio * slider_guide.guide(),
                 slider_size
         });
-        slider->addBehavior<ScrollbarSlider>(slider_guide);
+        sli = slider->addBehavior<ScrollbarSlider>(slider_guide);
     }
 
-    addBehavior<ScrollbarBackground>();
+//    auto bg = addBehavior<ScrollbarBackground>();
 
-    SubscriptionManager::subscribe(slider->as<ScrollbarSlider>(), inc_button->as<ScrollbarButton>(),
-                                   MOUSE_SCROLL);
-
-    SubscriptionManager::subscribe(slider->as<ScrollbarSlider>(), dec_button->as<ScrollbarButton>(),
-                                   MOUSE_SCROLL);
+    SubscriptionManager::subscribe(sli, inc, MOUSE_SCROLL);
+    SubscriptionManager::subscribe(sli, dec, MOUSE_SCROLL);
+//    SubscriptionManager::subscribe(bg, slider);
 }
 
 /*----------------------------------------------------------------------------*/
 
 ScrollbarBackground::ScrollbarBackground(UIWindow* target)
     : Clickable(target) {
-    SubscriptionManager::subscribe(Behavior::target<UIScrollbar>()->slider->as<ScrollbarSlider>(),
-                                   this, MOUSE_MOVE | MOUSE_BUTTON);
+//    SubscriptionManager::subscribe(Behavior::target<UIScrollbar>()->slider->as<ScrollbarSlider>(),
+//                                   this, MOUSE_MOVE | MOUSE_BUTTON);
 }
 
 /*----------------------------------------------------------------------------*/

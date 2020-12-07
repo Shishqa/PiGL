@@ -10,6 +10,7 @@ target_include_directories(ShishGL-DebugUtilities
 target_sources(ShishGL-DebugUtilities
   PUBLIC
     ${INCROOT}/FpsLabel.hpp
+    ${INCROOT}/GradeCanvas.hpp
   PRIVATE
     FpsLabel.cpp
   )

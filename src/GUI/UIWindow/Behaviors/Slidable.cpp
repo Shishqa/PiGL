@@ -65,7 +65,7 @@ void Slidable::slide(const Vector2<double>& delta, Mouse::Button button) {
     Draggable::onMouseMove(move);
 
     if (need_reaction) {
-        EventSystem::sendEvent<SlideEvent>(this, new_pos - old_pos);
+        EventSystem::sendEvent<SlideEvent>(target<UIWindow>(), new_pos - old_pos);
     }
 
     if (emulation) {

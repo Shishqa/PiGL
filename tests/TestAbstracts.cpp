@@ -1,28 +1,12 @@
 /*============================================================================*/
 #include "CoreApplication.hpp"
-#include "RectangleShape.hpp"
-#include "CircleShape.hpp"
 #include "WindowManager.hpp"
-#include "UILabel.hpp"
-//#include "WindowTypes.hpp"
-#include "Clickable.hpp"
-//#include "CursorLocator.hpp"
-#include "UIScrollbar.hpp"
-#include "UIFrame.hpp"
-#include "ColorFill.hpp"
-#include "TextureFill.hpp"
-#include "Bordered.hpp"
-#include "UIWindow.hpp"
-#include "Draggable.hpp"
-#include "Slidable.hpp"
-#include "UIButton.hpp"
-#include "UICheckbox.hpp"
-#include "UILabel.hpp"
-#include "Font.hpp"
-#include "UISlider.hpp"
-#include "UISlider2D.hpp"
+#include "Styles.hpp"
+#include "Shapes.hpp"
+#include "Behaviors.hpp"
+#include "GUI.hpp"
 #include "FpsLabel.hpp"
-#include "UITextInput.hpp"
+#include "GradeCanvas.hpp"
 
 using namespace Sh;
 /*============================================================================*/
@@ -62,7 +46,7 @@ public:
 class DummySelector {
 public:
 
-    void set(const double& value) const {
+    void operator()(const double& value) const {
         printf("%lg set\n", value);
     }
 
@@ -71,7 +55,7 @@ public:
 class DummySelector2D {
 public:
 
-    void set(const Vector2<double>& value) const {
+    void operator()(const Vector2<double>& value) const {
         printf("(%lg; %lg) set\n", value.x, value.y);
     }
 };
@@ -86,6 +70,7 @@ int main(int argc, char* argv[]) {
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
+    /*
     auto fps = WindowManager::Root()->attach<FpsLabel>(
             Frame{ {1000, 0}, {164, 40} }
             );
@@ -108,21 +93,17 @@ int main(int argc, char* argv[]) {
     );
 
     auto frame = WindowManager::Root()->attach<UIFrame>(
-            Frame{ {20, 20}, {600, 600} },
-            Frame{ {20, 20}, {1000, 1000} }
+            Frame{ {20, 20}, {600, 600} }
                     );
             frame->applyStyle<UIWindow::NORMAL>(
                     ColorFill{Color::WHITE}
                     )
-            ->attach<UILabel>(
-                    Frame{ {0, 0}, {100, 100} }, "HELLO, WORLD!\n:)0:0)0234"
-                            )
-                    ->addBehavior<FrameDraggable>(Frame{ {20, 20}, {600, 600} })
-                    ->applyStyle<UIWindow::NORMAL>(
-                            Font{"fonts/FiraCode-Regular.ttf"},
-                            FontSize{30},
-                            ColorFill{Color::BLACK}
-                            );
+            ->attach<GradeCanvas>(
+                    Frame{ {0, 0}, {1000, 1000} }
+                    );
+    frame->fit();
+    */
+
 
     auto dummy = WindowManager::Root()->attach<UIButton<Dummy>>(Frame{ {800, 200}, {60, 20} }, 12);
     dummy->applyStyle<UIWindow::CLICK>(
@@ -135,24 +116,10 @@ int main(int argc, char* argv[]) {
             ColorFill{ Color::PALE_VIOLET_RED }
             );
 
-    auto ch = WindowManager::Root()->attach<UICheckbox<TogglerDummy>>(Frame{ {700, 200}, {60, 20} });
-    ch->applyStyle<UIWindow::CLICK>(
-                    ColorFill{ Color::WHEAT }
-            )
-            ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{ Color::GAINSBORO }
-            )
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
-                    );
-
-
     auto sl = WindowManager::Root()->attach<UISlider<DummySelector>>(
-            Frame{ {900, 200}, {60, 20} },
-            Segment2<double>{ {900, 200}, {1000, 200} }
+            Frame{ {900, 200}, {600, 20} },
+            UISlider<DummySelector>::VERTICAL,
+            0.4
             );
     sl->applyStyle<UIWindow::CLICK>(
                     ColorFill{ Color::WHEAT }
@@ -162,14 +129,10 @@ int main(int argc, char* argv[]) {
             )
             ->applyStyle<UIWindow::NORMAL>(
                     ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
             );
 
     auto frame_sl = WindowManager::Root()->attach<UISlider2D<DummySelector2D>>(
-            Frame{ {1000, 200}, {60, 20} },
-            Frame{ {1000, 200}, {300, 300} }
+            Frame{ {1000, 200}, {100, 100} }
     );
     frame_sl->applyStyle<UIWindow::CLICK>(
                     ColorFill{ Color::WHEAT }
@@ -179,9 +142,6 @@ int main(int argc, char* argv[]) {
             )
             ->applyStyle<UIWindow::NORMAL>(
                     ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
             );
 
     WindowManager::dump("LayoutDump.dot");

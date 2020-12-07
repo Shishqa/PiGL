@@ -10,16 +10,21 @@ target_include_directories(ShishGL-GUI
 target_sources(ShishGL-GUI
   PUBLIC
     ${INCROOT}/GUI.hpp
-    ${INCROOT}/UILabel.hpp
-    ${INCROOT}/UIButton.hpp
-    ${INCROOT}/UICheckbox.hpp
-    ${INCROOT}/UICanvas.hpp
-    ${INCROOT}/UIScrollbar.hpp
-    ${INCROOT}/UIFrame.hpp
+    ${INCROOT}/UITriggers.hpp
     ${INCROOT}/UISlider.hpp
-    ${INCROOT}/UISlider2D.hpp
-    ${INCROOT}/UITextInput.hpp
+
+    #${INCROOT}/UILabel.hpp
+    #${INCROOT}/UIButton.hpp
+    #${INCROOT}/UICheckbox.hpp
+    #${INCROOT}/UICanvas.hpp
+    #${INCROOT}/UIScrollbar.hpp
+    #${INCROOT}/UIFrame.hpp
+    #${INCROOT}/UISlider2D.hpp
+    #${INCROOT}/UITextInput.hpp
+    #${INCROOT}/UIDialog.hpp
+    #${INCROOT}/UIFileDialog.hpp
   PRIVATE
+    ${INCROOT}/UISlider.ipp
     UICanvas.cpp
     UIScrollbar.cpp
     UIFrame.cpp

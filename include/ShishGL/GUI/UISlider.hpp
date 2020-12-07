@@ -7,62 +7,71 @@
 /*============================================================================*/
 namespace Sh {
 
-    template <typename Selector>
+    template <typename Setter>
     class Slider : public Slidable {
     public:
 
         template <typename... Args>
         explicit Slider(UIWindow* target, const Segment2<double>& slide,
-                        Args&&... args)
-                : Slidable(target, slide, false)
-                , selector(std::forward<Args>(args)...)
-                { }
+                        Args&&... args);
 
-        bool onMouseMove(MouseEvent& event) override {
-
-            bool status = Slidable::onMouseMove(event);
-
-            if (status && Slidable::isHeld()) {
-
-                Segment2<double> slide = Slidable::slide_seg;
-                const Window* parent = target<Window>()->getParent();
-
-                if (parent) {
-                    slide.begin += parent->getPos();
-                    slide.end   += parent->getPos();
-                }
-
-                selector.set(
-                        (target<UIWindow>()->getPos() - slide.begin).length() /
-                        slide.guide().length());
-
-            }
-
-            return status;
-        }
+        bool onMouseMove(MouseEvent& event) override;
 
     private:
 
-        Selector selector;
-
+        Setter setter;
     };
 
     /*------------------------------------------------------------------------*/
 
-    template <typename Selector>
+    template <typename Setter>
     class UISlider : public UIWindow {
     public:
 
-        template <typename... Args>
-        explicit UISlider(const Frame& frame, const Segment2<double>& slide,
-                          Args&&... args)
-                : UIWindow(frame) {
-            UIWindow::addBehavior<Slider<Selector>>(slide, std::forward<Args>(args)...);
-        }
+        enum Type {
+            VERTICAL,
+            HORIZONTAL
+        };
 
+        template <typename... Args>
+        explicit UISlider(const Frame& frame, Type type,
+                          double slider_size,
+                          Args&&... args);
+
+        UIWindow* slider;
+    };
+
+    /*------------------------------------------------------------------------*/
+
+    template <typename VectorSetter>
+    class Slider2D : public FrameDraggable {
+    public:
+
+        template <typename... Args>
+        Slider2D(UIWindow* target, const Frame& frame, Args&&... args);
+
+        bool onMouseMove(MouseEvent& event) override;
+
+    private:
+
+        VectorSetter setter;
+    };
+
+    /*------------------------------------------------------------------------*/
+
+    template <typename Selector2D>
+    class UISlider2D : public UIWindow {
+    public:
+
+        template <typename... Args>
+        explicit UISlider2D(const Frame& frame, Args&&... args);
+
+        UIWindow* slider;
     };
 
 }
+/*============================================================================*/
+#include "UISlider.ipp"
 /*============================================================================*/
 #endif //SHISHGL_UISLIDER_HPP
 /*============================================================================*/

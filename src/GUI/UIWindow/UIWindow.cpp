@@ -16,6 +16,9 @@ UIWindow::UIWindow(const Frame& viewport)
 /*----------------------------------------------------------------------------*/
 
 UIWindow::~UIWindow() {
+    for (auto& behavior : behaviors) {
+        delete behavior;
+    }
     delete shape_impl;
 }
 

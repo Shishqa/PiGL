@@ -19,7 +19,8 @@ namespace Sh {
             NORMAL,
             HOVER,
             CLICK,
-            HOLD
+            HOLD,
+            SELECTED
         };
 
         template <int SomeState, typename... Args>
@@ -29,10 +30,7 @@ namespace Sh {
         UIWindow* applyShape(Args&&... args);
 
         template <typename SomeBehavior, typename... Args>
-        UIWindow* addBehavior(Args&&... args);
-
-        template <typename SomeBehavior>
-        SomeBehavior* as();
+        SomeBehavior* addBehavior(Args&&... args);
 
         [[nodiscard]]
         int getState() const;
@@ -64,6 +62,8 @@ namespace Sh {
         StyleMap style_map; // TODO: style set + mask
 
         Shape2D* shape_impl;
+
+        std::unordered_set<Behavior*> behaviors;
 
         friend class WindowManager;
 

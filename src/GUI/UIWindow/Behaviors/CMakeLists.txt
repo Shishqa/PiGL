@@ -15,6 +15,7 @@ target_sources(ShishGL-Behaviors
     ${INCROOT}/Clickable.hpp
     ${INCROOT}/Draggable.hpp
     ${INCROOT}/Slidable.hpp
+    ${INCROOT}/OneShot.hpp
   PRIVATE
     DefaultBehavior.cpp
     Clickable.cpp

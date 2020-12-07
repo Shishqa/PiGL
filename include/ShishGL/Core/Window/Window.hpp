@@ -13,12 +13,12 @@
 /*============================================================================*/
 namespace Sh {
 
-    class Window {
+    class Window : public Listener {
     public:
 
         Window() = delete;
 
-        virtual ~Window() = default;
+        ~Window() override;
 
         /* No-Copyable */
         /*-----------------------------------------------*/

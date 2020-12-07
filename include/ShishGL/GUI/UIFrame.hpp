@@ -11,7 +11,13 @@ namespace Sh {
     class UIFrame : public UIWindow {
     public:
 
-        UIFrame(const Frame& frame, const Frame& contents_frame);
+        static constexpr double SCROLLBAR_WIDTH = 15;
+
+        UIFrame(const Frame& frame);
+
+        void fit();
+
+        void translateChildren(const Vector2<double>& delta);
 
         UIScrollbar* v_scrollbar;
         UIScrollbar* h_scrollbar;

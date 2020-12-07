@@ -93,7 +93,6 @@ namespace Sh {
                          const Vector2<double>& pos) override;
         /*--------------------------------------------------------------------*/
 
-
         ~SfmlPlatform() override = default;
 
     protected:

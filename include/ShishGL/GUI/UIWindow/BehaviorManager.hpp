@@ -25,6 +25,11 @@ namespace Sh {
 
         }
 
+        template <typename SomeBehavior>
+        static void remove(UIWindow* window) {
+            Pool<SomeBehavior>().erase(window);
+        }
+
         template<typename SomeBehavior>
         static SomeBehavior* get(UIWindow *window) {
 
@@ -34,7 +39,7 @@ namespace Sh {
 
     private:
 
-        template<typename SomeBehavior>
+        template <typename SomeBehavior>
         using BehaviorPool = std::unordered_map<
                 UIWindow *,
                 std::unique_ptr<SomeBehavior>

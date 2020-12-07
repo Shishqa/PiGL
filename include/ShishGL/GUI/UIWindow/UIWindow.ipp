@@ -25,16 +25,12 @@ namespace Sh {
     /*------------------------------------------------------------------------*/
 
     template <typename SomeBehavior, typename... Args>
-    UIWindow* UIWindow::addBehavior(Args&&... args) {
-        BehaviorManager::add<SomeBehavior>(this, std::forward<Args>(args)...);
-        return this;
-    }
+    SomeBehavior* UIWindow::addBehavior(Args&&... args) {
 
-    /*------------------------------------------------------------------------*/
+        auto behavior = new SomeBehavior(this, std::forward<Args>(args)...);
+        behaviors.insert(behavior);
 
-    template <typename SomeBehavior>
-    SomeBehavior* UIWindow::as() {
-        return BehaviorManager::get<SomeBehavior>(this);
+        return behavior;
     }
 
 }
