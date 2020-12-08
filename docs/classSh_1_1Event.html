@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('classSh_1_1Event.html',''); initResiza
 <a href="#friends">Friends</a> &#124;
 <a href="classSh_1_1Event-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Sh::Event Class Reference</div>  </div>
+<div class="title">Sh::Event Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -108,12 +108,11 @@ $(document).ready(function(){initNavTree('classSh_1_1Event.html',''); initResiza
 Inheritance diagram for Sh::Event:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSh_1_1Event__inherit__graph.png" border="0" usemap="#aSh_1_1Event_inherit__map" alt="Inheritance graph"/></div>
-<map name="Sh_1_1Event_inherit__map" id="aSh_1_1Event_inherit__map">
-<area shape="rect" title=" " alt="" coords="268,5,351,32"/>
+<map name="Sh_1_1Event_inherit__map" id="Sh_1_1Event_inherit__map">
+<area shape="rect" title=" " alt="" coords="196,5,279,32"/>
 <area shape="rect" href="classSh_1_1KeyboardEvent.html" title=" " alt="" coords="5,80,149,107"/>
 <area shape="rect" href="classSh_1_1MouseEvent.html" title=" " alt="" coords="174,80,301,107"/>
-<area shape="rect" href="classSh_1_1SlideEvent.html" title=" " alt="" coords="325,80,440,107"/>
-<area shape="rect" href="classSh_1_1TimerEvent.html" title=" " alt="" coords="465,80,586,107"/>
+<area shape="rect" href="classSh_1_1TimerEvent.html" title=" " alt="" coords="325,80,446,107"/>
 <area shape="rect" href="classSh_1_1MouseButtonEvent.html" title=" " alt="" coords="57,155,226,181"/>
 <area shape="rect" href="classSh_1_1MouseScrollEvent.html" title=" " alt="" coords="251,155,413,181"/>
 </map>
@@ -128,8 +127,8 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5a40dd4708297f7031e29b39e039ae10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1Event.html#a5a40dd4708297f7031e29b39e039ae10">Event</a> ()</td></tr>
 <tr class="separator:a5a40dd4708297f7031e29b39e039ae10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a701225f22ee25bbd37657e836ea0167b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1Event.html#a701225f22ee25bbd37657e836ea0167b">happen</a> (<a class="el" href="classSh_1_1Listener.html">Listener</a> *listener)</td></tr>
-<tr class="separator:a701225f22ee25bbd37657e836ea0167b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99c1eb8750bbd03390f32f314763466e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1Event.html#a99c1eb8750bbd03390f32f314763466e">happen</a> (<a class="el" href="classSh_1_1Listener.html">Listener</a> *listener)=0</td></tr>
+<tr class="separator:a99c1eb8750bbd03390f32f314763466e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4196c45a7a89b2fc74adc6c446303bb5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceSh.html#a9beeec1e2abaf6654301d0e9ea1bc802">EventMask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1Event.html#a4196c45a7a89b2fc74adc6c446303bb5">mask</a> ()</td></tr>
 <tr class="separator:a4196c45a7a89b2fc74adc6c446303bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa40d7d1ef734f6329c35d08c6a103b9d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1Event.html#aa40d7d1ef734f6329c35d08c6a103b9d">~Event</a> ()=default</td></tr>
@@ -194,8 +193,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a701225f22ee25bbd37657e836ea0167b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a701225f22ee25bbd37657e836ea0167b">&#9670;&nbsp;</a></span>happen()</h2>
+<a id="a99c1eb8750bbd03390f32f314763466e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99c1eb8750bbd03390f32f314763466e">&#9670;&nbsp;</a></span>happen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +203,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Event::happen </td>
+          <td class="memname">virtual bool Sh::Event::happen </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSh_1_1Listener.html">Listener</a> *&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
@@ -213,12 +212,12 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classSh_1_1SlideEvent.html#afbce89483cea617595ff6941e1295c58">Sh::SlideEvent</a>, <a class="el" href="classSh_1_1TimerEvent.html#a709c2e2cc4bf3262649ebb3a48370d8b">Sh::TimerEvent</a>, <a class="el" href="classSh_1_1MouseScrollEvent.html#acc5ceea0afc379925553fca0a5854ae6">Sh::MouseScrollEvent</a>, <a class="el" href="classSh_1_1MouseButtonEvent.html#ab2b65a08547fcff29e6979477cf740a5">Sh::MouseButtonEvent</a>, <a class="el" href="classSh_1_1MouseEvent.html#aa485efcde1ff8da22b5c4e30f11fb720">Sh::MouseEvent</a>, and <a class="el" href="classSh_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">Sh::KeyboardEvent</a>.</p>
+<p>Implemented in <a class="el" href="classSh_1_1TimerEvent.html#a709c2e2cc4bf3262649ebb3a48370d8b">Sh::TimerEvent</a>, <a class="el" href="classSh_1_1MouseScrollEvent.html#acc5ceea0afc379925553fca0a5854ae6">Sh::MouseScrollEvent</a>, <a class="el" href="classSh_1_1MouseButtonEvent.html#ab2b65a08547fcff29e6979477cf740a5">Sh::MouseButtonEvent</a>, <a class="el" href="classSh_1_1MouseEvent.html#aa485efcde1ff8da22b5c4e30f11fb720">Sh::MouseEvent</a>, and <a class="el" href="classSh_1_1KeyboardEvent.html#ac96950e46ea2d114212bcc121f76b091">Sh::KeyboardEvent</a>.</p>
 
 </div>
 </div>
@@ -262,7 +261,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classSh_1_1SlideEvent.html#ac694071a263e081e4661892e234c9df0">Sh::SlideEvent</a>, <a class="el" href="classSh_1_1TimerEvent.html#ae8a9663e8f37257521c3a08d9f50f5e2">Sh::TimerEvent</a>, <a class="el" href="classSh_1_1MouseScrollEvent.html#ab52b80a1d39a5b70396f6d592554183c">Sh::MouseScrollEvent</a>, <a class="el" href="classSh_1_1MouseButtonEvent.html#a654e4ef09d3d1520fbbc4fcecf21df53">Sh::MouseButtonEvent</a>, <a class="el" href="classSh_1_1MouseEvent.html#a157e1fcf574f79a2d7e3f99185d2b79a">Sh::MouseEvent</a>, and <a class="el" href="classSh_1_1KeyboardEvent.html#a3508b14564a8045eda48e28849726596">Sh::KeyboardEvent</a>.</p>
+<p>Reimplemented in <a class="el" href="classSh_1_1TimerEvent.html#ae8a9663e8f37257521c3a08d9f50f5e2">Sh::TimerEvent</a>, <a class="el" href="classSh_1_1MouseScrollEvent.html#ab52b80a1d39a5b70396f6d592554183c">Sh::MouseScrollEvent</a>, <a class="el" href="classSh_1_1MouseButtonEvent.html#a654e4ef09d3d1520fbbc4fcecf21df53">Sh::MouseButtonEvent</a>, <a class="el" href="classSh_1_1MouseEvent.html#a157e1fcf574f79a2d7e3f99185d2b79a">Sh::MouseEvent</a>, and <a class="el" href="classSh_1_1KeyboardEvent.html#a3508b14564a8045eda48e28849726596">Sh::KeyboardEvent</a>.</p>
 
 </div>
 </div>

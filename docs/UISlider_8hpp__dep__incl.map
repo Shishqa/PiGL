@@ -1,5 +1,10 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UISlider.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/GUI/UISlider.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="115,5,317,61"/>
-<area shape="rect" id="node2" href="$GUI_8hpp.html" title=" " alt="" coords="5,109,208,165"/>
-<area shape="rect" id="node3" href="$TestAbstracts_8cpp.html" title=" " alt="" coords="233,109,421,165"/>
+<area shape="rect" id="node1" title=" " alt="" coords="189,5,391,61"/>
+<area shape="rect" id="node2" href="$GUI_8hpp.html" title=" " alt="" coords="143,317,346,373"/>
+<area shape="rect" id="node5" href="$UIScrollbar_8hpp.html" title=" " alt="" coords="281,109,489,165"/>
+<area shape="rect" id="node3" href="$GradeCanvas_8hpp.html" title=" " alt="" coords="5,421,300,477"/>
+<area shape="rect" id="node4" href="$TestAbstracts_8cpp.html" title=" " alt="" coords="151,525,339,581"/>
+<area shape="rect" id="node6" href="$UIFrame_8hpp.html" title=" " alt="" coords="307,213,510,269"/>
+<area shape="rect" id="node8" href="$UIScrollbar_8cpp.html" title=" " alt="" coords="534,213,715,269"/>
+<area shape="rect" id="node7" href="$UIFrame_8cpp.html" title=" " alt="" coords="370,317,551,373"/>
 </map>

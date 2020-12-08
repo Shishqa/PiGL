@@ -1,6 +1,7 @@
 <map id="Sh::UICanvas" name="Sh::UICanvas">
-<area shape="rect" id="node1" title=" " alt="" coords="69,171,177,197"/>
-<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="5,81,117,108"/>
-<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="12,5,111,32"/>
-<area shape="rect" id="node4" href="$classSh_1_1Image.html" title=" " alt="" coords="142,81,229,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="69,247,177,273"/>
+<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="5,157,117,184"/>
+<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="12,81,111,108"/>
+<area shape="rect" id="node4" href="$classSh_1_1Listener.html" title=" " alt="" coords="12,5,111,32"/>
+<area shape="rect" id="node5" href="$classSh_1_1Image.html" title=" " alt="" coords="142,157,229,184"/>
 </map>

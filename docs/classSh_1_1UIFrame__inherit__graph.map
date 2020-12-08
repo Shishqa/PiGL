@@ -1,5 +1,6 @@
 <map id="Sh::UIFrame" name="Sh::UIFrame">
-<area shape="rect" id="node1" title=" " alt="" coords="11,155,112,181"/>
-<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="5,80,117,107"/>
-<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="12,5,111,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="11,229,112,256"/>
+<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="5,155,117,181"/>
+<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="12,80,111,107"/>
+<area shape="rect" id="node4" href="$classSh_1_1Listener.html" title=" " alt="" coords="12,5,111,32"/>
 </map>

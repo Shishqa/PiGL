@@ -96,14 +96,13 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 &#160;
 
 <h3><a id="index_o"></a>- o -</h3><ul>
-<li>off()
-: <a class="el" href="classTogglerDummy.html#af828c1d2be4a08936093c7051eeaca2b">TogglerDummy</a>
+<li>onDeselect()
+: <a class="el" href="classSh_1_1ClickSwitchable.html#a1b6217639641324aa6df8639d108bb4c">Sh::ClickSwitchable</a>
+, <a class="el" href="classSwitchTester.html#a77d5dbcfa9184513cc8cb5d4a130dbc5">SwitchTester</a>
 </li>
-<li>on()
-: <a class="el" href="classTogglerDummy.html#a91e674a35b522133f75f0d09849308ca">TogglerDummy</a>
-</li>
-<li>onEvent()
-: <a class="el" href="classSh_1_1Listener.html#ace28dc7a1b47e81e1bb918c76d4fde95">Sh::Listener</a>
+<li>onDrag()
+: <a class="el" href="classSh_1_1Draggable.html#aa2328794ade223538eaf2d5ee19ad8d3">Sh::Draggable</a>
+, <a class="el" href="classSh_1_1Slidable.html#a4051f063c3b2121b050b1367db19d8a0">Sh::Slidable</a>
 </li>
 <li>onKeyboard()
 : <a class="el" href="classSh_1_1PlatformListener.html#ad8bc303203400ebe167de5f3a9a3ae32">Sh::PlatformListener</a>
@@ -115,6 +114,7 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 , <a class="el" href="classSh_1_1Draggable.html#a63397aa86b5a8cb841e61ddefe3d1ac9">Sh::Draggable</a>
 , <a class="el" href="classSh_1_1Holdable.html#a8a9e68a4a723d29fbaf8c78a006c4870">Sh::Holdable</a>
 , <a class="el" href="classSh_1_1PlatformListener.html#a1e5013f8b0e62977aaf140dfcaf7c777">Sh::PlatformListener</a>
+, <a class="el" href="classSh_1_1Slidable.html#a3dce8800b8a0c1fe8f3e64205a9e5c07">Sh::Slidable</a>
 </li>
 <li>onMouseEntered()
 : <a class="el" href="classSh_1_1DefaultBehavior.html#ac3dcff23da48f16c455ff5bffc66b9be">Sh::DefaultBehavior</a>
@@ -125,18 +125,14 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 <li>onMouseMove()
 : <a class="el" href="classSh_1_1DefaultBehavior.html#afad378987614008889534a961b3680d3">Sh::DefaultBehavior</a>
 , <a class="el" href="classSh_1_1Draggable.html#aa6b3ccabe7d54d806467d8c726e309ba">Sh::Draggable</a>
-, <a class="el" href="classSh_1_1FrameDraggable.html#a3e1cce046df124f7715f43fa2630dcbc">Sh::FrameDraggable</a>
 , <a class="el" href="classSh_1_1PlatformListener.html#a0d315ede01eb66a3bbf3bd4f288d3c29">Sh::PlatformListener</a>
-, <a class="el" href="classSh_1_1Slidable.html#a40dc0b7b6a47cf56cc241e5c2f05cb6c">Sh::Slidable</a>
-, <a class="el" href="classSh_1_1Slider2D.html#abec775cbc1669cece695914386a96439">Sh::Slider2D&lt; Selector2D &gt;</a>
-, <a class="el" href="classSh_1_1Slider.html#a86500946e7d3b211ff5163fd04796d2c">Sh::Slider&lt; Selector &gt;</a>
+, <a class="el" href="classSh_1_1Slidable.html#a355d2656818275b106a01976e577b9dc">Sh::Slidable</a>
 , <a class="el" href="classShishGL_1_1CursorLocator.html#af1b94a5150951e40e077a729a8221f13">ShishGL::CursorLocator</a>
 </li>
 <li>onMouseScroll()
-: <a class="el" href="classSh_1_1FrameScrollable.html#ac8191fb30d3bc086e0b2c02a509fc91f">Sh::FrameScrollable</a>
+: <a class="el" href="classSh_1_1FrameBehavior.html#a30ec03df40659dc159b7ccdaba491066">Sh::FrameBehavior</a>
 , <a class="el" href="classSh_1_1PlatformListener.html#a0586e29e8506f2b1956bdfeecc729591">Sh::PlatformListener</a>
-, <a class="el" href="classSh_1_1ScrollbarBackground.html#ae90b4d1cb8c57e8c01755fdc8162c87c">Sh::ScrollbarBackground</a>
-, <a class="el" href="classSh_1_1ScrollbarSlider.html#a38c6a56873e6f9e8d42499b085ce0dd9">Sh::ScrollbarSlider</a>
+, <a class="el" href="classSh_1_1ScrollSlidable.html#a0a423d90d94c6b387bcd835fe9a0d8d3">Sh::ScrollSlidable</a>
 </li>
 <li>onRender()
 : <a class="el" href="classSh_1_1FpsLabel.html#a882e82b0e57215117e5ab8ca22e95d2c">Sh::FpsLabel</a>
@@ -144,9 +140,18 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 , <a class="el" href="classSh_1_1UIWindow.html#a146a8315685a769e117a28b254827699">Sh::UIWindow</a>
 , <a class="el" href="classSh_1_1Window.html#a0966e1698cfc69552c741e0612a44413">Sh::Window</a>
 </li>
+<li>onSelect()
+: <a class="el" href="classSh_1_1ClickSwitchable.html#aac36973fe5a7b3ddcd28a919cc0d02a7">Sh::ClickSwitchable</a>
+, <a class="el" href="classSwitchTester.html#a7e63a76b4c2c0ebb6e692d951d4330d0">SwitchTester</a>
+</li>
 <li>onSlide()
-: <a class="el" href="classSh_1_1FrameSlidable.html#aa3e7218b49ddd44ddd4272b633f363f3">Sh::FrameSlidable</a>
-, <a class="el" href="classSh_1_1SlideListener.html#ae0024c888fab9260644c12ebd260087d">Sh::SlideListener</a>
+: <a class="el" href="classSh_1_1FrameScroller.html#a0862c10232ed9b1fa05a52b2825a34d6">Sh::FrameScroller</a>
+, <a class="el" href="classSh_1_1Slidable.html#a604f5bbf8f5406e6c1cbf1c0f31315e6">Sh::Slidable</a>
+, <a class="el" href="classSlideTester.html#a4304a0d20e0dfb6d12b24bbebd1b0890">SlideTester</a>
+</li>
+<li>onTargetUpdate()
+: <a class="el" href="classSh_1_1Behavior.html#aa87c636479c0d3300c0b1ae81fdf6b3f">Sh::Behavior</a>
+, <a class="el" href="classSh_1_1Slidable.html#aca64cec63d22c6dfab112f9a021b1709">Sh::Slidable</a>
 </li>
 <li>onTimer()
 : <a class="el" href="classCanvasBehavior.html#a7c0a84c998bf66520a3a35bff73cc459">CanvasBehavior</a>
@@ -158,7 +163,7 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 </li>
 <li>operator!()
 : <a class="el" href="structSh_1_1Vector2.html#a39b12e20a2b78bec17b0b0de75463dba">Sh::Vector2&lt; T &gt;</a>
-, <a class="el" href="structSh_1_1Vector3.html#a6cac47fa4038543d9573fcd6d5c283f9">Sh::Vector3&lt; T &gt;</a>
+, <a class="el" href="structSh_1_1Vector3.html#aab495178b3d4fbf145bb2714901f1f56">Sh::Vector3&lt; T &gt;</a>
 </li>
 <li>operator%()
 : <a class="el" href="structSh_1_1Vector3.html#a20e22a44d328e16920a3ad423999b886">Sh::Vector3&lt; T &gt;</a>
@@ -166,11 +171,8 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 <li>operator%=()
 : <a class="el" href="structSh_1_1Vector3.html#a5effc50953c5866ff2c240413f8262b2">Sh::Vector3&lt; T &gt;</a>
 </li>
-<li>operator()()
-: <a class="el" href="classDummy.html#aa15ca6c80949e1e4e5a863ff7486abb7">Dummy</a>
-</li>
 <li>operator*()
-: <a class="el" href="structSh_1_1Color.html#addc6139229b602e3ab58d7221e618bc3">Sh::Color</a>
+: <a class="el" href="structSh_1_1Color.html#a4a359c8f7965325142e3ff51dab8b9a0">Sh::Color</a>
 , <a class="el" href="structSh_1_1Vector3.html#a579c2c8bf4b8065948d4b50588ad95ce">Sh::Vector3&lt; T &gt;</a>
 </li>
 <li>operator*=()
@@ -190,7 +192,7 @@ $(document).ready(function(){initNavTree('functions_func_o.html',''); initResiza
 </li>
 <li>operator-()
 : <a class="el" href="structSh_1_1Vector2.html#ad1729f65b1536d257a83da62ef4747ae">Sh::Vector2&lt; T &gt;</a>
-, <a class="el" href="structSh_1_1Vector3.html#acb45610680a599f64cd799a42f41dd12">Sh::Vector3&lt; T &gt;</a>
+, <a class="el" href="structSh_1_1Vector3.html#ac1c352f1f2df4feab035902beff30b7f">Sh::Vector3&lt; T &gt;</a>
 </li>
 <li>operator-=()
 : <a class="el" href="structSh_1_1Vector2.html#aa46b25e188ee7fe1dcc468ace0adbebb">Sh::Vector2&lt; T &gt;</a>

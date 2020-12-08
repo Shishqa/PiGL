@@ -1,7 +1,8 @@
 <map id="Sh::UILabel" name="Sh::UILabel">
-<area shape="rect" id="node1" title=" " alt="" coords="78,155,173,181"/>
-<area shape="rect" id="node4" href="$classSh_1_1FpsLabel.html" title=" " alt="" coords="5,229,109,256"/>
-<area shape="rect" id="node5" href="$classSh_1_1UITextInput.html" title=" " alt="" coords="133,229,253,256"/>
-<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="69,80,181,107"/>
-<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="76,5,175,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="78,229,173,256"/>
+<area shape="rect" id="node5" href="$classSh_1_1FpsLabel.html" title=" " alt="" coords="5,304,109,331"/>
+<area shape="rect" id="node6" href="$classSh_1_1UITextInput.html" title=" " alt="" coords="133,304,253,331"/>
+<area shape="rect" id="node2" href="$classSh_1_1UIWindow.html" title=" " alt="" coords="69,155,181,181"/>
+<area shape="rect" id="node3" href="$classSh_1_1Window.html" title=" " alt="" coords="76,80,175,107"/>
+<area shape="rect" id="node4" href="$classSh_1_1Listener.html" title=" " alt="" coords="76,5,175,32"/>
 </map>

@@ -12,12 +12,9 @@ var dir_acd634bedb26ae18fb931944831f76df =
       [ "Dialog", "classSh_1_1Dialog.html", "classSh_1_1Dialog" ]
     ] ],
     [ "Draggable.hpp", "Draggable_8hpp.html", [
-      [ "Draggable", "classSh_1_1Draggable.html", "classSh_1_1Draggable" ],
-      [ "FrameDraggable", "classSh_1_1FrameDraggable.html", "classSh_1_1FrameDraggable" ]
+      [ "Draggable", "classSh_1_1Draggable.html", "classSh_1_1Draggable" ]
     ] ],
     [ "Slidable.hpp", "Slidable_8hpp.html", [
-      [ "Slidable", "classSh_1_1Slidable.html", "classSh_1_1Slidable" ],
-      [ "SlideListener", "classSh_1_1SlideListener.html", "classSh_1_1SlideListener" ],
-      [ "SlideEvent", "classSh_1_1SlideEvent.html", "classSh_1_1SlideEvent" ]
+      [ "Slidable", "classSh_1_1Slidable.html", "classSh_1_1Slidable" ]
     ] ]
 ];

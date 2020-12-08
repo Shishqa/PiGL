@@ -1,0 +1,13 @@
+<map id="Sh::ScrollSlidable" name="Sh::ScrollSlidable">
+<area shape="rect" id="node1" title=" " alt="" coords="75,603,210,629"/>
+<area shape="rect" id="node10" href="$classSh_1_1FrameScroller.html" title=" " alt="" coords="5,677,141,704"/>
+<area shape="rect" id="node11" href="$classSlideTester.html" title=" " alt="" coords="165,677,259,704"/>
+<area shape="rect" id="node2" href="$classSh_1_1Slidable.html" title=" " alt="" coords="93,528,192,555"/>
+<area shape="rect" id="node3" href="$classSh_1_1Draggable.html" title=" " alt="" coords="86,453,199,480"/>
+<area shape="rect" id="node4" href="$classSh_1_1Holdable.html" title=" " alt="" coords="91,379,195,405"/>
+<area shape="rect" id="node5" href="$classSh_1_1Clickable.html" title=" " alt="" coords="90,304,195,331"/>
+<area shape="rect" id="node6" href="$classSh_1_1DefaultBehavior.html" title=" " alt="" coords="67,229,219,256"/>
+<area shape="rect" id="node7" href="$classSh_1_1Behavior.html" title=" " alt="" coords="91,155,195,181"/>
+<area shape="rect" id="node8" href="$classSh_1_1PlatformListener.html" title=" " alt="" coords="65,80,220,107"/>
+<area shape="rect" id="node9" href="$classSh_1_1Listener.html" title=" " alt="" coords="93,5,192,32"/>
+</map>

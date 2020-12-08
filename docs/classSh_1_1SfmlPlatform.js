@@ -8,7 +8,7 @@ var classSh_1_1SfmlPlatform =
     [ "createContext", "classSh_1_1SfmlPlatform.html#aafecf7faec2aae25dbffd968fa13aa78", null ],
     [ "display", "classSh_1_1SfmlPlatform.html#ac7d9d3392c39936d35b45941580376d9", null ],
     [ "displayContext", "classSh_1_1SfmlPlatform.html#a7384ed7ae84b6ddc07e8b95d59c96cf3", null ],
-    [ "displayText", "classSh_1_1SfmlPlatform.html#aa6abb458e9dd8c8d0ce95dfd7f4408ba", null ],
+    [ "displayText", "classSh_1_1SfmlPlatform.html#a6ed60d2c5b0420b0a7ef3ac989b6b425", null ],
     [ "drawCircle", "classSh_1_1SfmlPlatform.html#ab31d6ce6d917b311614e7af88e6e18a2", null ],
     [ "drawLine", "classSh_1_1SfmlPlatform.html#a515835690a8fb57d9de48f42dafb65be", null ],
     [ "drawPoint", "classSh_1_1SfmlPlatform.html#a90d39e48dedd497454e2d3c67a76c48f", null ],

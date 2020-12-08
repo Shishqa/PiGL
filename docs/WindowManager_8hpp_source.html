@@ -119,51 +119,56 @@ $(document).ready(function(){initNavTree('WindowManager_8hpp_source.html',''); i
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> SomeWindow, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">static</span> SomeWindow* <a class="code" href="classSh_1_1WindowManager.html#a18b27bb4d969914db80e17fb9de431ee">create</a>(Args&amp;&amp;... args);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1Window.html">Window</a>* <a class="code" href="classSh_1_1WindowManager.html#a2a4e4ed3f2793dcc8fd412f89dab8158">Root</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1WindowManager.html#a7489446eed007ff5119a47a63ba03049">destroy</a>(<a class="code" href="classSh_1_1Window.html">Window</a>* window);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">dump</a>(<span class="keyword">const</span> std::string_view&amp; file_name);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1Window.html">Window</a>* <a class="code" href="classSh_1_1WindowManager.html#a2a4e4ed3f2793dcc8fd412f89dab8158">Root</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">   27</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">~WindowManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">dump</a>(<span class="keyword">const</span> std::string_view&amp; file_name);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">   29</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">~WindowManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> refresh();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> refresh();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">dump</a>(FILE* file, <a class="code" href="classSh_1_1Window.html">Window</a>* root);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> clear();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">using</span> WindowPool = std::unordered_set&lt;Window*&gt;;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> WindowPool&amp; Pool();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">/*----------------------------------------------*/</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1Window.html">Window</a>* ROOT;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">/*----------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">dump</a>(FILE* file, <a class="code" href="classSh_1_1Window.html">Window</a>* root);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">using</span> WindowPool = std::unordered_set&lt;Window*&gt;;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> WindowPool&amp; Pool();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">static</span> WindowPool&amp; ToDestroy();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a553f958a25683445088050a69d3de8e9">   44</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1Window.html">Window</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a9f358004c5295a2d5ec5df83c2cb23da">   45</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1CoreApplication.html">CoreApplication</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WindowManager_8ipp.html">WindowManager.ipp</a>&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif //SHISHGL_LAYOUT_MANAGER_HPP</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">/*----------------------------------------------*/</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">static</span> <a class="code" href="classSh_1_1Window.html">Window</a>* ROOT;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">/*----------------------------------------------*/</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a553f958a25683445088050a69d3de8e9">   48</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1Window.html">Window</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classSh_1_1WindowManager.html#a9f358004c5295a2d5ec5df83c2cb23da">   49</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classSh_1_1CoreApplication.html">CoreApplication</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WindowManager_8ipp.html">WindowManager.ipp</a>&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif //SHISHGL_LAYOUT_MANAGER_HPP</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassSh_1_1WindowManager_html_a2a4e4ed3f2793dcc8fd412f89dab8158"><div class="ttname"><a href="classSh_1_1WindowManager.html#a2a4e4ed3f2793dcc8fd412f89dab8158">Sh::WindowManager::Root</a></div><div class="ttdeci">static Window * Root()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:18</div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html_a2a4e4ed3f2793dcc8fd412f89dab8158"><div class="ttname"><a href="classSh_1_1WindowManager.html#a2a4e4ed3f2793dcc8fd412f89dab8158">Sh::WindowManager::Root</a></div><div class="ttdeci">static Window * Root()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:23</div></div>
 <div class="ttc" id="aclassSh_1_1WindowManager_html"><div class="ttname"><a href="classSh_1_1WindowManager.html">Sh::WindowManager</a></div><div class="ttdef"><b>Definition:</b> WindowManager.hpp:13</div></div>
 <div class="ttc" id="aclassSh_1_1CoreApplication_html"><div class="ttname"><a href="classSh_1_1CoreApplication.html">Sh::CoreApplication</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:15</div></div>
 <div class="ttc" id="aclassSh_1_1Window_html"><div class="ttname"><a href="classSh_1_1Window.html">Sh::Window</a></div><div class="ttdef"><b>Definition:</b> Window.hpp:16</div></div>
 <div class="ttc" id="aclassSh_1_1WindowManager_html_a18b27bb4d969914db80e17fb9de431ee"><div class="ttname"><a href="classSh_1_1WindowManager.html#a18b27bb4d969914db80e17fb9de431ee">Sh::WindowManager::create</a></div><div class="ttdeci">static SomeWindow * create(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> WindowManager.ipp:8</div></div>
 <div class="ttc" id="aclassSh_1_1WindowManager_html_a9b08eedeb771190c2471c304d9159653"><div class="ttname"><a href="classSh_1_1WindowManager.html#a9b08eedeb771190c2471c304d9159653">Sh::WindowManager::~WindowManager</a></div><div class="ttdeci">virtual ~WindowManager()=default</div></div>
-<div class="ttc" id="aclassSh_1_1WindowManager_html_a08b0d07eb54207b0dea055c399e2eb28"><div class="ttname"><a href="classSh_1_1WindowManager.html#a08b0d07eb54207b0dea055c399e2eb28">Sh::WindowManager::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:24</div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html_a08b0d07eb54207b0dea055c399e2eb28"><div class="ttname"><a href="classSh_1_1WindowManager.html#a08b0d07eb54207b0dea055c399e2eb28">Sh::WindowManager::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:40</div></div>
 <div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
 <div class="ttc" id="aWindowManager_8ipp_html"><div class="ttname"><a href="WindowManager_8ipp.html">WindowManager.ipp</a></div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html_a7489446eed007ff5119a47a63ba03049"><div class="ttname"><a href="classSh_1_1WindowManager.html#a7489446eed007ff5119a47a63ba03049">Sh::WindowManager::destroy</a></div><div class="ttdeci">static void destroy(Window *window)</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:29</div></div>
 <div class="ttc" id="aclassSh_1_1WindowManager_html_aef204fbd3e459c5585cf5cfa7838cfff"><div class="ttname"><a href="classSh_1_1WindowManager.html#aef204fbd3e459c5585cf5cfa7838cfff">Sh::WindowManager::WindowManager</a></div><div class="ttdeci">WindowManager()=delete</div></div>
-<div class="ttc" id="aclassSh_1_1WindowManager_html_a684a35d2766c4cc8197f27c18dfcb33f"><div class="ttname"><a href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">Sh::WindowManager::dump</a></div><div class="ttdeci">static void dump(const std::string_view &amp;file_name)</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:43</div></div>
+<div class="ttc" id="aclassSh_1_1WindowManager_html_a684a35d2766c4cc8197f27c18dfcb33f"><div class="ttname"><a href="classSh_1_1WindowManager.html#a684a35d2766c4cc8197f27c18dfcb33f">Sh::WindowManager::dump</a></div><div class="ttdeci">static void dump(const std::string_view &amp;file_name)</div><div class="ttdef"><b>Definition:</b> WindowManager.cpp:64</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

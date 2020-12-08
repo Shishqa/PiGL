@@ -1,6 +1,11 @@
 var classSh_1_1IPlatform =
 [
     [ "IContext", "classSh_1_1IPlatform_1_1IContext.html", "classSh_1_1IPlatform_1_1IContext" ],
+    [ "Align", "classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4", [
+      [ "LEFT", "classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4a876a5df9c52c06b768604f75005e0a03", null ],
+      [ "CENTER", "classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4ac58ca0008b115a984380d3e298b5deb0", null ],
+      [ "RIGHT", "classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4af7cc0a8da20b3e5ba417d465fac907f3", null ]
+    ] ],
     [ "~IPlatform", "classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb", null ],
     [ "IPlatform", "classSh_1_1IPlatform.html#aa47d8b7f243b15f10c00d15b14d6910d", null ],
     [ "clear", "classSh_1_1IPlatform.html#a59055c9082246a702fb45fa9ab5cd39d", null ],
@@ -8,7 +13,7 @@ var classSh_1_1IPlatform =
     [ "createContext", "classSh_1_1IPlatform.html#a68101acdb701c369d9ebe5a211ec0256", null ],
     [ "display", "classSh_1_1IPlatform.html#a370070c0e98fd6e55f6e2cdb96229e3c", null ],
     [ "displayContext", "classSh_1_1IPlatform.html#ab4b0d361b54a10d6de4017f2f968bc6e", null ],
-    [ "displayText", "classSh_1_1IPlatform.html#aabc7d08ea7958bee04ac97d142ca0f2f", null ],
+    [ "displayText", "classSh_1_1IPlatform.html#a258a1e3d02fa00dfdd958b19cdb33e0e", null ],
     [ "drawCircle", "classSh_1_1IPlatform.html#a0a2bac5faf848b96e0ea2aa3e01bf684", null ],
     [ "drawLine", "classSh_1_1IPlatform.html#aad9e8da2203ead6ff845f8fffc17ab32", null ],
     [ "drawPoint", "classSh_1_1IPlatform.html#a0b9f708a0749865bfcdb0f470edf30e7", null ],

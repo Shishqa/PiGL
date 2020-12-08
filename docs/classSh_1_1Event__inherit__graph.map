@@ -1,9 +1,8 @@
 <map id="Sh::Event" name="Sh::Event">
-<area shape="rect" id="node1" title=" " alt="" coords="268,5,351,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="196,5,279,32"/>
 <area shape="rect" id="node2" href="$classSh_1_1KeyboardEvent.html" title=" " alt="" coords="5,80,149,107"/>
 <area shape="rect" id="node3" href="$classSh_1_1MouseEvent.html" title=" " alt="" coords="174,80,301,107"/>
-<area shape="rect" id="node6" href="$classSh_1_1SlideEvent.html" title=" " alt="" coords="325,80,440,107"/>
-<area shape="rect" id="node7" href="$classSh_1_1TimerEvent.html" title=" " alt="" coords="465,80,586,107"/>
+<area shape="rect" id="node6" href="$classSh_1_1TimerEvent.html" title=" " alt="" coords="325,80,446,107"/>
 <area shape="rect" id="node4" href="$classSh_1_1MouseButtonEvent.html" title=" " alt="" coords="57,155,226,181"/>
 <area shape="rect" id="node5" href="$classSh_1_1MouseScrollEvent.html" title=" " alt="" coords="251,155,413,181"/>
 </map>

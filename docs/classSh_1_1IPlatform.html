@@ -95,6 +95,7 @@ $(document).ready(function(){initNavTree('classSh_1_1IPlatform.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
@@ -109,7 +110,7 @@ $(document).ready(function(){initNavTree('classSh_1_1IPlatform.html',''); initRe
 Inheritance diagram for Sh::IPlatform:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSh_1_1IPlatform__inherit__graph.png" border="0" usemap="#aSh_1_1IPlatform_inherit__map" alt="Inheritance graph"/></div>
-<map name="Sh_1_1IPlatform_inherit__map" id="aSh_1_1IPlatform_inherit__map">
+<map name="Sh_1_1IPlatform_inherit__map" id="Sh_1_1IPlatform_inherit__map">
 <area shape="rect" title=" " alt="" coords="18,5,125,32"/>
 <area shape="rect" href="classSh_1_1SfmlPlatform.html" title=" " alt="" coords="5,80,137,107"/>
 </map>
@@ -119,6 +120,14 @@ Inheritance diagram for Sh::IPlatform:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform_1_1IContext.html">IContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad3963190c42ee8f2d850e3ac1088c0e4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4">Align</a> { <a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4a876a5df9c52c06b768604f75005e0a03">LEFT</a>, 
+<a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4ac58ca0008b115a984380d3e298b5deb0">CENTER</a>, 
+<a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4af7cc0a8da20b3e5ba417d465fac907f3">RIGHT</a>
+ }</td></tr>
+<tr class="separator:ad3963190c42ee8f2d850e3ac1088c0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -154,8 +163,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a73202041116101ca20bb71008a7a9aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac43de6e2712fd2a579710a5076cdce50"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#ac43de6e2712fd2a579710a5076cdce50">setFontSize</a> (const size_t &amp;font_size)=0</td></tr>
 <tr class="separator:ac43de6e2712fd2a579710a5076cdce50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc7d08ea7958bee04ac97d142ca0f2f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#aabc7d08ea7958bee04ac97d142ca0f2f">displayText</a> (const std::string_view &amp;text, const <a class="el" href="structSh_1_1Vector2.html">Vector2</a>&lt; double &gt; &amp;pos)=0</td></tr>
-<tr class="separator:aabc7d08ea7958bee04ac97d142ca0f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258a1e3d02fa00dfdd958b19cdb33e0e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#a258a1e3d02fa00dfdd958b19cdb33e0e">displayText</a> (const std::string_view &amp;text, const <a class="el" href="structSh_1_1Frame.html">Frame</a> &amp;frame, <a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4">Align</a> align)=0</td></tr>
+<tr class="separator:a258a1e3d02fa00dfdd958b19cdb33e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a770c5cb39467a7f5f070c12fbb5ecbcb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#a770c5cb39467a7f5f070c12fbb5ecbcb">~IPlatform</a> ()=default</td></tr>
 <tr class="separator:a770c5cb39467a7f5f070c12fbb5ecbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -183,6 +192,26 @@ Friends</h2></td></tr>
 <tr class="memitem:a9f358004c5295a2d5ec5df83c2cb23da"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSh_1_1IPlatform.html#a9f358004c5295a2d5ec5df83c2cb23da">CoreApplication</a></td></tr>
 <tr class="separator:a9f358004c5295a2d5ec5df83c2cb23da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ad3963190c42ee8f2d850e3ac1088c0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3963190c42ee8f2d850e3ac1088c0e4">&#9670;&nbsp;</a></span>Align</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4">Sh::IPlatform::Align</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad3963190c42ee8f2d850e3ac1088c0e4a876a5df9c52c06b768604f75005e0a03"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad3963190c42ee8f2d850e3ac1088c0e4ac58ca0008b115a984380d3e298b5deb0"></a>CENTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad3963190c42ee8f2d850e3ac1088c0e4af7cc0a8da20b3e5ba417d465fac907f3"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a770c5cb39467a7f5f070c12fbb5ecbcb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a770c5cb39467a7f5f070c12fbb5ecbcb">&#9670;&nbsp;</a></span>~IPlatform()</h2>
@@ -393,8 +422,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aabc7d08ea7958bee04ac97d142ca0f2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabc7d08ea7958bee04ac97d142ca0f2f">&#9670;&nbsp;</a></span>displayText()</h2>
+<a id="a258a1e3d02fa00dfdd958b19cdb33e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258a1e3d02fa00dfdd958b19cdb33e0e">&#9670;&nbsp;</a></span>displayText()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,8 +440,14 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structSh_1_1Vector2.html">Vector2</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structSh_1_1Frame.html">Frame</a> &amp;&#160;</td>
+          <td class="paramname"><em>frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSh_1_1IPlatform.html#ad3963190c42ee8f2d850e3ac1088c0e4">Align</a>&#160;</td>
+          <td class="paramname"><em>align</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -427,7 +462,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classSh_1_1SfmlPlatform.html#aa6abb458e9dd8c8d0ce95dfd7f4408ba">Sh::SfmlPlatform</a>.</p>
+<p>Implemented in <a class="el" href="classSh_1_1SfmlPlatform.html#a6ed60d2c5b0420b0a7ef3ac989b6b425">Sh::SfmlPlatform</a>.</p>
 
 </div>
 </div>

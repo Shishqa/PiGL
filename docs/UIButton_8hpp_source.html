@@ -103,62 +103,39 @@ $(document).ready(function(){initNavTree('UIButton_8hpp_source.html',''); initRe
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/*============================================================================*/</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="UIWindow_8hpp.html">UIWindow.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Clickable_8hpp.html">Clickable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSh_1_1ButtonBehavior.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1ButtonBehavior.html">ButtonBehavior</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1Clickable.html">Clickable</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classSh_1_1ButtonBehavior.html#a29e88054163f5cd2fd964358d9a0c58e">   15</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1ButtonBehavior.html#a29e88054163f5cd2fd964358d9a0c58e">ButtonBehavior</a>(<a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>* <a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>, Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                : <a class="code" href="classSh_1_1Clickable.html">Clickable</a>(<a class="code" href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">target</a>)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                , callback(std::forward&lt;Args&gt;(args)...)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                { }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSh_1_1ButtonBehavior.html#a06e141c2c7d801188b9bbab6a0e77ff7">   20</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSh_1_1ButtonBehavior.html#a06e141c2c7d801188b9bbab6a0e77ff7">reactOnRelease</a>(<a class="code" href="classSh_1_1MouseButtonEvent.html">MouseButtonEvent</a>&amp; event)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            callback();</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="UILabel_8hpp.html">UILabel.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSh.html">Sh</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Behavior&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classSh_1_1UIButton.html">   14</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1UIButton.html">UIButton</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classSh_1_1UIButton.html#a4f1d690b1d22b6eb8769ef7e22b3cab8">   18</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1UIButton.html#a4f1d690b1d22b6eb8769ef7e22b3cab8">UIButton</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; frame,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                          Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                : <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>(frame) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            setBehavior&lt;Behavior&gt;(std::forward&lt;Args&gt;(args)...);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Callback callback;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">/*------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classSh_1_1UIButton.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classSh_1_1UIButton.html">UIButton</a> : <span class="keyword">public</span> <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a> {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classSh_1_1UIButton.html#a513dabe3072d21385bfe6f1e631a636c">   37</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classSh_1_1UIButton.html#a513dabe3072d21385bfe6f1e631a636c">UIButton</a>(<span class="keyword">const</span> <a class="code" href="structSh_1_1Frame.html">Frame</a>&amp; frame, Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                : <a class="code" href="classSh_1_1UIWindow.html">UIWindow</a>(frame) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            addBehavior&lt;ButtonBehavior&lt;Callback&gt;&gt;(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*============================================================================*/</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif //SHISHGL_UIBUTTON_HPP</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*============================================================================*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif //SHISHGL_UIBUTTON_HPP</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="comment">/*============================================================================*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructSh_1_1Frame_html"><div class="ttname"><a href="structSh_1_1Frame.html">Sh::Frame</a></div><div class="ttdef"><b>Definition:</b> Frame.hpp:9</div></div>
-<div class="ttc" id="aclassSh_1_1ButtonBehavior_html_a06e141c2c7d801188b9bbab6a0e77ff7"><div class="ttname"><a href="classSh_1_1ButtonBehavior.html#a06e141c2c7d801188b9bbab6a0e77ff7">Sh::ButtonBehavior::reactOnRelease</a></div><div class="ttdeci">void reactOnRelease(MouseButtonEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> UIButton.hpp:20</div></div>
-<div class="ttc" id="aclassSh_1_1Behavior_html_a939a6c482cda497bd994c6779b904433"><div class="ttname"><a href="classSh_1_1Behavior.html#a939a6c482cda497bd994c6779b904433">Sh::Behavior::target</a></div><div class="ttdeci">SomeWindow * target() const</div><div class="ttdef"><b>Definition:</b> Behavior.hpp:17</div></div>
-<div class="ttc" id="aclassSh_1_1UIWindow_html"><div class="ttname"><a href="classSh_1_1UIWindow.html">Sh::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:15</div></div>
+<div class="ttc" id="aclassSh_1_1UIButton_html_a4f1d690b1d22b6eb8769ef7e22b3cab8"><div class="ttname"><a href="classSh_1_1UIButton.html#a4f1d690b1d22b6eb8769ef7e22b3cab8">Sh::UIButton::UIButton</a></div><div class="ttdeci">UIButton(const Frame &amp;frame, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> UIButton.hpp:18</div></div>
+<div class="ttc" id="aUILabel_8hpp_html"><div class="ttname"><a href="UILabel_8hpp.html">UILabel.hpp</a></div></div>
+<div class="ttc" id="aclassSh_1_1UIWindow_html"><div class="ttname"><a href="classSh_1_1UIWindow.html">Sh::UIWindow</a></div><div class="ttdef"><b>Definition:</b> UIWindow.hpp:16</div></div>
 <div class="ttc" id="aClickable_8hpp_html"><div class="ttname"><a href="Clickable_8hpp.html">Clickable.hpp</a></div></div>
 <div class="ttc" id="anamespaceSh_html"><div class="ttname"><a href="namespaceSh.html">Sh</a></div><div class="ttdef"><b>Definition:</b> CoreApplication.hpp:10</div></div>
-<div class="ttc" id="aclassSh_1_1ButtonBehavior_html"><div class="ttname"><a href="classSh_1_1ButtonBehavior.html">Sh::ButtonBehavior</a></div><div class="ttdef"><b>Definition:</b> UIButton.hpp:11</div></div>
 <div class="ttc" id="aUIWindow_8hpp_html"><div class="ttname"><a href="UIWindow_8hpp.html">UIWindow.hpp</a></div></div>
-<div class="ttc" id="aclassSh_1_1ButtonBehavior_html_a29e88054163f5cd2fd964358d9a0c58e"><div class="ttname"><a href="classSh_1_1ButtonBehavior.html#a29e88054163f5cd2fd964358d9a0c58e">Sh::ButtonBehavior::ButtonBehavior</a></div><div class="ttdeci">ButtonBehavior(UIWindow *target, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> UIButton.hpp:15</div></div>
-<div class="ttc" id="aclassSh_1_1Clickable_html"><div class="ttname"><a href="classSh_1_1Clickable.html">Sh::Clickable</a></div><div class="ttdef"><b>Definition:</b> Clickable.hpp:11</div></div>
-<div class="ttc" id="aclassSh_1_1UIButton_html_a513dabe3072d21385bfe6f1e631a636c"><div class="ttname"><a href="classSh_1_1UIButton.html#a513dabe3072d21385bfe6f1e631a636c">Sh::UIButton::UIButton</a></div><div class="ttdeci">UIButton(const Frame &amp;frame, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> UIButton.hpp:37</div></div>
-<div class="ttc" id="aclassSh_1_1UIButton_html"><div class="ttname"><a href="classSh_1_1UIButton.html">Sh::UIButton</a></div><div class="ttdef"><b>Definition:</b> UIButton.hpp:33</div></div>
-<div class="ttc" id="aclassSh_1_1MouseButtonEvent_html"><div class="ttname"><a href="classSh_1_1MouseButtonEvent.html">Sh::MouseButtonEvent</a></div><div class="ttdef"><b>Definition:</b> MouseEvent.hpp:38</div></div>
+<div class="ttc" id="aclassSh_1_1UIButton_html"><div class="ttname"><a href="classSh_1_1UIButton.html">Sh::UIButton</a></div><div class="ttdef"><b>Definition:</b> UIButton.hpp:14</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

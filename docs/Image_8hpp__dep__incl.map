@@ -1,9 +1,12 @@
 <map id="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/Image.hpp" name="/home/shishqa/dev/MIPT/2020_3/00_ShishGL/include/ShishGL/Core/RenderSystem/Image.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="366,5,577,76"/>
-<area shape="rect" id="node2" href="$UICanvas_8hpp.html" title=" " alt="" coords="251,124,454,180"/>
-<area shape="rect" id="node7" href="$Image_8cpp.html" title=" " alt="" coords="478,124,705,180"/>
-<area shape="rect" id="node3" href="$SphereCast_8hpp.html" title=" " alt="" coords="126,228,353,299"/>
-<area shape="rect" id="node6" href="$UICanvas_8cpp.html" title=" " alt="" coords="377,235,558,291"/>
+<area shape="rect" id="node1" title=" " alt="" coords="662,5,873,76"/>
+<area shape="rect" id="node2" href="$UICanvas_8hpp.html" title=" " alt="" coords="547,124,750,180"/>
+<area shape="rect" id="node10" href="$Image_8cpp.html" title=" " alt="" coords="774,124,1001,180"/>
+<area shape="rect" id="node3" href="$SphereCast_8hpp.html" title=" " alt="" coords="250,228,477,299"/>
+<area shape="rect" id="node6" href="$GUI_8hpp.html" title=" " alt="" coords="547,235,750,291"/>
+<area shape="rect" id="node9" href="$UICanvas_8cpp.html" title=" " alt="" coords="774,235,955,291"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="5,347,225,403"/>
 <area shape="rect" id="node5" href="$SphereCast_8cpp.html" title=" " alt="" coords="250,347,477,403"/>
+<area shape="rect" id="node7" href="$GradeCanvas_8hpp.html" title=" " alt="" coords="501,347,796,403"/>
+<area shape="rect" id="node8" href="$TestAbstracts_8cpp.html" title=" " alt="" coords="647,451,835,507"/>
 </map>

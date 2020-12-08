@@ -6,9 +6,6 @@ var dir_9562454004c2c131410614b5e173c65d =
     [ "Behavior.hpp", "Behavior_8hpp.html", [
       [ "Behavior", "classSh_1_1Behavior.html", "classSh_1_1Behavior" ]
     ] ],
-    [ "BehaviorManager.hpp", "BehaviorManager_8hpp.html", [
-      [ "BehaviorManager", "classSh_1_1BehaviorManager.html", null ]
-    ] ],
     [ "Style.hpp", "Style_8hpp.html", [
       [ "Style", "classSh_1_1Style.html", "classSh_1_1Style" ],
       [ "StylePack", "classSh_1_1StylePack.html", "classSh_1_1StylePack" ]

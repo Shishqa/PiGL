@@ -1,15 +1,22 @@
 <map id="Sh::UIWindow" name="Sh::UIWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="152,183,264,209"/>
-<area shape="rect" id="node3" href="$classSh_1_1UIButton.html" title=" " alt="" coords="325,5,515,32"/>
-<area shape="rect" id="node4" href="$classSh_1_1UICanvas.html" title=" " alt="" coords="366,56,474,83"/>
-<area shape="rect" id="node6" href="$classSh_1_1UICheckbox.html" title=" " alt="" coords="319,107,521,133"/>
-<area shape="rect" id="node7" href="$classSh_1_1UIFrame.html" title=" " alt="" coords="369,157,471,184"/>
-<area shape="rect" id="node8" href="$classSh_1_1UILabel.html" title=" " alt="" coords="373,208,467,235"/>
-<area shape="rect" id="node11" href="$classSh_1_1UIScrollbar.html" title=" " alt="" coords="361,259,479,285"/>
-<area shape="rect" id="node12" href="$classSh_1_1UISlider.html" title=" " alt="" coords="330,309,510,336"/>
-<area shape="rect" id="node13" href="$classSh_1_1UISlider2D.html" title=" " alt="" coords="312,360,528,387"/>
-<area shape="rect" id="node2" href="$classSh_1_1Window.html" title=" " alt="" coords="5,183,104,209"/>
-<area shape="rect" id="node5" href="$classSphereCanvas.html" title=" " alt="" coords="579,56,693,83"/>
-<area shape="rect" id="node9" href="$classSh_1_1FpsLabel.html" title=" " alt="" coords="584,183,688,209"/>
-<area shape="rect" id="node10" href="$classSh_1_1UITextInput.html" title=" " alt="" coords="576,233,696,260"/>
+<area shape="rect" id="node1" title=" " alt="" coords="299,340,411,367"/>
+<area shape="rect" id="node4" href="$classSh_1_1UIButton.html" title=" " alt="" coords="470,5,661,32"/>
+<area shape="rect" id="node5" href="$classSh_1_1UICanvas.html" title=" " alt="" coords="511,56,619,83"/>
+<area shape="rect" id="node8" href="$classSh_1_1UIFrame.html" title=" " alt="" coords="515,107,616,133"/>
+<area shape="rect" id="node9" href="$classSh_1_1UIFreeSlider.html" title=" " alt="" coords="459,157,672,184"/>
+<area shape="rect" id="node10" href="$classSh_1_1UIHorizontalScrollbar.html" title=" " alt="" coords="473,209,657,250"/>
+<area shape="rect" id="node11" href="$classSh_1_1UIHorizontalSlider.html" title=" " alt="" coords="483,274,647,315"/>
+<area shape="rect" id="node12" href="$classSh_1_1UILabel.html" title=" " alt="" coords="518,340,613,367"/>
+<area shape="rect" id="node15" href="$classSh_1_1UIVerticalScrollbar.html" title=" " alt="" coords="482,391,649,433"/>
+<area shape="rect" id="node16" href="$classSh_1_1UIVerticalSlider.html" title=" " alt="" coords="492,457,639,498"/>
+<area shape="rect" id="node17" href="$classSh_1_1UIHorizontalScrollbar.html" title=" " alt="" coords="473,522,657,563"/>
+<area shape="rect" id="node18" href="$classSh_1_1UIHorizontalSlider.html" title=" " alt="" coords="483,587,647,629"/>
+<area shape="rect" id="node19" href="$classSh_1_1UIVerticalScrollbar.html" title=" " alt="" coords="482,653,649,694"/>
+<area shape="rect" id="node20" href="$classSh_1_1UIVerticalSlider.html" title=" " alt="" coords="492,718,639,759"/>
+<area shape="rect" id="node2" href="$classSh_1_1Window.html" title=" " alt="" coords="152,340,251,367"/>
+<area shape="rect" id="node3" href="$classSh_1_1Listener.html" title=" " alt="" coords="5,340,104,367"/>
+<area shape="rect" id="node6" href="$classSh_1_1GradeCanvas.html" title=" " alt="" coords="720,31,853,57"/>
+<area shape="rect" id="node7" href="$classSphereCanvas.html" title=" " alt="" coords="729,81,844,108"/>
+<area shape="rect" id="node13" href="$classSh_1_1FpsLabel.html" title=" " alt="" coords="735,315,839,341"/>
+<area shape="rect" id="node14" href="$classSh_1_1UITextInput.html" title=" " alt="" coords="727,365,847,392"/>
 </map>

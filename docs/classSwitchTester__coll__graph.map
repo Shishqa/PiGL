@@ -1,0 +1,9 @@
+<map id="SwitchTester" name="SwitchTester">
+<area shape="rect" id="node1" title=" " alt="" coords="31,453,135,480"/>
+<area shape="rect" id="node2" href="$classSh_1_1ClickSwitchable.html" title=" " alt="" coords="8,379,157,405"/>
+<area shape="rect" id="node3" href="$classSh_1_1Clickable.html" title=" " alt="" coords="30,304,135,331"/>
+<area shape="rect" id="node4" href="$classSh_1_1DefaultBehavior.html" title=" " alt="" coords="7,229,159,256"/>
+<area shape="rect" id="node5" href="$classSh_1_1Behavior.html" title=" " alt="" coords="31,155,135,181"/>
+<area shape="rect" id="node6" href="$classSh_1_1PlatformListener.html" title=" " alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node7" href="$classSh_1_1Listener.html" title=" " alt="" coords="33,5,132,32"/>
+</map>

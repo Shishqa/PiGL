@@ -1,7 +1,10 @@
 var classSh_1_1UIFrame =
 [
-    [ "UIFrame", "classSh_1_1UIFrame.html#a9ed36139e2b4357a0b434b131df33b83", null ],
-    [ "content_frame", "classSh_1_1UIFrame.html#a7d431214dca0335047487ea274f79372", null ],
-    [ "h_scrollbar", "classSh_1_1UIFrame.html#a78e72fbcdf59ee7f67af44412dcb82d7", null ],
-    [ "v_scrollbar", "classSh_1_1UIFrame.html#ae88b63247117b814f215162a89f7c00d", null ]
+    [ "UIFrame", "classSh_1_1UIFrame.html#aca03fa8aaefb7e6a28a091b7aa252af0", null ],
+    [ "fit", "classSh_1_1UIFrame.html#a9b4e94c0a5587f3d691b192637ce7dda", null ],
+    [ "setView", "classSh_1_1UIFrame.html#ae5d06a573917174c68f8a082f607100d", null ],
+    [ "h_scrollbar", "classSh_1_1UIFrame.html#ac1bf80ec8b29d3e52d98464870b7876b", null ],
+    [ "max_rel_pos", "classSh_1_1UIFrame.html#a7237e47b0ccf135e9263df845f602482", null ],
+    [ "rel_pos", "classSh_1_1UIFrame.html#a10f0287268703aef9d9a7217a6a9b7f0", null ],
+    [ "v_scrollbar", "classSh_1_1UIFrame.html#a1fdc28aaea96e1f8bd0605b8e2f0511f", null ]
 ];
