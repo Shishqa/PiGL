@@ -5,13 +5,14 @@
 
 #include "UIWindow.hpp"
 #include "UIButton.hpp"
-#include "UICheckbox.hpp"
-#include "UIFrame.hpp"
-#include "UILabel.hpp"
+#include "UISwitch.hpp"
 #include "UISlider.hpp"
-#include "UISlider2D.hpp"
 #include "UIScrollbar.hpp"
-#include "UITextInput.hpp"
+#include "UICanvas.hpp"
+#include "UIFrame.hpp"
+//#include "UILabel.hpp"
+//#include "UISlider2D.hpp"
+//#include "UITextInput.hpp"
 
 /*============================================================================*/
 #endif //SHISHGL_GUI_HPP

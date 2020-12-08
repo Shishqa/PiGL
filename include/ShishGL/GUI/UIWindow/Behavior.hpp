@@ -18,6 +18,8 @@ namespace Sh {
             return dynamic_cast<SomeWindow*>(target_window);
         }
 
+        virtual void onTargetUpdate() {}
+
     private:
 
         class UIWindow* target_window;

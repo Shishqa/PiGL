@@ -40,7 +40,7 @@ namespace Sh {
 
         bool onMouseButton(MouseButtonEvent& event) override;
 
-    private:
+    protected:
 
         uint8_t n_held;
 

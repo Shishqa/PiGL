@@ -11,7 +11,7 @@ target_sources(ShishGL-UIWindow
   PUBLIC
     ${INCROOT}/Style.hpp
     ${INCROOT}/Behavior.hpp
-    ${INCROOT}/BehaviorManager.hpp
+    #${INCROOT}/BehaviorManager.hpp
     ${INCROOT}/UIWindow.hpp
     ${INCROOT}/UIWindow.ipp
   PRIVATE

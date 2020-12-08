@@ -237,7 +237,8 @@ void SfmlPlatform::setFontSize(const size_t& font_sz) {
 /*----------------------------------------------------------------------------*/
 
 void SfmlPlatform::displayText(const std::string_view& text,
-                               const Vector2<double>& pos) {
+                               const Frame& frame,
+                               Align align) {
 
     if (!active_font) {
         return;
@@ -253,8 +254,36 @@ void SfmlPlatform::displayText(const std::string_view& text,
             active_color.a
     });
 
-    display_text.setPosition(sf::Vector2f(static_cast<float>(pos.x),
-                                          static_cast<float>(pos.y)));
+    if (align == LEFT) {
+
+        display_text.setPosition(
+                sf::Vector2f{
+                        static_cast<float>(frame.pos.x),
+                        static_cast<float>(frame.pos.y)
+                        }
+                );
+
+    } else if (align == CENTER) {
+
+        display_text.setPosition(
+                sf::Vector2f{
+                        static_cast<float>(frame.pos.x + frame.size.x / 2 -
+                                           display_text.getLocalBounds().width / 2),
+                        static_cast<float>(frame.pos.y)
+                }
+        );
+
+    } else {
+
+        display_text.setPosition(
+                sf::Vector2f{
+                        static_cast<float>(frame.pos.x + frame.size.x -
+                                           display_text.getLocalBounds().width),
+                        static_cast<float>(frame.pos.y)
+                }
+        );
+    }
+
 
     canvas->draw(display_text);
 }

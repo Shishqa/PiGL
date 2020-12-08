@@ -4,83 +4,135 @@
 /*============================================================================*/
 #include "Clickable.hpp"
 #include "Slidable.hpp"
+#include "UISlider.hpp"
+#include "UIButton.hpp"
 /*============================================================================*/
 namespace Sh {
 
-    class UIScrollbar : public UIWindow {
+    class ScrollSlidable : public Slidable {
     public:
 
-        static constexpr double MIN_SLIDER_SIZE     = 0.15,
-                                DEFAULT_SLIDER_SIZE = MIN_SLIDER_SIZE,
-                                DEFAULT_SLIDER_POS  = 0;
+        explicit ScrollSlidable(UIWindow* target, const Frame& frame)
+                : Slidable(target, frame)
+                { }
 
-        enum Type {
-            VERTICAL,
-            HORIZONTAL
-        };
+        bool onMouseScroll(MouseScrollEvent& event) override {
 
-        explicit UIScrollbar(const Frame& frame, UIScrollbar::Type type,
-                             double slider_size = DEFAULT_SLIDER_SIZE,
-                             double slider_pos  = DEFAULT_SLIDER_POS);
+            if (event.type() == Mouse::VERTICAL) {
+                slide(Vector2<double>{0, event.delta()});
+                Holdable::n_held = 0;
+            } else {
+                slide(Vector2<double>{event.delta(), 0});
+                Holdable::n_held = 0;
+            }
 
-        UIWindow* inc_button;
-        UIWindow* dec_button;
-        UIWindow* slider;
-
+            return true;
+        }
     };
 
-    void applyDefaultStyle(UIScrollbar* scrollbar);
-
-    /*------------------------------------------------------------------------*/
-
-    class ScrollbarBackground : public Clickable {
+    class ClickToScroll : public Holdable {
     public:
 
-        explicit ScrollbarBackground(UIWindow* target);
-
-        void reactOnPress(MouseButtonEvent& event) override;
-
-        bool onMouseScroll(MouseScrollEvent&) override { return false; }
-
-    };
-
-    /*------------------------------------------------------------------------*/
-
-    class ScrollbarButton : public Holdable {
-    protected:
-
-        Mouse::ScrollDelta m_delta;
-        Mouse::ScrollType m_type;
-
-    public:
-
-        ScrollbarButton(UIWindow* target, Mouse::ScrollDelta delta,
-                        Mouse::ScrollType type)
-               : Holdable(target)
-               , m_delta(delta)
-               , m_type(type)
-               { }
-
-    protected:
+        explicit ClickToScroll(UIWindow* target,
+                               Mouse::ScrollType scroll_type,
+                               double scroll_delta)
+                : Holdable(target)
+                , type(scroll_type)
+                , delta(scroll_delta)
+                { }
 
         void reactOnHold(TimerEvent&) override {
-            printf("HOLD!\n");
-            EventSystem::sendEvent<MouseScrollEvent>(
-                    this, target<UIWindow>()->getPos(), m_delta, m_type
-                    );
+            EventSystem::sendEvent<MouseScrollEvent>(target<Window>(),
+                target<Window>()->getPos(), delta, type);
         }
 
+    private:
+
+        Mouse::ScrollType type;
+        double delta;
     };
 
-    /*------------------------------------------------------------------------*/
 
-    class ScrollbarSlider : public Slidable {
+    template <typename Behavior>
+    class UIVerticalScrollbar : public UIWindow {
     public:
 
-        explicit ScrollbarSlider(UIWindow* targer, const Segment2<double>& slide);
+        template <typename... Args>
+        explicit UIVerticalScrollbar(const Frame& frame,
+                                     double slider_size_ratio,
+                                     Args&&... args)
+                : UIWindow(frame) {
 
-        bool onMouseScroll(MouseScrollEvent& event) override;
+            if (slider_size_ratio < 0.2) {
+                slider_size_ratio = 0.2;
+            } else if (slider_size_ratio > 1.0) {
+                slider_size_ratio = 1.0;
+            }
 
+            Vector2<double> button_size = {frame.size.x, frame.size.x};
+
+            up_button = attach<UIButton<ClickToScroll>>(
+                Frame{ {0, 0}, button_size },
+                Mouse::VERTICAL, -1.0
+                );
+
+            down_button = attach<UIButton<ClickToScroll>>(
+                Frame{ {0, frame.size.y - button_size.y}, button_size },
+                Mouse::VERTICAL, 1.0
+                );
+
+            double slide_len = frame.size.y - 2 * button_size.y;
+
+            slider = attach<UIVerticalSlider<Behavior>>(
+                Frame{ {0, button_size.y}, {frame.size.x, slide_len} },
+                slide_len * slider_size_ratio, std::forward<Args>(args)...
+                );
+
+            SubscriptionManager::subscribe(slider->slider->getBehavior(), up_button, MOUSE_SCROLL);
+            SubscriptionManager::subscribe(slider->slider->getBehavior(), down_button, MOUSE_SCROLL);
+        }
+
+        UIWindow* up_button;
+        UIWindow* down_button;
+        UIVerticalSlider<Behavior>* slider;
+    };
+
+    template <typename Behavior>
+    class UIHorizontalScrollbar : public UIWindow {
+    public:
+
+        template <typename... Args>
+        explicit UIHorizontalScrollbar(const Frame& frame,
+                                       double slider_size_ratio,
+                                       Args&&... args)
+                : UIWindow(frame) {
+
+            Vector2<double> button_size = {frame.size.y, frame.size.y};
+
+            left_button = attach<UIButton<ClickToScroll>>(
+                Frame{ {0, 0}, button_size },
+                Mouse::HORIZONTAL, -1.0
+            );
+
+            right_button = attach<UIButton<ClickToScroll>>(
+                Frame{ {frame.size.x - button_size.x, 0}, button_size },
+                Mouse::HORIZONTAL, 1.0
+            );
+
+            double slide_len = frame.size.x - 2 * button_size.x;
+
+            slider = attach<UIHorizontalSlider<Behavior>>(
+                Frame{ {button_size.x, 0}, {slide_len, frame.size.y} },
+                slide_len * slider_size_ratio, std::forward<Args>(args)...
+            );
+
+            SubscriptionManager::subscribe(slider->slider->getBehavior(), left_button, MOUSE_SCROLL);
+            SubscriptionManager::subscribe(slider->slider->getBehavior(), right_button, MOUSE_SCROLL);
+        }
+
+        UIWindow* left_button;
+        UIWindow* right_button;
+        UIHorizontalSlider<Behavior>* slider;
     };
 
 }

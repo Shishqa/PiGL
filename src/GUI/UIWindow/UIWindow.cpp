@@ -9,13 +9,15 @@ UIWindow::UIWindow(const Frame& viewport)
         : Window(viewport)
         , state(NORMAL)
         , style_map({})
-        , shape_impl(nullptr) {
+        , shape_impl(nullptr)
+        , behavior(nullptr) {
     applyShape<RectangleShape>();
 }
 
 /*----------------------------------------------------------------------------*/
 
 UIWindow::~UIWindow() {
+    delete behavior;
     delete shape_impl;
 }
 

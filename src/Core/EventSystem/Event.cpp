@@ -16,12 +16,6 @@ bool Event::isReceived() const {
 
 /*----------------------------------------------------------------------------*/
 
-bool Event::happen(Listener* listener) {
-    return listener->onEvent(*this);
-}
-
-/*----------------------------------------------------------------------------*/
-
 EventMask Event::mask() {
     return NONE;
 }

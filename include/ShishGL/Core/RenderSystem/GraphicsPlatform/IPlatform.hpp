@@ -80,8 +80,15 @@ namespace Sh {
 
         virtual void setFontSize(const size_t& font_size) = 0;
 
+        enum Align {
+            LEFT,
+            CENTER,
+            RIGHT
+        };
+
         virtual void displayText(const std::string_view& text,
-                                 const Vector2<double>& pos) = 0;
+                                 const Frame& frame,
+                                 Align align) = 0;
         /*--------------------------------------------------------------------*/
 
         virtual ~IPlatform() = default;

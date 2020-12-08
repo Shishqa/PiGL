@@ -24,6 +24,14 @@ const Frame& Window::getFrame() const {
     return frame;
 }
 
+const Vector2<double>& Window::getSize() const {
+    return frame.size;
+}
+
+const Vector2<double>& Window::getPos() const {
+    return frame.pos;
+}
+
 /*============================================================================*/
 
 void Window::setParent(Window* new_parent) {
@@ -63,8 +71,12 @@ void Window::fitParent() {
 
 /*----------------------------------------------------------------------------*/
 
-const Vector2<double>& Window::getPos() const {
-    return frame.pos;
+Window* Window::detach(Window* child) {
+    if (child) {
+        children.remove(child);
+        child->setParent(nullptr);
+    }
+    return child;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -96,8 +108,7 @@ void Window::translate(const Vector2<double>& delta) {
 /*----------------------------------------------------------------------------*/
 
 bool Window::contains(const Vector2<double>& point) const {
-    return (viewport.pos.x <= point.x && point.x <= viewport.pos.x + viewport.size.x &&
-            viewport.pos.y <= point.y && point.y <= viewport.pos.y + viewport.size.y);
+    return viewport.contains(point);
 }
 
 /*============================================================================*/

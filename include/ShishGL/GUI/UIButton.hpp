@@ -4,39 +4,21 @@
 /*============================================================================*/
 #include "UIWindow.hpp"
 #include "Clickable.hpp"
+#include "UILabel.hpp"
+
+#include <string_view>
 /*============================================================================*/
 namespace Sh {
 
-    template <typename Callback>
-    class ButtonBehavior : public Clickable {
-    public:
-
-        template <typename... Args>
-        explicit ButtonBehavior(UIWindow* target, Args&&... args)
-                : Clickable(target)
-                , callback(std::forward<Args>(args)...)
-                { }
-
-        void reactOnRelease(MouseButtonEvent& event) override {
-            callback();
-        }
-
-    private:
-
-        Callback callback;
-
-    };
-
-    /*------------------------------------------------------------------------*/
-
-    template <typename Callback>
+    template <typename Behavior>
     class UIButton : public UIWindow {
     public:
 
         template <typename... Args>
-        explicit UIButton(const Frame& frame, Args&&... args)
+        explicit UIButton(const Frame& frame,
+                          Args&&... args)
                 : UIWindow(frame) {
-            addBehavior<ButtonBehavior<Callback>>(std::forward<Args>(args)...);
+            setBehavior<Behavior>(std::forward<Args>(args)...);
         }
 
     };

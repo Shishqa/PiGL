@@ -13,12 +13,12 @@
 /*============================================================================*/
 namespace Sh {
 
-    class Window {
+    class Window : public Listener {
     public:
 
         Window() = delete;
 
-        virtual ~Window() = default;
+        ~Window() override = default;
 
         /* No-Copyable */
         /*-----------------------------------------------*/
@@ -36,8 +36,7 @@ namespace Sh {
         template <typename SomeWindow>
         SomeWindow* attach(SomeWindow* child);
 
-        template <typename SomeWindow>
-        SomeWindow* detach(SomeWindow* child);
+        Window* detach(Window* child);
         /*-----------------------------------------------*/
 
         /*-----------------------------------------------*/
@@ -45,14 +44,17 @@ namespace Sh {
         const Frame& getFrame() const;
 
         [[nodiscard]]
+        const Vector2<double>& getSize() const;
+
+        [[nodiscard]]
         const Vector2<double>& getPos() const;
 
         [[nodiscard]]
         virtual bool contains(const Vector2<double>& point) const;
 
-        void setPos(const Vector2<double>& pos);
+        virtual void setPos(const Vector2<double>& pos);
 
-        void translate(const Vector2<double>& delta);
+        virtual void translate(const Vector2<double>& delta);
         /*-----------------------------------------------*/
 
         const std::list<Window*>& getChildren() {
@@ -65,11 +67,11 @@ namespace Sh {
 
         virtual void onRender();
 
+        virtual void setParent(Window* new_parent);
+
     private:
 
         void render();
-
-        void setParent(Window* new_parent);
 
         void fitParent();
 

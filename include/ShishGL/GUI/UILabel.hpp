@@ -11,9 +11,10 @@ namespace Sh {
     class UILabel : public UIWindow {
     public:
 
-        UILabel(const Frame& frame, const std::string_view& text)
+        UILabel(const Frame& frame, const std::string_view& text,
+                IPlatform::Align align = IPlatform::Align::LEFT)
                 : UIWindow(frame) {
-            applyShape<TextShape>(text);
+            applyShape<TextShape>(text, align);
         }
 
         ~UILabel() override = default;

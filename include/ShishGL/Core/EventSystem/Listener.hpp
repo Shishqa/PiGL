@@ -7,14 +7,9 @@ namespace Sh {
     class Listener {
     public:
 
-        Listener() = default;
-
         virtual ~Listener();
 
     protected:
-
-        [[nodiscard]]
-        virtual bool onEvent(class Event&);
 
         friend class Event;
         friend class EventSystem;

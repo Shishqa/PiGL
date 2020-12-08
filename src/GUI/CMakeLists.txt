@@ -11,19 +11,19 @@ target_sources(ShishGL-GUI
   PUBLIC
     ${INCROOT}/GUI.hpp
     ${INCROOT}/UILabel.hpp
-    ${INCROOT}/UIButton.hpp
-    ${INCROOT}/UICheckbox.hpp
     ${INCROOT}/UICanvas.hpp
+    ${INCROOT}/UIButton.hpp
+    ${INCROOT}/UISwitch.hpp
+    ${INCROOT}/UISlider.hpp
     ${INCROOT}/UIScrollbar.hpp
     ${INCROOT}/UIFrame.hpp
-    ${INCROOT}/UISlider.hpp
-    ${INCROOT}/UISlider2D.hpp
-    ${INCROOT}/UITextInput.hpp
+    #${INCROOT}/UISlider2D.hpp
+    #${INCROOT}/UITextInput.hpp
   PRIVATE
     UICanvas.cpp
-    UIScrollbar.cpp
+    #UIScrollbar.cpp
     UIFrame.cpp
-    UITextInput.cpp
+    #UITextInput.cpp
   )
 
 target_link_libraries(ShishGL-GUI

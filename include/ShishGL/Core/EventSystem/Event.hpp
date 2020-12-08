@@ -26,13 +26,14 @@ namespace Sh {
     class Event {
     public:
 
+        [[nodiscard]]
         bool isReceived() const;
 
     protected:
 
         Event();
 
-        virtual bool happen(Listener* listener);
+        virtual bool happen(Listener* listener) = 0;
 
         virtual EventMask mask();
 

@@ -3,12 +3,13 @@
 #define SHISHGL_UI_WINDOW_HPP
 /*============================================================================*/
 #include <unordered_map>
+#include <unordered_set>
 #include <memory>
 
 #include "Window.hpp"
 #include "Style.hpp"
 #include "Shape2D.hpp"
-#include "BehaviorManager.hpp"
+#include "Behavior.hpp"
 /*============================================================================*/
 namespace Sh {
 
@@ -19,7 +20,8 @@ namespace Sh {
             NORMAL,
             HOVER,
             CLICK,
-            HOLD
+            HOLD,
+            SELECTED
         };
 
         template <int SomeState, typename... Args>
@@ -29,10 +31,7 @@ namespace Sh {
         UIWindow* applyShape(Args&&... args);
 
         template <typename SomeBehavior, typename... Args>
-        UIWindow* addBehavior(Args&&... args);
-
-        template <typename SomeBehavior>
-        SomeBehavior* as();
+        UIWindow* setBehavior(Args&&... args);
 
         [[nodiscard]]
         int getState() const;
@@ -41,6 +40,26 @@ namespace Sh {
 
         [[nodiscard]]
         bool contains(const Vector2<double>& point) const override;
+
+        void translate(const Vector2<double>& delta) override {
+            Window::translate(delta);
+            notifyBehavior();
+        }
+
+        void setPos(const Vector2<double>& pos) override {
+            Window::setPos(pos);
+            notifyBehavior();
+        }
+
+        void setParent(Window* new_parent) override {
+            Window::setParent(new_parent);
+            notifyBehavior();
+        }
+
+        [[nodiscard]]
+        Behavior* getBehavior() const {
+            return behavior;
+        }
 
         ~UIWindow() override;
 
@@ -57,6 +76,12 @@ namespace Sh {
         [[nodiscard]]
         const Shape2D& shape() const;
 
+        void notifyBehavior() {
+            if (behavior) {
+                behavior->onTargetUpdate();
+            }
+        }
+
     private:
 
         int state;
@@ -64,6 +89,8 @@ namespace Sh {
         StyleMap style_map; // TODO: style set + mask
 
         Shape2D* shape_impl;
+
+        Behavior* behavior;
 
         friend class WindowManager;
 

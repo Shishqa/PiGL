@@ -13,6 +13,11 @@ WindowManager::WindowPool& WindowManager::Pool() {
     return POOL;
 }
 
+WindowManager::WindowPool& WindowManager::ToDestroy() {
+    static WindowPool POOL;
+    return POOL;
+}
+
 Window* WindowManager::ROOT = nullptr;
 
 Window* WindowManager::Root() {
@@ -20,6 +25,17 @@ Window* WindowManager::Root() {
 }
 
 /*============================================================================*/
+
+void WindowManager::destroy(Window* window) {
+    if (!window) {
+        return;
+    }
+
+    ToDestroy().insert(window);
+    for (auto& child : window->getChildren()) {
+        destroy(child);
+    }
+}
 
 void WindowManager::init() {
     ROOT = new Window(Frame{ {0, 0}, PLATFORM().getDisplaySize() });
@@ -35,6 +51,11 @@ void WindowManager::clear() {
 /*----------------------------------------------------------------------------*/
 
 void WindowManager::refresh() {
+    for (auto& win : ToDestroy()) {
+        Pool().erase(win);
+        delete win;
+    }
+    ToDestroy().clear();
     ROOT->render();
 }
 

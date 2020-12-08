@@ -7,74 +7,84 @@
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
 //#include "CursorLocator.hpp"
-#include "UIScrollbar.hpp"
-#include "UIFrame.hpp"
-#include "ColorFill.hpp"
-#include "TextureFill.hpp"
-#include "Bordered.hpp"
-#include "UIWindow.hpp"
-#include "Draggable.hpp"
-#include "Slidable.hpp"
-#include "UIButton.hpp"
-#include "UICheckbox.hpp"
-#include "UILabel.hpp"
-#include "Font.hpp"
-#include "UISlider.hpp"
-#include "UISlider2D.hpp"
+
+#include "Behaviors.hpp"
+#include "Styles.hpp"
+#include "Shapes.hpp"
+#include "GUI.hpp"
+#include "GradeCanvas.hpp"
 #include "FpsLabel.hpp"
-#include "UITextInput.hpp"
 
 using namespace Sh;
 /*============================================================================*/
 
-class Dummy {
+class ClickTester : public Clickable {
 public:
 
-    explicit Dummy(int value)
-        : val(value)
+    explicit ClickTester(UIWindow* target)
+        : Clickable(target)
         { }
 
-    void operator()() const {
-        printf("VALUE %d\n", val);
+    void reactOnRelease(MouseButtonEvent&) override {
+        printf("ClickTester: clicked\n");
+    }
+
+};
+
+class SwitchTester : public ClickSwitchable {
+public:
+
+    explicit SwitchTester(UIWindow* target)
+        : ClickSwitchable(target)
+        { }
+
+    void onSelect() override {
+        printf("SwitchTester: selected\n");
+    }
+
+    void onDeselect() override {
+        printf("SwitchTester: deselected\n");
+    }
+};
+
+class SlideTester : public ScrollSlidable {
+public:
+
+    explicit SlideTester(UIWindow* target, const Frame& frame)
+        : ScrollSlidable(target, frame)
+        { }
+
+    void onSlide(const Vector2<double>& pos) override {
+        printf("Slide: (%lg; %lg)\n", pos.x, pos.y);
+    }
+};
+
+class FrameExpander : public Clickable {
+public:
+
+    explicit FrameExpander(UIWindow* target, UIFrame* frame)
+            : Clickable(target)
+            , fr(frame)
+            { }
+
+    void reactOnRelease(MouseButtonEvent& event) override {
+
+        static double cnt = 0;
+
+        fr->attach<GradeCanvas>(
+            Frame{ {cnt * 100, cnt * 100}, {100, 100} }
+            );
+        fr->fit();
+
+        cnt += 1;
     }
 
 private:
 
-    int val;
+    UIFrame* fr;
 
 };
 
-class TogglerDummy {
-public:
-
-    explicit TogglerDummy() = default;
-
-    void on() const {
-        printf("ON\n");
-    }
-
-    void off() const {
-        printf("OFF\n");
-    }
-
-};
-
-class DummySelector {
-public:
-
-    void set(const double& value) const {
-        printf("%lg set\n", value);
-    }
-
-};
-
-class DummySelector2D {
-public:
-
-    void set(const Vector2<double>& value) const {
-        printf("(%lg; %lg) set\n", value.x, value.y);
-    }
-};
 
 /*============================================================================*/
 int main(int argc, char* argv[]) {
@@ -86,103 +96,171 @@ int main(int argc, char* argv[]) {
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
-    auto fps = WindowManager::Root()->attach<FpsLabel>(
-            Frame{ {1000, 0}, {164, 40} }
-            );
-    fps->applyStyle<UIWindow::NORMAL>(
-            Font{"fonts/FiraCode-Regular.ttf"},
-            FontSize{30},
-            ColorFill{Color::WHITE}
+    const Vector2<double> tester_size = { 150, 100 };
+
+    WindowManager::Root()->attach<UIButton<ClickTester>>(
+            Frame{ {20, 20}, tester_size }
+            )
+        ->applyStyle<UIWindow::NORMAL>(
+            Bordered( 10, Color::YELLOW ),
+            ColorFill( Color(10, 10, 10) )
+            )
+        ->applyStyle<UIWindow::HOVER>(
+            Bordered( 10, Color::BLANCHED_ALMOND ),
+            ColorFill( Color(10, 10, 10) )
+            )
+        ->applyStyle<UIWindow::CLICK>(
+            Bordered( 10, Color::GREEN ),
+            ColorFill( Color(10, 10, 10) )
             );
 
-    char buffer[5] = "abc";
+    WindowManager::Root()->attach<UIButton<SwitchTester>>(
+            Frame{ {220, 20}, tester_size }
+        )
+        ->applyStyle<UIWindow::NORMAL>(
+            Bordered( 10, Color::YELLOW ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            Bordered( 10, Color::BLANCHED_ALMOND ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::CLICK>(
+            Bordered( 10, Color::GREEN ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::SELECTED>(
+            Bordered( 10, Color::BLUE ),
+            ColorFill( Color(10, 10, 10) )
+        );
 
-    auto input = WindowManager::Root()->attach<UITextInput>(
-            Frame{ {1300, 0}, {164, 40} },
-            buffer, sizeof(buffer)
+    auto h_slider = WindowManager::Root()->attach<UIHorizontalSlider<SlideTester>>(
+        Frame{ {420, 20}, tester_size }, 30
+        );
+    h_slider->applyStyle<UIWindow::NORMAL>(
+                ColorFill( Color::WHITE )
+            );
+    h_slider->slider->applyStyle<UIWindow::NORMAL>(
+            ColorFill{ Color::DARK_OLIVE_GREEN }
+        );
+
+    auto v_slider = WindowManager::Root()->attach<UIVerticalSlider<SlideTester>>(
+        Frame{ {20, 220}, {tester_size.y / 2, tester_size.x} }, 30
     );
-    input->applyStyle<UIWindow::NORMAL>(
-            Font{"fonts/FiraCode-Regular.ttf"},
-            FontSize{30},
-            ColorFill{Color::WHITE}
+    v_slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill( Color::WHITE )
+    );
+    v_slider->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::DARK_OLIVE_GREEN }
+    );
+
+    auto f_slider = WindowManager::Root()->attach<UIFreeSlider<SlideTester>>(
+        Frame{ {220, 220}, {tester_size.x, tester_size.x} },
+        Vector2<double>{30, 30}
+    );
+    f_slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill( Color::WHITE )
+    );
+    f_slider->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::DARK_OLIVE_GREEN }
+    );
+
+    auto v_sb = WindowManager::Root()->attach<UIVerticalScrollbar<SlideTester>>(
+        Frame{ {120, 220}, {tester_size.y / 5, tester_size.x} }, 30
+    );
+    v_sb->up_button->applyStyle<UIWindow::NORMAL>(
+            ColorFill( Color::WHITE )
+            )
+        ->applyStyle<UIWindow::HOVER>(
+            ColorFill{ Color::GREEN }
+            );
+    v_sb->down_button->applyStyle<UIWindow::NORMAL>(
+            ColorFill( Color::WHITE )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            ColorFill{ Color::GREEN }
+        );
+    v_sb->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::DARK_OLIVE_GREEN }
+        );
+    v_sb->slider->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::WHEAT }
+        );
+
+    auto h_sb = WindowManager::Root()->attach<UIHorizontalScrollbar<SlideTester>>(
+        Frame{ {20, 400}, {600, 30} }, 30
+    );
+    h_sb->left_button->applyStyle<UIWindow::NORMAL>(
+            ColorFill( Color::WHITE )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            ColorFill{ Color::GREEN }
+        );
+    h_sb->right_button->applyStyle<UIWindow::NORMAL>(
+            ColorFill( Color::WHITE )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            ColorFill{ Color::GREEN }
+        );
+    h_sb->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::DARK_OLIVE_GREEN }
+    );
+    h_sb->slider->slider->applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::WHEAT }
     );
 
     auto frame = WindowManager::Root()->attach<UIFrame>(
-            Frame{ {20, 20}, {600, 600} },
-            Frame{ {20, 20}, {1000, 1000} }
-                    );
-            frame->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::WHITE}
-                    )
-            ->attach<UILabel>(
-                    Frame{ {0, 0}, {100, 100} }, "HELLO, WORLD!\n:)0:0)0234"
-                            )
-                    ->addBehavior<FrameDraggable>(Frame{ {20, 20}, {600, 600} })
-                    ->applyStyle<UIWindow::NORMAL>(
-                            Font{"fonts/FiraCode-Regular.ttf"},
-                            FontSize{30},
-                            ColorFill{Color::BLACK}
-                            );
-
-    auto dummy = WindowManager::Root()->attach<UIButton<Dummy>>(Frame{ {800, 200}, {60, 20} }, 12);
-    dummy->applyStyle<UIWindow::CLICK>(
-            ColorFill{ Color::WHEAT }
-            )
-         ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::GAINSBORO }
-            )
-         ->applyStyle<UIWindow::NORMAL>(
-            ColorFill{ Color::PALE_VIOLET_RED }
+        Frame{ {700, 20}, {600, 600} }
+        );
+    frame->applyStyle<UIWindow::NORMAL>(
+            ColorFill{ Color::BLUE }
             );
 
-    auto ch = WindowManager::Root()->attach<UICheckbox<TogglerDummy>>(Frame{ {700, 200}, {60, 20} });
-    ch->applyStyle<UIWindow::CLICK>(
-                    ColorFill{ Color::WHEAT }
-            )
-            ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{ Color::GAINSBORO }
-            )
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
-                    );
-
-
-    auto sl = WindowManager::Root()->attach<UISlider<DummySelector>>(
-            Frame{ {900, 200}, {60, 20} },
-            Segment2<double>{ {900, 200}, {1000, 200} }
-            );
-    sl->applyStyle<UIWindow::CLICK>(
-                    ColorFill{ Color::WHEAT }
-            )
-            ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{ Color::GAINSBORO }
-            )
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
+    WindowManager::Root()->attach<FpsLabel>(
+        Frame{ {1500, 20}, {300, 50} }
+        )
+        ->applyStyle<UIWindow::NORMAL>(
+            FontSize{ 20 },
+            ColorFill{ Color::MAGENTA }
             );
 
-    auto frame_sl = WindowManager::Root()->attach<UISlider2D<DummySelector2D>>(
-            Frame{ {1000, 200}, {60, 20} },
-            Frame{ {1000, 200}, {300, 300} }
-    );
-    frame_sl->applyStyle<UIWindow::CLICK>(
-                    ColorFill{ Color::WHEAT }
-            )
-            ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{ Color::GAINSBORO }
-            )
-            ->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{ Color::PALE_VIOLET_RED }
-            )
-            ->applyStyle<UICheckbox<TogglerDummy>::CHECKED>(
-                    ColorFill{ Color::GREEN }
-            );
+    WindowManager::Root()->attach<UIButton<FrameExpander>>(
+            Frame{ {700, 700}, tester_size },
+            frame
+        )
+        ->applyStyle<UIWindow::NORMAL>(
+            Bordered( 10, Color::YELLOW ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            Bordered( 10, Color::BLANCHED_ALMOND ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::CLICK>(
+            Bordered( 10, Color::GREEN ),
+            ColorFill( Color(10, 10, 10) )
+        );
+
+
+    /*
+    WindowManager::Root()->attach<UIButton>(
+            Frame{ {420, 20}, tester_size },
+            "Label", IPlatform::Align::RIGHT
+        )
+        ->applyStyle<UIWindow::NORMAL>(
+            Bordered( 10, Color::YELLOW ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::HOVER>(
+            Bordered( 10, Color::BLANCHED_ALMOND ),
+            ColorFill( Color(10, 10, 10) )
+        )
+        ->applyStyle<UIWindow::CLICK>(
+            Bordered( 10, Color::GREEN ),
+            ColorFill( Color(10, 10, 10) )
+        );
+    */
+
 
     WindowManager::dump("LayoutDump.dot");
     SubscriptionManager::dump("Sub.dot");

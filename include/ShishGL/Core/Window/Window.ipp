@@ -8,8 +8,7 @@ namespace Sh {
     SomeWindow* Window::attach(Args&&... args) {
         SomeWindow* win =
                 WindowManager::create<SomeWindow>(std::forward<Args>(args)...);
-        attach<SomeWindow>(win);
-        return win;
+        return attach(win);
     }
 
     template <typename SomeWindow>
@@ -17,12 +16,6 @@ namespace Sh {
         children.push_back(child);
         child->setParent(this);
         return child;
-    }
-
-    template <typename SomeWindow>
-    SomeWindow* Window::detach(SomeWindow* child) {
-        children.remove(child);
-        child->setParent(nullptr);
     }
 
 }

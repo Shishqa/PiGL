@@ -2,64 +2,78 @@
 #ifndef SHISHGL_UISLIDER_HPP
 #define SHISHGL_UISLIDER_HPP
 /*============================================================================*/
+#include <variant>
+
 #include "UIWindow.hpp"
 #include "Slidable.hpp"
 /*============================================================================*/
 namespace Sh {
 
-    template <typename Selector>
-    class Slider : public Slidable {
+    template <typename Behavior>
+    class UIVerticalSlider : public UIWindow {
     public:
 
         template <typename... Args>
-        explicit Slider(UIWindow* target, const Segment2<double>& slide,
-                        Args&&... args)
-                : Slidable(target, slide, false)
-                , selector(std::forward<Args>(args)...)
-                { }
+        explicit UIVerticalSlider(const Frame& frame,
+                                  double slider_len,
+                                  Args&&... args)
+                : UIWindow(frame) {
 
-        bool onMouseMove(MouseEvent& event) override {
+            slider = attach<UIWindow>(Frame{
+                {0, 0},
+                {frame.size.x, std::min(frame.size.y, slider_len)}
+            });
 
-            bool status = Slidable::onMouseMove(event);
-
-            if (status && Slidable::isHeld()) {
-
-                Segment2<double> slide = Slidable::slide_seg;
-                const Window* parent = target<Window>()->getParent();
-
-                if (parent) {
-                    slide.begin += parent->getPos();
-                    slide.end   += parent->getPos();
-                }
-
-                selector.set(
-                        (target<UIWindow>()->getPos() - slide.begin).length() /
-                        slide.guide().length());
-
-            }
-
-            return status;
+            slider->setBehavior<Behavior>(Frame{ {0, 0}, frame.size },
+                                          std::forward<Args>(args)...);
         }
 
-    private:
-
-        Selector selector;
-
+        UIWindow* slider;
     };
 
-    /*------------------------------------------------------------------------*/
-
-    template <typename Selector>
-    class UISlider : public UIWindow {
+    template <typename Behavior>
+    class UIHorizontalSlider : public UIWindow {
     public:
 
         template <typename... Args>
-        explicit UISlider(const Frame& frame, const Segment2<double>& slide,
-                          Args&&... args)
-                : UIWindow(frame) {
-            UIWindow::addBehavior<Slider<Selector>>(slide, std::forward<Args>(args)...);
+        explicit UIHorizontalSlider(const Frame& frame,
+                                    double slider_len,
+                                    Args&&... args)
+            : UIWindow(frame) {
+
+            slider = attach<UIWindow>(Frame{
+                {0, 0},
+                {std::min(frame.size.x, slider_len), frame.size.y}
+            });
+
+            slider->setBehavior<Behavior>(Frame{ {0, 0}, frame.size },
+                                          std::forward<Args>(args)...);
         }
 
+        UIWindow* slider;
+    };
+
+
+    template <typename Behavior>
+    class UIFreeSlider : public UIWindow {
+    public:
+
+        template <typename... Args>
+        explicit UIFreeSlider(const Frame& frame,
+                              const Vector2<double>& size,
+                              Args&&... args)
+            : UIWindow(frame) {
+
+            slider = attach<UIWindow>(Frame{
+                {0, 0},
+                {std::min(frame.size.x, size.x), std::min(frame.size.y, size.y)}
+            });
+
+            slider->setBehavior<Behavior>(Frame{ {0, 0}, frame.size },
+                                          std::forward<Args>(args)...);
+        }
+
+        UIWindow* slider;
     };
 
 }

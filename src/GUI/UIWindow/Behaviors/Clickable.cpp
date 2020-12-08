@@ -28,13 +28,19 @@ bool Clickable::onMouseButton(MouseButtonEvent& event) {
     }
 
     if (Mouse::DOWN == event.state()) {
+
         target<UIWindow>()->setState(UIWindow::CLICK);
         reactOnPress(event);
+
     } else if (is_event_inside) {
+
         target<UIWindow>()->setState(UIWindow::HOVER);
         reactOnRelease(event);
+
     } else {
-        target<UIWindow>()->setState(UIWindow::NORMAL);
+        if (target<UIWindow>()->getState() != UIWindow::SELECTED) {
+            target<UIWindow>()->setState(UIWindow::NORMAL);
+        }
     }
 
     return true;

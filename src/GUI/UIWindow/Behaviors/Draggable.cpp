@@ -34,31 +34,22 @@ bool Draggable::onMouseMove(MouseEvent& event) {
     Holdable::onMouseMove(event);
 
     if (isHeld()) {
-        drag(event.where() - dragPoint(), Mouse::LEFT);
+        drag(event.where() - dragPoint());
     }
 
     return true;
 }
 
-/*----------------------------------------------------------------------------*/
+void Draggable::drag(const Vector2<double>& delta) {
 
-void Draggable::drag(const Vector2<double>& delta, Mouse::Button button) {
-
-    bool emulation = false;
-
-    if (!isHeld()) {
-        MouseButtonEvent click{target<UIWindow>()->getPos(), button, Mouse::DOWN};
-        onMouseButton(click);
-        emulation = true;
+    if (!Holdable::isHeld()) {
+        Holdable::n_held++;
     }
 
     target<UIWindow>()->translate(delta);
     drag_point += delta;
 
-    if (emulation) {
-        MouseButtonEvent click{target<UIWindow>()->getPos(), button, Mouse::UP};
-        onMouseButton(click);
-    }
+    onDrag(delta);
 }
 
 /*============================================================================*/

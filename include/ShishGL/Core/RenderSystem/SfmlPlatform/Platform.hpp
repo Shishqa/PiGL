@@ -90,7 +90,8 @@ namespace Sh {
         void setFontSize(const size_t& font_size) override;
 
         void displayText(const std::string_view& text,
-                         const Vector2<double>& pos) override;
+                         const Frame& frame,
+                         Align align) override;
         /*--------------------------------------------------------------------*/
 
 

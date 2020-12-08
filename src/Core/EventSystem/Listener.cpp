@@ -10,10 +10,4 @@ Listener::~Listener() {
     SubscriptionManager::unsubscribeFromAll(this);
 }
 
-/*----------------------------------------------------------------------------*/
-
-bool Listener::onEvent(Event&) {
-    return false;
-}
-
 /*============================================================================*/
