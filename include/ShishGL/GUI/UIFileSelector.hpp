@@ -27,7 +27,7 @@ namespace Sh {
 
             auto save_btn = attach<UILabelButton<WindowCloser>>(
                 Frame{ {frame.size.x - 210, frame.size.y - 35}, {100, 30} },
-                "Save", IPlatform::Align::CENTER,
+                "Save", Text::Align::CENTER,
                 this, SELECTED
                 );
 
@@ -48,7 +48,7 @@ namespace Sh {
 
             auto cancel_btn = attach<UILabelButton<WindowCloser>>(
                 Frame{ {frame.size.x - 105, frame.size.y - 35}, {100, 30} },
-                "Cancel", IPlatform::Align::CENTER,
+                "Cancel", Text::Align::CENTER,
                 this, CANCEL
             );
 

@@ -1,5 +1,4 @@
 /*============================================================================*/
-#include "LogSystem.hpp"
 #include "Listener.hpp"
 #include "EventManager.hpp"
 #include "SubscriptionManager.hpp"

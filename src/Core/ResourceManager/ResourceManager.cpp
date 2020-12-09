@@ -24,8 +24,6 @@ void ResourceManager::load(const std::string_view& filename) {
         return;
     }
 
-    printf("RESOURCE LOADING!!!!\n");
-
     struct stat fstat = {};
     if (-1 == lstat(filename.data(), &fstat)) {
         perror("lstat");

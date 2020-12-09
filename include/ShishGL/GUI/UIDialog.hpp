@@ -8,6 +8,20 @@
 /*============================================================================*/
 namespace Sh {
 
+    class WindowCloser : public Clickable {
+    public:
+
+        explicit WindowCloser(UIWindow* target, Window* close_target,
+                              int signal);
+
+        void reactOnRelease(MouseButtonEvent& event) override;
+
+    private:
+
+        Window* to_close;
+        int to_send;
+    };
+
     class UIDialog : public UIWindow {
     public:
 
@@ -20,7 +34,7 @@ namespace Sh {
 
         explicit UIDialog(UIWindow* contents);
 
-        UIWindow* closer;
+        UIButton<WindowCloser>* closer;
         UIWindow* contents;
     };
 
@@ -39,20 +53,6 @@ namespace Sh {
             return false;
         }
 
-    };
-
-    class WindowCloser : public Clickable {
-    public:
-
-        explicit WindowCloser(UIWindow* target, Window* close_target,
-                              int signal);
-
-        void reactOnRelease(MouseButtonEvent& event) override;
-
-    private:
-
-        Window* to_close;
-        int to_send;
     };
 
 }

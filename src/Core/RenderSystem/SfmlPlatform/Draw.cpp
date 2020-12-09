@@ -238,7 +238,7 @@ void SfmlPlatform::setFontSize(const size_t& font_sz) {
 
 void SfmlPlatform::displayText(const std::string_view& text,
                                const Frame& frame,
-                               Align align) {
+                               Text::Align align) {
 
     if (!active_font) {
         return;
@@ -254,7 +254,7 @@ void SfmlPlatform::displayText(const std::string_view& text,
             active_color.a
     });
 
-    if (align == LEFT) {
+    if (align == Text::LEFT) {
 
         display_text.setPosition(
                 sf::Vector2f{
@@ -263,7 +263,7 @@ void SfmlPlatform::displayText(const std::string_view& text,
                         }
                 );
 
-    } else if (align == CENTER) {
+    } else if (align == Text::CENTER) {
 
         display_text.setPosition(
                 sf::Vector2f{

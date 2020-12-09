@@ -23,53 +23,41 @@ namespace Sh {
         using Pixels = std::vector<Color>;
 
         explicit Image(const Vector2<size_t>& size,
-                       const Color& color = Color::WHITE)
-                : img_size(size) {
-            pixels.resize(size.x * size.y, color);
-        }
+                       const Color& color = Color::WHITE);
 
-        void fill(const Color& color) {
-            pixels.assign(size().x * size().y, color);
-        }
+        ~Image();
 
-        void setPixel(const Vector2<size_t>& pos, const Color& color) {
-            pixels[pos.y * img_size.x + pos.x] = color;
-        }
+        void fill(const Color& color);
+
+        /*--------------------------------------------------------------------*/
+
+        void setPixel(const Vector2<size_t>& pos, const Color& color);
 
         [[nodiscard]]
-        const Color* getPixels() const {
-            return pixels.data();
-        }
+        Color getPixel(const Vector2<size_t>& pos) const;
+
+        /*--------------------------------------------------------------------*/
 
         [[nodiscard]]
-        const uint8_t* getData() const {
-            return reinterpret_cast<const uint8_t*>(pixels.data());
-        }
+        const Color* getPixels() const;
 
         [[nodiscard]]
-        Color getPixel(size_t x, size_t y) const {
-            return pixels[y * img_size.x + x];
-        }
+        uint8_t* getData() const;
 
         [[nodiscard]]
-        const Vector2<size_t>& size() const {
-            return img_size;
-        }
+        const Vector2<size_t>& size() const;
 
-        void blendSSE(const Image& other);
+        /*--------------------------------------------------------------------*/
 
         void blend(const Image& other);
 
-        void paste(IPlatform::IContext* context) {
-            context->update(pixels.data());
-        }
+        void paste(IPlatform::IContext* context);
 
     private:
 
         Vector2<size_t> img_size;
 
-        std::vector<Color> pixels;
-
+        Color* pixels;
     };
 
 }

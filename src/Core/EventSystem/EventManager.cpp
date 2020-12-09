@@ -28,7 +28,6 @@ void EventManager::flush() {
     }
 
     LogSystem::printLog("Events flushed");
-
 }
 
 /*============================================================================*/
