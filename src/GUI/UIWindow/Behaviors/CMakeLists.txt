@@ -11,7 +11,6 @@ target_sources(ShishGL-Behaviors
   PUBLIC
     ${INCROOT}/Behaviors.hpp
     ${INCROOT}/DefaultBehavior.hpp
-    ${INCROOT}/Dialog.hpp
     ${INCROOT}/Clickable.hpp
     ${INCROOT}/Draggable.hpp
     ${INCROOT}/Slidable.hpp

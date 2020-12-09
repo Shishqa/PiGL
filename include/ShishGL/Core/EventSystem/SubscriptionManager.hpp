@@ -18,11 +18,15 @@ namespace Sh {
 
         SubscriptionManager() = delete;
 
-        static void subscribe(Listener* receiver, Listener* sender,
-                              EventMask mask);
+        template <typename SomeEvent>
+        static void subscribe(Listener* receiver, Listener* sender) {
+            Subscriptions()[sender][receiver] |= (1UL << Event::getId<SomeEvent>());
+        }
 
-        static void unsubscribe(Listener* receiver, Listener* sender,
-                                EventMask mask);
+        template <typename SomeEvent>
+        static void unsubscribe(Listener* receiver, Listener* sender) {
+            Subscriptions()[sender][receiver] &= ~(1UL << Event::getId<SomeEvent>());
+        }
 
         static void unsubscribeAll(Listener* sender);
 

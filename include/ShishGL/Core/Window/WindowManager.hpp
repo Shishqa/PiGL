@@ -4,6 +4,7 @@
 /*============================================================================*/
 #include <list>
 #include <unordered_set>
+#include <queue>
 #include <string_view>
 /*============================================================================*/
 namespace Sh {
@@ -37,8 +38,8 @@ namespace Sh {
         static void dump(FILE* file, Window* root);
 
         using WindowPool = std::unordered_set<Window*>;
-
         static WindowPool& Pool();
+
         static WindowPool& ToDestroy();
 
         /*----------------------------------------------*/

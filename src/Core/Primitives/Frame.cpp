@@ -4,21 +4,26 @@
 using namespace Sh;
 /*============================================================================*/
 
+#define FIT_DIMENSION( pt, left, right, dim )       \
+    if ((pt).dim < (left).dim) {                        \
+        (pt).dim = (left).dim;                          \
+    } else if ((pt).dim > (right).dim) {                \
+        (pt).dim = (right).dim;                         \
+    }
+
 void Frame::fit_into(const Frame& other) {
 
-    size.x = std::min(size.x, other.pos.x + other.size.x - pos.x);
-    size.y = std::min(size.y, other.pos.y + other.size.y - pos.y);
+    Vector2<double> rd_corner = pos + size;
 
-    if (pos.x < other.pos.x) {
-        size.x -= other.pos.x - pos.x;
-        pos.x = other.pos.x;
-    }
+    FIT_DIMENSION(pos,       other.pos, other.pos + other.size, x)
+    FIT_DIMENSION(pos,       other.pos, other.pos + other.size, y)
+    FIT_DIMENSION(rd_corner, other.pos, other.pos + other.size, x)
+    FIT_DIMENSION(rd_corner, other.pos, other.pos + other.size, y)
 
-    if (pos.y < other.pos.y) {
-        size.y -= other.pos.y - pos.y;
-        pos.y = other.pos.y;
-    }
+    size = rd_corner - pos;
 }
+
+#undef FIT_DIMENSION
 
 /*----------------------------------------------------------------------------*/
 

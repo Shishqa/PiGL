@@ -8,8 +8,7 @@ using namespace Sh;
 
 Clickable::Clickable(UIWindow *target)
         : DefaultBehavior(target) {
-    SubscriptionManager::subscribe(this, EventSystem::SystemEvents,
-                                   MOUSE_BUTTON);
+    SubscriptionManager::subscribe<MouseButtonEvent>(this, EventSystem::SystemEvents);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -23,7 +22,8 @@ bool Clickable::onMouseButton(MouseButtonEvent& event) {
 
     bool is_event_inside = target<UIWindow>()->contains(event.where());
 
-    if (event.state() == Mouse::DOWN && !is_event_inside) {
+    if (event.state() == Mouse::DOWN &&
+        (!is_event_inside)) {
         return false;
     }
 
@@ -51,7 +51,7 @@ bool Clickable::onMouseButton(MouseButtonEvent& event) {
 Holdable::Holdable(UIWindow* target)
         : Clickable(target)
         , n_held(0) {
-    SubscriptionManager::subscribe(this, EventSystem::SystemEvents, TIMER);
+    SubscriptionManager::subscribe<TimerEvent>(this, EventSystem::SystemEvents);
 }
 
 bool Holdable::isHeld() const {

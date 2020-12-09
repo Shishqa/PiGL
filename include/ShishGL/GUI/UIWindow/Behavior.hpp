@@ -2,11 +2,11 @@
 #ifndef SHISHGL_BEHAVIOR_HPP
 #define SHISHGL_BEHAVIOR_HPP
 /*============================================================================*/
-#include "PlatformListener.hpp"
+#include "Window.hpp"
 /*============================================================================*/
 namespace Sh {
 
-    class Behavior : public PlatformListener {
+    class Behavior : public WindowEventListener {
     public:
 
         explicit Behavior(class UIWindow* target)

@@ -3,6 +3,7 @@
 #define SHISHGL_WINDOW_HPP
 /*============================================================================*/
 #include <list>
+#include <optional>
 
 #include "SubscriptionManager.hpp"
 #include "PlatformListener.hpp"
@@ -18,7 +19,7 @@ namespace Sh {
 
         Window() = delete;
 
-        ~Window() override = default;
+        ~Window() override;
 
         /* No-Copyable */
         /*-----------------------------------------------*/
@@ -33,11 +34,10 @@ namespace Sh {
         template <typename SomeWindow, typename... Args>
         SomeWindow* attach(Args&&... args);
 
-        template <typename SomeWindow>
+        template<typename SomeWindow>
         SomeWindow* attach(SomeWindow* child);
 
         Window* detach(Window* child);
-        /*-----------------------------------------------*/
 
         /*-----------------------------------------------*/
         [[nodiscard]]
@@ -61,6 +61,8 @@ namespace Sh {
             return children;
         }
 
+        void fitParent();
+
     protected:
 
         explicit Window(const Frame& frame);
@@ -73,7 +75,6 @@ namespace Sh {
 
         void render();
 
-        void fitParent();
 
         friend class WindowManager;
 
@@ -85,6 +86,55 @@ namespace Sh {
 
     };
 
+    /*------------------------------------------------------------------------*/
+
+    class WindowEventListener : public PlatformListener {
+    protected:
+
+        friend class WindowCloseEvent;
+        virtual bool onWindowClose(class WindowCloseEvent&) { return false; }
+
+    };
+
+    /*------------------------------------------------------------------------*/
+
+    class WindowCloseEvent : public Event {
+    public:
+
+        using Value = std::optional<int>;
+
+        explicit WindowCloseEvent(Window* window)
+            : Event()
+            , who_closed(window)
+            { }
+
+        explicit WindowCloseEvent(Window* window, int signal)
+            : Event()
+            , who_closed(window)
+            , value(signal)
+            { }
+
+        EventMask mask() override {
+            return getMask<WindowCloseEvent>();
+        }
+
+        const Window* who() {
+            return who_closed;
+        }
+
+        const Value& signal() {
+            return value;
+        }
+
+        bool happen(Listener* listener) override {
+            return dynamic_cast<WindowEventListener*>(listener)->onWindowClose(*this);
+        }
+
+    private:
+
+        Window* who_closed;
+        Value value;
+    };
 }
 /*============================================================================*/
 #include "Window.ipp"

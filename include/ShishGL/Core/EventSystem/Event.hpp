@@ -5,29 +5,30 @@
 #include <cstdint>
 
 #include "Listener.hpp"
+#include "LogSystem.hpp"
+#include <stdexcept>
 /*============================================================================*/
 namespace Sh {
 
     typedef uint64_t EventMask;
-
-    static constexpr EventMask
-            NONE         = 0ULL,
-            TIMER        = 1ULL << 0ULL,
-            MOUSE_MOVE   = 1ULL << 1ULL,
-            MOUSE_BUTTON = 1ULL << 2ULL,
-            MOUSE_SCROLL = 1ULL << 3ULL,
-            MOUSE        = MOUSE_SCROLL | MOUSE_BUTTON | MOUSE_MOVE,
-            KEYBOARD     = 1ULL << 4ULL,
-            SLIDE        = 1ULL << 5ULL,
-            ALL          = ~NONE;
-
-    /*------------------------------------------------------------------------*/
 
     class Event {
     public:
 
         [[nodiscard]]
         bool isReceived() const;
+
+        template <typename EventType>
+        static uint8_t getId() {
+            static uint8_t ID = getUniqueId();
+            return ID;
+        }
+
+        template <typename EventType>
+        static EventMask getMask() {
+            static EventMask MASK = (1ULL << getId<EventType>());
+            return MASK;
+        }
 
     protected:
 
@@ -43,8 +44,21 @@ namespace Sh {
 
         bool received;
 
+        static uint8_t getUniqueId() {
+
+            static constexpr uint8_t ID_LIMIT = 60;
+            static uint8_t ID = 1;
+
+            if (ID == ID_LIMIT) {
+                throw std::runtime_error("reached limit of event types");
+            }
+
+            return ID++;
+        }
+
         friend class EventSystem;
         friend class EventManager;
+        friend class SubscriptionManager;
     };
 
 }
