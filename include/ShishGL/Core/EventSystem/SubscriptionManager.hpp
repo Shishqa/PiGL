@@ -19,14 +19,10 @@ namespace Sh {
         SubscriptionManager() = delete;
 
         template <typename SomeEvent>
-        static void subscribe(Listener* receiver, Listener* sender) {
-            Subscriptions()[sender][receiver] |= (1UL << Event::getId<SomeEvent>());
-        }
+        static void subscribe(Listener* receiver, Listener* sender);
 
         template <typename SomeEvent>
-        static void unsubscribe(Listener* receiver, Listener* sender) {
-            Subscriptions()[sender][receiver] &= ~(1UL << Event::getId<SomeEvent>());
-        }
+        static void unsubscribe(Listener* receiver, Listener* sender);
 
         static void unsubscribeAll(Listener* sender);
 
@@ -39,7 +35,7 @@ namespace Sh {
     private:
 
         using SubscriptionPool =
-            std::unordered_map<Listener*, std::unordered_map<Listener*, EventMask>>;
+            std::unordered_map<Listener*, std::unordered_map<Listener*, Event::Mask>>;
 
         friend class EventSystem;
 
@@ -47,6 +43,18 @@ namespace Sh {
 
         friend class WindowManager;
     };
+
+    /*------------------------------------------------------------------------*/
+
+    template <typename SomeEvent>
+    void SubscriptionManager::subscribe(Listener* receiver, Listener* sender) {
+        Subscriptions()[sender][receiver] |= (1UL << Event::getId<SomeEvent>());
+    }
+
+    template <typename SomeEvent>
+    void SubscriptionManager::unsubscribe(Listener* receiver, Listener* sender) {
+        Subscriptions()[sender][receiver] &= ~(1UL << Event::getId<SomeEvent>());
+    }
 
 }
 /*============================================================================*/

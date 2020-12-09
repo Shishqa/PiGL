@@ -2,78 +2,132 @@
 #include "Slidable.hpp"
 /*============================================================================*/
 using namespace Sh;
+
 /*============================================================================*/
-//
-//Slidable::Slidable(UIWindow* target, const Segment2<double>& slide)
-//        : Draggable(target)
-//        , slide_seg(slide)
-//        { }
-//
-///*----------------------------------------------------------------------------*/
-//
-//bool Slidable::onMouseMove(MouseEvent &event) {
-//
-//    if (!Draggable::isHeld()) {
-//        return Draggable::onMouseMove(event);
-//    }
-//
-//    slide(event.where() - Draggable::dragPoint(), Mouse::LEFT);
-//
-//    return true;
-//}
-//
-///*----------------------------------------------------------------------------*/
-//
-//void Slidable::slide(double delta) {
-//    slide(-slide_seg.guide(), Mouse::LEFT);
-//    slide(delta * slide_seg.guide(), Mouse::LEFT);
-//}
-//
-//void Slidable::slide(const Vector2<double>& delta, Mouse::Button button) {
-//
-//    bool emulation = false;
-//
-//    Vector2<double> old_pos = target<UIWindow>()->getPos();
-//
-//    if (!Draggable::isHeld()) {
-//        MouseButtonEvent click{old_pos, button, Mouse::DOWN};
-//        onMouseButton(click);
-//        emulation = true;
-//    }
-//
-//    Segment2<double> seg = slide_seg;
-//
-//    auto parent = target<UIWindow>()->getParent();
-//
-//    if (parent) {
-//        seg.begin += parent->getPos();
-//        seg.end   += parent->getPos();
-//    }
-//
-//    Vector2<double> guide = seg.guide();
-//    Vector2<double> delta_proj = delta | guide;
-//
-//    Vector2<double> new_pos = target<UIWindow>()->getPos() + delta_proj;
-//
-//    if (((new_pos - seg.begin) ^ guide) < 0) {
-//
-//        new_pos = seg.begin;
-//
-//    } else if (((new_pos - seg.end) ^ guide) > 0) {
-//
-//        new_pos = seg.end;
-//
-//    }
-//
-//    MouseEvent move{new_pos - old_pos + Draggable::dragPoint()};
-//    Draggable::onMouseMove(move);
-//
-//    onSlide((new_pos - old_pos).length() / guide.length());
-//
-//    if (emulation) {
-//        MouseButtonEvent click{new_pos, button, Mouse::UP};
-//        onMouseButton(click);
-//    }
-//}
+
+Slidable::Slidable(UIWindow *target, const Frame &slide_frame)
+    : Draggable(target), frame(slide_frame), parent_offset({}) {}
+
+void Slidable::onTargetUpdate() {
+    auto parent = target<UIWindow>()->getParent();
+    if (parent) {
+        frame.pos -= parent_offset;
+        parent_offset = parent->getPos();
+        frame.pos += parent_offset;
+    }
+}
+
+bool Slidable::onMouseButton(MouseButtonEvent &event) {
+
+    if (target<UIWindow>()->contains(event.where()) ||
+        event.state() == Mouse::UP) {
+        return
+            Draggable::onMouseButton(event);
+    }
+
+    if (frame.
+        contains(event
+                     .
+
+                         where()
+
+    )) {
+                                    // MESS!
+        slide(
+            event
+                .
+
+                    where()
+
+            -
+            0.5 * target<UIWindow>()->getSize() -
+            target<UIWindow>()->getPos()
+        );
+
+        return true;
+    }
+
+    return false;
+}
+
+bool Slidable::onMouseMove(MouseEvent &event) {
+
+    Holdable::onMouseMove(event);
+
+    if (
+
+        isHeld()
+
+        ) {
+        slide(event
+                  .
+
+                      where()
+
+              -
+
+              dragPoint()
+
+        );
+    }
+
+    return true;
+}
+
+void Slidable::onDrag(const Vector2<double> &) {
+
+    Vector2<double> pos = target<UIWindow>()->getPos();
+    Vector2<double> size = target<UIWindow>()->getSize();
+
+    onSlide(Vector2<double>{
+                (pos.x - frame.pos.x) / (frame.size.x - size.x),
+                (pos.y - frame.pos.y) / (frame.size.y - size.y)
+            }
+    );
+}
+
+void Slidable::set(Vector2<double> pos) {
+
+    if (pos.x < 0) {
+        pos.x = 0;
+    } else if (pos.x > 1) {
+        pos.x = 1;
+    }
+
+    if (pos.y < 0) {
+        pos.y = 0;
+    } else if (pos.y > 1) {
+        pos.y = 1;
+    }
+
+    slide(
+        frame.pos + Vector2<double>{frame.size.x * pos.x, frame.size.y * pos.y} -
+        0.5 * target<UIWindow>()->getSize() - target<UIWindow>()->getPos()
+    );
+
+    n_held = 0;
+}
+
+void Slidable::slide(const Vector2<double> &delta) {
+
+    if (!isHeld()) {
+        ++n_held;
+        drag_point = target<UIWindow>()->getPos() + 0.5 * target<UIWindow>()->getSize();
+    }
+
+    Vector2<double> new_pos = target<UIWindow>()->getPos() + delta;
+    Vector2<double> size = target<UIWindow>()->getSize();
+
+    new_pos.x = std::max(
+        frame.pos.x,
+        std::min(frame.pos.x + frame.size.x - size.x, new_pos.x)
+    );
+    new_pos.y = std::max(
+        frame.pos.y,
+        std::min(frame.pos.y + frame.size.y - size.y, new_pos.y)
+    );
+
+    Draggable::drag(new_pos - target<UIWindow>()->getPos());
+}
 
 /*============================================================================*/

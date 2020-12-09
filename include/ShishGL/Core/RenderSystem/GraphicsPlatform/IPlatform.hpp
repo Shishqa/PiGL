@@ -7,6 +7,7 @@
 #include "Frame.hpp"
 #include "Color.hpp"
 #include "ResourceManager.hpp"
+#include "Text.hpp"
 /*============================================================================*/
 namespace Sh {
 
@@ -80,15 +81,9 @@ namespace Sh {
 
         virtual void setFontSize(const size_t& font_size) = 0;
 
-        enum Align {
-            LEFT,
-            CENTER,
-            RIGHT
-        };
-
         virtual void displayText(const std::string_view& text,
                                  const Frame& frame,
-                                 Align align) = 0;
+                                 Text::Align align) = 0;
         /*--------------------------------------------------------------------*/
 
         virtual ~IPlatform() = default;

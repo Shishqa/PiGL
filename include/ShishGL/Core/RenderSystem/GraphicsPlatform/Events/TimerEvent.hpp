@@ -15,7 +15,7 @@ namespace Sh {
 
         ~TimerEvent() override = default;
 
-        EventMask mask() override {
+        Event::Mask mask() override {
             return getMask<TimerEvent>();
         }
 

@@ -119,4 +119,49 @@ bool Window::contains(const Vector2<double>& point) const {
     return viewport.contains(point);
 }
 
+/*----------------------------------------------------------------------------*/
+
+const std::list<Window*>& Window::getChildren() {
+    return children;
+}
+
+/*============================================================================*/
+
+WindowCloseEvent::WindowCloseEvent(Window* window)
+        : Event()
+        , who_closed(window)
+        { }
+
+/*----------------------------------------------------------------------------*/
+
+WindowCloseEvent::WindowCloseEvent(Window* window, int signal)
+        : Event()
+        , who_closed(window)
+        , value(signal)
+        { }
+
+/*----------------------------------------------------------------------------*/
+
+Event::Mask WindowCloseEvent::mask() {
+    return getMask<WindowCloseEvent>();
+}
+
+/*----------------------------------------------------------------------------*/
+
+const Window* WindowCloseEvent::who() {
+    return who_closed;
+}
+
+/*----------------------------------------------------------------------------*/
+
+const WindowCloseEvent::Value& WindowCloseEvent::signal() {
+    return value;
+}
+
+/*----------------------------------------------------------------------------*/
+
+bool WindowCloseEvent::happen(Listener* listener) {
+    return dynamic_cast<WindowEventListener*>(listener)->onWindowClose(*this);
+}
+
 /*============================================================================*/

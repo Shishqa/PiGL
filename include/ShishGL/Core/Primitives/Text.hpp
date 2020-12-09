@@ -11,6 +11,17 @@ namespace Sh {
 
     using String = std::string;
 
+    class Text {
+    public:
+
+        enum Align {
+            LEFT,
+            CENTER,
+            RIGHT
+        };
+
+    };
+
 }
 /*============================================================================*/
 #endif //SHISHGL_TEXT_HPP

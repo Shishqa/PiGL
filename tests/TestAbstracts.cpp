@@ -96,24 +96,6 @@ int main(int argc, char* argv[]) {
                           "00_ShishGL/tests/assets"
                           );
 
-    printf("%lu %lu %lu %lu %lu "
-           "%lu %lu %lu %lu %lu\n",
-           (1LU << Event::getId<MouseScrollEvent>()),
-           (1LU << Event::getId<MouseScrollEvent>()),
-           (1LU << Event::getId<MouseButtonEvent>()),
-           (1LU << Event::getId<MouseButtonEvent>()),
-           (1LU << Event::getId<MouseEvent>()),
-           (1LU << Event::getId<MouseEvent>()),
-           (1LU << Event::getId<Event>()),
-           (1LU << Event::getId<Event>()),
-           (1LU << Event::getId<TimerEvent>()),
-           (1LU << Event::getId<TimerEvent>())
-           );
-
-
-
-
-
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
     const Vector2<double> tester_size = { 150, 100 };

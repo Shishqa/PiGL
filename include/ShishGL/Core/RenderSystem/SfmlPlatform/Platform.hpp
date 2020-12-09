@@ -91,7 +91,7 @@ namespace Sh {
 
         void displayText(const std::string_view& text,
                          const Frame& frame,
-                         Align align) override;
+                         Text::Align align) override;
         /*--------------------------------------------------------------------*/
 
 

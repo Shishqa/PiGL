@@ -55,10 +55,6 @@ UIDialog::UIDialog(UIWindow* window)
         this, -1
         );
 
-    applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::PINK }
-    );
-
     closer->applyStyle<UIWindow::NORMAL>(
             ColorFill{ Color::RED }
         )
@@ -67,6 +63,10 @@ UIDialog::UIDialog(UIWindow* window)
         )
         ->applyStyle<UIWindow::CLICK>(
             ColorFill{ Color::WHITE }
+        );
+
+    applyStyle<UIWindow::NORMAL>(
+        ColorFill{ Color::DARK_KHAKI }
         );
 
     setBehavior<DialogBehavior>();

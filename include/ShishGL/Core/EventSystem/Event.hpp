@@ -10,25 +10,23 @@
 /*============================================================================*/
 namespace Sh {
 
-    typedef uint64_t EventMask;
-
     class Event {
     public:
+
+        using Mask = uint64_t;
 
         [[nodiscard]]
         bool isReceived() const;
 
         template <typename EventType>
-        static uint8_t getId() {
-            static uint8_t ID = getUniqueId();
-            return ID;
-        }
+        static uint8_t getId();
 
         template <typename EventType>
-        static EventMask getMask() {
-            static EventMask MASK = (1ULL << getId<EventType>());
-            return MASK;
-        }
+        static Mask getMask();
+
+        virtual Mask mask();
+
+        virtual ~Event() = default;
 
     protected:
 
@@ -36,30 +34,30 @@ namespace Sh {
 
         virtual bool happen(Listener* listener) = 0;
 
-        virtual EventMask mask();
-
-        virtual ~Event() = default;
-
     private:
 
         bool received;
 
-        static uint8_t getUniqueId() {
-
-            static constexpr uint8_t ID_LIMIT = 60;
-            static uint8_t ID = 1;
-
-            if (ID == ID_LIMIT) {
-                throw std::runtime_error("reached limit of event types");
-            }
-
-            return ID++;
-        }
+        static uint8_t getUniqueId();
 
         friend class EventSystem;
         friend class EventManager;
         friend class SubscriptionManager;
     };
+
+    /*------------------------------------------------------------------------*/
+
+    template <typename EventType>
+    uint8_t Event::getId() {
+        static uint8_t ID = getUniqueId();
+        return ID;
+    }
+
+    template <typename EventType>
+    Event::Mask Event::getMask() {
+        static Event::Mask MASK = (1ULL << getId<EventType>());
+        return MASK;
+    }
 
 }
 /*============================================================================*/

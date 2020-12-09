@@ -19,8 +19,9 @@ UIFrame::UIFrame(const Frame& frame, double scrollbar_width)
 
 void UIFrame::fit() {
 
-    Vector2<double> min_pos = getPos() - rel_pos;
-    Vector2<double> max_pos = min_pos + max_rel_pos;
+
+    Vector2<double> max_pos = getPos() - rel_pos;
+    Vector2<double> min_pos = max_pos + max_rel_pos;
 
     for (auto &child : getChildren()) {
         min_pos.x = std::min(min_pos.x, child->getPos().x);
@@ -61,7 +62,12 @@ void UIFrame::fit() {
         h_scrollbar->slider->slider->as<FrameScroller>()->set(
             {rel_pos.x / max_rel_pos.x, 0}
             );
+
+    } else {
+        WindowManager::destroy(detach(h_scrollbar));
+        h_scrollbar = nullptr;
     }
+
     if (min_pos.y < max_pos.y) {
 
         WindowManager::destroy(detach(v_scrollbar));
@@ -91,6 +97,9 @@ void UIFrame::fit() {
         v_scrollbar->slider->slider->as<FrameScroller>()->set(
             {0, rel_pos.y / max_rel_pos.y}
         );
+    } else {
+        WindowManager::destroy(detach(v_scrollbar));
+        v_scrollbar = nullptr;
     }
 }
 

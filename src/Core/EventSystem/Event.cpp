@@ -16,8 +16,22 @@ bool Event::isReceived() const {
 
 /*----------------------------------------------------------------------------*/
 
-EventMask Event::mask() {
+Event::Mask Event::mask() {
     return getMask<Event>();
+}
+
+/*----------------------------------------------------------------------------*/
+
+uint8_t Event::getUniqueId() {
+
+    static constexpr uint8_t ID_LIMIT = 60;
+    static uint8_t ID = 1;
+
+    if (ID == ID_LIMIT) {
+        throw std::runtime_error("reached limit of event types");
+    }
+
+    return ID++;
 }
 
 /*============================================================================*/

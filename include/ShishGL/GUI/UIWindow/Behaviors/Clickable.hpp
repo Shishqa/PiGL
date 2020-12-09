@@ -43,7 +43,6 @@ namespace Sh {
     protected:
 
         uint8_t n_held;
-
     };
 
 }

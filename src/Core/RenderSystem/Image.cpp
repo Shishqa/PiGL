@@ -8,11 +8,64 @@
 using namespace Sh;
 /*============================================================================*/
 
-void Image::blendSSE(const Image&) {
+Image::Image(const Vector2<size_t>& size, const Color& color)
+    : img_size(size) {
 
-
+    pixels = new Color[size.x * size.y];
+    fill(color);
 }
 
+/*----------------------------------------------------------------------------*/
+
+Image::~Image() {
+    delete[] pixels;
+}
+
+/*----------------------------------------------------------------------------*/
+
+void Image::fill(const Color& color) {
+    for (size_t i = 0; i < img_size.x * img_size.y; ++i) {
+        pixels[i] = color;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+
+void Image::setPixel(const Vector2<size_t>& pos, const Color& color) {
+    pixels[pos.y * img_size.x + pos.x] = color;
+}
+
+/*----------------------------------------------------------------------------*/
+
+const Color* Image::getPixels() const {
+    return pixels;
+}
+
+/*----------------------------------------------------------------------------*/
+
+uint8_t* Image::getData() const {
+    return reinterpret_cast<uint8_t*>(pixels);
+}
+
+/*----------------------------------------------------------------------------*/
+
+Color Image::getPixel(const Vector2<size_t>& pos) const {
+    return pixels[pos.y * img_size.x + pos.x];
+}
+
+/*----------------------------------------------------------------------------*/
+
+const Vector2<size_t>& Image::size() const {
+    return img_size;
+}
+
+/*----------------------------------------------------------------------------*/
+
+void Image::paste(IPlatform::IContext* context) {
+    context->update(pixels);
+}
+
+/*----------------------------------------------------------------------------*/
 
 void Image::blend(const Image& other) {
 
@@ -22,14 +75,14 @@ void Image::blend(const Image& other) {
     }
 
     const Color* front = other.getPixels();
-    Color* back = pixels.data();
+    Color* back = pixels;
 
     const char X = static_cast<char>(0x80);
     const char F = static_cast<char>(0xFF);
 
     const __m128i C255 = _mm_set_epi8(0, F, 0, F, 0, F, 0, F, 0, F, 0, F, 0, F, 0, F);
 
-    for (size_t i = 0; i < pixels.size(); i += 4) {
+    for (size_t i = 0; i < size().x * size().y; i += 4) {
 
         __m128i front_l = _mm_load_si128(reinterpret_cast<const __m128i*>(front + i));
         __m128i back_l = _mm_load_si128(reinterpret_cast<const __m128i*>(back + i));
@@ -152,7 +205,6 @@ void Image::blend(const Image& other) {
 
         _mm_storeu_si128(reinterpret_cast<__m128i*>(back + i), res);
     }
-
 }
 
 /*============================================================================*/

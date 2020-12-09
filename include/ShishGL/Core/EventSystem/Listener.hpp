@@ -9,7 +9,7 @@ namespace Sh {
 
         virtual ~Listener();
 
-        virtual bool onEvent(class Event*);
+        virtual bool onEvent(class Event&);
 
     protected:
 

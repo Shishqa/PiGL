@@ -12,7 +12,7 @@ namespace Sh {
     public:
 
         UILabel(const Frame& frame, const std::string_view& text,
-                IPlatform::Align align = IPlatform::Align::LEFT)
+                Text::Align align = Text::Align::LEFT)
                 : UIWindow(frame) {
             applyShape<TextShape>(text, align);
         }

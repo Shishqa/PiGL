@@ -44,8 +44,6 @@ void WindowManager::destroy(Window* window) {
         Window* target = to_traverse.front();
         to_traverse.pop();
 
-        printf("to destroy: %s\n", typeid(*target).name());
-
         ToDestroy().insert(target);
 
         for (auto& child : target->children) {
@@ -73,8 +71,6 @@ void WindowManager::clear() {
 void WindowManager::refresh() {
 
     for (auto& window : ToDestroy()) {
-
-        printf("destroying: %s\n", typeid(*window).name());
 
         Pool().erase(window);
         delete window;

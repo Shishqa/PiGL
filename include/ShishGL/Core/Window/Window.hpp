@@ -57,9 +57,7 @@ namespace Sh {
         virtual void translate(const Vector2<double>& delta);
         /*-----------------------------------------------*/
 
-        const std::list<Window*>& getChildren() {
-            return children;
-        }
+        const std::list<Window*>& getChildren();
 
         void fitParent();
 
@@ -74,7 +72,6 @@ namespace Sh {
     private:
 
         void render();
-
 
         friend class WindowManager;
 
@@ -103,38 +100,23 @@ namespace Sh {
 
         using Value = std::optional<int>;
 
-        explicit WindowCloseEvent(Window* window)
-            : Event()
-            , who_closed(window)
-            { }
+        explicit WindowCloseEvent(Window* window);
+        explicit WindowCloseEvent(Window* window, int signal);
 
-        explicit WindowCloseEvent(Window* window, int signal)
-            : Event()
-            , who_closed(window)
-            , value(signal)
-            { }
+        Event::Mask mask() override;
 
-        EventMask mask() override {
-            return getMask<WindowCloseEvent>();
-        }
+        const Window* who();
 
-        const Window* who() {
-            return who_closed;
-        }
+        const Value& signal();
 
-        const Value& signal() {
-            return value;
-        }
-
-        bool happen(Listener* listener) override {
-            return dynamic_cast<WindowEventListener*>(listener)->onWindowClose(*this);
-        }
+        bool happen(Listener* listener) override;
 
     private:
 
         Window* who_closed;
         Value value;
     };
+
 }
 /*============================================================================*/
 #include "Window.ipp"
