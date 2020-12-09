@@ -15,6 +15,8 @@
 #include "GradeCanvas.hpp"
 #include "FpsLabel.hpp"
 
+#include <climits>
+
 using namespace Sh;
 /*============================================================================*/
 
@@ -93,6 +95,24 @@ int main(int argc, char* argv[]) {
                           "/home/shishqa/dev/MIPT/2020_3/"
                           "00_ShishGL/tests/assets"
                           );
+
+    printf("%lu %lu %lu %lu %lu "
+           "%lu %lu %lu %lu %lu\n",
+           (1LU << Event::getId<MouseScrollEvent>()),
+           (1LU << Event::getId<MouseScrollEvent>()),
+           (1LU << Event::getId<MouseButtonEvent>()),
+           (1LU << Event::getId<MouseButtonEvent>()),
+           (1LU << Event::getId<MouseEvent>()),
+           (1LU << Event::getId<MouseEvent>()),
+           (1LU << Event::getId<Event>()),
+           (1LU << Event::getId<Event>()),
+           (1LU << Event::getId<TimerEvent>()),
+           (1LU << Event::getId<TimerEvent>())
+           );
+
+
+
+
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
@@ -209,12 +229,16 @@ int main(int argc, char* argv[]) {
         ColorFill{ Color::WHEAT }
     );
 
-    auto frame = WindowManager::Root()->attach<UIFrame>(
+    auto frame = WindowManager::create<UIFrame>(
         Frame{ {700, 20}, {600, 600} }
         );
     frame->applyStyle<UIWindow::NORMAL>(
             ColorFill{ Color::BLUE }
             );
+
+    auto dialog = WindowManager::Root()->attach<UIDialog>(frame);
+    dialog->setPos({10, 10});
+
 
     WindowManager::Root()->attach<FpsLabel>(
         Frame{ {1500, 20}, {300, 50} }
@@ -241,32 +265,22 @@ int main(int argc, char* argv[]) {
             ColorFill( Color(10, 10, 10) )
         );
 
+    char buffer[PATH_MAX] = "";
 
-    /*
-    WindowManager::Root()->attach<UIButton>(
-            Frame{ {420, 20}, tester_size },
-            "Label", IPlatform::Align::RIGHT
-        )
-        ->applyStyle<UIWindow::NORMAL>(
-            Bordered( 10, Color::YELLOW ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            Bordered( 10, Color::BLANCHED_ALMOND ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::CLICK>(
-            Bordered( 10, Color::GREEN ),
-            ColorFill( Color(10, 10, 10) )
+    auto selector = WindowManager::create<UIFileSelector>(
+        Frame{ {200, 0}, {400, 700} }, buffer, sizeof(buffer)
         );
-    */
 
+    WindowManager::Root()->attach<UIDialog>(selector);
 
     WindowManager::dump("LayoutDump.dot");
     SubscriptionManager::dump("Sub.dot");
 
-    return CoreApplication::run();
+    CoreApplication::run();
 
+    printf("selected file: %s\n", buffer);
+
+    return 0;
 }
 
 /*============================================================================*/

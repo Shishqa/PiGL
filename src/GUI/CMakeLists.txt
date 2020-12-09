@@ -10,6 +10,7 @@ target_include_directories(ShishGL-GUI
 target_sources(ShishGL-GUI
   PUBLIC
     ${INCROOT}/GUI.hpp
+    ${INCROOT}/UIDialog.hpp
     ${INCROOT}/UILabel.hpp
     ${INCROOT}/UICanvas.hpp
     ${INCROOT}/UIButton.hpp
@@ -17,13 +18,13 @@ target_sources(ShishGL-GUI
     ${INCROOT}/UISlider.hpp
     ${INCROOT}/UIScrollbar.hpp
     ${INCROOT}/UIFrame.hpp
-    #${INCROOT}/UISlider2D.hpp
-    #${INCROOT}/UITextInput.hpp
+    ${INCROOT}/UITextInput.hpp
+    ${INCROOT}/UIFileSelector.hpp
   PRIVATE
     UICanvas.cpp
-    #UIScrollbar.cpp
     UIFrame.cpp
-    #UITextInput.cpp
+    UITextInput.cpp
+    UIDialog.cpp
   )
 
 target_link_libraries(ShishGL-GUI

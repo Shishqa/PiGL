@@ -103,6 +103,8 @@ uint8_t CoreApplication::run() {
          */
     }
 
+    WindowManager::dump("LayoutDumpAfter.dot");
+
     terminate();
 
     return 0;

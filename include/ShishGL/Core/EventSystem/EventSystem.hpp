@@ -25,7 +25,6 @@ namespace Sh {
     protected:
 
         EventSystem() = default;
-
     };
 
 }

@@ -27,15 +27,35 @@ Window* WindowManager::Root() {
 /*============================================================================*/
 
 void WindowManager::destroy(Window* window) {
-    if (!window) {
+
+    if (!window || Root() == window) {
         return;
     }
 
-    ToDestroy().insert(window);
-    for (auto& child : window->getChildren()) {
-        destroy(child);
+    std::queue<Window*> to_traverse;
+    to_traverse.push(window);
+
+    if (window->parent) {
+        window->parent->detach(window);
+    }
+
+    while (!to_traverse.empty()) {
+
+        Window* target = to_traverse.front();
+        to_traverse.pop();
+
+        printf("to destroy: %s\n", typeid(*target).name());
+
+        ToDestroy().insert(target);
+
+        for (auto& child : target->children) {
+            to_traverse.push(child);
+        }
+
+        target->children.clear();
     }
 }
+
 
 void WindowManager::init() {
     ROOT = new Window(Frame{ {0, 0}, PLATFORM().getDisplaySize() });
@@ -51,11 +71,16 @@ void WindowManager::clear() {
 /*----------------------------------------------------------------------------*/
 
 void WindowManager::refresh() {
-    for (auto& win : ToDestroy()) {
-        Pool().erase(win);
-        delete win;
+
+    for (auto& window : ToDestroy()) {
+
+        printf("destroying: %s\n", typeid(*window).name());
+
+        Pool().erase(window);
+        delete window;
     }
     ToDestroy().clear();
+
     ROOT->render();
 }
 
@@ -68,7 +93,9 @@ void WindowManager::dump(const std::string_view& file_name) {
     fprintf(file, "digraph {\n"
                   "\tnode [shape=record]\n");
 
-    dump(file, Root());
+    for (auto& win : Pool()) {
+        dump(file, win);
+    }
 
     fprintf(file, "}\n");
 

@@ -26,7 +26,6 @@ namespace Sh {
                        const Color& color = Color::WHITE)
                 : img_size(size) {
             pixels.resize(size.x * size.y, color);
-            //assert(reinterpret_cast<uint64_t>(pixels.data()) % 32 == 0);
         }
 
         void fill(const Color& color) {
@@ -56,6 +55,8 @@ namespace Sh {
         const Vector2<size_t>& size() const {
             return img_size;
         }
+
+        void blendSSE(const Image& other);
 
         void blend(const Image& other);
 

@@ -72,12 +72,35 @@ namespace Sh {
 
         virtual void onSlide(const Vector2<double>&) {}
 
+        void set(Vector2<double> pos) {
+
+            if (pos.x < 0) {
+                pos.x = 0;
+            } else if (pos.x > 1) {
+                pos.x = 1;
+            }
+
+            if (pos.y < 0) {
+                pos.y = 0;
+            } else if (pos.y > 1) {
+                pos.y = 1;
+            }
+
+            slide(
+                frame.pos + Vector2<double>{frame.size.x * pos.x, frame.size.y * pos.y} -
+                0.5 * target<UIWindow>()->getSize() - target<UIWindow>()->getPos()
+            );
+
+            n_held = 0;
+        }
+
     protected:
 
         void slide(const Vector2<double>& delta) {
 
             if (!isHeld()) {
                 ++n_held;
+                drag_point = target<UIWindow>()->getPos() + 0.5 * target<UIWindow>()->getSize();
             }
 
             Vector2<double> new_pos = target<UIWindow>()->getPos() + delta;

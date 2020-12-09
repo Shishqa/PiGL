@@ -14,6 +14,14 @@ Window::Window(const Frame& frame)
     fitParent();
 }
 
+Window::~Window() {
+    /*
+    for (auto& child : children) {
+        WindowManager::destroy(child);
+    }
+     */
+}
+
 /*----------------------------------------------------------------------------*/
 
 const Window* Window::getParent() const {
@@ -83,7 +91,7 @@ Window* Window::detach(Window* child) {
 
 void Window::setPos(const Vector2<double>& pos) {
 
-    Vector2<double> old_pos = pos;
+    Vector2<double> old_pos = getPos();
 
     frame.pos = pos;
     fitParent();

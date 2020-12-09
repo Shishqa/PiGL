@@ -17,7 +17,7 @@ namespace Sh {
         ~MouseEvent() override = default;
 
         EventMask mask() override {
-            return MOUSE_MOVE;
+            return getMask<MouseEvent>();
         }
 
         [[nodiscard]]
@@ -45,7 +45,7 @@ namespace Sh {
         ~MouseButtonEvent() override = default;
 
         EventMask mask() override {
-            return MOUSE_BUTTON;
+            return getMask<MouseButtonEvent>();
         }
 
         [[nodiscard]]
@@ -75,7 +75,7 @@ namespace Sh {
         ~MouseScrollEvent() override = default;
 
         EventMask mask() override {
-            return MOUSE_SCROLL;
+            return getMask<MouseScrollEvent>();
         }
 
         [[nodiscard]]

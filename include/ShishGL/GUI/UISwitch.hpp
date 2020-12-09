@@ -17,14 +17,22 @@ namespace Sh {
 
         void reactOnRelease(MouseButtonEvent& event) override {
             if (!turned_on) {
-                turned_on = true;
-                target<UIWindow>()->setState(UIWindow::SELECTED);
-                onSelect();
+                select();
             } else {
-                turned_on = false;
-                target<UIWindow>()->setState(UIWindow::NORMAL);
-                onDeselect();
+                deselect();
             }
+        }
+
+        void select() {
+            turned_on = true;
+            target<UIWindow>()->setState(UIWindow::SELECTED);
+            onSelect();
+        }
+
+        void deselect() {
+            turned_on = false;
+            target<UIWindow>()->setState(UIWindow::NORMAL);
+            onDeselect();
         }
 
         virtual void onSelect() { }

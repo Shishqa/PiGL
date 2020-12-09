@@ -18,7 +18,7 @@ namespace Sh {
         ~KeyboardEvent() override = default;
 
         EventMask mask() override {
-            return KEYBOARD;
+            return getMask<KeyboardEvent>();
         }
 
         [[nodiscard]]

@@ -9,6 +9,8 @@ namespace Sh {
 
         virtual ~Listener();
 
+        virtual bool onEvent(class Event*);
+
     protected:
 
         friend class Event;

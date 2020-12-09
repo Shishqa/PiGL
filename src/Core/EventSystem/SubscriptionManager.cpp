@@ -15,25 +15,8 @@ SubscriptionManager::SubscriptionPool& SubscriptionManager::Subscriptions() {
 
 /*----------------------------------------------------------------------------*/
 
-void SubscriptionManager::subscribe(Listener* receiver, Listener* sender,
-                                    EventMask mask) {
-
-    assert(receiver);
-
-    Subscriptions()[sender][receiver] |= mask;
-}
-
-/*----------------------------------------------------------------------------*/
-
-void SubscriptionManager::unsubscribe(Listener* receiver, Listener* sender,
-                                      EventMask mask) {
-    Subscriptions()[sender][receiver] &= ~mask;
-}
-
-/*----------------------------------------------------------------------------*/
-
 void SubscriptionManager::unsubscribeAll(Listener* sender) {
-    Subscriptions()[sender].clear();
+    Subscriptions().erase(sender);
 }
 
 /*----------------------------------------------------------------------------*/

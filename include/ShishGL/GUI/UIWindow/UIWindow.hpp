@@ -56,9 +56,9 @@ namespace Sh {
             notifyBehavior();
         }
 
-        [[nodiscard]]
-        Behavior* getBehavior() const {
-            return behavior;
+        template <typename SomeBehavior>
+        [[nodiscard]] SomeBehavior* as() const {
+            return dynamic_cast<SomeBehavior*>(behavior);
         }
 
         ~UIWindow() override;
@@ -93,7 +93,6 @@ namespace Sh {
         Behavior* behavior;
 
         friend class WindowManager;
-
     };
 
 }

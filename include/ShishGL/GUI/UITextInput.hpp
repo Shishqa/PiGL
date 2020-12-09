@@ -19,8 +19,7 @@ namespace Sh {
                 , buf(input_buf)
                 , buf_size(input_buf_size)
                 , curr_pos(0) {
-           SubscriptionManager::subscribe(this, EventSystem::SystemEvents,
-                                          KEYBOARD);
+            SubscriptionManager::subscribe<KeyboardEvent>(this, EventSystem::SystemEvents);
         }
 
         void reactOnPress(MouseButtonEvent&) override {
@@ -78,7 +77,7 @@ namespace Sh {
 
         UITextInput(const Frame& frame, char* buffer, size_t buffer_size)
                 : UILabel(frame, std::string_view(buffer, buffer_size)) {
-            addBehavior<TextField>(buffer, buffer_size);
+            setBehavior<TextField>(buffer, buffer_size);
         }
 
     };

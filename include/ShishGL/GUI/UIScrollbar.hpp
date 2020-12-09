@@ -18,11 +18,13 @@ namespace Sh {
 
         bool onMouseScroll(MouseScrollEvent& event) override {
 
+            static constexpr double SCROLL_BOOST = 10;
+
             if (event.type() == Mouse::VERTICAL) {
-                slide(Vector2<double>{0, event.delta()});
+                slide(Vector2<double>{0, SCROLL_BOOST * event.delta()});
                 Holdable::n_held = 0;
             } else {
-                slide(Vector2<double>{event.delta(), 0});
+                slide(Vector2<double>{SCROLL_BOOST * event.delta(), 0});
                 Holdable::n_held = 0;
             }
 
@@ -88,8 +90,10 @@ namespace Sh {
                 slide_len * slider_size_ratio, std::forward<Args>(args)...
                 );
 
-            SubscriptionManager::subscribe(slider->slider->getBehavior(), up_button, MOUSE_SCROLL);
-            SubscriptionManager::subscribe(slider->slider->getBehavior(), down_button, MOUSE_SCROLL);
+            SubscriptionManager::subscribe<MouseScrollEvent>(
+                slider->slider->template as<Behavior>(), up_button);
+            SubscriptionManager::subscribe<MouseScrollEvent>(
+                slider->slider->template as<Behavior>(), down_button);
         }
 
         UIWindow* up_button;
@@ -126,8 +130,10 @@ namespace Sh {
                 slide_len * slider_size_ratio, std::forward<Args>(args)...
             );
 
-            SubscriptionManager::subscribe(slider->slider->getBehavior(), left_button, MOUSE_SCROLL);
-            SubscriptionManager::subscribe(slider->slider->getBehavior(), right_button, MOUSE_SCROLL);
+            SubscriptionManager::subscribe<MouseScrollEvent>(
+                slider->slider->template as<Behavior>(), left_button);
+            SubscriptionManager::subscribe<MouseScrollEvent>(
+                slider->slider->template as<Behavior>(), right_button);
         }
 
         UIWindow* left_button;

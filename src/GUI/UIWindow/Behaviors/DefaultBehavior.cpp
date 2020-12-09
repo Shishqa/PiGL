@@ -9,7 +9,7 @@ using namespace Sh;
 
 DefaultBehavior::DefaultBehavior(UIWindow* target)
         : Behavior(target) {
-    SubscriptionManager::subscribe(this, EventSystem::SystemEvents, MOUSE_MOVE);
+    SubscriptionManager::subscribe<MouseEvent>(this, EventSystem::SystemEvents);
 }
 
 /*----------------------------------------------------------------------------*/

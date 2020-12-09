@@ -1,10 +1,18 @@
 /*============================================================================*/
 #include <immintrin.h>
+#include <nmmintrin.h>
+#include <emmintrin.h>
 
 #include "Image.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
+
+void Image::blendSSE(const Image&) {
+
+
+}
+
 
 void Image::blend(const Image& other) {
 
@@ -77,20 +85,18 @@ void Image::blend(const Image& other) {
          *                 ---------------------------------------------------------------
          */
 
+        __m128i alpha_mask = _mm_set_epi8(X,14,X,14,X,14,X,14,X,6,X,6,X,6,X,6);
 
-        __m128i shuffle_alpha_mask = _mm_set_epi8(X, 14, X, 14, X, 14, X, 14,
-                                                  X, 6, X, 6, X, 6, X, 6);
-
-        __m128i alpha_l = _mm_shuffle_epi8(front_l, shuffle_alpha_mask);
-        __m128i alpha_h = _mm_shuffle_epi8(front_h, shuffle_alpha_mask);
+        __m128i front_alpha_l = _mm_shuffle_epi8(front_l, alpha_mask);
+        __m128i front_alpha_h = _mm_shuffle_epi8(front_h, alpha_mask);
 
         //==========================================================================================================
 
-        front_l = _mm_mullo_epi16(front_l, alpha_l);
-        front_h = _mm_mullo_epi16(front_h, alpha_h);                     // front *= alpha
+        front_l = _mm_mullo_epi16(front_l, front_alpha_l);
+        front_h = _mm_mullo_epi16(front_h, front_alpha_h); // front *= alpha
 
-        back_l = _mm_mullo_epi16(back_l, _mm_sub_epi16(C255, alpha_l));
-        back_h = _mm_mullo_epi16(back_h, _mm_sub_epi16(C255, alpha_h));  // back *= (255 - alpha)
+        back_l = _mm_mullo_epi16(back_l, _mm_sub_epi16(C255, front_alpha_l));
+        back_h = _mm_mullo_epi16(back_h, _mm_sub_epi16(C255, front_alpha_h));  // back *= (255 - alpha)
 
         __m128i sum_l = _mm_add_epi16(front_l, back_l);
         __m128i sum_h = _mm_add_epi16(front_h, back_h);                  // sum = front + back
