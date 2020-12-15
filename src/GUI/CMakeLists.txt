@@ -18,6 +18,7 @@ target_sources(ShishGL-GUI
     ${INCROOT}/UISlider.hpp
     ${INCROOT}/UIScrollbar.hpp
     ${INCROOT}/UIFrame.hpp
+    ${INCROOT}/UISelectList.hpp
     ${INCROOT}/UITextInput.hpp
     ${INCROOT}/UIFileSelector.hpp
   PRIVATE

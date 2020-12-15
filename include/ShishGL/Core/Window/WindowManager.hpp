@@ -21,7 +21,7 @@ namespace Sh {
         template <typename SomeWindow, typename... Args>
         static SomeWindow* create(Args&&... args);
 
-        static void destroy(Window* window);
+        static void destroy(Window* window, int signal = -1);
 
         static Window* Root();
 

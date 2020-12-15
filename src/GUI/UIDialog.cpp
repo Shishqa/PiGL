@@ -31,7 +31,7 @@ WindowCloser::WindowCloser(UIWindow* target, Window* close_target, int signal)
         { }
 
 void WindowCloser::reactOnRelease(MouseButtonEvent&) {
-    WindowManager::destroy(to_close);
+    WindowManager::destroy(to_close, to_send);
     EventSystem::sendEvent<WindowCloseEvent>(to_close, to_close, to_send);
 }
 
@@ -66,7 +66,7 @@ UIDialog::UIDialog(UIWindow* window)
         );
 
     applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::DARK_KHAKI }
+        ColorFill{ Color::THISTLE }
         );
 
     setBehavior<DialogBehavior>();

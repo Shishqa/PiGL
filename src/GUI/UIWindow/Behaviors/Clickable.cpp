@@ -37,11 +37,11 @@ bool Clickable::onMouseButton(MouseButtonEvent& event) {
         target<UIWindow>()->setState(UIWindow::HOVER);
         reactOnRelease(event);
 
-    } else {
-        if (target<UIWindow>()->getState() != UIWindow::SELECTED) {
-            target<UIWindow>()->setState(UIWindow::NORMAL);
-        }
+    } else if (target<UIWindow>()->getState() != UIWindow::SELECTED) {
+
+        target<UIWindow>()->setState(UIWindow::NORMAL);
     }
+
 
     return true;
 }
