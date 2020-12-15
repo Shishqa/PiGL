@@ -32,7 +32,9 @@ namespace Sh {
 
         Event();
 
-        virtual bool happen(Listener* listener) = 0;
+        virtual bool happen(Listener* listener) {
+            return listener->onEvent(*this);
+        }
 
     private:
 

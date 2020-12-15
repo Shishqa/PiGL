@@ -2,8 +2,8 @@
 #include "CoreApplication.hpp"
 #include "RectangleShape.hpp"
 #include "CircleShape.hpp"
+#include "SubscriptionManager.hpp"
 #include "WindowManager.hpp"
-#include "UILabel.hpp"
 //#include "WindowTypes.hpp"
 #include "Clickable.hpp"
 //#include "CursorLocator.hpp"
@@ -87,6 +87,24 @@ private:
 
 };
 
+class TestFileSave : public Listener {
+public:
+
+    bool onEvent(Event& event) override {
+
+        if (event.mask() == Event::getMask<FileSelectEvent>()) {
+
+            auto file_select = dynamic_cast<FileSelectEvent&>(event);
+
+            std::cout << "selected " << file_select.file() << "\n";
+
+            return true;
+        }
+
+        return false;
+    }
+
+};
 
 /*============================================================================*/
 int main(int argc, char* argv[]) {
@@ -247,11 +265,13 @@ int main(int argc, char* argv[]) {
             ColorFill( Color(10, 10, 10) )
         );
 
-    char buffer[PATH_MAX] = "";
+    TestFileSave tester;
 
     auto selector = WindowManager::create<UIFileSelector>(
-        Frame{ {200, 0}, {400, 700} }, buffer, sizeof(buffer)
+        Frame{ {800, 200}, {800, 700} }
         );
+
+    SubscriptionManager::subscribe<FileSelectEvent>(&tester, selector);
 
     WindowManager::Root()->attach<UIDialog>(selector);
 
@@ -259,8 +279,6 @@ int main(int argc, char* argv[]) {
     SubscriptionManager::dump("Sub.dot");
 
     CoreApplication::run();
-
-    printf("selected file: %s\n", buffer);
 
     return 0;
 }

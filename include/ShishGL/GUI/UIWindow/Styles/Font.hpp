@@ -44,6 +44,56 @@ namespace Sh {
 
     };
 
+    class Label : public Style {
+    public:
+
+        explicit Label(const std::string_view& label, const Color& font_color,
+                       size_t font_size, Text::Align frame_align)
+            : text(label)
+            , color(font_color)
+            , size(font_size)
+            , align(frame_align)
+            { }
+
+        void apply(Frame& viewport, const Shape2D&) override {
+            PLATFORM().setFontSize(size);
+            PLATFORM().setColor(color);
+            PLATFORM().displayText(text, viewport, align);
+        }
+
+    private:
+
+        std::string_view text;
+        Color color;
+        size_t size;
+        Text::Align align;
+    };
+
+    class StaticLabel : public Style {
+    public:
+
+        explicit StaticLabel(const std::string_view& label, const Color& font_color,
+                       size_t font_size, Text::Align frame_align)
+            : text(label)
+            , color(font_color)
+            , size(font_size)
+            , align(frame_align)
+        { }
+
+        void apply(Frame& viewport, const Shape2D&) override {
+            PLATFORM().setFontSize(size);
+            PLATFORM().setColor(color);
+            PLATFORM().displayText(text, viewport, align);
+        }
+
+    private:
+
+        std::string text;
+        Color color;
+        size_t size;
+        Text::Align align;
+    };
+
 }
 /*============================================================================*/
 #endif //SHISHGL_FONT_HPP

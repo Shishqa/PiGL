@@ -19,7 +19,6 @@ UIFrame::UIFrame(const Frame& frame, double scrollbar_width)
 
 void UIFrame::fit() {
 
-
     Vector2<double> max_pos = getPos() - rel_pos;
     Vector2<double> min_pos = max_pos + max_rel_pos;
 

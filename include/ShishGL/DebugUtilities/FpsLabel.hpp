@@ -2,18 +2,20 @@
 #ifndef SHISHGL_FPS_LABEL_HPP
 #define SHISHGL_FPS_LABEL_HPP
 /*============================================================================*/
-#include "UILabel.hpp"
 #include "Time.hpp"
 /*============================================================================*/
 namespace Sh {
 
-    class FpsLabel : public UILabel {
+    class FpsLabel : public UIWindow {
     public:
 
         explicit FpsLabel(const Frame& frame)
-            : UILabel(frame, std::string_view(fps_buf, sizeof(fps_buf) - 1))
+            : UIWindow(frame)
             , frames_count(0) {
             timer.reset();
+            applyStyle<UIWindow::NORMAL>(
+                Label(std::string_view(fps_buf, sizeof(fps_buf)), Color::MAGENTA, 30, Text::Align::LEFT)
+                );
         }
 
         void onRender() override {
@@ -32,7 +34,6 @@ namespace Sh {
                 ++frames_count;
             }
 
-            UILabel::onRender();
         }
 
     private:
@@ -41,7 +42,6 @@ namespace Sh {
 
         Timer timer;
         size_t frames_count;
-
     };
 
 }

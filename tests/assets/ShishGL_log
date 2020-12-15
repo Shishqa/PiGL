@@ -1,16 +1,16 @@
 
 ======================[ ShishGL Log Session ]======================
-[           1627] : Initializing RenderSystem...
-[          21974] : Initializing platform
-[          35173] : SFML platform is now active
-[      215004423] : Platform initialized
-[      215055755] : RenderSystem initialized
-[      216056428] : Started run session
-[     5607996955] : Terminating Core...
-[     5608019616] : Flushing unused events...
-[     5608025727] : Events flushed
-[     5608029533] : Terminating platform...
-[     5609822775] : Platform terminated
-[     5609941484] : Core terminated
+[            981] : Initializing RenderSystem...
+[          19650] : Initializing platform
+[          41346] : SFML platform is now active
+[       79134718] : Platform initialized
+[       79168124] : RenderSystem initialized
+[       81255444] : Started run session
+[    13741551979] : Terminating Core...
+[    13741578464] : Flushing unused events...
+[    13741584926] : Events flushed
+[    13741589178] : Terminating platform...
+[    13743876300] : Platform terminated
+[    13743970310] : Core terminated
 ====================================================================
 

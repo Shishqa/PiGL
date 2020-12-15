@@ -10,7 +10,6 @@
 #include "UIScrollbar.hpp"
 #include "UICanvas.hpp"
 #include "UIFrame.hpp"
-#include "UILabel.hpp"
 #include "UITextInput.hpp"
 #include "UIDialog.hpp"
 #include "UIFileSelector.hpp"

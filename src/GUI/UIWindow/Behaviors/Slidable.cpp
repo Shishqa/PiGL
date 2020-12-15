@@ -100,9 +100,12 @@ void Slidable::set(Vector2<double> pos) {
         pos.y = 1;
     }
 
+    Vector2<double> size = target<UIWindow>()->getSize();
+
     slide(
-        frame.pos + Vector2<double>{frame.size.x * pos.x, frame.size.y * pos.y} -
-        0.5 * target<UIWindow>()->getSize() - target<UIWindow>()->getPos()
+        frame.pos + Vector2<double>{(frame.size.x - size.x) * pos.x,
+                                    (frame.size.y - size.y) * pos.y} -
+        target<UIWindow>()->getPos()
     );
 
     n_held = 0;

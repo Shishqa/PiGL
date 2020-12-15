@@ -4,21 +4,19 @@
 /*============================================================================*/
 #include <cctype>
 
-#include "UILabel.hpp"
 #include "Clickable.hpp"
 #include "KeyboardEvent.hpp"
+#include "Styles.hpp"
 /*============================================================================*/
 namespace Sh {
 
     class TextField : public Clickable {
     public:
 
-        explicit TextField(UIWindow* target, char* input_buf,
-                           size_t input_buf_size)
-                : Clickable(target)
-                , buf(input_buf)
-                , buf_size(input_buf_size)
-                , curr_pos(0) {
+        explicit TextField(UIWindow* target, std::string& buf)
+        : Clickable(target)
+        , buffer(buf)
+        , curr_pos(0) {
             SubscriptionManager::subscribe<KeyboardEvent>(this, EventSystem::SystemEvents);
         }
 
@@ -36,7 +34,7 @@ namespace Sh {
                 return false;
             }
 
-            if (curr_pos < buf_size && Keyboard::isConvertible(event.key())) {
+            if (curr_pos < buffer.size() && Keyboard::isConvertible(event.key())) {
 
                 char to_set = Keyboard::convertToChar(event.key());
 
@@ -44,19 +42,15 @@ namespace Sh {
                     to_set = static_cast<char>(toupper(to_set));
                 }
 
-                buf[curr_pos++] = to_set;
+                buffer[curr_pos++] = to_set;
                 return true;
 
             } else if (event.key() == Keyboard::BACKSPACE) {
 
                 if (curr_pos) {
-                    buf[--curr_pos] = 0;
+                    buffer[--curr_pos] = 0;
                 }
                 return true;
-
-            } else if (curr_pos < buf_size) {
-
-                buf[curr_pos++] = '*';
 
             }
 
@@ -65,22 +59,35 @@ namespace Sh {
 
     private:
 
-        char* buf;
-        size_t buf_size;
+        std::string& buffer;
         size_t curr_pos;
 
         static UIWindow* curr_active;
     };
 
-    class UITextInput : public UILabel {
+    class BufferedTextField : public TextField {
     public:
 
-        UITextInput(const Frame& frame, char* buffer, size_t buffer_size)
-                : UILabel(frame, std::string_view(buffer, buffer_size)) {
-            setBehavior<TextField>(buffer, buffer_size);
+        explicit BufferedTextField(UIWindow* target, size_t max_buf_size)
+                : TextField(target, buffer) {
+            buffer.resize(max_buf_size);
         }
 
+        [[nodiscard]]
+        const std::string& getBuffer() const {
+            return buffer;
+        }
+
+        void setBuffer(const std::string_view& new_buffer) {
+            buffer = new_buffer;
+        }
+
+    private:
+
+        std::string buffer;
     };
+
+
 
 }
 /*============================================================================*/

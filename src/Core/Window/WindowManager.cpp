@@ -26,7 +26,7 @@ Window* WindowManager::Root() {
 
 /*============================================================================*/
 
-void WindowManager::destroy(Window* window) {
+void WindowManager::destroy(Window* window, int signal) {
 
     if (!window || Root() == window) {
         return;
@@ -45,6 +45,7 @@ void WindowManager::destroy(Window* window) {
         to_traverse.pop();
 
         ToDestroy().insert(target);
+        target->onClose(signal);
 
         for (auto& child : target->children) {
             to_traverse.push(child);
