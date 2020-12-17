@@ -1,18 +1,21 @@
-add_library(ShishGL-GraphicsPlatform INTERFACE)
+add_library(ShishGL-GraphicsPlatform)
 
 set(INCROOT ${ShishGL_SOURCE_DIR}/include/ShishGL/Core/RenderSystem/GraphicsPlatform)
 
 target_include_directories(ShishGL-GraphicsPlatform
-  INTERFACE
+  PUBLIC
     ${INCROOT})
 
 target_sources(ShishGL-GraphicsPlatform
-  INTERFACE
+  PUBLIC
     ${INCROOT}/IPlatform.hpp
+    ${INCROOT}/Image.hpp
+  PRIVATE
+    Image.cpp
   )
 
 target_link_libraries(ShishGL-GraphicsPlatform
-  INTERFACE
+  PUBLIC
     ShishGL-Primitives
     ShishGL-LogSystem
     ShishGL-ResourceManager
@@ -21,7 +24,7 @@ target_link_libraries(ShishGL-GraphicsPlatform
   )
 
 target_compile_features(ShishGL-GraphicsPlatform
-  INTERFACE
+  PUBLIC
     cxx_std_17
   )
 

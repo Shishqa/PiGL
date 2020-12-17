@@ -17,14 +17,43 @@ namespace Sh {
     public:
 
         enum States {
-            NORMAL,
-            HOVER,
-            CLICK,
-            HOLD,
-            SELECTED
+            NORMAL   = 1UL << 0,
+            HOVER    = 1UL << 1,
+            CLICK    = 1UL << 2,
+            HOLD     = 1UL << 3,
+            SELECTED = 1UL << 4,
+            ALL      = (1UL << 5) - 1
         };
 
-        template <int SomeState, typename... Args>
+        class StylePack {
+        public:
+
+            template <typename... Args>
+            explicit StylePack(Args&&... args);
+
+            ~StylePack();
+
+            template <typename SomeStyle, typename... Args>
+            void add(SomeStyle&& style, uint64_t mask,
+                     Args&&... args);
+
+            void add() {};
+
+            struct MaskedStyle {
+
+                MaskedStyle(Style* impl, uint64_t m)
+                    : style(impl)
+                    , mask(m)
+                    { }
+
+                Style* style;
+                uint64_t mask;
+            };
+
+            std::vector<MaskedStyle> styles;
+        };
+
+        template <typename... Args>
         UIWindow* applyStyle(Args&&... args);
 
         template <typename SomeShape, typename... Args>
@@ -69,9 +98,7 @@ namespace Sh {
 
         void onRender() override;
 
-        using StyleMap = std::unordered_map<int, StylePack>;
-
-        StyleMap& styles();
+        StylePack& styles();
 
         [[nodiscard]]
         const Shape2D& shape() const;
@@ -86,7 +113,7 @@ namespace Sh {
 
         int state;
 
-        StyleMap style_map; // TODO: style set + mask
+        StylePack style_pack;
 
         Shape2D* shape_impl;
 

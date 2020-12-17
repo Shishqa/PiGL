@@ -39,6 +39,8 @@ namespace Sh {
 
         Window* detach(Window* child);
 
+        void destroyChildren();
+
         /*-----------------------------------------------*/
         [[nodiscard]]
         const Frame& getFrame() const;

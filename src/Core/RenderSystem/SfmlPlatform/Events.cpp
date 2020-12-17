@@ -101,9 +101,14 @@ bool pollKeyboard(const sf::Event& sf_event) {
     } else if (sf_event.key.code == sf::Keyboard::BackSpace) {
 
         key = Keyboard::Key::BACKSPACE;
-        /* todo: handle others */
+
+    } else if (sf_event.key.code == sf::Keyboard::Period) {
+
+        key = Keyboard::Key::DOT;
 
     }
+
+    /* todo: handle others */
 
     Keyboard::KeyState state = Keyboard::DOWN;
     if (sf_event.type == sf::Event::KeyPressed) {

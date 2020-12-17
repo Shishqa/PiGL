@@ -6,9 +6,9 @@
 /*============================================================================*/
 namespace Sh {
 
-    template <int SomeState, typename... Args>
+    template <typename... Args>
     UIWindow* UIWindow::applyStyle(Args&&... args) {
-        style_map[SomeState].add(std::forward<Args>(args)...);
+        style_pack.template add(std::forward<Args>(args)...);
         return this;
     }
 
@@ -29,6 +29,21 @@ namespace Sh {
         delete behavior;
         behavior = new SomeBehavior(this, std::forward<Args>(args)...);
         return this;
+    }
+
+    /*------------------------------------------------------------------------*/
+
+    template <typename... Args>
+    UIWindow::StylePack::StylePack(Args&&... args) {
+        add(std::forward<Args>(args)...);
+    }
+
+    template <typename SomeStyle, typename... Args>
+    void UIWindow::StylePack::add(SomeStyle&& style, uint64_t mask,
+                                  Args&&... args) {
+        auto new_style = new SomeStyle(std::forward<SomeStyle>(style));
+        styles.push_back(MaskedStyle{new_style, mask});
+        add(std::forward<Args>(args)...);
     }
 
 }

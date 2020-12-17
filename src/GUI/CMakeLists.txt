@@ -11,7 +11,6 @@ target_sources(ShishGL-GUI
   PUBLIC
     ${INCROOT}/GUI.hpp
     ${INCROOT}/UIDialog.hpp
-    ${INCROOT}/UILabel.hpp
     ${INCROOT}/UICanvas.hpp
     ${INCROOT}/UIButton.hpp
     ${INCROOT}/UISwitch.hpp

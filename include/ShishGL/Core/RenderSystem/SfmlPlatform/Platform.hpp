@@ -40,10 +40,14 @@ namespace Sh {
 
             explicit SfmlContext(const std::string_view& filename);
 
+            Vector2<size_t> getSize() override;
+
             void update(const Color* data) override;
 
             void updateAt(const Vector2<size_t>& pos,
                           const Color& color) override;
+
+            void paste(class Image &image) override;
 
             ~SfmlContext() override = default;
 

@@ -96,8 +96,6 @@ public:
 
             auto file_select = dynamic_cast<FileSelectEvent&>(event);
 
-            std::cout << "selected " << file_select.file() << "\n";
-
             return true;
         }
 
@@ -121,119 +119,96 @@ int main(int argc, char* argv[]) {
     WindowManager::Root()->attach<UIButton<ClickTester>>(
             Frame{ {20, 20}, tester_size }
             )
-        ->applyStyle<UIWindow::NORMAL>(
-            Bordered( 10, Color::YELLOW ),
-            ColorFill( Color(10, 10, 10) )
-            )
-        ->applyStyle<UIWindow::HOVER>(
-            Bordered( 10, Color::BLANCHED_ALMOND ),
-            ColorFill( Color(10, 10, 10) )
-            )
-        ->applyStyle<UIWindow::CLICK>(
-            Bordered( 10, Color::GREEN ),
-            ColorFill( Color(10, 10, 10) )
+        ->applyStyle(
+            Bordered( 10, Color::YELLOW ), UIWindow::NORMAL,
+            Bordered( 10, Color::BLANCHED_ALMOND ), UIWindow::HOVER,
+            Bordered( 10, Color::GREEN ), UIWindow::CLICK,
+            ColorFill( Color(10, 10, 10) ), UIWindow::ALL
             );
 
     WindowManager::Root()->attach<UIButton<SwitchTester>>(
             Frame{ {220, 20}, tester_size }
         )
-        ->applyStyle<UIWindow::NORMAL>(
-            Bordered( 10, Color::YELLOW ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            Bordered( 10, Color::BLANCHED_ALMOND ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::CLICK>(
-            Bordered( 10, Color::GREEN ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::SELECTED>(
-            Bordered( 10, Color::BLUE ),
-            ColorFill( Color(10, 10, 10) )
+        ->applyStyle(
+            Bordered( 10, Color::YELLOW ), UIWindow::NORMAL,
+            Bordered( 10, Color::BLANCHED_ALMOND ), UIWindow::HOVER,
+            Bordered( 10, Color::GREEN ), UIWindow::CLICK,
+            Bordered( 10, Color::BLUE ), UIWindow::SELECTED,
+            ColorFill( Color(10, 10, 10) ), UIWindow::ALL
         );
 
     auto h_slider = WindowManager::Root()->attach<UIHorizontalSlider<SlideTester>>(
         Frame{ {420, 20}, tester_size }, 30
         );
-    h_slider->applyStyle<UIWindow::NORMAL>(
-                ColorFill( Color::WHITE )
+    h_slider->applyStyle(
+                ColorFill( Color::WHITE ), UIWindow::ALL
             );
-    h_slider->slider->applyStyle<UIWindow::NORMAL>(
-            ColorFill{ Color::DARK_OLIVE_GREEN }
+    h_slider->slider->applyStyle(
+            ColorFill{ Color::DARK_OLIVE_GREEN }, UIWindow::ALL
         );
 
     auto v_slider = WindowManager::Root()->attach<UIVerticalSlider<SlideTester>>(
         Frame{ {20, 220}, {tester_size.y / 2, tester_size.x} }, 30
     );
-    v_slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill( Color::WHITE )
+    v_slider->applyStyle(
+        ColorFill( Color::WHITE ), UIWindow::ALL
     );
-    v_slider->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::DARK_OLIVE_GREEN }
+    v_slider->slider->applyStyle(
+        ColorFill{ Color::DARK_OLIVE_GREEN }, UIWindow::ALL
     );
 
     auto f_slider = WindowManager::Root()->attach<UIFreeSlider<SlideTester>>(
         Frame{ {220, 220}, {tester_size.x, tester_size.x} },
         Vector2<double>{30, 30}
     );
-    f_slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill( Color::WHITE )
+    f_slider->applyStyle(
+        ColorFill( Color::WHITE ), UIWindow::ALL
     );
-    f_slider->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::DARK_OLIVE_GREEN }
+    f_slider->slider->applyStyle(
+        ColorFill{ Color::DARK_OLIVE_GREEN }, UIWindow::ALL
     );
 
     auto v_sb = WindowManager::Root()->attach<UIVerticalScrollbar<SlideTester>>(
         Frame{ {120, 220}, {tester_size.y / 5, tester_size.x} }, 30
     );
-    v_sb->up_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill( Color::WHITE )
-            )
-        ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::GREEN }
+    v_sb->up_button->applyStyle(
+            ColorFill( Color::WHITE ), UIWindow::NORMAL,
+            ColorFill( Color::GREEN ), UIWindow::HOVER
             );
-    v_sb->down_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill( Color::WHITE )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::GREEN }
+    v_sb->down_button->applyStyle(
+        ColorFill( Color::WHITE ), UIWindow::NORMAL,
+        ColorFill( Color::GREEN ), UIWindow::HOVER
         );
-    v_sb->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::DARK_OLIVE_GREEN }
+    v_sb->slider->applyStyle(
+        ColorFill{ Color::DARK_OLIVE_GREEN }, UIWindow::ALL
         );
-    v_sb->slider->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::WHEAT }
+    v_sb->slider->slider->applyStyle(
+        ColorFill{ Color::WHEAT }, UIWindow::ALL
         );
 
     auto h_sb = WindowManager::Root()->attach<UIHorizontalScrollbar<SlideTester>>(
         Frame{ {20, 400}, {600, 30} }, 30
     );
-    h_sb->left_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill( Color::WHITE )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::GREEN }
+    h_sb->left_button->applyStyle(
+            ColorFill( Color::WHITE ), UIWindow::NORMAL,
+            ColorFill( Color::GREEN ), UIWindow::HOVER
         );
-    h_sb->right_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill( Color::WHITE )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::GREEN }
+    h_sb->right_button->applyStyle(
+        ColorFill( Color::WHITE ), UIWindow::NORMAL,
+        ColorFill( Color::GREEN ), UIWindow::HOVER
         );
-    h_sb->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::DARK_OLIVE_GREEN }
+    h_sb->slider->applyStyle(
+        ColorFill{ Color::DARK_OLIVE_GREEN }, UIWindow::ALL
     );
-    h_sb->slider->slider->applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::WHEAT }
+    h_sb->slider->slider->applyStyle(
+        ColorFill{ Color::WHEAT }, UIWindow::ALL
     );
 
     auto frame = WindowManager::create<UIFrame>(
         Frame{ {700, 20}, {600, 600} }
         );
-    frame->applyStyle<UIWindow::NORMAL>(
-            ColorFill{ Color::BLUE }
+    frame->applyStyle(
+            ColorFill{ Color::BLUE }, UIWindow::ALL
             );
 
     auto dialog = WindowManager::Root()->attach<UIDialog>(frame);
@@ -242,33 +217,23 @@ int main(int argc, char* argv[]) {
 
     WindowManager::Root()->attach<FpsLabel>(
         Frame{ {1500, 20}, {300, 50} }
-        )
-        ->applyStyle<UIWindow::NORMAL>(
-            FontSize{ 20 },
-            ColorFill{ Color::MAGENTA }
-            );
+        );
 
     WindowManager::Root()->attach<UIButton<FrameExpander>>(
             Frame{ {700, 700}, tester_size },
             frame
         )
-        ->applyStyle<UIWindow::NORMAL>(
-            Bordered( 10, Color::YELLOW ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            Bordered( 10, Color::BLANCHED_ALMOND ),
-            ColorFill( Color(10, 10, 10) )
-        )
-        ->applyStyle<UIWindow::CLICK>(
-            Bordered( 10, Color::GREEN ),
-            ColorFill( Color(10, 10, 10) )
+        ->applyStyle(
+            Bordered( 10, Color::YELLOW ), UIWindow::NORMAL,
+            Bordered( 10, Color::BLANCHED_ALMOND ), UIWindow::HOVER,
+            Bordered( 10, Color::GREEN ), UIWindow::CLICK,
+            ColorFill( Color(10, 10, 10) ), UIWindow::ALL
         );
 
     TestFileSave tester;
 
     auto selector = WindowManager::create<UIFileSelector>(
-        Frame{ {800, 200}, {800, 700} }
+        Frame{ {800, 200}, {800, 700} }, "hello", "/"
         );
 
     SubscriptionManager::subscribe<FileSelectEvent>(&tester, selector);

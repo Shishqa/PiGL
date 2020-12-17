@@ -7,6 +7,7 @@
 #include "CoreApplication.hpp"
 #include "WindowManager.hpp"
 #include "TimerEvent.hpp"
+#include "SubscriptionManager.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
@@ -28,6 +29,8 @@ bool CoreApplication::init(int *argc_ptr, char **argv,
 
     LogSystem::openLog();
     LogSystem::printLog("Initializing RenderSystem...");
+
+    SubscriptionManager::init();
 
     RenderSystem::init(argc_ptr, argv);
     WindowManager::init();

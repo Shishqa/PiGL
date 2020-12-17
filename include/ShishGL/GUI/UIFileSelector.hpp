@@ -8,6 +8,7 @@
 #include "Behaviors.hpp"
 #include "UIDialog.hpp"
 #include "UISelectList.hpp"
+#include "UITextInput.hpp"
 
 #include <filesystem>
 #include <string>
@@ -36,6 +37,8 @@ namespace Sh {
         std::string_view path;
     };
 
+    /*------------------------------------------------------------------------*/
+
     class MoveDirEvent : public Event {
     public:
 
@@ -44,6 +47,8 @@ namespace Sh {
         }
 
     };
+
+    /*------------------------------------------------------------------------*/
 
     class UpMover : public Clickable {
     public:
@@ -86,15 +91,13 @@ namespace Sh {
                     Frame{ {0, bt_height * curr_entry}, {getSize().x, bt_height} },
                     curr_entry
                     );
-                button->applyStyle<UIWindow::NORMAL>(
-                        ColorFill{Color(40, 40, 40)},
-                        StaticLabel(p.path().filename().string(), Color::BLACK, 20, Text::Align::LEFT)
-                    )
-                    ->applyStyle<UIWindow::HOVER>(
-                        ColorFill{Color(150, 150, 150)}
-                        );
 
-                std::cout << button->as<Selectable>() << "\n";
+                button->applyStyle(
+                    ColorFill{Color(150, 150, 150)}, UIWindow::NORMAL,
+                    ColorFill{Color(170, 170, 170)}, UIWindow::HOVER,
+                    StaticLabel(p.path().filename().string(),
+                                Color::BLACK, 20, Text::Align::LEFT), UIWindow::ALL
+                );
 
                 SubscriptionManager::subscribe<UISelectEvent>(this, button);
                 SubscriptionManager::subscribe<UIChooseEvent>(this, button);
@@ -112,16 +115,12 @@ namespace Sh {
             for (auto& p : std::filesystem::directory_iterator(current_dir)) {
                 if (curr_entry == option) {
 
-                    if (!p.is_directory()) {
-                        EventSystem::sendEvent<FileSelectEvent>(this, p.path().filename().string());
-                    }
+                    EventSystem::sendEvent<FileSelectEvent>(this, p.path().string());
 
                     break;
                 }
                 ++curr_entry;
             }
-
-            std::cout << "selected " << option << "\n";
         }
 
         void onChoose(int option) override {
@@ -139,7 +138,6 @@ namespace Sh {
                 }
                 ++curr_entry;
             }
-            std::cout << "chosen " << option << "\n";
         }
 
         void moveUp() {
@@ -168,22 +166,20 @@ namespace Sh {
         static constexpr Vector2<double> BUTTON_SIZE = {100, 30};
         static constexpr double PADDING = 5;
 
-        explicit UIFileSelector(const Frame& frame)
+        explicit UIFileSelector(const Frame& frame, const std::string_view& functional_label,
+                                std::filesystem::path&& initial_path)
                 : UIWindow(frame) {
 
-            applyStyle<UIWindow::NORMAL>(
-                ColorFill{ Color(140, 140, 140) }
-                );
+            applyStyle(ColorFill{ Color(140, 140, 140) }, UIWindow::ALL);
 
             auto up_mover = attach<UIButton<UpMover>>(
                 Frame{ {PADDING, PADDING}, {BUTTON_SIZE.y, BUTTON_SIZE.y} }
             );
 
-            up_mover->applyStyle<UIWindow::NORMAL>(
-                    ColorFill(Color::MAGENTA)
-                )
-                ->applyStyle<UIWindow::HOVER>(
-                    ColorFill(Color::WHITE)
+            up_mover->applyStyle(
+                    ColorFill(Color::GRAY), UIWindow::NORMAL,
+                    ColorFill(Color::WHITE), UIWindow::HOVER,
+                    TextureFill("./textures/ui/up-arrow.png"), UIWindow::ALL
                 );
 
             SubscriptionManager::subscribe<MoveDirEvent>(this, up_mover);
@@ -192,13 +188,13 @@ namespace Sh {
                 Frame{ {PADDING, BUTTON_SIZE.y + 2 * PADDING},
                        {frame.size.x - 2 * PADDING,
                         frame.size.y - 3 * BUTTON_SIZE.y - 5 * PADDING} },
-                "/home/shishqa/.config/"
+                std::move(initial_path)
                 );
             file_list->update();
 
             SubscriptionManager::subscribe<FileSelectEvent>(this, file_list);
 
-            auto save_btn = attach<UIButton<WindowCloser>>(
+            auto agree_btn = attach<UIButton<WindowCloser>>(
                 Frame{
                     {
                         frame.size.x - 2 * BUTTON_SIZE.x - 2 * PADDING,
@@ -209,13 +205,11 @@ namespace Sh {
                 this, SELECTED
                 );
 
-            save_btn->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::GRAY},
-                    StaticLabel("Save", Color::BLACK, 25, Text::Align::CENTER)
-                )
-                ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{Color::WHITE},
-                    StaticLabel("Save", Color::GREY, 25, Text::Align::CENTER)
+            agree_btn->applyStyle(
+                    ColorFill{Color::GRAY}, UIWindow::NORMAL,
+                    ColorFill{Color::WHITE}, UIWindow::HOVER,
+                    StaticLabel(functional_label, Color::BLACK,
+                                20, Text::Align::CENTER), UIWindow::ALL
                 );
 
             auto cancel_btn = attach<UIButton<WindowCloser>>(
@@ -228,28 +222,37 @@ namespace Sh {
                 },
                 this, CANCEL
             );
+            cancel_btn->applyStyle(
+                ColorFill{Color::GRAY}, UIWindow::NORMAL,
+                ColorFill{Color::WHITE}, UIWindow::HOVER,
+                StaticLabel("Cancel", Color::BLACK,
+                            20, Text::Align::CENTER), UIWindow::ALL
+            );
 
-            cancel_btn->applyStyle<UIWindow::NORMAL>(
-                    ColorFill{Color::GRAY},
-                    StaticLabel("Cancel", Color::BLACK, 30, Text::Align::CENTER)
+            const double LABEL_WIDTH = 70;
+
+            attach<UIWindow>(
+                Frame{
+                    {PADDING, frame.size.y - 2 * BUTTON_SIZE.y - 2 * PADDING},
+                    {LABEL_WIDTH, BUTTON_SIZE.y}
+                }
                 )
-                ->applyStyle<UIWindow::HOVER>(
-                    ColorFill{Color::WHITE},
-                    StaticLabel("Cancel", Color::GREY, 30, Text::Align::CENTER)
-                );
+                ->applyStyle(
+                    StaticLabel("Path: ", Color::BLACK, 20, Text::Align::RIGHT), UIWindow::ALL
+                    );
 
             input_box = attach<UIWindow>(
                 Frame{
-                    {PADDING, frame.size.y - 2 * BUTTON_SIZE.y - 2 * PADDING},
-                    {frame.size.x - 2 * PADDING, BUTTON_SIZE.y}
+                    {LABEL_WIDTH + 2 * PADDING, frame.size.y - 2 * BUTTON_SIZE.y - 2 * PADDING},
+                    {frame.size.x - 3 * PADDING, BUTTON_SIZE.y}
                 }
                 );
 
             input_box->setBehavior<BufferedTextField>(PATH_MAX);
-            input_box->applyStyle<UIWindow::NORMAL>(
-                ColorFill(Color(240, 240, 180)),
+            input_box->applyStyle(
+                ColorFill(Color(240, 240, 180)), UIWindow::ALL,
                 Label(input_box->as<BufferedTextField>()->getBuffer(),
-                      Color::BLACK, 25, Text::Align::LEFT)
+                      Color::BLACK, 25, Text::Align::LEFT), UIWindow::ALL
                 );
         }
 

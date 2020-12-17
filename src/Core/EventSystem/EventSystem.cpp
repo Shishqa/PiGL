@@ -22,6 +22,8 @@ bool EventSystem::sendEvent(Listener* sender, Event& event) {
 
 bool EventSystem::dispatchAll() {
 
+    SubscriptionManager::update();
+
     bool status = false;
 
     while (!EventManager::Events().empty()) {

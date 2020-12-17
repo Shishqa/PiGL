@@ -6,7 +6,13 @@ using namespace Sh;
 /*============================================================================*/
 
 Slidable::Slidable(UIWindow *target, const Frame &slide_frame)
-    : Draggable(target), frame(slide_frame), parent_offset({}) {}
+    : Draggable(target), frame(slide_frame), parent_offset({}) {
+
+    if (target->getParent()) {
+        parent_offset = target->getParent()->getPos();
+        frame.pos += parent_offset;
+    }
+}
 
 void Slidable::onTargetUpdate() {
     auto parent = target<UIWindow>()->getParent();
@@ -75,15 +81,18 @@ bool Slidable::onMouseMove(MouseEvent &event) {
 }
 
 void Slidable::onDrag(const Vector2<double> &) {
+    onSlide(get());
+}
+
+Vector2<double> Slidable::get() const {
 
     Vector2<double> pos = target<UIWindow>()->getPos();
     Vector2<double> size = target<UIWindow>()->getSize();
 
-    onSlide(Vector2<double>{
-                (pos.x - frame.pos.x) / (frame.size.x - size.x),
-                (pos.y - frame.pos.y) / (frame.size.y - size.y)
-            }
-    );
+    return Vector2<double>{
+        (pos.x - frame.pos.x) / (frame.size.x - size.x),
+        (pos.y - frame.pos.y) / (frame.size.y - size.y)
+    };
 }
 
 void Slidable::set(Vector2<double> pos) {

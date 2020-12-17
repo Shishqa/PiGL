@@ -41,17 +41,17 @@ void UIFrame::fit() {
                   {getSize().x - sb_width, sb_width}},
             getSize().x / (max_rel_pos.x + getSize().x), this
         );
-        h_scrollbar->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 100}}
+        h_scrollbar->applyStyle(
+            ColorFill{Color{40, 40, 40, 100}}, UIWindow::ALL
         );
-        h_scrollbar->left_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 140}}
+        h_scrollbar->left_button->applyStyle(
+            ColorFill{Color{40, 40, 40, 140}}, UIWindow::ALL
         );
-        h_scrollbar->right_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 140}}
+        h_scrollbar->right_button->applyStyle(
+            ColorFill{Color{40, 40, 40, 140}}, UIWindow::ALL
         );
-        h_scrollbar->slider->slider->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BLANCHED_ALMOND}
+        h_scrollbar->slider->slider->applyStyle(
+            ColorFill{Color::BLANCHED_ALMOND}, UIWindow::ALL
         );
 
         SubscriptionManager::subscribe<MouseScrollEvent>(
@@ -76,17 +76,17 @@ void UIFrame::fit() {
                   {sb_width,               getSize().y}},
             (getSize().y) / (max_rel_pos.y + getSize().y), this
         );
-        v_scrollbar->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 100}}
+        v_scrollbar->applyStyle(
+            ColorFill{Color{40, 40, 40, 100}}, UIWindow::ALL
         );
-        v_scrollbar->up_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 140}}
+        v_scrollbar->up_button->applyStyle(
+            ColorFill{Color{40, 40, 40, 140}}, UIWindow::ALL
         );
-        v_scrollbar->down_button->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color{40, 40, 40, 140}}
+        v_scrollbar->down_button->applyStyle(
+            ColorFill{Color{40, 40, 40, 140}}, UIWindow::ALL
         );
-        v_scrollbar->slider->slider->applyStyle<UIWindow::NORMAL>(
-            ColorFill{Color::BLANCHED_ALMOND}
+        v_scrollbar->slider->slider->applyStyle(
+            ColorFill{Color::BLANCHED_ALMOND}, UIWindow::ALL
         );
 
         SubscriptionManager::subscribe<MouseScrollEvent>(

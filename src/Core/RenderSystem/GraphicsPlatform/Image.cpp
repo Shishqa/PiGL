@@ -23,6 +23,17 @@ Image::~Image() {
 
 /*----------------------------------------------------------------------------*/
 
+void Image::resize(const Vector2<size_t>& new_size,
+                   const Color& color) {
+    delete[] pixels;
+    img_size = new_size;
+
+    pixels = new Color[img_size.x * img_size.y];
+    fill(color);
+}
+
+/*----------------------------------------------------------------------------*/
+
 void Image::fill(const Color& color) {
     for (size_t i = 0; i < img_size.x * img_size.y; ++i) {
         pixels[i] = color;

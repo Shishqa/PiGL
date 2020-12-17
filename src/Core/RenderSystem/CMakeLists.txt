@@ -10,10 +10,8 @@ target_include_directories(ShishGL-RenderSystem
 target_sources(ShishGL-RenderSystem
   PUBLIC
     ${INCROOT}/RenderSystem.hpp
-    ${INCROOT}/Image.hpp
   PRIVATE
     RenderSystem.cpp
-    Image.cpp
   )
 
 target_link_libraries(ShishGL-RenderSystem

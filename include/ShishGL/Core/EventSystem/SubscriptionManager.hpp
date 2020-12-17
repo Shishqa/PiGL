@@ -6,17 +6,36 @@
 #include <string_view>
 #include <unordered_map>
 #include <unordered_set>
+#include <stack>
 
 #include "Listener.hpp"
 #include "Event.hpp"
 /*============================================================================*/
 namespace Sh {
 
-
     class SubscriptionManager {
+    private:
+
+        using SubscriptionSpace =
+        std::unordered_map<Listener*, std::unordered_map<Listener*, Event::Mask>>;
+
+        using SubscriptionPool = std::stack<SubscriptionSpace>;
+
     public:
 
         SubscriptionManager() = delete;
+
+        static void init();
+
+        static void update();
+
+        /*--------------------------------------------------------------------*/
+
+        static void addSubscriptionSpace();
+
+        static void removeSubscriptionSpace();
+
+        /*--------------------------------------------------------------------*/
 
         template <typename SomeEvent>
         static void subscribe(Listener* receiver, Listener* sender);
@@ -34,12 +53,16 @@ namespace Sh {
 
     private:
 
-        using SubscriptionPool =
-            std::unordered_map<Listener*, std::unordered_map<Listener*, Event::Mask>>;
-
         friend class EventSystem;
 
-        static SubscriptionPool& Subscriptions();
+        static SubscriptionSpace& Subscriptions();
+
+        static SubscriptionPool& SubscriptionSpaces();
+
+        static size_t& ToDelete() {
+            static size_t TO_DELETE = 0;
+            return TO_DELETE;
+        }
 
         friend class WindowManager;
     };
