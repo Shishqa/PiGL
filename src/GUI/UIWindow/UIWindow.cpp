@@ -1,14 +1,24 @@
 /*============================================================================*/
 #include "UIWindow.hpp"
 #include "RectangleShape.hpp"
+
+#include <iostream>
 /*============================================================================*/
 using namespace Sh;
+/*============================================================================*/
+
+UIWindow::StylePack::~StylePack() {
+    for (auto& style : styles) {
+        delete style.style;
+    }
+}
+
 /*============================================================================*/
 
 UIWindow::UIWindow(const Frame& viewport)
         : Window(viewport)
         , state(NORMAL)
-        , style_map({})
+        , style_pack()
         , shape_impl(nullptr)
         , behavior(nullptr) {
     applyShape<RectangleShape>();
@@ -27,8 +37,8 @@ const Shape2D& UIWindow::shape() const {
     return *shape_impl;
 }
 
-UIWindow::StyleMap& UIWindow::styles() {
-    return style_map;
+UIWindow::StylePack& UIWindow::styles() {
+    return style_pack;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -48,13 +58,12 @@ void UIWindow::onRender() {
     Window::onRender();
 
     Frame frame = getFrame();
-
-    for (int st = getState(); st >= NORMAL; --st) {
-        if (styles().count(st)) {
-            styles()[st].apply(frame, shape());
-            break;
+    for (auto& style : style_pack.styles) {
+        if (style.mask & getState()) {
+            style.style->apply(frame, shape());
         }
     }
+
 }
 
 /*----------------------------------------------------------------------------*/

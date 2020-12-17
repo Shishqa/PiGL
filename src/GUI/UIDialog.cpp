@@ -55,19 +55,13 @@ UIDialog::UIDialog(UIWindow* window)
         this, -1
         );
 
-    closer->applyStyle<UIWindow::NORMAL>(
-            ColorFill{ Color::RED }
-        )
-        ->applyStyle<UIWindow::HOVER>(
-            ColorFill{ Color::PALE_GREEN }
-        )
-        ->applyStyle<UIWindow::CLICK>(
-            ColorFill{ Color::WHITE }
-        );
+    closer->applyStyle(
+            ColorFill{ Color::RED },        UIWindow::NORMAL,
+            ColorFill{ Color::PALE_GREEN }, UIWindow::HOVER,
+            ColorFill{ Color::WHITE },      UIWindow::CLICK
+    );
 
-    applyStyle<UIWindow::NORMAL>(
-        ColorFill{ Color::THISTLE }
-        );
+    applyStyle(ColorFill{ Color::THISTLE }, UIWindow::ALL);
 
     setBehavior<DialogBehavior>();
 

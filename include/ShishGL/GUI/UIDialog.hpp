@@ -55,6 +55,16 @@ namespace Sh {
 
     };
 
+    template <typename SomeWindow, typename... Args>
+    SomeWindow* SPAWN_DIALOG(Args&&... args) {
+
+        auto win = WindowManager::create<SomeWindow>(std::forward<Args>(args)...);
+
+        WindowManager::Root()->template attach<UIDialog>(win);
+
+        return win;
+    }
+
 }
 /*============================================================================*/
 #endif //SHISHGL_UIDIALOG_HPP

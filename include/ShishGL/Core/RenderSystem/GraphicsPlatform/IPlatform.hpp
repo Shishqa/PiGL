@@ -35,10 +35,14 @@ namespace Sh {
 
             IContext() = default;
 
+            virtual Vector2<size_t> getSize() = 0;
+
             virtual void update(const Color* data) = 0;
 
             virtual void updateAt(const Vector2<size_t>& pos,
                                   const Color& color) = 0;
+
+            virtual void paste(class Image& image) = 0;
 
             virtual ~IContext() = default;
 

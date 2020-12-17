@@ -1,6 +1,5 @@
 /*============================================================================*/
 #include <queue>
-#include <cassert>
 
 #include "SubscriptionManager.hpp"
 #include "EventSystem.hpp"
@@ -8,9 +7,36 @@
 using namespace Sh;
 /*============================================================================*/
 
-SubscriptionManager::SubscriptionPool& SubscriptionManager::Subscriptions() {
+void SubscriptionManager::init() {
+    SubscriptionSpaces().emplace();
+}
+
+void SubscriptionManager::update() {
+    while (ToDelete() && SubscriptionSpaces().size() > 1) {
+        SubscriptionSpaces().pop();
+        ToDelete()--;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+
+SubscriptionManager::SubscriptionSpace& SubscriptionManager::Subscriptions() {
+    return SubscriptionSpaces().top();
+}
+
+SubscriptionManager::SubscriptionPool& SubscriptionManager::SubscriptionSpaces() {
     static SubscriptionPool POOL;
     return POOL;
+}
+
+/*----------------------------------------------------------------------------*/
+
+void SubscriptionManager::addSubscriptionSpace() {
+    SubscriptionSpaces().emplace();
+}
+
+void SubscriptionManager::removeSubscriptionSpace() {
+    ToDelete()++;
 }
 
 /*----------------------------------------------------------------------------*/

@@ -3,6 +3,8 @@
 #include "WindowManager.hpp"
 #include "LogSystem.hpp"
 #include "RenderSystem.hpp"
+
+#include <iostream>
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
@@ -43,10 +45,15 @@ const Vector2<double>& Window::getPos() const {
 /*============================================================================*/
 
 void Window::setParent(Window* new_parent) {
-    parent = new_parent;
-    if (parent) {
-        translate(parent->getPos());
+
+    if (parent && new_parent) {
+        translate(new_parent->getPos() - parent->getPos());
+    } else if (new_parent) {
+        translate(new_parent->getPos());
     }
+
+    parent = new_parent;
+
     fitParent();
 }
 
@@ -85,6 +92,16 @@ Window* Window::detach(Window* child) {
         child->setParent(nullptr);
     }
     return child;
+}
+
+void Window::destroyChildren() {
+    std::unordered_set<Sh::Window*> to_destroy;
+    for (auto& child : getChildren()) {
+        to_destroy.insert(child);
+    }
+    for (auto& child : to_destroy) {
+        Sh::WindowManager::destroy(detach(child));
+    }
 }
 
 /*----------------------------------------------------------------------------*/

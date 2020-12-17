@@ -25,6 +25,9 @@ namespace Sh {
 
         void set(Vector2<double> pos);
 
+        [[nodiscard]]
+        Vector2<double> get() const;
+
     protected:
 
         void slide(const Vector2<double> &delta);

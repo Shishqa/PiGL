@@ -13,7 +13,6 @@
 #include "Color.hpp"
 #include "Vector2.hpp"
 #include "IPlatform.hpp"
-#include "RenderSystem.hpp"
 /*============================================================================*/
 namespace Sh {
 
@@ -26,6 +25,9 @@ namespace Sh {
                        const Color& color = Color::WHITE);
 
         ~Image();
+
+        void resize(const Vector2<size_t>& new_size,
+                    const Color& color = Color::WHITE);
 
         void fill(const Color& color);
 

@@ -1,6 +1,7 @@
 /*============================================================================*/
 #include "LogSystem.hpp"
 #include "Platform.hpp"
+#include "Image.hpp"
 /*============================================================================*/
 using namespace Sh;
 /*============================================================================*/
@@ -20,6 +21,11 @@ SfmlPlatform::SfmlContext::SfmlContext(const std::string_view& filename) {
     texture.loadFromFile(filename.data());
 }
 
+Vector2<size_t> SfmlPlatform::SfmlContext::getSize() {
+    return Vector2<size_t>{texture.getSize().x,
+                           texture.getSize().y};
+}
+
 void SfmlPlatform::SfmlContext::update(const Color* data) {
     texture.update(reinterpret_cast<const uint8_t*>(data));
 }
@@ -30,6 +36,23 @@ void SfmlPlatform::SfmlContext::updateAt(const Vector2<size_t>& pos,
                    1, 1, static_cast<uint32_t>(pos.x),
                    static_cast<uint32_t>(pos.y));
 }
+
+void SfmlPlatform::SfmlContext::paste(Image& image) {
+
+    auto sf_image = texture.copyToImage();
+    image.resize({sf_image.getSize().x, sf_image.getSize().y});
+
+    for (size_t x = 0; x < sf_image.getSize().x; ++x) {
+        for (size_t y = 0; y < sf_image.getSize().y; ++y) {
+            sf::Color sf_color = sf_image.getPixel(x, y);
+            image.setPixel({x, y}, Color(sf_color.r, sf_color.g,
+                                         sf_color.b, sf_color.a));
+        }
+    }
+}
+
+
+/*----------------------------------------------------------------------------*/
 
 IPlatform::IContext* SfmlPlatform::createContext(const Vector2<size_t>& size,
                                                  const Color& color) {
@@ -239,7 +262,7 @@ void SfmlPlatform::setFontSize(const size_t& font_sz) {
 void SfmlPlatform::displayText(const std::string_view& text,
                                const Frame& frame,
                                Text::Align align) {
-
+#ifndef NO_SFML_TEXT
     if (!active_font) {
         return;
     }
@@ -284,8 +307,8 @@ void SfmlPlatform::displayText(const std::string_view& text,
         );
     }
 
-
     canvas->draw(display_text);
+#endif
 }
 
 /*============================================================================*/

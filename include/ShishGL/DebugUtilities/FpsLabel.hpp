@@ -13,8 +13,8 @@ namespace Sh {
             : UIWindow(frame)
             , frames_count(0) {
             timer.reset();
-            applyStyle<UIWindow::NORMAL>(
-                Label(std::string_view(fps_buf, sizeof(fps_buf)), Color::MAGENTA, 30, Text::Align::LEFT)
+            applyStyle(
+                Label(std::string_view(fps_buf, sizeof(fps_buf)), Color::MAGENTA, 15, Text::Align::LEFT), UIWindow::ALL
                 );
         }
 
@@ -34,6 +34,7 @@ namespace Sh {
                 ++frames_count;
             }
 
+            UIWindow::onRender();
         }
 
     private:

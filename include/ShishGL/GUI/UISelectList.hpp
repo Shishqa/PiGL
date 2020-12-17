@@ -96,8 +96,8 @@ namespace Sh {
     class UISelectList : public UIFrame {
     public:
 
-        explicit UISelectList(const Frame& frame)
-                : UIFrame(frame)
+        explicit UISelectList(const Frame& frame, double sb_width = 5)
+                : UIFrame(frame, sb_width)
                 { }
 
         virtual void update() {
@@ -105,8 +105,6 @@ namespace Sh {
         }
 
         bool onEvent(Event& event) override {
-
-            std::cout << "got event\n";
 
             if (event.mask() == Event::getMask<UISelectEvent>()) {
 
