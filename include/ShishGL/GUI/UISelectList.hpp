@@ -126,9 +126,9 @@ namespace Sh {
             return false;
         }
 
-        virtual void onSelect(int option) { }
+        virtual void onSelect(int) { }
 
-        virtual void onChoose(int option) { }
+        virtual void onChoose(int) { }
     };
 
 

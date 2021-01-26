@@ -15,7 +15,7 @@ namespace Sh {
                 , turned_on(turned)
                 { }
 
-        void reactOnRelease(MouseButtonEvent& event) override {
+        void reactOnRelease(MouseButtonEvent&) override {
             if (!turned_on) {
                 select();
             } else {
