@@ -69,7 +69,7 @@ public:
             , fr(frame)
             { }
 
-    void reactOnRelease(MouseButtonEvent& event) override {
+    void reactOnRelease(MouseButtonEvent&) override {
 
         static double cnt = 0;
 

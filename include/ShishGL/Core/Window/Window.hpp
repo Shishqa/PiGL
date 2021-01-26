@@ -69,7 +69,7 @@ namespace Sh {
 
         virtual void onRender();
 
-        virtual void onClose(int signal) { }
+        virtual void onClose(int) { }
 
         virtual void setParent(Window* new_parent);
 
