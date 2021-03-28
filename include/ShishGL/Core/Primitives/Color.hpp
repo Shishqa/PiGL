@@ -2,6 +2,7 @@
 #ifndef SHISHGL_COLOR_HPP
 #define SHISHGL_COLOR_HPP
 /*============================================================================*/
+#include <bits/stdint-uintn.h>
 #include <cstdint>
 /*============================================================================*/
 namespace Sh {
@@ -11,6 +12,10 @@ namespace Sh {
         Color() = default;
 
         Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255);
+
+        uint32_t operator&(uint32_t other) {
+          return *reinterpret_cast<const uint32_t*>(this) & other;
+        }
 
         uint8_t r, g, b, a;
 

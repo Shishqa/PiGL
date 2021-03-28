@@ -108,8 +108,7 @@ public:
 int main(int argc, char* argv[]) {
 
     CoreApplication::init(&argc, argv,
-                          "/home/shishqa/dev/MIPT/2020_3/"
-                          "00_ShishGL/tests/assets"
+                          "./tests/assets/"
                           );
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
