@@ -18,14 +18,12 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     -O3 \
     -Wno-unused-parameter \
     -msse4.2 \
-    -march=native \
   ")
 
   set(DEBUG_FLAGS " \
     -g \
     -O3 \
     -msse4.2 \
-    -march=native \
     -Wconversion \
     -Wlogical-op \
     -Wshift-overflow=2 \
@@ -48,7 +46,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   if (MSVC)
     add_compile_options(/W3 /WX)
   else()
-    add_compile_options(-W -Wall -Wextra -Wpedantic -Werror -pedantic-errors)
+    add_compile_options(-W -Wall -Wextra -Wpedantic)
   endif()
 
   set_property(GLOBAL PROPERTY USE_FOLDERS ON)
