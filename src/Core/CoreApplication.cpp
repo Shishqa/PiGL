@@ -1,5 +1,6 @@
 /*============================================================================*/
 #include <unistd.h>
+#include <filesystem>
 
 #include "LogSystem.hpp"
 #include "EventSystem.hpp"
@@ -23,9 +24,7 @@ bool CoreApplication::init(int *argc_ptr, char **argv,
         return false;
     }
 
-    if (-1 == chdir(runtime_dir)) {
-        return false;
-    }
+    std::filesystem::current_path(runtime_dir);
 
     LogSystem::openLog();
     LogSystem::printLog("Initializing RenderSystem...");

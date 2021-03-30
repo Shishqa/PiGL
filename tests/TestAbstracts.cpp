@@ -16,6 +16,7 @@
 #include "FpsLabel.hpp"
 
 #include <climits>
+#include <cassert>
 
 using namespace Sh;
 /*============================================================================*/
@@ -107,9 +108,7 @@ public:
 /*============================================================================*/
 int main(int argc, char* argv[]) {
 
-    CoreApplication::init(&argc, argv,
-                          "./tests/assets/"
-                          );
+    assert(CoreApplication::init(&argc, argv, "./tests/assets/"));
 
     PLATFORM().setFont(ResourceManager::get("fonts/FiraCode-Regular.ttf"));
 
