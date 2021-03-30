@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ShishGL/Core/LogSystem/LogSystem.hpp
+cstdio
+-
+cstdarg
+-
+Time.hpp
+../include/ShishGL/Core/LogSystem/Time.hpp
+
+../include/ShishGL/Core/Primitives/Time.hpp
+chrono
+-
+
+/home/shishqa/dev/ShishGL/src/Core/LogSystem/LogSystem.cpp
+cstdio
+-
+cstdarg
+-
+cstring
+-
+Time.hpp
+/home/shishqa/dev/ShishGL/src/Core/LogSystem/Time.hpp
+LogSystem.hpp
+/home/shishqa/dev/ShishGL/src/Core/LogSystem/LogSystem.hpp
+

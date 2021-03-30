@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ShishGL/Core/ResourceManager/ResourceManager.hpp
+cstdint
+-
+string_view
+-
+unordered_map
+-
+
+/home/shishqa/dev/ShishGL/src/Core/ResourceManager/ResourceManager.cpp
+cstdio
+-
+cstdlib
+-
+unistd.h
+-
+sys/mman.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+ResourceManager.hpp
+/home/shishqa/dev/ShishGL/src/Core/ResourceManager/ResourceManager.hpp
+

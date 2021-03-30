@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ShishGL/Core/Primitives/Color.hpp
+bits/stdint-uintn.h
+-
+cstdint
+-
+
+/home/shishqa/dev/ShishGL/src/Core/Primitives/Color.cpp
+Color.hpp
+/home/shishqa/dev/ShishGL/src/Core/Primitives/Color.hpp
+

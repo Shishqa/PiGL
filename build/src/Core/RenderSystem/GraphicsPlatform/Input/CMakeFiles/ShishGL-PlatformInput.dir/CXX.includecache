@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input/Keyboard.hpp
+cstdint
+-
+
+/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Input/Keyboard.cpp
+Keyboard.hpp
+/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Input/Keyboard.hpp
+

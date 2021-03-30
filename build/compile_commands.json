@@ -1,0 +1,192 @@
+[
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Core.dir/CoreApplication.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/CoreApplication.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/CoreApplication.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Primitives",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-Primitives.dir/Color.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Primitives/Color.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Primitives/Color.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Primitives",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-Primitives.dir/Vector2.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Primitives/Vector2.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Primitives/Vector2.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Primitives",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-Primitives.dir/Vector3.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Primitives/Vector3.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Primitives/Vector3.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Primitives",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-Primitives.dir/Time.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Primitives/Time.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Primitives/Time.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Primitives",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-Primitives.dir/Frame.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Primitives/Frame.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Primitives/Frame.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/LogSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-LogSystem.dir/LogSystem.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/LogSystem/LogSystem.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/LogSystem/LogSystem.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/EventSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-EventSystem.dir/Event.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/EventSystem/Event.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/EventSystem/Event.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/EventSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-EventSystem.dir/EventManager.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/EventSystem/EventManager.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/EventSystem/EventManager.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/EventSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-EventSystem.dir/Listener.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/EventSystem/Listener.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/EventSystem/Listener.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/EventSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-EventSystem.dir/SubscriptionManager.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/EventSystem/SubscriptionManager.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/EventSystem/SubscriptionManager.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/EventSystem",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-EventSystem.dir/EventSystem.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/EventSystem/EventSystem.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/EventSystem/EventSystem.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem",
+  "command": "/usr/bin/c++ -DUSE_SFML -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-RenderSystem.dir/RenderSystem.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/RenderSystem.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/RenderSystem.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-GraphicsPlatform.dir/Image.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Image.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Image.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform/Events",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-PlatformEvents.dir/PlatformListener.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/PlatformListener.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/PlatformListener.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform/Events",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-PlatformEvents.dir/KeyboardEvent.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/KeyboardEvent.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/KeyboardEvent.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform/Events",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-PlatformEvents.dir/MouseEvent.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/MouseEvent.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/MouseEvent.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform/Events",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-PlatformEvents.dir/TimerEvent.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/TimerEvent.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Events/TimerEvent.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/GraphicsPlatform/Input",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-PlatformInput.dir/Keyboard.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Input/Keyboard.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/GraphicsPlatform/Input/Keyboard.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/SfmlPlatform",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-SfmlPlatform.dir/Platform.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Platform.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Platform.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/SfmlPlatform",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-SfmlPlatform.dir/Draw.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Draw.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Draw.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/RenderSystem/SfmlPlatform",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-SfmlPlatform.dir/Events.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Events.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/RenderSystem/SfmlPlatform/Events.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Window",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Window.dir/Window.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Window/Window.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Window/Window.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/Window",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Window.dir/WindowManager.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/Window/WindowManager.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/Window/WindowManager.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/Core/ResourceManager",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -W -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/ShishGL-ResourceManager.dir/ResourceManager.cpp.o -c /home/shishqa/dev/ShishGL/src/Core/ResourceManager/ResourceManager.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/Core/ResourceManager/ResourceManager.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/DebugUtilities",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/DebugUtilities -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-DebugUtilities.dir/FpsLabel.cpp.o -c /home/shishqa/dev/ShishGL/src/DebugUtilities/FpsLabel.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/DebugUtilities/FpsLabel.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-GUI.dir/UICanvas.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UICanvas.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UICanvas.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-GUI.dir/UIFrame.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIFrame.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIFrame.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-GUI.dir/UITextInput.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UITextInput.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UITextInput.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-GUI.dir/UIDialog.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIDialog.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIDialog.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-UIWindow.dir/UIWindow.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/UIWindow.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/UIWindow.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Shapes",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Shapes.dir/RectangleShape.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Shapes/RectangleShape.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Shapes/RectangleShape.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Shapes",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Shapes.dir/CircleShape.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Shapes/CircleShape.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Shapes/CircleShape.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Behaviors",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Behaviors.dir/DefaultBehavior.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/DefaultBehavior.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/DefaultBehavior.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Behaviors",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Behaviors.dir/Clickable.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Clickable.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Clickable.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Behaviors",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Behaviors.dir/Draggable.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Draggable.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Draggable.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/src/GUI/UIWindow/Behaviors",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/ShishGL-Behaviors.dir/Slidable.cpp.o -c /home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Slidable.cpp",
+  "file": "/home/shishqa/dev/ShishGL/src/GUI/UIWindow/Behaviors/Slidable.cpp"
+},
+{
+  "directory": "/home/shishqa/dev/ShishGL/build/tests",
+  "command": "/usr/bin/c++  -I/home/shishqa/dev/ShishGL/include/ShishGL -I/home/shishqa/dev/ShishGL/include/ShishGL/Core -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Primitives -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/LogSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/ResourceManager -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/EventSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Events -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/GraphicsPlatform/Input -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/RenderSystem/SfmlPlatform -I/home/shishqa/dev/ShishGL/include/ShishGL/Core/Window -I/home/shishqa/dev/ShishGL/include/ShishGL/DebugUtilities -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Shapes -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Styles -I/home/shishqa/dev/ShishGL/include/ShishGL/GUI/UIWindow/Behaviors -W -Wall -Wextra -Wpedantic -march=native -std=c++17 -o CMakeFiles/TestAbstracts.dir/TestAbstracts.cpp.o -c /home/shishqa/dev/ShishGL/tests/TestAbstracts.cpp",
+  "file": "/home/shishqa/dev/ShishGL/tests/TestAbstracts.cpp"
+}
+]
