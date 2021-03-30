@@ -4,3 +4,6 @@ cmake-build-release/
 
 logs
 build
+
+.cache
+compile-commands.json
