@@ -1,7 +1,0 @@
-digraph {
-	node [shape=record]
-	node0x6040000375d0 [label = "{address : 0x6040000375d0 |mask : 6}"];
-
-	node0x607000025010 [label = "{address : 0x607000025010 |mask : 6}"];
-
-}
