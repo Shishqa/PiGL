@@ -6,4 +6,4 @@ logs
 build
 
 .cache
-compile-commands.json
+compile_commands.json
